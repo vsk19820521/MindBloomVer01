@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="unicorn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindBloom - Logic & Lateral Thinking Puzzles</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Dynamic Confetti Canvas for Celebrations -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Ambient background container -->
+  <div id="ambient-container"></div>
+
+  <!-- ================= AUTHENTICATION VIEW ================= -->
+  <div id="auth-view" class="auth-wrapper glass-panel">
+    <h1 class="auth-title">MindBloom 🌸</h1>
+    <p class="auth-subtitle">Playful logic puzzles for curious minds!</p>
+    
+    <div class="auth-tabs">
+      <button id="tab-login" class="auth-tab-btn active">Child Login</button>
+      <button id="tab-register" class="auth-tab-btn">Parent Register</button>
+    </div>
+
+    <!-- Login Form -->
+    <form id="login-form">
+      <div class="form-group">
+        <label for="login-username">Username</label>
+        <input type="text" id="login-username" placeholder="Type your username..." required>
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="Type your password..." required>
+      </div>
+      <button type="submit" class="btn-primary" style="width: 100%;">Let's Play! 🚀</button>
+    </form>
+
+    <!-- Registration Form -->
+    <form id="register-form" class="hidden">
+      <!-- Parent details -->
+      <h3 style="margin-bottom: 12px; font-size: 1.1rem;">👪 Parent Details</h3>
+      <div class="form-group">
+        <label for="parent-email">Email Address</label>
+        <input type="email" id="parent-email" placeholder="mom-or-dad@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="parent-phone">Phone Number</label>
+        <input type="tel" id="parent-phone" placeholder="e.g. +1 234 567 890" required>
+      </div>
+
+      <!-- Child details -->
+      <h3 style="margin-top: 18px; margin-bottom: 12px; font-size: 1.1rem;">👧 Child Profile</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="child-name">Child's First Name</label>
+          <input type="text" id="child-name" placeholder="Lily" required>
+        </div>
+        <div class="form-group">
+          <label for="child-age">Age</label>
+          <input type="number" id="child-age" min="4" max="16" value="9" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="child-gender">Gender</label>
+          <select id="child-gender" required>
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="child-country">Living Country</label>
+          <input type="text" id="child-country" placeholder="United Kingdom" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="child-culture">Cultural Affiliation (Optional)</label>
+        <input type="text" id="child-culture" placeholder="e.g. British, Indian, American">
+      </div>
+
+      <h3 style="margin-top: 18px; margin-bottom: 12px; font-size: 1.1rem;">🔑 Choose Credentials</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="reg-username">Username</label>
+          <input type="text" id="reg-username" placeholder="lily123" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-password">Password</label>
+          <input type="password" id="reg-password" placeholder="Secret!" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">Create Profile & Play! 🎉</button>
+    </form>
+  </div>
+
+
+  <!-- ================= MAIN GAME APP VIEW ================= -->
+  <div id="main-view" class="app-container hidden">
+    
+    <!-- Top Header bar -->
+    <header class="glass-panel app-header">
+      <div class="branding">
+        <span class="logo">MindBloom 🌸</span>
+        <span id="child-welcome-banner" style="font-weight: 600; font-size: 1rem;">Hello, Lily!</span>
+      </div>
+
+      <div class="header-controls">
+        <!-- Sound & Mute -->
+        <button id="btn-sound-toggle" class="view-btn" title="Toggle Sound">🔊 Sound On</button>
+        
+        <!-- Theme Dropdown -->
+        <select id="theme-selector" style="padding: 8px 12px;" title="Choose Theme">
+          <option value="unicorn">🦄 Unicorn Sparkle</option>
+          <option value="dino">🦖 Dino Jungle</option>
+          <option value="kitty">🐱 Cosmic Kitty</option>
+          <option value="butterfly">🦋 Butterfly Meadow</option>
+          <option value="puppy">🐶 Puppy Playground</option>
+          <option value="dolphin">🐬 Dolphin Ocean</option>
+          <option value="forest">🍄 Magical Forest</option>
+          <option value="candy">🍭 Rainbow Candy</option>
+          <option value="space">🚀 Space Explorer</option>
+        </select>
+        
+        <!-- Logout -->
+        <button id="btn-logout" class="btn-secondary" style="padding: 8px 14px;">Sign Out</button>
+      </div>
+    </header>
+
+    <!-- Stats Panel -->
+    <section class="stats-container">
+      <div class="stat-widget">
+        <span class="coin-icon"></span>
+        <span id="coin-counter" class="stat-val">0</span>
+        <span style="color: var(--text-muted); font-size: 0.85rem;">Coins</span>
+      </div>
+      
+      <div class="stat-widget" style="flex: 1; justify-content: space-between;">
+        <div>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Stage Level:</span>
+          <span id="level-title-display" style="font-weight: bold; font-family: var(--font-title); margin-left: 5px;">Mind Bloom</span>
+        </div>
+        <div class="level-badge" id="level-badge-display">Lvl 1</div>
+      </div>
+    </section>
+
+    <!-- Main Navigation Tabs -->
+    <nav class="view-tabs">
+      <button id="tab-play" class="view-btn active">⚡ Play Puzzles</button>
+      <button id="tab-history" class="view-btn">📚 Puzzle History</button>
+      <button id="tab-parent" class="view-btn">⚙️ Parent Zone</button>
+    </nav>
+
+    <!-- SECTION 1: PLAY VIEW -->
+    <div id="play-section" class="glass-panel">
+      <!-- Day Switcher strip -->
+      <div class="day-selector-strip">
+        <button id="btn-prev-day" class="day-nav-btn">◀</button>
+        <h2 id="day-display-label" class="day-title">Day 1</h2>
+        <button id="btn-next-day" class="day-nav-btn">▶</button>
+      </div>
+
+      <!-- The 5 Daily Puzzle Slots -->
+      <div class="puzzle-cards-deck" id="daily-puzzle-deck">
+        <!-- Dynamically filled with puzzle-card elements -->
+      </div>
+
+      <!-- Active Puzzle Arena -->
+      <div id="active-puzzle-arena" class="puzzle-arena hidden">
+        <div class="puzzle-arena-header">
+          <h3 id="puzzle-title">The Unicorn's Rainbow Path</h3>
+          <div class="puzzle-meta">
+            <span id="puzzle-category" class="meta-tag">Logical Thinking</span>
+            <span id="puzzle-difficulty" class="meta-tag difficulty-easy">Easy</span>
+            <span id="puzzle-reward" class="puzzle-reward-tag">💎 10 Coins</span>
+          </div>
+        </div>
+
+        <p id="puzzle-question" class="question-text">Question loading...</p>
+
+        <!-- Dynamic Answer Interface -->
+        <div id="answer-interface">
+          <!-- Multiple Choice Container -->
+          <div id="mc-container" class="options-grid hidden"></div>
+          
+          <!-- Text/Number Input Container -->
+          <div id="text-container" class="text-answer-box hidden">
+            <input type="text" id="text-answer-input" class="answer-input" placeholder="Type your answer here...">
+          </div>
+
+          <!-- Drawing Canvas Container -->
+          <div id="drawing-container" class="canvas-wrapper hidden">
+            <div class="canvas-toolbar">
+              <div class="color-dot active" style="background: black;" data-color="black"></div>
+              <div class="color-dot" style="background: red;" data-color="red"></div>
+              <div class="color-dot" style="background: blue;" data-color="blue"></div>
+              <div class="color-dot" style="background: green;" data-color="green"></div>
+              <div class="color-dot" style="background: orange;" data-color="orange"></div>
+              <div class="color-dot" style="background: #e040fb;" data-color="#e040fb"></div>
+              <button id="canvas-tool-brush" class="canvas-btn active">🖌️ Draw</button>
+              <button id="canvas-tool-eraser" class="canvas-btn">🧽 Erase</button>
+              <button id="canvas-clear" class="canvas-btn">🗑️ Clear</button>
+            </div>
+            <canvas id="drawing-board" class="drawing-board" width="500" height="300"></canvas>
+          </div>
+        </div>
+
+        <!-- Hints section -->
+        <div class="action-row">
+          <button id="btn-show-hint" class="btn-secondary">💡 Need a Hint? (<span id="hints-count">2</span> left)</button>
+          
+          <!-- Solve Submission -->
+          <button id="btn-submit-answer" class="btn-primary">Submit Answer 🌟</button>
+        </div>
+
+        <div id="hint-drawer" class="hints-container hidden">
+          <p id="hint-text"></p>
+        </div>
+
+        <!-- Solution Display Block -->
+        <div id="solution-panel" class="solution-panel hidden">
+          <!-- Shown if Solution is Locked -->
+          <div id="solution-locked-block" class="solution-locked">
+            <h3>🔒 Explanation Locked</h3>
+            <p style="color: var(--text-muted); margin-top: 8px;">You can view the full detailed answer and explanation tomorrow!</p>
+          </div>
+          
+          <!-- Shown if Solution is Unlocked -->
+          <div id="solution-unlocked-block" class="solution-unlocked hidden">
+            <h4>✨ Official Explanation</h4>
+            <p id="solution-explanation-text">Explanation here...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- SECTION 2: HISTORY VIEW -->
+    <div id="history-section" class="glass-panel hidden">
+      <h2 style="margin-bottom: 15px;">📚 Puzzle History Review</h2>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">Review all previous days you have completed. Detailed explanation locks are removed here so you can learn the logic!</p>
+
+      <div class="puzzle-cards-deck" id="history-days-grid" style="grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));">
+        <!-- Dynamically filled with Day review cards -->
+      </div>
+
+      <div id="history-detail-view" class="puzzle-arena hidden" style="margin-top: 30px; border-top: 3px solid var(--primary-color); padding-top: 20px;">
+        <h3 id="history-day-title" style="margin-bottom: 15px;">Day 1 Review</h3>
+        <div id="history-day-puzzles-list" style="display: flex; flex-direction: column; gap: 20px;">
+          <!-- Dynamically populated with individual puzzle reviews -->
+        </div>
+      </div>
+    </div>
+
+
+    <!-- SECTION 3: PARENT DASHBOARD VIEW -->
+    <div id="parent-section" class="glass-panel hidden parent-dashboard">
+      <h2>⚙️ Parent Settings & Approvals</h2>
+
+      <!-- Math Gate Overlay (visible until solved) -->
+      <div id="parent-gate" style="padding: 40px; text-align: center;">
+        <p style="font-size: 1.2rem; margin-bottom: 20px; font-weight: bold;">🔒 Parents Only: Please answer this quick math question to unlock:</p>
+        <h3 id="parent-gate-question" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 20px;">14 x 7 = ?</h3>
+        <div style="display: flex; gap: 10px; justify-content: center; max-width: 300px; margin: 0 auto;">
+          <input type="number" id="parent-gate-input" class="answer-input" style="padding: 10px;" placeholder="Your answer...">
+          <button id="btn-parent-gate-submit" class="btn-primary" style="padding: 10px 20px;">Unlock</button>
+        </div>
+        <p id="parent-gate-error" style="color: var(--error); margin-top: 10px; font-weight: 600;" class="hidden"></p>
+      </div>
+
+      <!-- Parent Panel Content (hidden until gate passes) -->
+      <div id="parent-dashboard-content" class="hidden">
+        <div class="parent-grid">
+          
+          <!-- Column 1: Settings & Management -->
+          <div class="settings-card glass-panel" style="padding: 18px; border-radius: var(--radius-sm);">
+            <h3 style="border-bottom: 2px dashed var(--card-border); padding-bottom: 8px;">Settings</h3>
+            
+            <div class="form-group">
+              <label>Simulate Game Day</label>
+              <div style="display: flex; gap: 8px;">
+                <input type="number" id="parent-day-override" min="1" max="100" style="padding: 6px; width: 80px;">
+                <button id="btn-parent-day-set" class="btn-secondary" style="padding: 6px 12px; font-size: 0.9rem;">Set Day</button>
+              </div>
+              <small style="color: var(--text-muted);">Adjust day to test locked or unlocked puzzles immediately.</small>
+            </div>
+
+            <div class="form-group" style="margin-top: 15px;">
+              <button id="btn-parent-force-day" class="btn-primary" style="width: 100%; padding: 10px; font-size: 0.95rem;">Unlock Tomorrow Now! ⏰</button>
+              <small style="color: var(--text-muted); display: block; margin-top: 5px;">Manually bypasses the 24-hour daily timer.</small>
+            </div>
+
+            <div class="form-group" style="margin-top: 25px; border-top: 1px solid var(--card-border); padding-top: 15px;">
+              <label style="color: var(--error);">Reset Data</label>
+              <button id="btn-parent-reset-user" class="btn-secondary" style="width: 100%; border-color: var(--error); color: var(--error); margin-top: 8px;">Reset Current Child Progress</button>
+            </div>
+          </div>
+
+          <!-- Column 2: Drawing Approvals -->
+          <div class="glass-panel" style="padding: 18px; border-radius: var(--radius-sm);">
+            <h3 style="border-bottom: 2px dashed var(--card-border); padding-bottom: 8px; margin-bottom: 15px;">🎨 Drawings Pending Approval</h3>
+            
+            <div id="parent-review-list" class="review-list">
+              <!-- Dynamically populated review card items -->
+              <p id="no-drawings-text" style="color: var(--text-muted); text-align: center; padding: 20px;">No drawings are currently waiting for approval.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= LEVEL-UP / CELEBRATION MODAL ================= -->
+  <div id="celebration-modal" class="modal-overlay">
+    <div class="modal-content">
+      <h2 class="celebration-title">🌟 LEVEL UP! 🌟</h2>
+      <p style="font-size: 1.1rem;">Lily, you are doing amazing! You have earned enough coins to unlock a new stage level!</p>
+      
+      <div class="badge-showcase" id="modal-level-emoji">🐰</div>
+      
+      <h3 id="modal-level-name" style="font-size: 1.8rem; color: var(--accent-text); margin-bottom: 10px;">Brain Bunny</h3>
+      <p id="modal-level-coins" style="font-weight: bold; margin-bottom: 25px;">You have accumulated 150 gold coins!</p>
+      
+      <button id="btn-close-celebration" class="btn-primary" style="width: 100%;">Keep Playing! 🎉</button>
+    </div>
+  </div>
+
+  <!-- Load JavaScript Modules -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
