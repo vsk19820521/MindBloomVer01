@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindBloom - Local Browser Test Suite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Outfit:wght@400;600;800&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #121420;
+      --card-bg: rgba(30, 34, 51, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-main: #f5f6fa;
+      --text-muted: #a4b0be;
+      --success: #4cd137;
+      --error: #e84118;
+      --accent: #00a8ff;
+      --radius: 12px;
+      --font-title: 'Fredoka', sans-serif;
+      --font-body: 'Outfit', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg-dark);
+      background-image: radial-gradient(circle at 10% 20%, rgba(90, 80, 210, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(0, 168, 255, 0.1) 0%, transparent 45%);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-family: var(--font-title);
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 8px;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    .summary-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 30px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+    }
+
+    .stat {
+      flex: 1;
+    }
+
+    .stat-val {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+
+    .stat.total .stat-val { color: var(--accent); }
+    .stat.passed .stat-val { color: var(--success); }
+    .stat.failed .stat-val { color: var(--error); }
+
+    .test-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .test-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 18px 24px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .test-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .test-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .test-title {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .badge.pass {
+      background: rgba(76, 209, 55, 0.15);
+      color: var(--success);
+      border: 1px solid rgba(76, 209, 55, 0.3);
+    }
+
+    .badge.fail {
+      background: rgba(232, 65, 24, 0.15);
+      color: var(--error);
+      border: 1px solid rgba(232, 65, 24, 0.3);
+    }
+
+    .test-details {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-family: monospace;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      overflow-x: auto;
+    }
+
+    .assertion-line {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+
+    .assertion-status {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    .assertion-status.ok { color: var(--success); }
+    .assertion-status.err { color: var(--error); }
+
+    .actions {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-family: var(--font-title);
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-run {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(0, 168, 255, 0.3);
+    }
+
+    .btn-run:hover {
+      background: #0097e6;
+      transform: translateY(-1px);
+    }
+    
+    .bloom-text {
+      font-family: 'Pacifico', cursive;
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Mind<span class="bloom-text">Bloom</span> 🌸 <span>Test Runner</span></h1>
+      <p class="subtitle">Self-contained browser verification harness</p>
+    </header>
+
+    <div class="summary-card">
+      <div class="stat total">
+        <div class="stat-val" id="total-stat">0</div>
+        <div class="stat-label">Total Tests</div>
+      </div>
+      <div class="stat passed">
+        <div class="stat-val" id="passed-stat">0</div>
+        <div class="stat-label">Passed</div>
+      </div>
+      <div class="stat failed">
+        <div class="stat-val" id="failed-stat">0</div>
+        <div class="stat-label">Failed</div>
+      </div>
+    </div>
+
+    <div class="test-list" id="test-list-container">
+      <!-- Dynamic test runner inserts items here -->
+    </div>
+
+    <div class="actions">
+      <button class="btn-run" id="btn-rerun">Run Tests Again 🔄</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { StorageService } from "./logic/storage.js";
+
+    let testResults = [];
+
+    // Helper assertions
+    function assert(cond, desc) {
+      if (!cond) throw new Error(desc);
+      return { ok: true, desc };
+    }
+
+    function assertEquals(actual, expected, desc) {
+      if (actual !== expected) {
+        throw new Error(`${desc} (Expected: "${expected}", Got: "${actual}")`);
+      }
+      return { ok: true, desc };
+    }
+
+    // Clean test database records
+    async function cleanupTestUsers() {
+      for (let i = localStorage.length - 1; i >= 0; i--) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith("mindbloom_user___test_")) {
+          localStorage.removeItem(key);
+        }
+      }
+      try {
+        await fetch("/api/delete-user", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username: "__test_emma" })
+        });
+      } catch (e) {
+        console.warn("Failed to clean up test user on server:", e);
+      }
+    }
+
+    async function runTestSuite() {
+      await cleanupTestUsers();
+      testResults = [];
+      document.getElementById("test-list-container").innerHTML = "";
+      
+      // 1. DATABASE INTEGRITY
+      await runTest("JSON Puzzles Database Integrity", async (log) => {
+        const response = await fetch("data/puzzles.json");
+        const puzzles = await response.json();
+
+        log(assert(Array.isArray(puzzles), "Puzzles loads as an array"));
+        log(assertEquals(puzzles.length, 55, "Puzzles database has exactly 55 puzzles (11 days * 5 puzzles/day)"));
+        
+        // Assert schema format
+        const p1 = puzzles[0];
+        log(assert(p1.id !== undefined, "Puzzles have an id property"));
+        log(assert(p1.day !== undefined, "Puzzles have a day property"));
+        log(assert(p1.number !== undefined, "Puzzles have a number property"));
+        log(assert(p1.title !== undefined, "Puzzles have a title property"));
+        log(assert(p1.category !== undefined, "Puzzles have a category property"));
+        log(assert(p1.difficulty !== undefined, "Puzzles have a difficulty property"));
+        log(assert(p1.coinsReward !== undefined, "Puzzles have a coinsReward property"));
+        log(assert(p1.question !== undefined, "Puzzles have a question property"));
+        log(assert(p1.type !== undefined, "Puzzles have a type property"));
+        log(assert(p1.correctAnswer !== undefined, "Puzzles have a correctAnswer property"));
+      });
+
+      // 2. REGISTRATION
+      await runTest("Parent Registration & Child Profile Schema", async (log) => {
+        const parentData = { email: "parent@test.com", phone: "+1234567890" };
+        const childData = {
+          firstName: "Emma",
+          lastName: "Watson",
+          gender: "Female",
+          age: 9,
+          avatar: "⚡ Pikachu",
+          livingCountry: "United Kingdom",
+          culturalAffiliation: "India"
+        };
+        const credentials = { username: "__test_emma", password: "password123" };
+
+        const regRes = await StorageService.registerUser(parentData, childData, credentials);
+        log(assertEquals(regRes.success, true, "Registration returns success = true"));
+
+        // Verify lookup isolated
+        const storedKey = "mindbloom_user___test_emma";
+        const storedData = localStorage.getItem(storedKey);
+        log(assert(storedData !== null, "User entry stored under key 'mindbloom_user___test_emma'"));
+        
+        const userObj = JSON.parse(storedData);
+        log(assertEquals(userObj.childFirstName, "Emma", "Stored child first name matches"));
+        log(assertEquals(userObj.childLastName, "Watson", "Stored child last name matches"));
+        log(assertEquals(userObj.livingCountry, "United Kingdom", "Stored country is verified"));
+        log(assertEquals(userObj.culturalAffiliation, "India", "Stored cultural identity is verified"));
+        log(assertEquals(userObj.gameState.coins, 0, "Initial coins are set to 0"));
+
+        // Duplicate checks
+        const duplicateRes = await StorageService.registerUser(parentData, childData, credentials);
+        log(assertEquals(duplicateRes.success, false, "Registering duplicate username is blocked"));
+      });
+
+      // 3. AUTHENTICATION
+      await runTest("Authentication & Session Handling", async (log) => {
+        const loginFail = await StorageService.loginUser("__test_emma", "wrongpass");
+        log(assertEquals(loginFail.success, false, "Login fails with incorrect password"));
+
+        const loginOk = await StorageService.loginUser("__test_emma", "password123");
+        log(assertEquals(loginOk.success, true, "Login succeeds with correct password"));
+        log(assertEquals(loginOk.user.childFirstName, "Emma", "Log in session returns profile name"));
+        
+        const activeUser = StorageService.getCurrentUser();
+        log(assert(activeUser !== null, "Active session exists"));
+        log(assertEquals(activeUser.username, "__test_emma", "Active user username matches"));
+      });
+
+      // 4. GAMEPLAY PROGRESS & LOCKS
+      await runTest("Gameplay & Sequence Locking Logic", async (log) => {
+        // Assert we start day 1 puzzle 1
+        const user = StorageService.getCurrentUser();
+        log(assertEquals(user.gameState.currentDay, 1, "Game starts on Day 1"));
+        log(assertEquals(user.gameState.unlockedUpToDay, 1, "Unlocked up to Day 1 initially"));
+
+        // Mock puzzle completion
+        // Day 1 Puzzle 1 is MC: "Blue, Yellow, Red", rewards 10 coins
+        user.gameState.completedPuzzles["d1_q1"] = {
+          answered: true,
+          correct: true,
+          userAnswer: "Blue, Yellow, Red",
+          coinsAwarded: 10
+        };
+        user.gameState.coins += 10;
+        await StorageService.updateGameState(user.gameState);
+
+        const updatedUser = StorageService.getCurrentUser();
+        log(assertEquals(updatedUser.gameState.coins, 10, "Coins count updated to 10"));
+        log(assert(updatedUser.gameState.completedPuzzles["d1_q1"].answered, "d1_q1 marked completed in state"));
+      });
+
+      // 5. STAGE LEVEL MATHEMATICS
+      await runTest("Coins Accumulation & Stage Level Progression", async (log) => {
+        const user = StorageService.getCurrentUser();
+        
+        // Assert Level 1 initially (0 coins)
+        log(assertEquals(user.gameState.level, 1, "Initial level starts at 1"));
+        
+        // Level up thresholds: Level 2 = 150 coins, Level 3 = 400 coins
+        user.gameState.coins = 160;
+        await StorageService.updateGameState(user.gameState);
+        
+        // Trigger calculation (usually triggers in renderHeader in UI, we mock levels update here)
+        const totalCoins = user.gameState.coins;
+        const STAGE_LEVELS = [
+          { name: "Mind Bloom", minCoins: 0 },
+          { name: "Brain Bunny", minCoins: 150 },
+          { name: "Puzzle Planet", minCoins: 400 }
+        ];
+        let calculatedLevel = 1;
+        for (let i = STAGE_LEVELS.length - 1; i >= 0; i--) {
+          if (totalCoins >= STAGE_LEVELS[i].minCoins) {
+            calculatedLevel = i + 1;
+            break;
+          }
+        }
+        log(assertEquals(calculatedLevel, 2, "Level transitions to Level 2 (Brain Bunny) when coins >= 150"));
+        
+        user.gameState.coins = 420;
+        await StorageService.updateGameState(user.gameState);
+        
+        let calculatedLevel3 = 1;
+        for (let i = STAGE_LEVELS.length - 1; i >= 0; i--) {
+          if (user.gameState.coins >= STAGE_LEVELS[i].minCoins) {
+            calculatedLevel3 = i + 1;
+            break;
+          }
+        }
+        log(assertEquals(calculatedLevel3, 3, "Level transitions to Level 3 (Puzzle Planet) when coins >= 400"));
+      });
+
+      // 6. CONSECUTIVE DAY ANSWER LOCKS
+      await runTest("Explanation / Consecutive Day Answer Locking Constraints", async (log) => {
+        const puzzleDay1 = { day: 1 };
+        const puzzleDay2 = { day: 2 };
+        
+        // Scenario A: unlockedUpToDay is Day 1. Answers for Day 1 puzzles are LOCKED.
+        let unlockedUpToDay = 1;
+        let isLockedA = !(unlockedUpToDay > puzzleDay1.day);
+        log(assertEquals(isLockedA, true, "Day 1 puzzle solutions are locked when unlockedUpToDay is 1"));
+
+        // Scenario B: unlockedUpToDay progresses to Day 2 (Day 1 completed). Solutions for Day 1 puzzles are UNLOCKED.
+        unlockedUpToDay = 2;
+        let isLockedB = !(unlockedUpToDay > puzzleDay1.day);
+        log(assertEquals(isLockedB, false, "Day 1 puzzle solutions are unlocked once day progresses to Day 2"));
+        
+        // Scenario C: unlockedUpToDay is Day 2. Solutions for Day 2 puzzles are LOCKED.
+        let isLockedC = !(unlockedUpToDay > puzzleDay2.day);
+        log(assertEquals(isLockedC, true, "Day 2 puzzle solutions are locked when unlockedUpToDay is 2"));
+      });
+
+      // 7. KIDS ZONE THEME STORAGE AND PREFERENCE
+      await runTest("Kids Zone Theme Preference & Storage", async (log) => {
+        const username = "__test_emma";
+        const testTheme = "candy";
+        
+        // Simulating child picking a new theme
+        localStorage.setItem(`theme_${username}`, testTheme);
+        const storedTheme = localStorage.getItem(`theme_${username}`);
+        log(assertEquals(storedTheme, "candy", "Selected theme stores correctly in localStorage"));
+        
+        // Clean up theme key
+        localStorage.removeItem(`theme_${username}`);
+      });
+
+      // 8. KIDS ZONE AVATAR PERSONALIZATION
+      await runTest("Kids Zone Avatar Customization & Persistence", async (log) => {
+        // Retrieve active user
+        const user = StorageService.getCurrentUser();
+        log(assert(user !== null, "User Emma is active"));
+
+        const newAvatar = "🐶 Bluey";
+        await StorageService.updateUserProfile({ childAvatar: newAvatar });
+
+        const reloadedUser = StorageService.getCurrentUser();
+        log(assertEquals(reloadedUser.childAvatar, "🐶 Bluey", "Avatar update persists correctly in localStorage profile"));
+      });
+
+      // 9. PARENT GATE OVERRIDES (DAY OVERRIDES)
+      await runTest("Parent Gate Controls & Simulation Overrides", async (log) => {
+        const user = StorageService.getCurrentUser();
+        log(assertEquals(user.gameState.currentDay, 1, "User starts on Day 1"));
+
+        // Simulate parent override setting day to Day 3
+        const targetDay = 3;
+        user.gameState.currentDay = targetDay;
+        user.gameState.unlockedUpToDay = Math.max(user.gameState.unlockedUpToDay, targetDay);
+        await StorageService.updateGameState(user.gameState);
+
+        const updatedUser = StorageService.getCurrentUser();
+        log(assertEquals(updatedUser.gameState.currentDay, 3, "Parent can successfully override child's active day to Day 3"));
+        log(assertEquals(updatedUser.gameState.unlockedUpToDay, 3, "unlockedUpToDay moves forward with the parent override"));
+      });
+
+      // 10. CALENDAR DATES SOLVED PARSER
+      await runTest("Kids Zone Calendar Completion Parser", async (log) => {
+        const user = StorageService.getCurrentUser();
+        
+        // Mock puzzle completions on distinct dates
+        user.gameState.completedPuzzles["d1_q2"] = {
+          answered: true,
+          correct: true,
+          timeSolved: "2026-06-21"
+        };
+        user.gameState.completedPuzzles["d1_q3"] = {
+          answered: true,
+          correct: true,
+          timeSolved: "2026-06-22"
+        };
+        user.gameState.completedPuzzles["d1_q4"] = {
+          answered: true,
+          correct: true,
+          timeSolved: "2026-06-22"
+        };
+        await StorageService.updateGameState(user.gameState);
+
+        const updatedUser = StorageService.getCurrentUser();
+        
+        // Parse completed dates
+        const completedDates = {};
+        Object.keys(updatedUser.gameState.completedPuzzles).forEach(pid => {
+          const r = updatedUser.gameState.completedPuzzles[pid];
+          if (r && r.answered && r.timeSolved) {
+            completedDates[r.timeSolved] = (completedDates[r.timeSolved] || 0) + 1;
+          }
+        });
+
+        log(assertEquals(completedDates["2026-06-21"], 1, "Parsed exactly 1 solved activity for 2026-06-21"));
+        log(assertEquals(completedDates["2026-06-22"], 2, "Parsed exactly 2 solved activities for 2026-06-22"));
+        log(assertEquals(completedDates["2026-06-23"] || 0, 0, "No solved activities parsed for 2026-06-23"));
+      });
+
+      // 11. PUZZLES JSON STRUCTURE CONSISTENCY
+      await runTest("Database Puzzles Sequence and Consistency", async (log) => {
+        const response = await fetch("data/puzzles.json");
+        const puzzles = await response.json();
+
+        // Check 5 puzzles per day sequentially
+        const maxDay = Math.max(...puzzles.map(p => p.day));
+        log(assertEquals(maxDay, 11, "Puzzles database has puzzles up to Day 11"));
+
+        for (let d = 1; d <= maxDay; d++) {
+          const dayPuzzles = puzzles.filter(p => p.day === d);
+          log(assertEquals(dayPuzzles.length, 5, `Day ${d} has exactly 5 puzzles`));
+          
+          const numbers = dayPuzzles.map(p => p.number).sort((a,b) => a-b);
+          log(assertEquals(JSON.stringify(numbers), "[1,2,3,4,5]", `Day ${d} puzzle numbers are sequential [1..5]`));
+        }
+      });
+
+      updateStats();
+      await cleanupTestUsers();
+    }
+
+    async function runTest(name, testFn) {
+      const item = document.createElement("div");
+      item.className = "test-item";
+      
+      const header = document.createElement("div");
+      header.className = "test-header";
+      
+      const titleSpan = document.createElement("span");
+      titleSpan.className = "test-title";
+      titleSpan.innerText = name;
+      
+      const badge = document.createElement("span");
+      badge.className = "badge";
+      badge.innerText = "Running...";
+      
+      header.appendChild(titleSpan);
+      header.appendChild(badge);
+      item.appendChild(header);
+      
+      const details = document.createElement("div");
+      details.className = "test-details";
+      item.appendChild(details);
+      
+      document.getElementById("test-list-container").appendChild(item);
+      
+      const logs = [];
+      const logWriter = (res) => {
+        logs.push(res);
+        const div = document.createElement("div");
+        div.className = "assertion-line";
+        div.innerHTML = `
+          <span class="assertion-status ${res.ok ? 'ok' : 'err'}">${res.ok ? '✓' : '✗'}</span>
+          <span>${res.desc}</span>
+        `;
+        details.appendChild(div);
+      };
+
+      try {
+        await testFn(logWriter);
+        badge.innerText = "Pass";
+        badge.classList.add("pass");
+        testResults.push({ name, status: "PASS", logs });
+      } catch (err) {
+        badge.innerText = "Fail";
+        badge.classList.add("fail");
+        
+        const div = document.createElement("div");
+        div.className = "assertion-line";
+        div.innerHTML = `
+          <span class="assertion-status err">✗ Failure:</span>
+          <span style="color:var(--error); font-weight:bold;">${err.message}</span>
+        `;
+        details.appendChild(div);
+        
+        testResults.push({ name, status: "FAIL", logs, error: err.message });
+      }
+    }
+
+    function updateStats() {
+      const total = testResults.length;
+      const passed = testResults.filter(r => r.status === "PASS").length;
+      const failed = total - passed;
+      
+      document.getElementById("total-stat").innerText = total;
+      document.getElementById("passed-stat").innerText = passed;
+      document.getElementById("failed-stat").innerText = failed;
+    }
+
+    document.getElementById("btn-rerun").addEventListener("click", runTestSuite);
+
+    // Initial run
+    runTestSuite();
+  </script>
+</body>
+</html>

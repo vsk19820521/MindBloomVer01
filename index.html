@@ -16,13 +16,16 @@
 
   <!-- ================= AUTHENTICATION VIEW ================= -->
   <div id="auth-view" class="auth-wrapper glass-panel">
-    <h1 class="auth-title">MindBloom 🌸</h1>
+    <h1 class="auth-title">Mind<span class="bloom-text">Bloom</span> 🌸</h1>
     <p class="auth-subtitle">Playful logic puzzles for curious minds!</p>
     
     <div class="auth-tabs">
       <button id="tab-login" class="auth-tab-btn active">Child Login</button>
       <button id="tab-register" class="auth-tab-btn">Parent Register</button>
     </div>
+
+    <!-- Error message container -->
+    <div id="auth-error" class="hidden" style="color: var(--error); background: rgba(255, 87, 34, 0.1); border: 1px solid var(--error); padding: 10px 15px; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.9rem; text-align: center; margin-bottom: 18px; font-family: var(--font-body);"></div>
 
     <!-- Login Form -->
     <form id="login-form">
@@ -54,16 +57,20 @@
       <h3 style="margin-top: 18px; margin-bottom: 12px; font-size: 1.1rem;">👧 Child Profile</h3>
       <div class="form-row">
         <div class="form-group">
-          <label for="child-name">Child's First Name</label>
-          <input type="text" id="child-name" placeholder="Lily" required>
+          <label for="child-first-name">Child's First Name</label>
+          <input type="text" id="child-first-name" placeholder="Lily" required>
         </div>
         <div class="form-group">
-          <label for="child-age">Age</label>
-          <input type="number" id="child-age" min="4" max="16" value="9" required>
+          <label for="child-last-name">Child's Last Name</label>
+          <input type="text" id="child-last-name" placeholder="Smith" required>
         </div>
       </div>
 
       <div class="form-row">
+        <div class="form-group">
+          <label for="child-age">Age</label>
+          <input type="number" id="child-age" min="4" max="16" value="9" required>
+        </div>
         <div class="form-group">
           <label for="child-gender">Gender</label>
           <select id="child-gender" required>
@@ -72,16 +79,72 @@
             <option value="Other">Other</option>
           </select>
         </div>
+      </div>
+
+      <div class="form-row">
         <div class="form-group">
           <label for="child-country">Living Country</label>
-          <input type="text" id="child-country" placeholder="United Kingdom" required>
+          <select id="child-country" required>
+            <option value="" disabled selected>Select country...</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="United States">United States</option>
+            <option value="India">India</option>
+            <option value="Canada">Canada</option>
+            <option value="Australia">Australia</option>
+            <option value="New Zealand">New Zealand</option>
+            <option value="Singapore">Singapore</option>
+            <option value="Germany">Germany</option>
+            <option value="France">France</option>
+            <option value="Ireland">Ireland</option>
+            <option value="South Africa">South Africa</option>
+            <option value="United Arab Emirates">United Arab Emirates</option>
+            <option value="Japan">Japan</option>
+            <option value="China">China</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Spain">Spain</option>
+            <option value="Italy">Italy</option>
+            <option value="Netherlands">Netherlands</option>
+            <option value="Switzerland">Switzerland</option>
+            <option value="Sweden">Sweden</option>
+            <option value="Norway">Norway</option>
+            <option value="Denmark">Denmark</option>
+            <option value="Finland">Finland</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="child-culture">Cultural Affiliation Country</label>
+          <select id="child-culture" required>
+            <option value="" disabled selected>Select country...</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="United States">United States</option>
+            <option value="India">India</option>
+            <option value="Canada">Canada</option>
+            <option value="Australia">Australia</option>
+            <option value="New Zealand">New Zealand</option>
+            <option value="Singapore">Singapore</option>
+            <option value="Germany">Germany</option>
+            <option value="France">France</option>
+            <option value="Ireland">Ireland</option>
+            <option value="South Africa">South Africa</option>
+            <option value="United Arab Emirates">United Arab Emirates</option>
+            <option value="Japan">Japan</option>
+            <option value="China">China</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Spain">Spain</option>
+            <option value="Italy">Italy</option>
+            <option value="Netherlands">Netherlands</option>
+            <option value="Switzerland">Switzerland</option>
+            <option value="Sweden">Sweden</option>
+            <option value="Norway">Norway</option>
+            <option value="Denmark">Denmark</option>
+            <option value="Finland">Finland</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="child-culture">Cultural Affiliation (Optional)</label>
-        <input type="text" id="child-culture" placeholder="e.g. British, Indian, American">
-      </div>
+      <input type="hidden" id="child-avatar" value="⚡ Pikachu">
 
       <h3 style="margin-top: 18px; margin-bottom: 12px; font-size: 1.1rem;">🔑 Choose Credentials</h3>
       <div class="form-row">
@@ -103,58 +166,35 @@
   <!-- ================= MAIN GAME APP VIEW ================= -->
   <div id="main-view" class="app-container hidden">
     
-    <!-- Top Header bar -->
-    <header class="glass-panel app-header">
-      <div class="branding">
-        <span class="logo">MindBloom 🌸</span>
-        <span id="child-welcome-banner" style="font-weight: 600; font-size: 1rem;">Hello, Lily!</span>
+    <!-- Top Header & Navigation Banner -->
+    <header class="glass-panel app-header" style="padding: 12px 24px; display: flex; flex-direction: column; gap: 12px; width: 100%;">
+      <!-- Top Row: Logo on left, Sign Out on right -->
+      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <div class="branding" style="display: flex; align-items: center; gap: 15px;">
+          <span class="logo">Mind<span class="bloom-text">Bloom</span> 🌸</span>
+          <div class="stat-widget" style="padding: 6px 14px; background: rgba(255, 255, 255, 0.4); border: 1px solid var(--card-border); box-shadow: none; display: flex; align-items: center; gap: 8px; border-radius: 50px;">
+            <span class="coin-icon"></span>
+            <span id="coin-counter" class="stat-val" style="font-size: 1.1rem; line-height: 1;">0</span>
+            <span style="color: var(--text-muted); font-size: 0.8rem;">Coins</span>
+          </div>
+        </div>
+
+        <div class="header-controls" style="display: flex; align-items: center; gap: 12px;">
+          <span id="child-welcome-banner" style="font-size: 0.95rem; display: inline-block;">Hello, Lily!</span>
+          <button id="btn-logout" class="btn-secondary" style="padding: 8px 14px; font-size: 0.9rem;">Sign Out</button>
+        </div>
       </div>
 
-      <div class="header-controls">
-        <!-- Sound & Mute -->
-        <button id="btn-sound-toggle" class="view-btn" title="Toggle Sound">🔊 Sound On</button>
-        
-        <!-- Theme Dropdown -->
-        <select id="theme-selector" style="padding: 8px 12px;" title="Choose Theme">
-          <option value="unicorn">🦄 Unicorn Sparkle</option>
-          <option value="dino">🦖 Dino Jungle</option>
-          <option value="kitty">🐱 Cosmic Kitty</option>
-          <option value="butterfly">🦋 Butterfly Meadow</option>
-          <option value="puppy">🐶 Puppy Playground</option>
-          <option value="dolphin">🐬 Dolphin Ocean</option>
-          <option value="forest">🍄 Magical Forest</option>
-          <option value="candy">🍭 Rainbow Candy</option>
-          <option value="space">🚀 Space Explorer</option>
-        </select>
-        
-        <!-- Logout -->
-        <button id="btn-logout" class="btn-secondary" style="padding: 8px 14px;">Sign Out</button>
+      <!-- Bottom Row: Navigation Tabs centered -->
+      <div style="display: flex; justify-content: center; width: 100%; border-top: 1px dashed var(--card-border); padding-top: 10px;">
+        <nav class="view-tabs" style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+          <button id="tab-play" class="view-btn active">⚡ Play Puzzles</button>
+          <button id="tab-history" class="view-btn">📚 Puzzle History</button>
+          <button id="tab-kids" class="view-btn">👧 Kids Zone</button>
+          <button id="tab-parent" class="view-btn">⚙️ Parent Zone</button>
+        </nav>
       </div>
     </header>
-
-    <!-- Stats Panel -->
-    <section class="stats-container">
-      <div class="stat-widget">
-        <span class="coin-icon"></span>
-        <span id="coin-counter" class="stat-val">0</span>
-        <span style="color: var(--text-muted); font-size: 0.85rem;">Coins</span>
-      </div>
-      
-      <div class="stat-widget" style="flex: 1; justify-content: space-between;">
-        <div>
-          <span style="font-size: 0.85rem; color: var(--text-muted);">Stage Level:</span>
-          <span id="level-title-display" style="font-weight: bold; font-family: var(--font-title); margin-left: 5px;">Mind Bloom</span>
-        </div>
-        <div class="level-badge" id="level-badge-display">Lvl 1</div>
-      </div>
-    </section>
-
-    <!-- Main Navigation Tabs -->
-    <nav class="view-tabs">
-      <button id="tab-play" class="view-btn active">⚡ Play Puzzles</button>
-      <button id="tab-history" class="view-btn">📚 Puzzle History</button>
-      <button id="tab-parent" class="view-btn">⚙️ Parent Zone</button>
-    </nav>
 
     <!-- SECTION 1: PLAY VIEW -->
     <div id="play-section" class="glass-panel">
@@ -258,7 +298,83 @@
     </div>
 
 
-    <!-- SECTION 3: PARENT DASHBOARD VIEW -->
+    <!-- SECTION 3: KIDS ZONE VIEW -->
+    <div id="kids-section" class="glass-panel hidden">
+      <h2 style="margin-bottom: 10px; font-family: var(--font-title); font-size: 1.8rem; color: var(--accent-text);">👧 Kids Zone</h2>
+      <p style="color: var(--text-muted); margin-bottom: 25px;">Welcome to your Kids Zone! Here you can pick your avatar, change the styling, and track your puzzle calendar!</p>
+
+      <div class="kids-layout-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start;">
+        
+        <!-- Left Side: Profile Statistics & Controls -->
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <!-- Level and Badge Card -->
+          <div class="glass-panel" style="padding: 20px; border-radius: var(--radius-sm); border: 2px dashed var(--primary-color); display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.45);">
+            <div>
+              <span style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Your Stage Level</span>
+              <span id="level-title-display" style="font-size: 1.6rem; font-weight: 700; font-family: var(--font-title); color: var(--text-main); display: block; margin-top: 4px;">Mind Bloom 🌸</span>
+            </div>
+            <div class="level-badge" id="level-badge-display" style="font-size: 1.2rem; padding: 8px 18px; border-radius: 20px; background: var(--accent-color); color: var(--accent-text);">Lvl 1</div>
+          </div>
+
+          <!-- Quick Actions & Theme (Sound & Theme selector) -->
+          <div class="glass-panel" style="padding: 20px; border-radius: var(--radius-sm); display: flex; flex-direction: column; gap: 15px;">
+            <h3 style="font-family: var(--font-title); font-size: 1.25rem;">⚙️ Settings</h3>
+            
+            <div class="form-group" style="margin: 0;">
+              <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.95rem;">Game Sound Effects</label>
+              <button id="btn-sound-toggle" class="btn-primary" style="width: 100%; padding: 10px 15px; font-size: 1rem; border-radius: 50px;">🔊 Sound On</button>
+            </div>
+
+            <div class="form-group" style="margin: 0;">
+              <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.95rem;">App Theme Style</label>
+              <select id="theme-selector" style="width: 100%; padding: 10px 15px; border-radius: 50px; background: var(--white); color: var(--text-main); border: 2px solid var(--card-border); cursor: pointer;" title="Choose Theme">
+                <option value="unicorn">🦄 Unicorn Sparkle</option>
+                <option value="dino">🦖 Dino Jungle</option>
+                <option value="kitty">🐱 Cosmic Kitty</option>
+                <option value="butterfly">🦋 Butterfly Meadow</option>
+                <option value="puppy">🐶 Puppy Playground</option>
+                <option value="dolphin">🐬 Dolphin Ocean</option>
+                <option value="forest">🍄 Magical Forest</option>
+                <option value="candy">🍭 Rainbow Candy</option>
+                <option value="space">🚀 Space Explorer</option>
+              </select>
+            </div>
+          </div>
+          
+          <!-- Avatar Grid inside Kids Zone -->
+          <div class="glass-panel" style="padding: 20px; border-radius: var(--radius-sm); max-height: 380px; overflow-y: auto;">
+            <h3 style="font-family: var(--font-title); font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">🌟 Select Your Avatar</h3>
+            <div id="kids-avatar-grid" class="avatar-grid" style="grid-template-columns: repeat(auto-fill, minmax(68px, 1fr)); gap: 8px;"></div>
+          </div>
+        </div>
+
+        <!-- Right Side: Activities Calendar Card -->
+        <div class="glass-panel" style="padding: 20px; border-radius: var(--radius-sm); min-height: 480px;">
+          <div class="calendar-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+            <button id="calendar-prev" class="day-nav-btn" style="width: 32px; height: 32px; font-size: 0.95rem;">◀</button>
+            <h3 id="calendar-month-year" style="font-family: var(--font-title); font-size: 1.4rem; color: var(--text-main);">June 2026</h3>
+            <button id="calendar-next" class="day-nav-btn" style="width: 32px; height: 32px; font-size: 0.95rem;">▶</button>
+          </div>
+          
+          <div class="calendar-grid-weekdays" style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-weight: bold; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px;">
+            <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+          </div>
+          
+          <div id="calendar-days" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center;">
+            <!-- Dynamically populated dates -->
+          </div>
+          
+          <div style="margin-top: 25px; border-top: 1px dashed var(--card-border); padding-top: 15px; display: flex; gap: 15px; justify-content: center; font-size: 0.85rem;">
+            <span style="display: flex; align-items: center; gap: 6px; color: var(--text-muted);"><span style="width: 12px; height: 12px; background: var(--success); border-radius: 50%; display: inline-block;"></span> Completed Puzzles</span>
+            <span style="display: flex; align-items: center; gap: 6px; color: var(--text-muted);"><span style="width: 12px; height: 12px; background: rgba(0,0,0,0.06); border-radius: 50%; display: inline-block;"></span> Empty Day</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- SECTION 4: PARENT DASHBOARD VIEW -->
     <div id="parent-section" class="glass-panel hidden parent-dashboard">
       <h2>⚙️ Parent Settings & Approvals</h2>
 
@@ -296,6 +412,12 @@
             </div>
 
             <div class="form-group" style="margin-top: 25px; border-top: 1px solid var(--card-border); padding-top: 15px;">
+              <label>System Diagnostics</label>
+              <button id="btn-parent-download-logs" class="btn-secondary" style="width: 100%; margin-top: 8px;">📋 Download Diagnostic Logs</button>
+              <small style="color: var(--text-muted); display: block; margin-top: 5px;">Downloads game states and log records to share for troubleshooting.</small>
+            </div>
+
+            <div class="form-group" style="margin-top: 25px; border-top: 1px solid var(--card-border); padding-top: 15px;">
               <label style="color: var(--error);">Reset Data</label>
               <button id="btn-parent-reset-user" class="btn-secondary" style="width: 100%; border-color: var(--error); color: var(--error); margin-top: 8px;">Reset Current Child Progress</button>
             </div>
@@ -307,7 +429,7 @@
             
             <div id="parent-review-list" class="review-list">
               <!-- Dynamically populated review card items -->
-              <p id="no-drawings-text" style="color: var(--text-muted); text-align: center; padding: 20px;">No drawings are currently waiting for approval.</p>
+              <p id="no-drawings-text" style="color: var(--text-muted); text-align: center; padding: 20px; font-weight: 600;">None - No drawings are currently waiting for approval.</p>
             </div>
           </div>
         </div>
@@ -332,6 +454,6 @@
   </div>
 
   <!-- Load JavaScript Modules -->
-  <script type="module" src="app.js"></script>
+  <script type="module" src="logic/app.js"></script>
 </body>
 </html>

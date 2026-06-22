@@ -5,8 +5,11 @@
  */
 
 import { StorageService } from "./storage.js";
-import { SoundManager } from "./sound.js";
-import { PUZZLES } from "./puzzles.js";
+import { SoundManager } from "../helpers/sound.js";
+import { Logger } from "../helpers/logger.js";
+
+// Game State variable (loaded dynamically)
+let PUZZLES = [];
 
 // Game State variables
 let currentUser = null;
@@ -55,7 +58,9 @@ const btnLogout = document.getElementById("btn-logout");
 
 const tabPlay = document.getElementById("tab-play");
 const tabHistory = document.getElementById("tab-history");
+const tabKids = document.getElementById("tab-kids");
 const tabParent = document.getElementById("tab-parent");
+const kidsSection = document.getElementById("kids-section");
 
 const playSection = document.getElementById("play-section");
 const historySection = document.getElementById("history-section");
@@ -106,6 +111,7 @@ const parentDayOverride = document.getElementById("parent-day-override");
 const btnParentDaySet = document.getElementById("btn-parent-day-set");
 const btnParentForceDay = document.getElementById("btn-parent-force-day");
 const btnParentResetUser = document.getElementById("btn-parent-reset-user");
+const btnParentDownloadLogs = document.getElementById("btn-parent-download-logs");
 const parentReviewList = document.getElementById("parent-review-list");
 const noDrawingsText = document.getElementById("no-drawings-text");
 
@@ -144,11 +150,15 @@ function spawnFloatingEmoji() {
   element.className = "floating-emoji";
   element.innerText = emoji;
 
-  // Random horizontal layout, speed, size, spin, and drift distance
-  const startX = Math.random() * 95; // 0 to 95vw
+  // Spawning on either left side (0 to 15vw) or right side (85 to 98vw) to fly on the sides
+  const isLeft = Math.random() < 0.5;
+  const startX = isLeft 
+    ? Math.random() * 15 
+    : 85 + Math.random() * 13;
+
   const duration = Math.random() * 5 + 8; // 8s to 13s
-  const size = Math.random() * 1.0 + 1.2; // 1.2rem to 2.2rem
-  const driftX = (Math.random() * 160 - 80) + "px";
+  const size = Math.random() * 1.5 + 2.5; // Larger size: 2.5rem to 4.0rem
+  const driftX = (isLeft ? (Math.random() * 50) : (Math.random() * -50)) + "px"; // Drift slightly outwards/inwards
   const rotZ = (Math.random() * 360 - 180) + "deg";
 
   element.style.left = `${startX}vw`;
@@ -171,9 +181,85 @@ function spawnEmojiBurst(count = 10) {
   }
 }
 
+// 25 famous child cartoon avatars
+const CARTOON_AVATARS = [
+  { name: "Pikachu", emoji: "⚡" },
+  { name: "Doraemon", emoji: "🐱" },
+  { name: "Simba", emoji: "🦁" },
+  { name: "Bluey", emoji: "🐶" },
+  { name: "Peppa Pig", emoji: "🐷" },
+  { name: "Mickey Mouse", emoji: "🐭" },
+  { name: "Winnie Pooh", emoji: "🐻" },
+  { name: "SpongeBob", emoji: "🧽" },
+  { name: "Patrick Star", emoji: "⭐" },
+  { name: "Olaf", emoji: "⛄" },
+  { name: "Stitch", emoji: "🐨" },
+  { name: "Toothless", emoji: "🐉" },
+  { name: "Hello Kitty", emoji: "🎀" },
+  { name: "Buzz Light", emoji: "🚀" },
+  { name: "Woody", emoji: "🤠" },
+  { name: "Elmo", emoji: "🔴" },
+  { name: "Cookie Mon", emoji: "🍪" },
+  { name: "Totoro", emoji: "🦉" },
+  { name: "Sonic", emoji: "🦔" },
+  { name: "Mario", emoji: "🍄" },
+  { name: "Luigi", emoji: "🟢" },
+  { name: "Ariel", emoji: "🧜‍♀️" },
+  { name: "Elsa", emoji: "❄️" },
+  { name: "Spider-Man", emoji: "🕷️" },
+  { name: "Chase Pup", emoji: "👮" }
+];
+
+function renderAvatarSelector() {
+  const grid = document.getElementById("kids-avatar-grid");
+  if (!grid || !currentUser) return;
+  grid.innerHTML = "";
+
+  const userAvatarText = String(currentUser.childAvatar || "");
+
+  CARTOON_AVATARS.forEach(avatar => {
+    const item = document.createElement("div");
+    item.className = "avatar-item";
+    if (userAvatarText.includes(avatar.name)) {
+      item.classList.add("selected");
+    }
+    item.innerHTML = `
+      <div class="avatar-item-emoji">${avatar.emoji}</div>
+      <div class="avatar-item-name">${avatar.name}</div>
+    `;
+    item.addEventListener("click", () => {
+      document.querySelectorAll("#kids-avatar-grid .avatar-item").forEach(el => el.classList.remove("selected"));
+      item.classList.add("selected");
+      
+      // Update local cache and server profile
+      currentUser.childAvatar = `${avatar.emoji} ${avatar.name}`;
+      StorageService.updateUserProfile({ childAvatar: currentUser.childAvatar });
+      
+      // Update welcome banner immediately
+      if (childWelcomeBanner) {
+        childWelcomeBanner.innerHTML = `Hello, ${currentUser.childAvatar} <strong>${currentUser.childFirstName || ""} ${currentUser.childLastName || ""}</strong>! 👋`;
+      }
+      
+      SoundManager.playClick();
+      spawnEmojiBurst(6);
+    });
+    grid.appendChild(item);
+  });
+}
+
 // ================= APP INITIALIZATION =================
 
-function init() {
+async function init() {
+  // Load puzzles from external puzzles.json
+  try {
+    const response = await fetch("data/puzzles.json");
+    PUZZLES = await response.json();
+  } catch (e) {
+    console.error("Failed to load puzzles.json:", e);
+    alert("Could not load puzzles.json. Make sure the HTTP server is running!");
+    return;
+  }
+
   // Check if session exists
   currentUser = StorageService.getCurrentUser();
   if (currentUser) {
@@ -185,6 +271,7 @@ function init() {
   // Setup Event Listeners
   setupEventListeners();
   initConfetti();
+  renderAvatarSelector();
 
   // Start background ambient floating elements loop
   setInterval(spawnFloatingEmoji, 2200);
@@ -203,15 +290,22 @@ function showMainApp() {
   mainView.classList.remove("hidden");
   
   // Welcome and sync state
-  childWelcomeBanner.innerText = `Hi, ${currentUser.childName}! 👋`;
+  childWelcomeBanner.innerHTML = `Hello, ${currentUser.childAvatar} <strong>${currentUser.childFirstName} ${currentUser.childLastName}</strong>! 👋`;
   
   // Date lock checker
   checkDateChange();
 
   // Load level and theme
-  const userTheme = localStorage.getItem(`theme_${currentUser.username}`) || "unicorn";
+  const userTheme = (currentUser.gameState && currentUser.gameState.theme) || "unicorn";
   document.documentElement.setAttribute("data-theme", userTheme);
   themeSelector.value = userTheme;
+
+  // Load sound preference
+  const isMuted = (currentUser.gameState && currentUser.gameState.isMuted) || false;
+  SoundManager.muted = isMuted;
+  if (btnSoundToggle) {
+    btnSoundToggle.innerText = isMuted ? "🔇 Mute" : "🔊 Sound On";
+  }
   
   viewingDay = currentUser.gameState.currentDay;
   
@@ -229,34 +323,65 @@ function resetAuthForms() {
 function switchTab(tab) {
   activeTab = tab;
   
-  tabPlay.classList.remove("active");
-  tabHistory.classList.remove("active");
-  tabParent.classList.remove("active");
+  if (tabPlay) tabPlay.classList.remove("active");
+  if (tabHistory) tabHistory.classList.remove("active");
+  if (tabKids) tabKids.classList.remove("active");
+  if (tabParent) tabParent.classList.remove("active");
   
-  playSection.classList.add("hidden");
-  historySection.classList.add("hidden");
-  parentSection.classList.add("hidden");
+  if (playSection) playSection.classList.add("hidden");
+  if (historySection) historySection.classList.add("hidden");
+  if (kidsSection) kidsSection.classList.add("hidden");
+  if (parentSection) parentSection.classList.add("hidden");
 
   SoundManager.playClick();
   
   if (tab === "play") {
-    tabPlay.classList.add("active");
-    playSection.classList.remove("hidden");
+    if (tabPlay) tabPlay.classList.add("active");
+    if (playSection) playSection.classList.remove("hidden");
     renderPuzzleStrip();
   } else if (tab === "history") {
-    tabHistory.classList.add("active");
-    historySection.classList.remove("hidden");
+    if (tabHistory) tabHistory.classList.add("active");
+    if (historySection) historySection.classList.remove("hidden");
     renderHistoryTab();
+  } else if (tab === "kids") {
+    if (tabKids) tabKids.classList.add("active");
+    if (kidsSection) kidsSection.classList.remove("hidden");
+    try {
+      renderAvatarSelector();
+    } catch (e) {
+      console.error("Failed to render avatar selector:", e);
+    }
+    try {
+      renderCalendar();
+    } catch (e) {
+      console.error("Failed to render calendar:", e);
+    }
   } else if (tab === "parent") {
-    tabParent.classList.add("active");
-    parentSection.classList.remove("hidden");
+    if (tabParent) tabParent.classList.add("active");
+    if (parentSection) parentSection.classList.remove("hidden");
     loadParentGate();
   }
 }
 
 // ================= AUTH EVENT HANDLERS =================
 
+function showAuthError(message) {
+  const authError = document.getElementById("auth-error");
+  if (authError) {
+    authError.innerText = message;
+    authError.classList.remove("hidden");
+  }
+}
+
+function hideAuthError() {
+  const authError = document.getElementById("auth-error");
+  if (authError) {
+    authError.classList.add("hidden");
+  }
+}
+
 tabLogin.addEventListener("click", () => {
+  hideAuthError();
   tabLogin.classList.add("active");
   tabRegister.classList.remove("active");
   loginForm.classList.remove("hidden");
@@ -265,6 +390,7 @@ tabLogin.addEventListener("click", () => {
 });
 
 tabRegister.addEventListener("click", () => {
+  hideAuthError();
   tabRegister.classList.add("active");
   tabLogin.classList.remove("active");
   registerForm.classList.remove("hidden");
@@ -273,8 +399,9 @@ tabRegister.addEventListener("click", () => {
 });
 
 // Register submit
-registerForm.addEventListener("submit", (e) => {
+registerForm.addEventListener("submit", async (e) => {
   e.preventDefault();
+  hideAuthError();
   
   const parentData = {
     email: document.getElementById("parent-email").value,
@@ -282,9 +409,11 @@ registerForm.addEventListener("submit", (e) => {
   };
   
   const childData = {
-    name: document.getElementById("child-name").value,
+    firstName: document.getElementById("child-first-name").value,
+    lastName: document.getElementById("child-last-name").value,
     gender: document.getElementById("child-gender").value,
     age: document.getElementById("child-age").value,
+    avatar: document.getElementById("child-avatar").value,
     livingCountry: document.getElementById("child-country").value,
     culturalAffiliation: document.getElementById("child-culture").value
   };
@@ -294,35 +423,36 @@ registerForm.addEventListener("submit", (e) => {
     password: document.getElementById("reg-password").value
   };
 
-  const res = StorageService.registerUser(parentData, childData, credentials);
+  const res = await StorageService.registerUser(parentData, childData, credentials);
   if (res.success) {
     SoundManager.playSuccess();
     // Auto-login
-    const loginRes = StorageService.loginUser(credentials.username, credentials.password);
+    const loginRes = await StorageService.loginUser(credentials.username, credentials.password);
     if (loginRes.success) {
       currentUser = loginRes.user;
       showMainApp();
     }
   } else {
     SoundManager.playError();
-    alert(res.error);
+    showAuthError(res.error);
   }
 });
 
 // Login submit
-loginForm.addEventListener("submit", (e) => {
+loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
+  hideAuthError();
   const u = document.getElementById("login-username").value;
   const p = document.getElementById("login-password").value;
 
-  const res = StorageService.loginUser(u, p);
+  const res = await StorageService.loginUser(u, p);
   if (res.success) {
     SoundManager.playSuccess();
     currentUser = res.user;
     showMainApp();
   } else {
     SoundManager.playError();
-    alert(res.error);
+    showAuthError(res.error);
   }
 });
 
@@ -399,14 +529,19 @@ function renderHeader() {
 btnSoundToggle.addEventListener("click", () => {
   const isMuted = SoundManager.toggleMute();
   btnSoundToggle.innerText = isMuted ? "🔇 Mute" : "🔊 Sound On";
+  if (currentUser && currentUser.gameState) {
+    currentUser.gameState.isMuted = isMuted;
+    StorageService.updateGameState({ isMuted: isMuted });
+  }
   SoundManager.playClick();
 });
 
 themeSelector.addEventListener("change", (e) => {
   const newTheme = e.target.value;
   document.documentElement.setAttribute("data-theme", newTheme);
-  if (currentUser) {
-    localStorage.setItem(`theme_${currentUser.username}`, newTheme);
+  if (currentUser && currentUser.gameState) {
+    currentUser.gameState.theme = newTheme;
+    StorageService.updateGameState({ theme: newTheme });
   }
   SoundManager.playClick();
   spawnEmojiBurst(8);
@@ -422,9 +557,12 @@ function renderPuzzleStrip() {
   dayDisplayLabel.innerText = `Day ${viewingDay}`;
   dailyPuzzleDeck.innerHTML = "";
   
+  const maxDayInJson = PUZZLES.length > 0 ? Math.max(...PUZZLES.map(p => p.day)) : 1;
+  const maxAvailableDay = Math.min(currentUser.gameState.unlockedUpToDay, maxDayInJson);
+
   // Nav buttons locks
   btnPrevDay.disabled = viewingDay <= 1;
-  btnNextDay.disabled = viewingDay >= currentUser.gameState.unlockedUpToDay;
+  btnNextDay.disabled = viewingDay >= maxAvailableDay;
 
   const dayPuzzles = getPuzzlesForDay(viewingDay);
   
@@ -657,7 +795,8 @@ btnSubmitAnswer.addEventListener("click", () => {
       correct: null, // pending review
       userAnswer: userAnswer,
       pendingApproval: true,
-      coinsAwarded: 0
+      coinsAwarded: 0,
+      timeSolved: new Date().toISOString().split("T")[0]
     };
     
     SoundManager.playSuccess();
@@ -681,7 +820,8 @@ btnSubmitAnswer.addEventListener("click", () => {
       answered: true,
       correct: true,
       userAnswer: userAnswer,
-      coinsAwarded: activePuzzle.coinsReward
+      coinsAwarded: activePuzzle.coinsReward,
+      timeSolved: new Date().toISOString().split("T")[0]
     };
     
     StorageService.updateGameState(currentUser.gameState);
@@ -840,6 +980,11 @@ function renderParentDashboard() {
 
 btnParentDaySet.addEventListener("click", () => {
   const newDay = parseInt(parentDayOverride.value);
+  const maxDayInJson = PUZZLES.length > 0 ? Math.max(...PUZZLES.map(p => p.day)) : 1;
+  if (newDay > maxDayInJson) {
+    alert(`Oops! You cannot set the day past the maximum loaded day in puzzles.json (Day ${maxDayInJson}).`);
+    return;
+  }
   if (newDay >= 1 && newDay <= 100) {
     currentUser.gameState.currentDay = newDay;
     currentUser.gameState.unlockedUpToDay = Math.max(currentUser.gameState.unlockedUpToDay, newDay);
@@ -852,7 +997,14 @@ btnParentDaySet.addEventListener("click", () => {
 });
 
 btnParentForceDay.addEventListener("click", () => {
+  const maxDayInJson = PUZZLES.length > 0 ? Math.max(...PUZZLES.map(p => p.day)) : 1;
   const nextDay = currentUser.gameState.currentDay + 1;
+  
+  if (nextDay > maxDayInJson) {
+    alert(`Oops! You have reached the end of the available puzzles in puzzles.json (Day ${maxDayInJson}). Please add more puzzle days to puzzles.json to continue!`);
+    return;
+  }
+  
   currentUser.gameState.currentDay = nextDay;
   currentUser.gameState.unlockedUpToDay = Math.max(currentUser.gameState.unlockedUpToDay, nextDay);
   StorageService.updateGameState(currentUser.gameState);
@@ -880,6 +1032,11 @@ btnParentResetUser.addEventListener("click", () => {
   }
 });
 
+btnParentDownloadLogs.addEventListener("click", () => {
+  SoundManager.playClick();
+  Logger.exportDiagnostics(currentUser);
+});
+
 function renderParentDrawings() {
   parentReviewList.innerHTML = "";
   let hasDrawings = false;
@@ -900,7 +1057,7 @@ function renderParentDrawings() {
         </div>
         <div style="display: flex; gap: 20px; align-items: center; justify-content: space-around; flex-wrap: wrap; margin: 15px 0;">
           <div style="text-align: center; flex: 1; min-width: 150px;">
-            <span style="font-size: 0.85rem; font-weight: bold; display: block; margin-bottom: 5px; color: var(--text-muted); font-family: var(--font-title);">Lily's Drawing</span>
+            <span style="font-size: 0.85rem; font-weight: bold; display: block; margin-bottom: 5px; color: var(--text-muted); font-family: var(--font-title);">${currentUser.childFirstName}'s Drawing</span>
             <img class="review-img" src="${record.userAnswer}" style="border: 2px solid var(--primary-color); border-radius: var(--radius-sm); max-width: 100%; max-height: 150px; background: white;">
           </div>
           <div style="text-align: center; flex: 1; min-width: 150px;">
@@ -1155,11 +1312,121 @@ btnCloseCelebration.addEventListener("click", () => {
 
 // ================= GLOBAL EVENT LISTENERS BINDINGS =================
 
+// ================= KIDS ZONE CALENDAR SYSTEM =================
+let calendarDate = new Date();
+
+function renderCalendar() {
+  const monthDisplay = document.getElementById("calendar-month-year");
+  const daysContainer = document.getElementById("calendar-days");
+  if (!monthDisplay || !daysContainer || !currentUser) return;
+
+  daysContainer.innerHTML = "";
+
+  const year = calendarDate.getFullYear();
+  const month = calendarDate.getMonth();
+
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  monthDisplay.innerText = `${monthNames[month]} ${year}`;
+
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  // Render empty padding cells
+  for (let i = 0; i < firstDay; i++) {
+    const emptyCell = document.createElement("div");
+    emptyCell.style.padding = "10px";
+    daysContainer.appendChild(emptyCell);
+  }
+
+  // Count completions per date
+  const completedDates = {};
+  const completedPuzzles = (currentUser.gameState && currentUser.gameState.completedPuzzles) || {};
+
+  Object.keys(completedPuzzles).forEach(pid => {
+    const r = completedPuzzles[pid];
+    if (r && r.answered && r.timeSolved) {
+      const dateStr = r.timeSolved; // YYYY-MM-DD
+      completedDates[dateStr] = (completedDates[dateStr] || 0) + 1;
+    }
+  });
+
+  // Render day cells
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dayCell = document.createElement("div");
+    dayCell.innerText = day;
+    
+    // Day formatting
+    dayCell.style.padding = "8px";
+    dayCell.style.borderRadius = "50%";
+    dayCell.style.display = "flex";
+    dayCell.style.alignItems = "center";
+    dayCell.style.justifyContent = "center";
+    dayCell.style.fontSize = "0.95rem";
+    dayCell.style.fontWeight = "600";
+    dayCell.style.width = "38px";
+    dayCell.style.height = "38px";
+    dayCell.style.margin = "0 auto";
+    dayCell.style.transition = "all 0.2s";
+
+    const mmStr = String(month + 1).padStart(2, "0");
+    const ddStr = String(day).padStart(2, "0");
+    const dateKey = `${year}-${mmStr}-${ddStr}`;
+
+    const puzzlesCompletedCount = completedDates[dateKey] || 0;
+
+    if (puzzlesCompletedCount > 0) {
+      dayCell.style.background = "var(--success)";
+      dayCell.style.color = "white";
+      dayCell.title = `You solved ${puzzlesCompletedCount} puzzle(s) on this day! ⭐`;
+      dayCell.style.boxShadow = "0 2px 6px rgba(76, 175, 80, 0.4)";
+      dayCell.style.cursor = "pointer";
+      dayCell.addEventListener("mouseover", () => {
+        dayCell.style.transform = "scale(1.15)";
+      });
+      dayCell.addEventListener("mouseout", () => {
+        dayCell.style.transform = "scale(1)";
+      });
+    } else {
+      dayCell.style.background = "rgba(0,0,0,0.04)";
+      dayCell.style.color = "var(--text-main)";
+    }
+
+    const today = new Date();
+    if (today.getFullYear() === year && today.getMonth() === month && today.getDate() === day) {
+      dayCell.style.border = "2px solid var(--accent-color)";
+    }
+
+    daysContainer.appendChild(dayCell);
+  }
+}
+
 function setupEventListeners() {
   // Nav Tab clicks
   tabPlay.addEventListener("click", () => switchTab("play"));
   tabHistory.addEventListener("click", () => switchTab("history"));
+  tabKids.addEventListener("click", () => switchTab("kids"));
   tabParent.addEventListener("click", () => switchTab("parent"));
+  
+  // Calendar Controls
+  const calendarPrev = document.getElementById("calendar-prev");
+  const calendarNext = document.getElementById("calendar-next");
+  if (calendarPrev) {
+    calendarPrev.addEventListener("click", () => {
+      SoundManager.playClick();
+      calendarDate.setMonth(calendarDate.getMonth() - 1);
+      renderCalendar();
+    });
+  }
+  if (calendarNext) {
+    calendarNext.addEventListener("click", () => {
+      SoundManager.playClick();
+      calendarDate.setMonth(calendarDate.getMonth() + 1);
+      renderCalendar();
+    });
+  }
   
   // Canvas drawing config
   setupDrawingCanvas();

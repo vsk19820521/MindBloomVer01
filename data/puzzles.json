@@ -1,0 +1,1255 @@
+[
+  {
+    "id": "d1_q1",
+    "day": 1,
+    "number": 1,
+    "title": "The Unicorn's Rainbow Path",
+    "category": "Logical Thinking",
+    "theme": "Unicorns",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Rainbow Sparkle the Unicorn can only step on clouds that form a repeating pattern: Red, Blue, Yellow, Red, Blue, Yellow. She is standing on a Red cloud. What are the colors of the next three clouds she must step on to cross the sky?",
+    "type": "multiple-choice",
+    "options": [
+      "Blue, Yellow, Red",
+      "Red, Blue, Yellow",
+      "Yellow, Red, Blue",
+      "Blue, Red, Yellow"
+    ],
+    "correctAnswer": "Blue, Yellow, Red",
+    "hints": [
+      "Look at the repeating pattern: Red, then Blue, then Yellow, and then it starts over with Red.",
+      "She is on Red now. What comes immediately after Red in the pattern?"
+    ],
+    "explanation": "The pattern is Red -> Blue -> Yellow. Since she is currently standing on a Red cloud, the next three clouds in order must be Blue, Yellow, and then Red again."
+  },
+  {
+    "id": "d1_q2",
+    "day": 1,
+    "number": 2,
+    "title": "Bella the Cat's Yarn Basket",
+    "category": "Lateral Thinking",
+    "theme": "Cats",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Bella the Cat has a basket with 5 balls of colorful yarn. Five of her kitten friends each take 1 ball of yarn, but 1 ball of yarn is still left inside the basket! How is this possible?",
+    "type": "multiple-choice",
+    "options": [
+      "One kitten took the basket with the last ball of yarn inside",
+      "One kitten didn't want any yarn",
+      "The basket has a secret double bottom holding a extra ball",
+      "Bella hid a sixth ball of yarn behind her back"
+    ],
+    "correctAnswer": "One kitten took the basket with the last ball of yarn inside",
+    "hints": [
+      "Think about how the kittens took their yarn. Does a ball of yarn have to be empty-handed?",
+      "If you take a basket that has a ball inside it, you have the ball, but where is the ball?"
+    ],
+    "explanation": "The last kitten took the basket itself with the final ball of yarn still sitting inside it! So all 5 kittens got a ball of yarn, and one ball remains in the basket."
+  },
+  {
+    "id": "d1_q3",
+    "day": 1,
+    "number": 3,
+    "title": "Rocky's T-Rex Cave Sign",
+    "category": "Creative Crafting",
+    "theme": "T-Rex",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Rocky the T-Rex wants to make a welcome sign for his cave. Draw a giant dinosaur footprint with three big toes on the screen!",
+    "type": "drawing",
+    "options": [],
+    "correctAnswer": "A drawing of a 3-toed dinosaur footprint.",
+    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" fill=\"var(--primary-color)\"><path d=\"M50,85 C55,80 62,70 65,60 C68,50 78,35 85,25 C87,22 83,22 80,24 C72,29 64,35 60,40 C58,35 54,20 50,10 C46,20 42,35 40,40 C36,35 28,29 20,24 C17,22 13,22 15,25 C22,35 32,50 35,60 C38,70 45,80 50,85 Z\" /></svg>",
+    "hints": [
+      "T-Rexes have three main toes pointing forward on their feet.",
+      "Select a bright color like green or orange and draw a shape with three thick toe lines!"
+    ],
+    "explanation": "Rocky is super excited to see your three-toed dinosaur print! It makes his cave look very friendly."
+  },
+  {
+    "id": "d1_q4",
+    "day": 1,
+    "number": 4,
+    "title": "Crafty Scissors",
+    "category": "Logical Thinking",
+    "theme": "Arts & Crafts",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Lily is cutting a long strip of paper. If she cuts the paper straight across exactly 4 times, how many separate pieces of paper will she have in the end?",
+    "type": "multiple-choice",
+    "options": [
+      "4 pieces",
+      "5 pieces",
+      "3 pieces",
+      "6 pieces"
+    ],
+    "correctAnswer": "5 pieces",
+    "hints": [
+      "Try drawing a line and putting cuts on it, or fold a piece of paper in your head.",
+      "1 cut makes 2 pieces. 2 cuts make 3 pieces. Do you see a pattern?"
+    ],
+    "explanation": "Each straight cut through a strip of paper creates one more piece than the number of cuts. So 4 cuts will yield 5 pieces."
+  },
+  {
+    "id": "d1_q5",
+    "day": 1,
+    "number": 5,
+    "title": "Three Little Birds",
+    "category": "Logical Thinking",
+    "theme": "Birds",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Three colorful birds—Ruby (red), Sky (blue), and Sunny (yellow)—live in three different trees: Oak, Pine, and Maple. The red bird does not live in the Oak tree. The blue bird lives in the Pine tree. Which bird lives in the Maple tree?",
+    "type": "text-input",
+    "correctAnswer": "Ruby",
+    "hints": [
+      "We know the blue bird (Sky) lives in the Pine tree. That leaves Oak and Maple trees for Ruby and Sunny.",
+      "If the red bird (Ruby) does not live in the Oak, she must live in the only other option left!"
+    ],
+    "explanation": "Sky lives in the Pine tree. This leaves the Oak and Maple trees. Since Ruby (the red bird) does not live in the Oak tree, she must live in the Maple tree. (This leaves Sunny to live in the Oak tree!)."
+  },
+  {
+    "id": "d2_q1",
+    "day": 2,
+    "number": 1,
+    "title": "Rex the Raptor's Butterfly Chase",
+    "category": "Logical Thinking",
+    "theme": "Raptors",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Rex the Raptor is chasing a butterfly. Rex always turns left at every crossing. He starts by walking North. At the first crossing, he turns left. At the second crossing, he turns left again. Which direction is Rex facing now?",
+    "type": "multiple-choice",
+    "options": [
+      "North",
+      "South",
+      "East",
+      "West"
+    ],
+    "correctAnswer": "South",
+    "hints": [
+      "If you walk North and turn left, you face West.",
+      "If you walk West and turn left again, which direction do you face?"
+    ],
+    "explanation": "Starting North, a left turn puts Rex facing West. The second left turn from West puts him facing South."
+  },
+  {
+    "id": "d2_q2",
+    "day": 2,
+    "number": 2,
+    "title": "Butterfly Symmetry",
+    "category": "Creative Crafting",
+    "theme": "Butterflies",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Draw a beautiful butterfly! Try to make the left wing and the right wing look symmetrical (matching each other). Use lots of colors!",
+    "type": "drawing",
+    "options": [],
+    "correctAnswer": "A symmetrical drawing of a butterfly.",
+    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" fill=\"var(--primary-color)\"><path d=\"M50,30 C45,15 20,10 15,30 C12,42 22,55 45,55 C48,55 49,52 50,50 C51,52 52,55 55,55 C78,55 88,42 85,30 C80,10 55,15 50,30 Z M50,50 C45,62 25,65 20,75 C15,82 25,90 45,78 C48,76 49,72 50,70 C51,72 52,76 55,78 C75,90 85,82 80,75 C75,65 55,62 50,50 Z\" /><rect x=\"48\" y=\"20\" width=\"4\" height=\"60\" rx=\"2\" fill=\"var(--accent-text)\" /><path d=\"M48,22 Q40,12 36,15\" stroke=\"var(--accent-text)\" stroke-width=\"2\" fill=\"none\" /><path d=\"M52,22 Q60,12 64,15\" stroke=\"var(--accent-text)\" stroke-width=\"2\" fill=\"none\" /></svg>",
+    "hints": [
+      "Draw the body in the middle first, then draw a wing on the left and a matching wing on the right.",
+      "Add colorful dots or patterns on both sides!"
+    ],
+    "explanation": "Symmetry means both sides look like mirror images. Your butterfly looks balanced and beautiful!"
+  },
+  {
+    "id": "d2_q3",
+    "day": 2,
+    "number": 3,
+    "title": "Whiskers' Secret Number Code",
+    "category": "Logical Thinking",
+    "theme": "Cats",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "Whiskers the Cat wrote a code using letters and numbers: CAT is written as 3-1-20. DOG is written as 4-15-7. Using Whiskers' secret rule, how would you write BIRD?",
+    "type": "multiple-choice",
+    "options": [
+      "2-9-18-4",
+      "1-8-17-3",
+      "2-10-18-5",
+      "2-9-19-4"
+    ],
+    "correctAnswer": "2-9-18-4",
+    "hints": [
+      "Look at the alphabet. A is 1, B is 2, C is 3... Z is 26.",
+      "Check CAT: C=3, A=1, T=20. Yes, it matches! What are the letters for B, I, R, and D?"
+    ],
+    "explanation": "The secret code matches each letter to its position in the alphabet. B is 2, I is 9, R is 18, and D is 4. So BIRD is 2-9-18-4."
+  },
+  {
+    "id": "d2_q4",
+    "day": 2,
+    "number": 4,
+    "title": "Max the Dog's Long Rope",
+    "category": "Lateral Thinking",
+    "theme": "Dogs",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Max the Dog is tied to a rope that is 3 meters long. A juicy bone is sitting 5 meters away from Max. Max easily walks over to the bone and starts chewing on it without breaking or stretching the rope. How is this possible?",
+    "type": "multiple-choice",
+    "options": [
+      "The other end of the rope isn't tied to anything",
+      "Max stretched the rope with his teeth",
+      "The bone was tied to a string that Max pulled",
+      "A friendly bird pushed the bone closer"
+    ],
+    "correctAnswer": "The other end of the rope isn't tied to anything",
+    "hints": [
+      "The question says Max is tied to a rope, but what is the rope tied to?",
+      "If you tie a string to your shoe, but don't tie it to a chair, can you walk around?"
+    ],
+    "explanation": "The rope is tied to Max, but the other end of the rope isn't tied to a tree or the ground! Max can walk as far as he wants."
+  },
+  {
+    "id": "d2_q5",
+    "day": 2,
+    "number": 5,
+    "title": "Origami Paper Folds",
+    "category": "Logical Thinking",
+    "theme": "Arts & Crafts",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "If you take a square sheet of craft paper, fold it in half exactly once, and then fold it in half again in the same direction, what shape do you have?",
+    "type": "multiple-choice",
+    "options": [
+      "A long, thin rectangle",
+      "A circle",
+      "A triangle",
+      "A star"
+    ],
+    "correctAnswer": "A long, thin rectangle",
+    "hints": [
+      "Fold a square in half once: it becomes a rectangle.",
+      "If you fold that rectangle in half again along the same direction, it gets even narrower."
+    ],
+    "explanation": "Folding it in half once divides the width by 2, making a rectangle. Folding it again in the same direction divides the width by 4, creating a longer, narrower rectangle."
+  },
+  {
+    "id": "d3_q1",
+    "day": 3,
+    "number": 1,
+    "title": "Dinosaur Leg Counting",
+    "category": "Logical Thinking",
+    "theme": "T-Rex",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "In the dino forest, a Triceratops has 4 legs, and a Raptor has 2 legs. You count exactly 12 dinosaur legs in total. If you know there are exactly 2 Triceratops, how many Raptors are there?",
+    "type": "text-input",
+    "options": [],
+    "correctAnswer": "2",
+    "hints": [
+      "First, find out how many legs the 2 Triceratops have. (Each has 4 legs).",
+      "Subtract those legs from 12. The remaining legs belong to the Raptors. How many legs does each Raptor have?"
+    ],
+    "explanation": "2 Triceratops have 2 x 4 = 8 legs. Out of 12 legs, 12 - 8 = 4 legs remain. Since each Raptor has 2 legs, there must be 4 / 2 = 2 Raptors."
+  },
+  {
+    "id": "d3_q2",
+    "day": 3,
+    "number": 2,
+    "title": "Mia's Butterfly Painting",
+    "category": "Logical Thinking",
+    "theme": "Butterflies",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Mia is painting three butterfly models of different sizes: Big, Middle, and Small. She has three pots of paint: Pink, Purple, and Yellow. She paints each butterfly a different color. If the Big butterfly is not Yellow, and the Small butterfly is Pink, what color is the Middle butterfly?",
+    "type": "multiple-choice",
+    "options": [
+      "Yellow",
+      "Purple",
+      "Pink",
+      "Red"
+    ],
+    "correctAnswer": "Yellow",
+    "hints": [
+      "We know the Small butterfly is Pink. That leaves Purple and Yellow for the Big and Middle butterflies.",
+      "If the Big butterfly cannot be Yellow, what color must it be? That leaves only one color for the Middle butterfly!"
+    ],
+    "explanation": "Since the Small butterfly is Pink, we have Purple and Yellow left. The Big butterfly is not Yellow, so it must be Purple. That leaves Yellow for the Middle butterfly."
+  },
+  {
+    "id": "d3_q3",
+    "day": 3,
+    "number": 3,
+    "title": "Cute Kitten Portrait",
+    "category": "Creative Crafting",
+    "theme": "Cats",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Draw a cute cartoon kitten face! Make sure to include two triangle ears, round shiny eyes, a cute nose, and whiskers!",
+    "type": "drawing",
+    "options": [],
+    "correctAnswer": "A drawing of a kitten face.",
+    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"><circle cx=\"50\" cy=\"55\" r=\"30\" /><polygon points=\"25,35 20,10 40,28\" fill=\"var(--secondary-color)\" /><polygon points=\"75,35 80,10 60,28\" fill=\"var(--secondary-color)\" /><circle cx=\"40\" cy=\"50\" r=\"3\" fill=\"var(--primary-color)\" /><circle cx=\"60\" cy=\"50\" r=\"3\" fill=\"var(--primary-color)\" /><polygon points=\"48,58 52,58 50,60\" fill=\"var(--primary-color)\" /><path d=\"M50,60 Q47,64 44,62 M50,60 Q53,64 56,62\" /><line x1=\"20\" y1=\"55\" x2=\"5\" y2=\"53\" /><line x1=\"20\" y1=\"58\" x2=\"3\" y2=\"58\" /><line x1=\"20\" y1=\"61\" x2=\"5\" y2=\"63\" /><line x1=\"80\" y1=\"55\" x2=\"95\" y2=\"53\" /><line x1=\"80\" y1=\"58\" x2=\"97\" y2=\"58\" /><line x1=\"80\" y1=\"61\" x2=\"95\" y2=\"63\" /></svg>",
+    "hints": [
+      "Draw a round circle for the head first.",
+      "Add two triangles on top for ears, and draw three whiskers on each side of the face!"
+    ],
+    "explanation": "That kitten looks super cute! It's purr-fect!"
+  },
+  {
+    "id": "d3_q4",
+    "day": 3,
+    "number": 4,
+    "title": "Feathers vs. Carving Tools",
+    "category": "Lateral Thinking",
+    "theme": "Arts & Crafts",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Which weighs more: a kilogram of colorful craft feathers or a kilogram of heavy steel carving tools?",
+    "type": "multiple-choice",
+    "options": [
+      "They weigh exactly the same",
+      "The steel carving tools",
+      "The colorful craft feathers",
+      "It depends on which box is larger"
+    ],
+    "correctAnswer": "They weigh exactly the same",
+    "hints": [
+      "A kilogram is a measure of weight. One feather is lighter than one tool, but what about a kilogram of both?",
+      "If you put 1 kg of feathers on one side of a scale, and 1 kg of steel on the other, does one side push down more?"
+    ],
+    "explanation": "Both weigh exactly one kilogram! Feathers are much lighter individually, so you would need a massive bag of feathers to make a kilogram, but the total weight is the same."
+  },
+  {
+    "id": "d3_q5",
+    "day": 3,
+    "number": 5,
+    "title": "Unicorn Horn Counting",
+    "category": "Logical Thinking",
+    "theme": "Unicorns",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "In Unicorn Land, Silver Unicorns have 1 gold horn. Golden Unicorns are special and have 2 silver horns! If there are 5 Silver Unicorns and 3 Golden Unicorns playing in a field, how many horns are there in total?",
+    "type": "text-input",
+    "options": [],
+    "correctAnswer": "11",
+    "hints": [
+      "Calculate horns for Silver Unicorns: 5 unicorns times 1 horn.",
+      "Calculate horns for Golden Unicorns: 3 unicorns times 2 horns. Then add them together."
+    ],
+    "explanation": "5 Silver Unicorns have 5 x 1 = 5 horns. 3 Golden Unicorns have 3 x 2 = 6 horns. Total horns = 5 + 6 = 11 horns."
+  },
+  {
+    "id": "d4_q1",
+    "day": 4,
+    "number": 1,
+    "title": "Sarah's Beaded Dog Collar",
+    "category": "Logical Thinking",
+    "theme": "Dogs",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Sarah is making a dog collar out of beads. She strings them in a repeating pattern: Blue, Red, Green, Blue, Red, Green. If she has placed 14 beads on the string so far, what color will the 15th bead be?",
+    "type": "multiple-choice",
+    "options": [
+      "Green",
+      "Blue",
+      "Red",
+      "Yellow"
+    ],
+    "correctAnswer": "Green",
+    "hints": [
+      "The pattern repeats every 3 beads: 1st is Blue, 2nd is Red, 3rd is Green.",
+      "Every bead that is a multiple of 3 (3, 6, 9, 12...) will be Green. Is 15 a multiple of 3?"
+    ],
+    "explanation": "The pattern repeats every 3 beads: Blue (1), Red (2), Green (3). Since 15 is divisible by 3, the 15th bead will be Green (the last color of the pattern triplet)."
+  },
+  {
+    "id": "d4_q2",
+    "day": 4,
+    "number": 2,
+    "title": "Youngest Pup in the Pack",
+    "category": "Logical Thinking",
+    "theme": "Dogs",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Bingo the Pug is older than Cooper the Beagle. Cooper the Beagle is older than Daisy the Poodle. Who is the youngest dog in the group?",
+    "type": "multiple-choice",
+    "options": [
+      "Daisy the Poodle",
+      "Cooper the Beagle",
+      "Bingo the Pug",
+      "They are all the same age"
+    ],
+    "correctAnswer": "Daisy the Poodle",
+    "hints": [
+      "Bingo is older than Cooper. Cooper is older than Daisy.",
+      "Think of it like a staircase of ages. Bingo is at the top. Who is at the bottom?"
+    ],
+    "explanation": "If Bingo > Cooper and Cooper > Daisy, then Daisy is younger than both Cooper and Bingo, making Daisy the youngest."
+  },
+  {
+    "id": "d4_q3",
+    "day": 4,
+    "number": 3,
+    "title": "The Munching Caterpillar",
+    "category": "Creative Crafting",
+    "theme": "Butterflies",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Draw a green caterpillar crawling on a big leaf, taking a bite out of it!",
+    "type": "drawing",
+    "options": [],
+    "correctAnswer": "A drawing of a caterpillar on a leaf.",
+    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" fill=\"none\"><path d=\"M10,80 Q40,30 90,20 Q80,70 10,80 Z\" fill=\"#4caf50\" opacity=\"0.8\" /><circle cx=\"90\" cy=\"20\" r=\"15\" fill=\"#fcfbf7\" /><path d=\"M10,80 L90,20\" stroke=\"#388e3c\" stroke-width=\"2\" /><circle cx=\"30\" cy=\"55\" r=\"8\" fill=\"#8bc34a\" /><circle cx=\"42\" cy=\"50\" r=\"8\" fill=\"#8bc34a\" /><circle cx=\"54\" cy=\"52\" r=\"8\" fill=\"#8bc34a\" /><circle cx=\"66\" cy=\"48\" r=\"8\" fill=\"#ffeb3b\" /><circle cx=\"74\" cy=\"42\" r=\"9\" fill=\"#ff5722\" /><circle cx=\"76\" cy=\"38\" r=\"1\" fill=\"black\" /></svg>",
+    "hints": [
+      "Draw a big green leaf first, and maybe put a little bite mark (a gap) in it.",
+      "Draw the caterpillar as a chain of little circles joined together!"
+    ],
+    "explanation": "Delicious! That caterpillar looks very happy eating its green leaf lunch."
+  },
+  {
+    "id": "d4_q4",
+    "day": 4,
+    "number": 4,
+    "title": "Raptor Race",
+    "category": "Logical Thinking",
+    "theme": "Raptors",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Three raptors, Blue, Green, and Stripe, ran a race. Green finished ahead of Stripe. Blue finished behind Stripe. Who came in first place?",
+    "type": "multiple-choice",
+    "options": [
+      "Green",
+      "Stripe",
+      "Blue",
+      "It was a three-way tie"
+    ],
+    "correctAnswer": "Green",
+    "hints": [
+      "Green came before Stripe. So Stripe cannot be first.",
+      "Blue came behind Stripe. That means Stripe beat Blue. Who beats them all?"
+    ],
+    "explanation": "Green finished ahead of Stripe (Green > Stripe). Blue finished behind Stripe (Stripe > Blue). Combining these, we get Green > Stripe > Blue. So Green finished first."
+  },
+  {
+    "id": "d4_q5",
+    "day": 4,
+    "number": 5,
+    "title": "Milk on the Cabinet",
+    "category": "Lateral Thinking",
+    "theme": "Cats",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "A cat is only able to jump 2 meters high. There is a delicious bowl of milk sitting on top of a tall 3-meter cabinet. How does the cat get to the milk bowl without knocking the cabinet over?",
+    "type": "multiple-choice",
+    "options": [
+      "The cat climbs up the cabinet sides",
+      "The cat waits for the milk to fall down",
+      "The cat calls a dog to push it down",
+      "The cat uses a ladder"
+    ],
+    "correctAnswer": "The cat climbs up the cabinet sides",
+    "hints": [
+      "A cat cannot jump 3 meters, but cats have sharp claws. What else are cats famous for doing in trees?",
+      "Jumping isn't the only way to go up."
+    ],
+    "explanation": "Cats are excellent climbers! Even though it can't jump 3 meters in a single leap, it can easily climb up the front or sides of the wooden cabinet to reach the top."
+  },
+  {
+    "id": "d5_q1",
+    "day": 5,
+    "number": 1,
+    "title": "Baby T-Rex Teeth",
+    "category": "Logical Thinking",
+    "theme": "T-Rex",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "A baby T-Rex starts with 10 sharp teeth. Every day, it grows 2 brand new teeth, but loses 1 old tooth. How many teeth will the baby T-Rex have in total after 5 days?",
+    "type": "text-input",
+    "options": [],
+    "correctAnswer": "15",
+    "hints": [
+      "Find out the net change of teeth per day. If it grows 2 and loses 1, how many teeth does it gain each day?",
+      "Multiply that daily gain by 5 days, and add it to the starting number of teeth (10)."
+    ],
+    "explanation": "Each day, the baby T-Rex gains 2 - 1 = 1 tooth. Over 5 days, it gains 5 x 1 = 5 teeth. Starting with 10 teeth, it ends up with 10 + 5 = 15 teeth."
+  },
+  {
+    "id": "d5_q2",
+    "day": 5,
+    "number": 2,
+    "title": "Parrots on a Branch",
+    "category": "Lateral Thinking",
+    "theme": "Birds",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Five colorful parrots are sitting together on a branch. A loud thunderclap scares them, and 2 parrots fly away. How many parrots are left sitting on the branch?",
+    "type": "multiple-choice",
+    "options": [
+      "0 parrots",
+      "3 parrots",
+      "5 parrots",
+      "2 parrots"
+    ],
+    "correctAnswer": "0 parrots",
+    "hints": [
+      "If you were sitting on a branch with friends and a super loud scary sound happened, what would you do?",
+      "If 2 of the birds fly away because they are scared, what do the other 3 do?"
+    ],
+    "explanation": "If a loud scary sound occurs, all the parrots will be frightened and fly away, leaving 0 parrots on the branch!"
+  },
+  {
+    "id": "d5_q3",
+    "day": 5,
+    "number": 3,
+    "title": "Unicorn Sky",
+    "category": "Creative Crafting",
+    "theme": "Unicorns",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Draw a magical sky scene containing a bright rainbow arching over a fluffy white cloud!",
+    "type": "drawing",
+    "options": [],
+    "correctAnswer": "A drawing of a rainbow and cloud.",
+    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" fill=\"none\"><path d=\"M15,70 A40,40 0 0,1 85,70\" stroke=\"#ff5252\" stroke-width=\"8\" /><path d=\"M22,70 A30,30 0 0,1 78,70\" stroke=\"#ffeb3b\" stroke-width=\"8\" /><path d=\"M29,70 A20,20 0 0,1 71,70\" stroke=\"#2196f3\" stroke-width=\"8\" /><path d=\"M10,75 C5,75 5,65 15,65 C15,55 30,55 35,63 C40,55 55,60 50,75 Z\" fill=\"white\" stroke=\"#e0e0e0\" stroke-width=\"2\" /><path d=\"M50,75 C45,75 45,65 55,65 C55,55 70,55 75,63 C80,55 95,60 90,75 Z\" fill=\"white\" stroke=\"#e0e0e0\" stroke-width=\"2\" /></svg>",
+    "hints": [
+      "Choose red, yellow, and blue colors to draw a curved rainbow arch.",
+      "Draw a bubbly cloud shape at the bottom of the rainbow!"
+    ],
+    "explanation": "Magic is in the air! What a beautiful sky painting."
+  },
+  {
+    "id": "d5_q4",
+    "day": 5,
+    "number": 4,
+    "title": "Butterfly Magic Card",
+    "category": "Logical Thinking",
+    "theme": "Butterflies",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "In a craft game, there is a card with a picture on it. If you flip it once, the picture changes: a Butterfly changes into a Flower. If you flip a Flower card, it changes back into a Butterfly. If you start with a Butterfly card and flip it exactly 101 times, what picture will be showing?",
+    "type": "multiple-choice",
+    "options": [
+      "A Flower",
+      "A Butterfly",
+      "A Caterpillar",
+      "An Empty Card"
+    ],
+    "correctAnswer": "A Flower",
+    "hints": [
+      "Start with Butterfly. 1st flip = Flower. 2nd flip = Butterfly. 3rd flip = Flower.",
+      "Notice that odd flips (1, 3, 5...) show the Flower, and even flips (2, 4, 6...) show the Butterfly. Is 101 odd or even?"
+    ],
+    "explanation": "Every odd-numbered flip (1, 3, 5, ..., 101) turns the card into a Flower. Every even-numbered flip turns it back into a Butterfly. Since 101 is an odd number, the showing picture will be a Flower."
+  },
+  {
+    "id": "d5_q5",
+    "day": 5,
+    "number": 5,
+    "title": "Creases of a Boat",
+    "category": "Logical Thinking",
+    "theme": "Arts & Crafts",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "To make an origami paper boat, you fold a square paper many times. If you take a finished paper boat and unfold it completely flat again, what will you see on the paper?",
+    "type": "multiple-choice",
+    "options": [
+      "A grid pattern of crease lines",
+      "A colored drawing of a boat",
+      "A shredded piece of paper",
+      "A completely smooth paper with no marks"
+    ],
+    "correctAnswer": "A grid pattern of crease lines",
+    "hints": [
+      "Folding paper presses lines into it. What are those lines called?",
+      "The paper doesn't print images on itself just by folding, nor does it shred unless you tear it."
+    ],
+    "explanation": "Folding paper leaves permanent indentations called crease lines. Unfolding it flat reveals a beautiful geometric map of all the folds you made!"
+  },
+  {
+    "id": "d6_q1",
+    "day": 6,
+    "number": 1,
+    "title": "The Scared Birds",
+    "category": "Lateral Thinking",
+    "theme": "Birds",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Seven birds are sitting on a fence. A loud firework goes off and 3 birds fly away. How many birds are left sitting on the fence?",
+    "type": "multiple-choice",
+    "options": [
+      "0",
+      "4",
+      "3",
+      "7"
+    ],
+    "correctAnswer": "0",
+    "hints": [
+      "What would the other birds do when they hear the loud noise?",
+      "Do only the 3 birds react?"
+    ],
+    "explanation": "The loud firework scares all the birds, not just the three that flew away first. The fence ends up empty."
+  },
+  {
+    "id": "d6_q2",
+    "day": 6,
+    "number": 2,
+    "title": "The Wet Umbrella",
+    "category": "Lateral Thinking",
+    "theme": "Rain",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Emma walked outside carrying an umbrella. When she came home, her umbrella was soaking wet, but Emma's clothes were completely dry. How is that possible?",
+    "type": "multiple-choice",
+    "options": [
+      "It rained while the umbrella was outside drying",
+      "Emma never opened the umbrella",
+      "Someone poured water on it",
+      "The umbrella fell into a pond"
+    ],
+    "correctAnswer": "It rained while the umbrella was outside drying",
+    "hints": [
+      "The puzzle never says the umbrella got wet while Emma was using it.",
+      "Think about what happened after Emma got home."
+    ],
+    "explanation": "The umbrella was outside and got wet later. Emma stayed indoors and remained dry."
+  },
+  {
+    "id": "d6_q3",
+    "day": 6,
+    "number": 3,
+    "title": "The Clever Rabbit",
+    "category": "Lateral Thinking",
+    "theme": "Animals",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "A rabbit wanted to cross a river but there was no bridge, no boat, and the rabbit couldn't swim. Yet it crossed safely. How?",
+    "type": "multiple-choice",
+    "options": [
+      "The river was frozen",
+      "The rabbit jumped 100 meters",
+      "A bird carried it",
+      "The rabbit dug a tunnel"
+    ],
+    "correctAnswer": "The river was frozen",
+    "hints": [
+      "The puzzle never says it was summer.",
+      "What happens to rivers in very cold weather?"
+    ],
+    "explanation": "The rabbit simply walked across the frozen river."
+  },
+  {
+    "id": "d6_q4",
+    "day": 6,
+    "number": 4,
+    "title": "The Missing Apple",
+    "category": "Lateral Thinking",
+    "theme": "Fruit",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "A bowl contains 6 apples. You take away 2 apples. How many apples do you have?",
+    "type": "multiple-choice",
+    "options": [
+      "2",
+      "4",
+      "6",
+      "8"
+    ],
+    "correctAnswer": "2",
+    "hints": [
+      "Read carefully.",
+      "The question asks how many apples YOU have."
+    ],
+    "explanation": "You took 2 apples, so you have 2 apples."
+  },
+  {
+    "id": "d6_q5",
+    "day": 6,
+    "number": 5,
+    "title": "The Tired Turtle",
+    "category": "Lateral Thinking",
+    "theme": "Turtles",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "A turtle was at the bottom of a 10-meter well. Every day it climbed 3 meters up, but every night it slipped 2 meters down. How many meters higher is it after one full day and night?",
+    "type": "multiple-choice",
+    "options": [
+      "1 meter",
+      "3 meters",
+      "2 meters",
+      "5 meters"
+    ],
+    "correctAnswer": "1 meter",
+    "hints": [
+      "Calculate the net movement.",
+      "Up 3, down 2."
+    ],
+    "explanation": "The turtle gains 1 meter each complete day."
+  },
+  {
+    "id": "d7_q1",
+    "day": 7,
+    "number": 1,
+    "title": "The Backward Race",
+    "category": "Lateral Thinking",
+    "theme": "Sports",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "You are running a race. You pass the runner who is in second place. What place are you in now?",
+    "type": "multiple-choice",
+    "options": [
+      "Second",
+      "First",
+      "Third",
+      "Fourth"
+    ],
+    "correctAnswer": "Second",
+    "hints": [
+      "Who did you pass?",
+      "Did you pass the person in first place?"
+    ],
+    "explanation": "You took over second place. First place is still ahead of you."
+  },
+  {
+    "id": "d7_q2",
+    "day": 7,
+    "number": 2,
+    "title": "The Farmer's Sheep",
+    "category": "Lateral Thinking",
+    "theme": "Farm",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "A farmer has 17 sheep. All but 9 run away. How many sheep remain?",
+    "type": "multiple-choice",
+    "options": [
+      "9",
+      "8",
+      "17",
+      "0"
+    ],
+    "correctAnswer": "9",
+    "hints": [
+      "What does 'all but 9' mean?",
+      "Read the sentence slowly."
+    ],
+    "explanation": "'All but 9' means all except 9. Therefore 9 sheep remain."
+  },
+  {
+    "id": "d7_q3",
+    "day": 7,
+    "number": 3,
+    "title": "Mirror Drawing",
+    "category": "Creative Crafting",
+    "theme": "Art",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Draw half of a smiling face on one side of the screen and then complete the other side so it looks like a mirror image.",
+    "type": "drawing",
+    "options": [],
+    "correctAnswer": "A symmetrical face drawing.",
+    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"><path d=\"M50,20 C30,20 20,35 20,55 C20,75 35,85 50,85\" /><circle cx=\"35\" cy=\"45\" r=\"4\" fill=\"var(--primary-color)\" /><path d=\"M35,65 Q42,70 50,70\" /><line x1=\"50\" y1=\"10\" x2=\"50\" y2=\"90\" stroke=\"var(--accent-text)\" stroke-dasharray=\"4\" /><path d=\"M50,20 C70,20 80,35 80,55 C80,75 65,85 50,85\" stroke-dasharray=\"4\" /><circle cx=\"65\" cy=\"45\" r=\"4\" fill=\"none\" stroke-dasharray=\"2\" /><path d=\"M50,70 Q58,70 65,65\" stroke-dasharray=\"3\" /></svg>",
+    "hints": [
+      "Try matching the eyes and ears.",
+      "Imagine a mirror in the middle."
+    ],
+    "explanation": "Great symmetry! Mirror images help train visual thinking."
+  },
+  {
+    "id": "d7_q4",
+    "day": 7,
+    "number": 4,
+    "title": "The Library Book",
+    "category": "Lateral Thinking",
+    "theme": "Books",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Tom borrowed a library book on Monday. He returned it on Friday. Yet he only had it for one day. How is that possible?",
+    "type": "multiple-choice",
+    "options": [
+      "The days were named after towns",
+      "The book was called Monday and Friday",
+      "Tom traveled through time",
+      "The library was closed"
+    ],
+    "correctAnswer": "The days were named after towns",
+    "hints": [
+      "The puzzle never says Monday and Friday are days of the week.",
+      "Could they be something else?"
+    ],
+    "explanation": "Monday and Friday could be place names rather than weekdays."
+  },
+  {
+    "id": "d7_q5",
+    "day": 7,
+    "number": 5,
+    "title": "The Sleeping Dinosaur",
+    "category": "Lateral Thinking",
+    "theme": "Dinosaurs",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "A dinosaur was sleeping with one eye open. How could it still be asleep?",
+    "type": "multiple-choice",
+    "options": [
+      "It only had one eye",
+      "Dinosaurs never slept",
+      "The eye was painted on",
+      "It was pretending"
+    ],
+    "correctAnswer": "It only had one eye",
+    "hints": [
+      "The puzzle never says it had two eyes.",
+      "Think about what is being assumed."
+    ],
+    "explanation": "If it only had one eye, sleeping with one eye open is possible because there isn't another eye to close."
+  },
+  {
+    "id": "mind_001",
+    "day": 8,
+    "number": 1,
+    "title": "The Missing Birthday",
+    "category": "Missing Information",
+    "theme": "Family",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "Sophie's birthday was yesterday. Next year, her birthday will be on a Monday. What day of the week is it today?",
+    "type": "multiple-choice",
+    "options": [
+      "Not enough information",
+      "Tuesday",
+      "Sunday",
+      "Monday"
+    ],
+    "correctAnswer": "Not enough information",
+    "hints": [
+      "Do we know what day her birthday was this year?",
+      "Can you work out today's day without knowing the year?"
+    ],
+    "explanation": "Important information is missing. There isn't enough information to determine today's day."
+  },
+  {
+    "id": "mind_002",
+    "day": 8,
+    "number": 2,
+    "title": "The Locked Treasure Box",
+    "category": "Missing Information",
+    "theme": "Pirates",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Captain Gold says the treasure is hidden in one of three caves. Cave A is blue. Cave B is red. Cave C is green. Which cave contains the treasure?",
+    "type": "multiple-choice",
+    "options": [
+      "Cannot be determined",
+      "Cave A",
+      "Cave B",
+      "Cave C"
+    ],
+    "correctAnswer": "Cannot be determined",
+    "hints": [
+      "What clues were provided?",
+      "Do colors tell us where the treasure is?"
+    ],
+    "explanation": "Sometimes there simply isn't enough information to answer a question."
+  },
+  {
+    "id": "d8_q3",
+    "day": 8,
+    "number": 3,
+    "title": "Draw a Pirate Flag",
+    "category": "Creative Crafting",
+    "theme": "Pirates",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Captain Gold wants a new flag for his pirate ship! Draw a pirate flag with a skull or a big 'X' marking the spot on the canvas!",
+    "type": "drawing",
+    "options": [],
+    "correctAnswer": "A drawing of a pirate flag.",
+    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"><rect x=\"15\" y=\"15\" width=\"70\" height=\"45\" rx=\"4\" fill=\"var(--text-main)\" /><line x1=\"15\" y1=\"15\" x2=\"15\" y2=\"90\" stroke=\"var(--accent-text)\" stroke-width=\"4\" /><path d=\"M40,30 L60,50 M60,30 L40,50\" stroke=\"white\" stroke-width=\"4\" /><circle cx=\"50\" cy=\"35\" r=\"5\" fill=\"white\" /></svg>",
+    "hints": [
+      "Draw the flag rectangle first, and then add a big 'X' in the center.",
+      "Use black and white or red colors to make it look like a real pirate flag!"
+    ],
+    "explanation": "Arr! That pirate flag looks amazing! Captain Gold is ready to set sail!"
+  },
+  {
+    "id": "mind_003",
+    "day": 8,
+    "number": 4,
+    "title": "The Last Cookie",
+    "category": "Ambiguous Wording",
+    "theme": "Cookies",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "Three children shared cookies. Emma ate more cookies than Lily. Lily ate more cookies than Noah. Who ate the least?",
+    "type": "multiple-choice",
+    "options": [
+      "Noah",
+      "Lily",
+      "Emma",
+      "Cannot know"
+    ],
+    "correctAnswer": "Noah",
+    "hints": [
+      "Arrange the children from most to least.",
+      "Look carefully at the wording."
+    ],
+    "explanation": "Emma > Lily > Noah. Therefore Noah ate the least."
+  },
+  {
+    "id": "mind_004",
+    "day": 8,
+    "number": 5,
+    "title": "The Tall Building",
+    "category": "Ambiguous Wording",
+    "theme": "City",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "A building is 20 stories tall. A painter is painting the outside. What color is the paint?",
+    "type": "multiple-choice",
+    "options": [
+      "Cannot be determined",
+      "Blue",
+      "White",
+      "Gray"
+    ],
+    "correctAnswer": "Cannot be determined",
+    "hints": [
+      "Did the puzzle ever mention the color?",
+      "Don't add information that wasn't given."
+    ],
+    "explanation": "The puzzle never tells us the paint color."
+  },
+  {
+    "id": "mind_005",
+    "day": 9,
+    "number": 1,
+    "title": "The Race Position",
+    "category": "Perspective Shift",
+    "theme": "Sports",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "You are running in a race. You pass the runner in third place. What place are you now in?",
+    "type": "multiple-choice",
+    "options": [
+      "Third",
+      "Second",
+      "First",
+      "Fourth"
+    ],
+    "correctAnswer": "Third",
+    "hints": [
+      "You take the position of the runner you passed.",
+      "You didn't pass second place."
+    ],
+    "explanation": "Passing the runner in third place means you become third."
+  },
+  {
+    "id": "mind_006",
+    "day": 9,
+    "number": 2,
+    "title": "The Classroom Door",
+    "category": "Perspective Shift",
+    "theme": "School",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "A classroom door has a sign that says 'Push'. Tom pushes the door, but it doesn't move. Why?",
+    "type": "multiple-choice",
+    "options": [
+      "He is standing on the wrong side",
+      "The door is locked",
+      "The sign is wrong",
+      "The door is broken"
+    ],
+    "correctAnswer": "He is standing on the wrong side",
+    "hints": [
+      "Who says he is looking at the sign from the correct side?",
+      "Think about where Tom is standing."
+    ],
+    "explanation": "The sign might apply only from the other side of the door."
+  },
+  {
+    "id": "d9_q3",
+    "day": 9,
+    "number": 3,
+    "title": "Draw a School Bus",
+    "category": "Creative Crafting",
+    "theme": "School",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "The children are ready to go to school! Draw a bright yellow school bus with two big round wheels on the road!",
+    "type": "drawing",
+    "options": [],
+    "correctAnswer": "A drawing of a school bus.",
+    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"><rect x=\"15\" y=\"30\" width=\"70\" height=\"35\" rx=\"6\" fill=\"gold\" /><circle cx=\"30\" cy=\"65\" r=\"8\" fill=\"var(--text-main)\" /><circle cx=\"70\" cy=\"65\" r=\"8\" fill=\"var(--text-main)\" /><rect x=\"25\" y=\"38\" width=\"15\" height=\"12\" rx=\"1\" fill=\"white\" /><rect x=\"45\" y=\"38\" width=\"15\" height=\"12\" rx=\"1\" fill=\"white\" /><rect x=\"65\" y=\"38\" width=\"15\" height=\"12\" rx=\"1\" fill=\"white\" /></svg>",
+    "hints": [
+      "Draw a big rectangle for the bus body, then add two circles at the bottom for wheels.",
+      "Color it bright yellow and add square windows for the children!"
+    ],
+    "explanation": "Honk honk! The yellow school bus is ready to take everyone to class!"
+  },
+  {
+    "id": "mind_007",
+    "day": 9,
+    "number": 4,
+    "title": "The Tiny Giant",
+    "category": "Impossible Assumption",
+    "theme": "Fantasy",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "A giant walked through a tiny doorway without bending down. How is that possible?",
+    "type": "multiple-choice",
+    "options": [
+      "It was a toy giant",
+      "The doorway grew larger",
+      "Magic happened",
+      "The giant crawled"
+    ],
+    "correctAnswer": "It was a toy giant",
+    "hints": [
+      "Who said the giant was real?",
+      "Could it be something else called a giant?"
+    ],
+    "explanation": "The giant could simply be a toy figure."
+  },
+  {
+    "id": "mind_008",
+    "day": 9,
+    "number": 5,
+    "title": "The Flying Elephant",
+    "category": "Impossible Assumption",
+    "theme": "Animals",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "An elephant flew across a room. How is that possible?",
+    "type": "multiple-choice",
+    "options": [
+      "It was a toy elephant",
+      "It had wings",
+      "A helicopter carried it",
+      "It jumped"
+    ],
+    "correctAnswer": "It was a toy elephant",
+    "hints": [
+      "The puzzle never says it was a real elephant.",
+      "Think smaller."
+    ],
+    "explanation": "It could have been a toy elephant thrown across the room."
+  },
+  {
+    "id": "mind_009",
+    "day": 10,
+    "number": 1,
+    "title": "The Bigger Box",
+    "category": "Counter-Intuitive Outcome",
+    "theme": "Storage",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Which weighs more: an empty big box or an empty small box?",
+    "type": "multiple-choice",
+    "options": [
+      "Cannot be determined",
+      "Big box",
+      "Small box",
+      "They are always equal"
+    ],
+    "correctAnswer": "Cannot be determined",
+    "hints": [
+      "Do we know what the boxes are made from?",
+      "Bigger does not always mean heavier."
+    ],
+    "explanation": "A large cardboard box can weigh less than a small wooden box."
+  },
+  {
+    "id": "mind_010",
+    "day": 10,
+    "number": 2,
+    "title": "The Heavy Feather",
+    "category": "Counter-Intuitive Outcome",
+    "theme": "Nature",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Which weighs more: one kilogram of feathers or one kilogram of rocks?",
+    "type": "multiple-choice",
+    "options": [
+      "They weigh the same",
+      "The rocks",
+      "The feathers",
+      "Depends on the scale"
+    ],
+    "correctAnswer": "They weigh the same",
+    "hints": [
+      "Look at the units.",
+      "One kilogram is one kilogram."
+    ],
+    "explanation": "The materials are different, but the total weight is the same."
+  },
+  {
+    "id": "d10_q3",
+    "day": 10,
+    "number": 3,
+    "title": "Draw a Nature Tree",
+    "category": "Creative Crafting",
+    "theme": "Nature",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Draw a beautiful tree in the forest with a thick brown trunk and a big fluffy green top!",
+    "type": "drawing",
+    "options": [],
+    "correctAnswer": "A drawing of a tree.",
+    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"><path d=\"M45,85 L45,55 L55,55 L55,85 Z\" fill=\"saddlebrown\" /><path d=\"M50,20 C30,20 20,35 25,50 C30,65 70,65 75,50 C80,35 70,20 50,20 Z\" fill=\"var(--success)\" /></svg>",
+    "hints": [
+      "Start with a tall trunk in the middle using a brown brush.",
+      "Draw a big cloud-like green shape on top for the leaves!"
+    ],
+    "explanation": "Your tree looks green and healthy! The birds in the forest will love nesting here."
+  },
+  {
+    "id": "mind_011",
+    "day": 10,
+    "number": 4,
+    "title": "The Missing Sandwich",
+    "category": "Detective Elimination",
+    "theme": "School",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "Someone ate the missing sandwich. Amy says, 'I didn't do it.' Ben says, 'Amy did it.' Charlie says, 'Ben is lying.' Only one child is telling the truth. Who ate the sandwich?",
+    "type": "multiple-choice",
+    "options": [
+      "Amy",
+      "Ben",
+      "Charlie",
+      "Cannot know"
+    ],
+    "correctAnswer": "Amy",
+    "hints": [
+      "Test each possibility.",
+      "Only one statement can be true."
+    ],
+    "explanation": "If Amy ate it, Amy lies, Ben tells the truth, Charlie lies. Exactly one truth."
+  },
+  {
+    "id": "mind_012",
+    "day": 10,
+    "number": 5,
+    "title": "The Lost Crayon",
+    "category": "Detective Elimination",
+    "theme": "Art",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "Three children are asked who lost the red crayon. Mia says, 'It wasn't me.' Leo says, 'It was Ava.' Ava says, 'Leo is wrong.' Only one child is telling the truth. Who lost the crayon?",
+    "type": "multiple-choice",
+    "options": [
+      "Ava",
+      "Mia",
+      "Leo",
+      "Cannot know"
+    ],
+    "correctAnswer": "Mia",
+    "hints": [
+      "Try each child as the culprit.",
+      "Check how many truths result."
+    ],
+    "explanation": "If Mia lost it, Mia lies, Leo lies, Ava tells the truth. Exactly one truth."
+  },
+  {
+    "id": "mind_013",
+    "day": 11,
+    "number": 1,
+    "title": "The Magic Sticker",
+    "category": "Psychological",
+    "theme": "School",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "A teacher gives two children the exact same sticker. One child is thrilled and the other is disappointed. How is that possible?",
+    "type": "multiple-choice",
+    "options": [
+      "One child already had that sticker",
+      "The sticker changed color",
+      "One sticker was fake",
+      "The teacher made a mistake"
+    ],
+    "correctAnswer": "One child already had that sticker",
+    "hints": [
+      "People react differently to the same thing.",
+      "Think about what each child already owns."
+    ],
+    "explanation": "The value of something depends on what you already have."
+  },
+  {
+    "id": "mind_014",
+    "day": 11,
+    "number": 2,
+    "title": "The Two Ice Creams",
+    "category": "Psychological",
+    "theme": "Food",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "Two children receive exactly the same ice cream. One thinks it is huge. The other thinks it is tiny. How can both be right?",
+    "type": "multiple-choice",
+    "options": [
+      "They are comparing it to different things",
+      "The ice cream changed size",
+      "One child counted wrong",
+      "The ice cream melted"
+    ],
+    "correctAnswer": "They are comparing it to different things",
+    "hints": [
+      "People judge things relative to expectations.",
+      "Compared with what?"
+    ],
+    "explanation": "Perception depends on context. The same thing can feel big or small depending on what came before."
+  },
+  {
+    "id": "d11_q3",
+    "day": 11,
+    "number": 3,
+    "title": "Draw an Ice Cream Cone",
+    "category": "Creative Crafting",
+    "theme": "Food",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Draw a giant ice cream cone! Draw a triangle cone at the bottom and a big round scoop of ice cream on top with a cherry!",
+    "type": "drawing",
+    "options": [],
+    "correctAnswer": "A drawing of an ice cream cone.",
+    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"><polygon points=\"35,50 65,50 50,90\" fill=\"peru\" /><circle cx=\"50\" cy=\"42\" r=\"15\" fill=\"pink\" /><circle cx=\"50\" cy=\"22\" r=\"4\" fill=\"red\" /><path d=\"M50,18 Q55,10 60,12\" stroke=\"red\" stroke-width=\"2\" /></svg>",
+    "hints": [
+      "Draw a downward-pointing triangle for the cone first.",
+      "Add a circle on top for the ice cream scoop, and top it with a tiny cherry!"
+    ],
+    "explanation": "Yum! That looks delicious. Pink strawberry is a classic choice!"
+  },
+  {
+    "id": "d11_q4",
+    "day": 11,
+    "number": 4,
+    "title": "The Toy Airplane",
+    "category": "Impossible Assumption",
+    "theme": "Toys",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "A toy airplane flies across the room, but it doesn't have any batteries, motor, or rubber bands. How is it moving?",
+    "type": "multiple-choice",
+    "options": [
+      "Someone threw it",
+      "It is a magical airplane",
+      "Wind blew it from outside",
+      "It has secret solar panels"
+    ],
+    "correctAnswer": "Someone threw it",
+    "hints": [
+      "How do paper or plastic toy gliders fly?",
+      "Think about who is playing with the toy."
+    ],
+    "explanation": "Simple toy gliders fly when someone throws them through the air."
+  },
+  {
+    "id": "d11_q5",
+    "day": 11,
+    "number": 5,
+    "title": "The Alphabet Key",
+    "category": "Logical Thinking",
+    "theme": "School",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "If A=1, B=2, C=3, and D=4, what word is spelled by the numbers 2-1-7?",
+    "type": "text-input",
+    "correctAnswer": "BAG",
+    "hints": [
+      "Find the letters for 2, 1, and 7.",
+      "2 is B, 1 is A. What letter is the 7th in the alphabet?"
+    ],
+    "explanation": "2 is B, 1 is A, and 7 is G. Spells BAG."
+  }
+]
