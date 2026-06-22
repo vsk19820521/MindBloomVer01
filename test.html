@@ -281,6 +281,11 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ username: "__test_emma" })
         });
+        await fetch("/api/delete-user", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username: "__test_sophia" })
+        });
       } catch (e) {
         console.warn("Failed to clean up test user on server:", e);
       }
@@ -293,11 +298,11 @@
       
       // 1. DATABASE INTEGRITY
       await runTest("JSON Puzzles Database Integrity", async (log) => {
-        const response = await fetch("data/puzzles.json");
+        const response = await fetch("data/puzzles.json?v=" + Date.now());
         const puzzles = await response.json();
 
         log(assert(Array.isArray(puzzles), "Puzzles loads as an array"));
-        log(assertEquals(puzzles.length, 55, "Puzzles database has exactly 55 puzzles (11 days * 5 puzzles/day)"));
+        log(assertEquals(puzzles.length, 75, "Puzzles database has exactly 75 puzzles (15 days * 5 puzzles/day)"));
         
         // Assert schema format
         const p1 = puzzles[0];
@@ -527,12 +532,12 @@
 
       // 11. PUZZLES JSON STRUCTURE CONSISTENCY
       await runTest("Database Puzzles Sequence and Consistency", async (log) => {
-        const response = await fetch("data/puzzles.json");
+        const response = await fetch("data/puzzles.json?v=" + Date.now());
         const puzzles = await response.json();
 
         // Check 5 puzzles per day sequentially
         const maxDay = Math.max(...puzzles.map(p => p.day));
-        log(assertEquals(maxDay, 11, "Puzzles database has puzzles up to Day 11"));
+        log(assertEquals(maxDay, 15, "Puzzles database has puzzles up to Day 15"));
 
         for (let d = 1; d <= maxDay; d++) {
           const dayPuzzles = puzzles.filter(p => p.day === d);
@@ -541,6 +546,119 @@
           const numbers = dayPuzzles.map(p => p.number).sort((a,b) => a-b);
           log(assertEquals(JSON.stringify(numbers), "[1,2,3,4,5]", `Day ${d} puzzle numbers are sequential [1..5]`));
         }
+      });
+
+      // 12. DAILY REVIEW AND ATTEMPT TRACKING SYSTEM
+      await runTest("Daily Review and Attempt Tracking System", async (log) => {
+        // Register a clean test user
+        const parentData = { email: "parent2@test.com", phone: "+1234567890" };
+        const childData = {
+          firstName: "Sophia",
+          lastName: "Review",
+          gender: "Female",
+          age: 9,
+          avatar: "🐰 Bunny",
+          livingCountry: "USA",
+          culturalAffiliation: "US"
+        };
+        const credentials = { username: "__test_sophia", password: "password123" };
+        await StorageService.registerUser(parentData, childData, credentials);
+        
+        // Login to set session
+        const loginOk = await StorageService.loginUser("__test_sophia", "password123");
+        log(assertEquals(loginOk.success, true, "Login succeeds for test review user"));
+
+        const user = StorageService.getCurrentUser();
+        const activePuzzleId = "d1_q1";
+        
+        // Log incorrect attempt manually mimicking the app.js submit logic
+        const existingRecord = user.gameState.completedPuzzles[activePuzzleId] || { attempts: [] };
+        const newAttempts = [...(existingRecord.attempts || [])];
+        newAttempts.push({
+          userAnswer: "Red, Green, Blue",
+          timeAttempted: new Date().toISOString(),
+          dateAttempted: "2026-06-21", // Backdated to yesterday!
+          correct: false
+        });
+
+        user.gameState.completedPuzzles[activePuzzleId] = {
+          answered: false,
+          correct: false,
+          userAnswer: "Red, Green, Blue",
+          coinsAwarded: 0,
+          timeSolved: "",
+          needsReview: true,
+          reviewed: false,
+          attempts: newAttempts
+        };
+
+        await StorageService.updateGameState(user.gameState);
+        
+        const updatedUser = StorageService.getCurrentUser();
+        const record = updatedUser.gameState.completedPuzzles[activePuzzleId];
+        
+        log(assert(record !== undefined, "Completed puzzle record created"));
+        log(assertEquals(record.needsReview, true, "needsReview flag is true"));
+        log(assertEquals(record.reviewed, false, "reviewed flag is initially false"));
+        log(assertEquals(record.attempts.length, 1, "There is exactly 1 attempt logged"));
+        log(assertEquals(record.attempts[0].correct, false, "The attempt is marked incorrect"));
+        log(assertEquals(record.attempts[0].dateAttempted, "2026-06-21", "The attempt date is correctly preserved"));
+
+        // Simulate a correct attempt on a subsequent day (today)
+        const currentAttempts = [...(record.attempts || [])];
+        currentAttempts.push({
+          userAnswer: "Blue, Yellow, Red", // correct answer
+          timeAttempted: new Date().toISOString(),
+          dateAttempted: "2026-06-22",
+          correct: true
+        });
+
+        updatedUser.gameState.completedPuzzles[activePuzzleId] = {
+          answered: true,
+          correct: true,
+          userAnswer: "Blue, Yellow, Red",
+          coinsAwarded: 10,
+          timeSolved: "2026-06-22",
+          needsReview: record.needsReview || false,
+          reviewed: record.reviewed || false,
+          attempts: currentAttempts
+        };
+
+        await StorageService.updateGameState(updatedUser.gameState);
+
+        const finalUser = StorageService.getCurrentUser();
+        const finalRecord = finalUser.gameState.completedPuzzles[activePuzzleId];
+
+        log(assertEquals(finalRecord.answered, true, "Puzzle is now marked as answered"));
+        log(assertEquals(finalRecord.correct, true, "Puzzle is marked correct"));
+        log(assertEquals(finalRecord.needsReview, true, "needsReview flag remains true even after solving"));
+        log(assertEquals(finalRecord.reviewed, false, "reviewed flag remains false until reviewed flow"));
+        log(assertEquals(finalRecord.attempts.length, 2, "There are exactly 2 attempts logged"));
+        
+        // Verify review filter logic
+        const today = "2026-06-22";
+        const reviewQueue = [];
+        Object.keys(finalUser.gameState.completedPuzzles).forEach(pid => {
+          const r = finalUser.gameState.completedPuzzles[pid];
+          if (r && r.needsReview && !r.reviewed) {
+            const hasPrevDayIncorrect = r.attempts && r.attempts.some(attempt => {
+              return !attempt.correct && attempt.dateAttempted < today;
+            });
+            if (hasPrevDayIncorrect) {
+              reviewQueue.push(pid);
+            }
+          }
+        });
+
+        log(assertEquals(reviewQueue.length, 1, "Review queue correctly identifies 1 previous-day mistake puzzle"));
+        log(assertEquals(reviewQueue[0], "d1_q1", "Identified puzzle in review queue is indeed d1_q1"));
+
+        // Mark it as reviewed
+        finalUser.gameState.completedPuzzles["d1_q1"].reviewed = true;
+        await StorageService.updateGameState(finalUser.gameState);
+
+        const afterReviewUser = StorageService.getCurrentUser();
+        log(assertEquals(afterReviewUser.gameState.completedPuzzles["d1_q1"].reviewed, true, "Puzzle successfully marked as reviewed in DB"));
       });
 
       updateStats();

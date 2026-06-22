@@ -50,7 +50,7 @@ export const StorageService = {
         levelName: "Mind Bloom",
         theme: "unicorn",
         isMuted: false,
-        completedPuzzles: {}, // Maps puzzleId -> { answered: boolean, correct: boolean|null, userAnswer: any, timeSolved: string, approvedByParent: boolean }
+        completedPuzzles: {}, // Maps puzzleId -> { answered: boolean, correct: boolean|null, userAnswer: any, timeSolved: string, approvedByParent: boolean, needsReview: boolean, reviewed: boolean, attempts: Array<{ userAnswer, timeAttempted, dateAttempted, correct }> }
       }
     };
 

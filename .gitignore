@@ -1,0 +1,8 @@
+# Ignore individual user progress files
+data/user_*.json
+
+# Ignore system / developer logs and scratch folders
+.gemini/
+*.log
+scratch/
+test_api.py

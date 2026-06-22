@@ -121,6 +121,23 @@ const modalLevelName = document.getElementById("modal-level-name");
 const modalLevelCoins = document.getElementById("modal-level-coins");
 const btnCloseCelebration = document.getElementById("btn-close-celebration");
 
+// Review overlay DOM elements
+const reviewOverlay = document.getElementById("review-overlay");
+const reviewCategory = document.getElementById("review-category");
+const reviewDifficulty = document.getElementById("review-difficulty");
+const reviewTitle = document.getElementById("review-title");
+const reviewQuestion = document.getElementById("review-question");
+const reviewWrongAnswer = document.getElementById("review-wrong-answer");
+const reviewCorrectAnswer = document.getElementById("review-correct-answer");
+const reviewExplanation = document.getElementById("review-explanation");
+const btnReviewNext = document.getElementById("btn-review-next");
+
+// Parent Dashboard statistics DOM elements
+const parentDifficultyStats = document.getElementById("parent-difficulty-stats");
+const parentCategoryStats = document.getElementById("parent-category-stats");
+const parentCalendarView = document.getElementById("parent-calendar-view");
+const btnParentLoadPrevMonth = document.getElementById("btn-parent-load-prev-month");
+
 // Canvas Drawing Context
 const ctx = drawingBoard.getContext("2d");
 
@@ -252,7 +269,7 @@ function renderAvatarSelector() {
 async function init() {
   // Load puzzles from external puzzles.json
   try {
-    const response = await fetch("data/puzzles.json");
+    const response = await fetch("data/puzzles.json?v=" + Date.now());
     PUZZLES = await response.json();
   } catch (e) {
     console.error("Failed to load puzzles.json:", e);
@@ -312,6 +329,9 @@ function showMainApp() {
   switchTab("play");
   renderHeader();
   renderPuzzleStrip();
+  
+  // Trigger daily brain power-up review if needed
+  checkAndTriggerReviews();
 }
 
 function resetAuthForms() {
@@ -759,6 +779,90 @@ btnShowHint.addEventListener("click", () => {
   }
 });
 
+// ================= DAILY REVIEW (BRAIN POWER-UP) SYSTEM =================
+let reviewQueue = [];
+let currentReviewIndex = 0;
+
+function checkAndTriggerReviews() {
+  if (!currentUser || !currentUser.gameState || !currentUser.gameState.completedPuzzles) return;
+
+  const today = new Date().toISOString().split("T")[0];
+  reviewQueue = [];
+  currentReviewIndex = 0;
+
+  // Scan all puzzles in the system to find unreviewed previous-day incorrect attempts
+  PUZZLES.forEach(puzzle => {
+    const record = currentUser.gameState.completedPuzzles[puzzle.id];
+    if (record && record.needsReview && !record.reviewed) {
+      const hasPrevDayIncorrect = record.attempts && record.attempts.some(attempt => {
+        return !attempt.correct && attempt.dateAttempted < today;
+      });
+
+      if (hasPrevDayIncorrect) {
+        reviewQueue.push({
+          puzzle,
+          record
+        });
+      }
+    }
+  });
+
+  if (reviewQueue.length > 0) {
+    showReviewModal();
+  }
+}
+
+function showReviewModal() {
+  if (currentReviewIndex >= reviewQueue.length) {
+    // All caught up!
+    reviewOverlay.classList.add("hidden");
+    SoundManager.playSuccess();
+    alert("🎉 Fantastic job! You have reviewed all your tricky puzzles from yesterday. Your brain is now powered up! Let's start playing today's puzzles! 🚀");
+    return;
+  }
+
+  reviewOverlay.classList.remove("hidden");
+  const { puzzle, record } = reviewQueue[currentReviewIndex];
+
+  reviewCategory.innerText = puzzle.category;
+  reviewDifficulty.innerText = puzzle.difficulty;
+  reviewDifficulty.className = "difficulty-badge";
+  reviewDifficulty.classList.add(puzzle.difficulty.toLowerCase());
+  reviewTitle.innerText = puzzle.title;
+  reviewQuestion.innerText = puzzle.question;
+
+  // Gather and format wrong attempts
+  const wrongAnswers = record.attempts
+    .filter(a => !a.correct)
+    .map(a => `"${a.userAnswer}"`)
+    .join(", ");
+  reviewWrongAnswer.innerText = wrongAnswers || "No response recorded";
+
+  reviewCorrectAnswer.innerText = `"${puzzle.correctAnswer}"`;
+  reviewExplanation.innerText = puzzle.explanation || "No explanation is available.";
+
+  // Dynamic button labels
+  if (currentReviewIndex < reviewQueue.length - 1) {
+    btnReviewNext.innerText = "Understood, show next! 👉";
+  } else {
+    btnReviewNext.innerText = "I understand this now! Let's Play! 🚀";
+  }
+}
+
+btnReviewNext.addEventListener("click", () => {
+  SoundManager.playClick();
+  const currentItem = reviewQueue[currentReviewIndex];
+  if (currentItem) {
+    // Mark as reviewed
+    const pid = currentItem.puzzle.id;
+    currentUser.gameState.completedPuzzles[pid].reviewed = true;
+    StorageService.updateGameState(currentUser.gameState);
+  }
+
+  currentReviewIndex++;
+  showReviewModal();
+});
+
 // Submit/Check Answer click
 btnSubmitAnswer.addEventListener("click", () => {
   if (!activePuzzle) return;
@@ -790,13 +894,23 @@ btnSubmitAnswer.addEventListener("click", () => {
     
     // Add to completed puzzles but marked as pending approval.
     // When parent approves, they will click verification and reward full coins.
+    const existingRecord = currentUser.gameState.completedPuzzles[activePuzzle.id] || { attempts: [] };
+    const newAttempts = [...(existingRecord.attempts || [])];
+    newAttempts.push({
+      userAnswer: "[Canvas Drawing]",
+      timeAttempted: new Date().toISOString(),
+      dateAttempted: new Date().toISOString().split("T")[0],
+      correct: null
+    });
+
     currentUser.gameState.completedPuzzles[activePuzzle.id] = {
       answered: true,
       correct: null, // pending review
       userAnswer: userAnswer,
       pendingApproval: true,
       coinsAwarded: 0,
-      timeSolved: new Date().toISOString().split("T")[0]
+      timeSolved: new Date().toISOString().split("T")[0],
+      attempts: newAttempts
     };
     
     SoundManager.playSuccess();
@@ -816,12 +930,24 @@ btnSubmitAnswer.addEventListener("click", () => {
     currentUser.gameState.coins += activePuzzle.coinsReward;
     
     // Save completion
+    const existingRecord = currentUser.gameState.completedPuzzles[activePuzzle.id] || { attempts: [] };
+    const newAttempts = [...(existingRecord.attempts || [])];
+    newAttempts.push({
+      userAnswer: userAnswer,
+      timeAttempted: new Date().toISOString(),
+      dateAttempted: new Date().toISOString().split("T")[0],
+      correct: true
+    });
+
     currentUser.gameState.completedPuzzles[activePuzzle.id] = {
       answered: true,
       correct: true,
       userAnswer: userAnswer,
       coinsAwarded: activePuzzle.coinsReward,
-      timeSolved: new Date().toISOString().split("T")[0]
+      timeSolved: new Date().toISOString().split("T")[0],
+      needsReview: existingRecord.needsReview || false,
+      reviewed: existingRecord.reviewed || false,
+      attempts: newAttempts
     };
     
     StorageService.updateGameState(currentUser.gameState);
@@ -837,6 +963,30 @@ btnSubmitAnswer.addEventListener("click", () => {
     checkAllDayPuzzlesCompleted();
   } else {
     SoundManager.playError();
+
+    // Log incorrect attempt
+    const existingRecord = currentUser.gameState.completedPuzzles[activePuzzle.id] || { attempts: [] };
+    const newAttempts = [...(existingRecord.attempts || [])];
+    newAttempts.push({
+      userAnswer: userAnswer,
+      timeAttempted: new Date().toISOString(),
+      dateAttempted: new Date().toISOString().split("T")[0],
+      correct: false
+    });
+
+    currentUser.gameState.completedPuzzles[activePuzzle.id] = {
+      answered: false,
+      correct: false,
+      userAnswer: userAnswer,
+      coinsAwarded: 0,
+      timeSolved: "",
+      needsReview: true,
+      reviewed: false,
+      attempts: newAttempts
+    };
+
+    StorageService.updateGameState(currentUser.gameState);
+    
     alert("❌ Not quite! Give it another try or check the hints!");
   }
 });
@@ -849,8 +999,25 @@ function checkAllDayPuzzlesCompleted() {
   });
 
   if (allDone) {
+    const nextDay = currentUser.gameState.currentDay + 1;
+    const maxDayInJson = PUZZLES.length > 0 ? Math.max(...PUZZLES.map(p => p.day)) : 1;
+    
+    let unlockedNewDay = false;
+    if (nextDay <= maxDayInJson) {
+      if (nextDay > currentUser.gameState.unlockedUpToDay) {
+        currentUser.gameState.unlockedUpToDay = nextDay;
+        StorageService.updateGameState(currentUser.gameState);
+        unlockedNewDay = true;
+      }
+    }
+
     setTimeout(() => {
-      alert(`🎉 Wonderful job! You completed all 5 puzzles for Day ${currentUser.gameState.currentDay}!`);
+      if (unlockedNewDay) {
+        alert(`🎉 Wonderful job! You completed all 5 puzzles for Day ${currentUser.gameState.currentDay}! Day ${nextDay} is now unlocked! Click the arrow to check it out! 🚀`);
+      } else {
+        alert(`🎉 Wonderful job! You completed all 5 puzzles for Day ${currentUser.gameState.currentDay}!`);
+      }
+      renderPuzzleStrip();
     }, 800);
   }
 }
@@ -976,6 +1143,246 @@ btnParentGateSubmit.addEventListener("click", () => {
 function renderParentDashboard() {
   parentDayOverride.value = currentUser.gameState.currentDay;
   renderParentDrawings();
+  
+  // Render new metrics
+  renderParentDifficultyStats();
+  renderParentCategoryStats();
+  renderParentCalendarView();
+}
+
+function renderParentDifficultyStats() {
+  if (!parentDifficultyStats) return;
+  parentDifficultyStats.innerHTML = "";
+  
+  const levels = ["Easy", "Medium", "Hard"];
+  
+  levels.forEach(lvl => {
+    // Count successful attempts (solved puzzles) of that difficulty
+    const solved = PUZZLES.filter(p => {
+      if (p.difficulty !== lvl) return false;
+      const rec = currentUser.gameState.completedPuzzles[p.id];
+      return rec && rec.answered;
+    }).length;
+
+    // Count total attempts of that difficulty
+    let totalAttempts = 0;
+    PUZZLES.forEach(p => {
+      if (p.difficulty === lvl) {
+        const rec = currentUser.gameState.completedPuzzles[p.id];
+        if (rec) {
+          if (rec.attempts && rec.attempts.length > 0) {
+            totalAttempts += rec.attempts.length;
+          } else if (rec.answered) {
+            totalAttempts += 1; // Fallback for legacy records
+          }
+        }
+      }
+    });
+
+    const percent = totalAttempts > 0 ? Math.round((solved / totalAttempts) * 100) : 0;
+    
+    const container = document.createElement("div");
+    container.className = "parent-progress-bar-container";
+    container.innerHTML = `
+      <div class="parent-progress-bar-label">
+        <span style="font-weight: bold;">${lvl}</span>
+        <span>${solved}/${totalAttempts} (Solved: ${percent}%)</span>
+      </div>
+      <div class="parent-progress-bar-bg">
+        <div class="parent-progress-bar-fill ${lvl.toLowerCase()}" style="width: ${percent}%;"></div>
+      </div>
+    `;
+    parentDifficultyStats.appendChild(container);
+  });
+}
+
+function renderParentCategoryStats() {
+  if (!parentCategoryStats) return;
+  parentCategoryStats.innerHTML = "";
+  
+  // Get all unique categories in PUZZLES
+  const categories = [...new Set(PUZZLES.map(p => p.category))];
+  
+  const stats = categories.map(cat => {
+    const catPuzzles = PUZZLES.filter(p => p.category === cat);
+    
+    let totalAttempts = 0;
+    let succeeded = 0;
+    
+    catPuzzles.forEach(p => {
+      const rec = currentUser.gameState.completedPuzzles[p.id];
+      if (rec) {
+        if (rec.attempts && rec.attempts.length > 0) {
+          totalAttempts += rec.attempts.length;
+        } else if (rec.answered) {
+          totalAttempts += 1;
+        }
+        if (rec.answered) {
+          succeeded++;
+        }
+      }
+    });
+
+    return {
+      category: cat,
+      totalAttempts,
+      succeeded
+    };
+  });
+
+  // Sort by succeeded count desc, then totalAttempts count desc
+  stats.sort((a, b) => b.succeeded - a.succeeded || b.totalAttempts - a.totalAttempts);
+
+  stats.forEach(item => {
+    let badgeHtml = "";
+    const percent = item.totalAttempts > 0 ? Math.round((item.succeeded / item.totalAttempts) * 100) : 0;
+    
+    if (item.totalAttempts > 0) {
+      let badgeClass = "average";
+      let badgeText = "Learning";
+      const ratio = item.succeeded / item.totalAttempts;
+      
+      if (ratio >= 0.8) {
+        badgeClass = "strength";
+        badgeText = "Strength 🌟";
+      } else if (ratio < 0.5) {
+        badgeClass = "needs-work";
+        badgeText = "Needs Work 💡";
+      }
+      
+      badgeHtml = `<span class="skill-category-badge ${badgeClass}">${badgeText}</span>`;
+    }
+
+    const row = document.createElement("div");
+    row.className = "skill-category-item";
+    row.innerHTML = `
+      <span class="skill-category-name" title="${item.category}">${item.category}</span>
+      <span style="font-size: 0.8rem; color: var(--text-muted); margin-left: auto; margin-right: 12px;">
+        ${item.succeeded}/${item.totalAttempts} (Solved: ${percent}%)
+      </span>
+      ${badgeHtml}
+    `;
+    parentCategoryStats.appendChild(row);
+  });
+}
+
+function renderMonthCalendar(year, month, container) {
+  const monthName = new Date(year, month, 1).toLocaleString("default", { month: "short" });
+  
+  const monthCard = document.createElement("div");
+  monthCard.style.cssText = "flex: 1; min-width: 250px; max-width: 320px;";
+  
+  const title = document.createElement("h5");
+  title.style.cssText = "margin: 0 0 10px 0; font-size: 0.9rem; text-align: center; color: var(--text-muted); font-family: var(--font-title);";
+  title.innerText = `${monthName} ${year}`;
+  monthCard.appendChild(title);
+  
+  const grid = document.createElement("div");
+  grid.className = "calendar-grid-container";
+  
+  const daysHeader = ["S", "M", "T", "W", "T", "F", "S"];
+  daysHeader.forEach(h => {
+    const el = document.createElement("div");
+    el.className = "calendar-day-header";
+    el.innerText = h;
+    grid.appendChild(el);
+  });
+
+  const firstDayIndex = new Date(year, month, 1).getDay();
+  const totalDays = new Date(year, month + 1, 0).getDate();
+  const todayStr = new Date().toISOString().split("T")[0];
+
+  // Empty cells
+  for (let i = 0; i < firstDayIndex; i++) {
+    const el = document.createElement("div");
+    el.className = "calendar-day-cell empty";
+    grid.appendChild(el);
+  }
+
+  // Days of month
+  for (let d = 1; d <= totalDays; d++) {
+    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+    
+    let attemptedCount = 0;
+    let solvedCount = 0;
+
+    if (currentUser && currentUser.gameState && currentUser.gameState.completedPuzzles) {
+      Object.keys(currentUser.gameState.completedPuzzles).forEach(pid => {
+        const rec = currentUser.gameState.completedPuzzles[pid];
+        if (rec) {
+          if (rec.answered && rec.timeSolved === dateStr) {
+            solvedCount++;
+          }
+          const attemptedOnDate = rec.attempts && rec.attempts.some(att => att.dateAttempted === dateStr);
+          if (attemptedOnDate) {
+            attemptedCount++;
+          }
+        }
+      });
+    }
+
+    const el = document.createElement("div");
+    el.className = "calendar-day-cell";
+    el.innerText = d;
+    el.title = `${dateStr}: ${solvedCount} solved, ${attemptedCount} attempted`;
+
+    if (solvedCount >= 5) {
+      el.classList.add("full-completed");
+    } else if (attemptedCount > 0 || solvedCount > 0) {
+      el.classList.add("active-play");
+    }
+
+    if (dateStr === todayStr) {
+      el.classList.add("today");
+    }
+
+    grid.appendChild(el);
+  }
+
+  monthCard.appendChild(grid);
+  container.appendChild(monthCard);
+}
+
+function renderParentCalendarView() {
+  if (!parentCalendarView) return;
+  parentCalendarView.innerHTML = "";
+  
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const currentMonth = now.getMonth();
+
+  if (parentCalendarView.showPreviousMonth === undefined) {
+    parentCalendarView.showPreviousMonth = false;
+  }
+  
+  if (btnParentLoadPrevMonth) {
+    if (parentCalendarView.showPreviousMonth) {
+      btnParentLoadPrevMonth.innerText = "➖ Hide Previous Month";
+    } else {
+      btnParentLoadPrevMonth.innerText = "📅 Load Previous Month";
+    }
+  }
+
+  if (parentCalendarView.showPreviousMonth) {
+    let prevMonth = currentMonth - 1;
+    let prevYear = currentYear;
+    if (prevMonth < 0) {
+      prevMonth = 11;
+      prevYear = currentYear - 1;
+    }
+    renderMonthCalendar(prevYear, prevMonth, parentCalendarView);
+  }
+  
+  renderMonthCalendar(currentYear, currentMonth, parentCalendarView);
+}
+
+// Bind Load Previous Month toggle click listener
+if (btnParentLoadPrevMonth) {
+  btnParentLoadPrevMonth.addEventListener("click", () => {
+    SoundManager.playClick();
+    parentCalendarView.showPreviousMonth = !parentCalendarView.showPreviousMonth;
+    renderParentCalendarView();
+  });
 }
 
 btnParentDaySet.addEventListener("click", () => {
@@ -1057,7 +1464,7 @@ function renderParentDrawings() {
         </div>
         <div style="display: flex; gap: 20px; align-items: center; justify-content: space-around; flex-wrap: wrap; margin: 15px 0;">
           <div style="text-align: center; flex: 1; min-width: 150px;">
-            <span style="font-size: 0.85rem; font-weight: bold; display: block; margin-bottom: 5px; color: var(--text-muted); font-family: var(--font-title);">${currentUser.childFirstName}'s Drawing</span>
+            <span style="font-size: 0.85rem; font-weight: bold; display: block; margin-bottom: 5px; color: var(--text-muted); font-family: var(--font-title);">${currentUser.childFirstName}'s Creation</span>
             <img class="review-img" src="${record.userAnswer}" style="border: 2px solid var(--primary-color); border-radius: var(--radius-sm); max-width: 100%; max-height: 150px; background: white;">
           </div>
           <div style="text-align: center; flex: 1; min-width: 150px;">
@@ -1069,7 +1476,7 @@ function renderParentDrawings() {
         </div>
         <div style="display:flex; justify-content:space-between; align-items:center;">
           <span style="font-weight:bold; color:var(--accent-text);">Reward: 💎 ${puzzle.coinsReward} Coins</span>
-          <button class="btn-primary btn-approve" data-id="${puzzleId}" style="padding:8px 16px; font-size:0.9rem;">Approve Drawing & Give Coins</button>
+          <button class="btn-primary btn-approve" data-id="${puzzleId}" style="padding:8px 16px; font-size:0.9rem;">Approve Submission & Give Coins</button>
         </div>
       `;
       

@@ -1251,5 +1251,485 @@
       "2 is B, 1 is A. What letter is the 7th in the alphabet?"
     ],
     "explanation": "2 is B, 1 is A, and 7 is G. Spells BAG."
+  },
+  {
+    "id": "d12_q1",
+    "day": 12,
+    "number": 1,
+    "title": "The Lost Car Keys",
+    "category": "Missing Information",
+    "theme": "Family",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Liam went to look for his mom's car keys in the drawer, but they weren't there. He searched the kitchen, living room, and hallway. Later, his mom said, 'The keys are exactly where I left them!' What is missing to find the keys?",
+    "type": "multiple-choice",
+    "options": [
+      "Where mom actually left them",
+      "How many keys are on the ring",
+      "The color of the car keys keychain",
+      "What time mom came home"
+    ],
+    "correctAnswer": "Where mom actually left them",
+    "hints": [
+      "Mom says she left them somewhere.",
+      "Do we know where that place is?"
+    ],
+    "explanation": "We are missing the information of where the mom actually put down/left the keys."
+  },
+  {
+    "id": "d12_q2",
+    "day": 12,
+    "number": 2,
+    "title": "The Fast Walker",
+    "category": "Ambiguous Wording",
+    "theme": "Sports",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "A man claims that he can walk faster than any race car can drive. Everyone laughs at him, but then he proves it's true. How?",
+    "type": "multiple-choice",
+    "options": [
+      "The race car is parked and turned off",
+      "He walks on a treadmill on a high speed",
+      "He is walking inside a moving train",
+      "The race car is going backwards"
+    ],
+    "correctAnswer": "The race car is parked and turned off",
+    "hints": [
+      "Does walking faster than a car drive mean the car is driving fast?",
+      "What if the car isn't driving at all?"
+    ],
+    "explanation": "Walking faster than a car can drive is easy if the car is parked or turned off—its driving speed is zero!"
+  },
+  {
+    "id": "d12_q3",
+    "day": 12,
+    "number": 3,
+    "title": "The Upside Down Book",
+    "category": "Perspective Shift",
+    "theme": "School",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Leo is reading a book. He says that if he rotates the book 180 degrees (upside down), the words look exactly the same and still make sense. How is this possible?",
+    "type": "multiple-choice",
+    "options": [
+      "The book is a book of numbers like '808' and '906'",
+      "Leo is reading a picture-only book",
+      "The language of the book is sideways",
+      "Leo is hanging upside down from a tree"
+    ],
+    "correctAnswer": "The book is a book of numbers like '808' and '906'",
+    "hints": [
+      "Think about characters that look the same upside down.",
+      "Numbers like 0, 8, and some upside-down numbers like 9 and 6 are key."
+    ],
+    "explanation": "Rotating certain symmetrical words or numeric books (like '808' or '906') upside down makes them look identical."
+  },
+  {
+    "id": "d12_q4",
+    "day": 12,
+    "number": 4,
+    "title": "The Heavier Drop",
+    "category": "Counter-Intuitive Outcome",
+    "theme": "Science",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "If you drop a 10-pound metal bowling ball and a 1-pound metal ball from the exact same height at the exact same time, which one will hit the ground first? (Assume no wind resistance)",
+    "type": "multiple-choice",
+    "options": [
+      "Both will hit at the exact same time",
+      "The 10-pound ball will hit first",
+      "The 1-pound ball will hit first",
+      "It depends on how wide they are"
+    ],
+    "correctAnswer": "Both will hit at the exact same time",
+    "hints": [
+      "Gravity pulls on objects equally regardless of their weight.",
+      "Think about Galileo's famous experiment at the Leaning Tower of Pisa."
+    ],
+    "explanation": "Gravity accelerates all objects at the same rate, so they fall and hit the ground together, even if one is much heavier!"
+  },
+  {
+    "id": "d12_q5",
+    "day": 12,
+    "number": 5,
+    "title": "The Chocolate Thief",
+    "category": "Detective Elimination",
+    "theme": "Family",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "Mom's chocolate bar is missing. Suspense rests on three siblings: Maya says 'Ben took it', Ben says 'Maya is lying', and Leo says 'I didn't take it'. If only ONE of them is telling the truth, who stole the chocolate?",
+    "type": "multiple-choice",
+    "options": [
+      "Leo",
+      "Maya",
+      "Ben",
+      "Nobody"
+    ],
+    "correctAnswer": "Leo",
+    "hints": [
+      "Look at Maya and Ben: one of them must be lying and one must be telling the truth.",
+      "Since only one sibling is telling the truth, the truth-teller is either Maya or Ben. That means Leo is lying!"
+    ],
+    "explanation": "Maya and Ben make contradictory statements, so one of them must be telling the truth. Since only ONE person tells the truth, Leo's statement ('I didn't take it') must be a lie. Therefore, Leo stole the chocolate."
+  },
+  {
+    "id": "d13_q1",
+    "day": 13,
+    "number": 1,
+    "title": "The Shared Toy",
+    "category": "Psychological",
+    "theme": "Toys",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Two friends, Leo and Sam, want to play with the exact same toy truck. Instead of fighting, they decide to play together, and both have twice as much fun. Why did their fun increase?",
+    "type": "multiple-choice",
+    "options": [
+      "Sharing and playing together is more fun than playing alone",
+      "The toy truck magically duplicated",
+      "They got coins for sharing",
+      "The truck was very fast"
+    ],
+    "correctAnswer": "Sharing and playing together is more fun than playing alone",
+    "hints": [
+      "Think about playing with a friend vs. playing by yourself.",
+      "Fun isn't just about the physical toy, it's about the company."
+    ],
+    "explanation": "Playing together allows children to invent games and share stories, which makes the activity much more engaging than playing alone."
+  },
+  {
+    "id": "d13_q2",
+    "day": 13,
+    "number": 2,
+    "title": "The Closed Museum",
+    "category": "Missing Information",
+    "theme": "School",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "The school bus arrived at the science museum, but the doors were locked and the lights were off. The teacher checked her calendar and said, 'Oh, we cannot go inside today!' What information did she forget to check before planning the trip?",
+    "type": "multiple-choice",
+    "options": [
+      "The museum's opening days and hours",
+      "How many students were on the bus",
+      "The price of the tickets",
+      "The bus driver's name"
+    ],
+    "correctAnswer": "The museum's opening days and hours",
+    "hints": [
+      "Why would a museum be locked on a day people visit?",
+      "Think about holidays or weekly closing days."
+    ],
+    "explanation": "We did not know if the museum was open today. Checking the museum's schedule is crucial before planning a trip."
+  },
+  {
+    "id": "d13_q3",
+    "day": 13,
+    "number": 3,
+    "title": "The Room with No Doors",
+    "category": "Ambiguous Wording",
+    "theme": "House",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "A girl is locked inside a room that has no doors, no windows, and no openings in the walls, floor, or ceiling. Yet she walks out of the room easily. How?",
+    "type": "multiple-choice",
+    "options": [
+      "It is a mushroom (which is called a room)",
+      "She has a magical key",
+      "She crawled through a tiny mouse hole",
+      "The ceiling was open"
+    ],
+    "correctAnswer": "It is a mushroom (which is called a room)",
+    "hints": [
+      "Is this room a real building?",
+      "Think about a word that ends with 'room' but grows in the forest."
+    ],
+    "explanation": "A mush-room is a fungus, not a physical room, so walking 'out of it' is just a play on words."
+  },
+  {
+    "id": "d13_q4",
+    "day": 13,
+    "number": 4,
+    "title": "The Reflection in the Mirror",
+    "category": "Perspective Shift",
+    "theme": "House",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "If you stand in front of a mirror and raise your right hand, which hand does your reflection raise?",
+    "type": "multiple-choice",
+    "options": [
+      "Its left hand",
+      "Its right hand",
+      "Both hands",
+      "No hands"
+    ],
+    "correctAnswer": "Its left hand",
+    "hints": [
+      "Look closely at a mirror image. It reverses things horizontally.",
+      "Imagine walking into the mirror and turning around to face yourself."
+    ],
+    "explanation": "A mirror reflection is horizontally reversed. Raising your right hand makes your reflection raise its left hand from its perspective."
+  },
+  {
+    "id": "d13_q5",
+    "day": 13,
+    "number": 5,
+    "title": "The Paper Cup Fire",
+    "category": "Counter-Intuitive Outcome",
+    "theme": "Science",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "If you fill a paper cup with cold water and place it directly over a candle flame, what happens to the paper cup?",
+    "type": "multiple-choice",
+    "options": [
+      "It does not burn or catch fire because the water absorbs the heat",
+      "It immediately burns and water spills everywhere",
+      "The paper cup melts like plastic",
+      "The water turns into ice"
+    ],
+    "correctAnswer": "It does not burn or catch fire because the water absorbs the heat",
+    "hints": [
+      "Water is excellent at absorbing and carrying away heat.",
+      "Paper needs to reach a very high temperature to catch fire, but water keeps it cool."
+    ],
+    "explanation": "The water absorbs the heat from the flame rapidly, keeping the paper below its ignition temperature, so the cup won't burn."
+  },
+  {
+    "id": "d14_q1",
+    "day": 14,
+    "number": 1,
+    "title": "The Broken Toy Window",
+    "category": "Detective Elimination",
+    "theme": "Family",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "A toy window was broken. Maya says, 'Lara did it.' Lara says, 'Leo did it.' Leo says, 'Lara is lying.' If only ONE sibling is telling the truth, who broke the window?",
+    "type": "multiple-choice",
+    "options": [
+      "Lara",
+      "Maya",
+      "Leo",
+      "Nobody"
+    ],
+    "correctAnswer": "Lara",
+    "hints": [
+      "Look at Lara's statement ('Leo did it') and Leo's statement ('Lara is lying'). They contradict each other.",
+      "One of those two must be telling the truth. Since only ONE person is telling the truth, Maya's statement ('Lara did it') must be a lie."
+    ],
+    "explanation": "Since only one statement is true, and the clash between Lara and Leo guarantees one of them is the truth-teller, Maya's statement must be false. Therefore, Lara broke the window."
+  },
+  {
+    "id": "d14_q2",
+    "day": 14,
+    "number": 2,
+    "title": "The Gold Medal",
+    "category": "Psychological",
+    "theme": "Sports",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "At a race, the runner who came in second place looks extremely sad, but the runner who came in third place is smiling and happy. Why is the third-place runner happier than the second-place runner?",
+    "type": "multiple-choice",
+    "options": [
+      "The second-place runner is focusing on missing gold; the third-place runner is happy to win any medal",
+      "The third-place runner got more coins",
+      "The second-place runner was disqualified",
+      "Third place gets a bigger trophy"
+    ],
+    "correctAnswer": "The second-place runner is focusing on missing gold; the third-place runner is happy to win any medal",
+    "hints": [
+      "Think about what each runner is comparing their result to.",
+      "Who was closer to winning the whole race?"
+    ],
+    "explanation": "Second-place runners often compare themselves to the winner (feeling they lost the gold), while third-place runners compare themselves to those who got no medal at all (feeling lucky to make the podium)."
+  },
+  {
+    "id": "d14_q3",
+    "day": 14,
+    "number": 3,
+    "title": "The Forgotten Birthday",
+    "category": "Missing Information",
+    "theme": "Family",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "A father told his son, 'Tomorrow is a very special birthday for someone in our family!' He didn't say who. The son searched the calendar but couldn't guess. What information was the son missing?",
+    "type": "multiple-choice",
+    "options": [
+      "The birth dates of his family members",
+      "What present to buy",
+      "What time the party starts",
+      "The father's age"
+    ],
+    "correctAnswer": "The birth dates of his family members",
+    "hints": [
+      "To know whose birthday it is, you need to match the date with a person.",
+      "What list of dates would solve this?"
+    ],
+    "explanation": "Knowing the calendar date is useless unless you have the list of family birth dates to match it against."
+  },
+  {
+    "id": "d14_q4",
+    "day": 14,
+    "number": 4,
+    "title": "The Wet Dog",
+    "category": "Ambiguous Wording",
+    "theme": "Animals",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "A black dog walks across a bridge during a heavy rainstorm, but not a single hair on the dog's body gets wet. How is this possible?",
+    "type": "multiple-choice",
+    "options": [
+      "It is a hairless dog",
+      "It is wearing a tiny dog raincoat",
+      "It is walking under an umbrella",
+      "The dog is running very fast"
+    ],
+    "correctAnswer": "It is a hairless dog",
+    "hints": [
+      "Read the question carefully: 'not a single hair... gets wet'.",
+      "What if the dog doesn't have any hair?"
+    ],
+    "explanation": "A hairless dog (like a Xoloitzcuintli) has no hair, so not a single hair can get wet!"
+  },
+  {
+    "id": "d14_q5",
+    "day": 14,
+    "number": 5,
+    "title": "The Mountain Summit",
+    "category": "Perspective Shift",
+    "theme": "Nature",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Before Mount Everest was discovered, what was the highest mountain on Earth?",
+    "type": "multiple-choice",
+    "options": [
+      "Mount Everest",
+      "Mount Kilimanjaro",
+      "Mount Fuji",
+      "Mont Blanc"
+    ],
+    "correctAnswer": "Mount Everest",
+    "hints": [
+      "Does a mountain need to be discovered by humans to exist?",
+      "Think about the actual height of the mountains, regardless of our knowledge."
+    ],
+    "explanation": "Mount Everest was always the highest mountain on Earth, even before humans discovered and named it!"
+  },
+  {
+    "id": "d15_q1",
+    "day": 15,
+    "number": 1,
+    "title": "The Floating Needle",
+    "category": "Counter-Intuitive Outcome",
+    "theme": "Science",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "A heavy steel needle normally sinks in water. But if you place it very gently on a small piece of tissue paper on the water's surface, and the paper sinks, the needle stays floating. Why?",
+    "type": "multiple-choice",
+    "options": [
+      "Surface tension of the water holds it up",
+      "The needle becomes magnetic",
+      "The water became denser",
+      "The needle is hollow"
+    ],
+    "correctAnswer": "Surface tension of the water holds it up",
+    "hints": [
+      "Think about the 'skin' on the surface of water.",
+      "What force allows water strider insects to walk on ponds?"
+    ],
+    "explanation": "Water molecules cling tightly together at the surface, creating surface tension that can support lightweight metal objects if placed very gently."
+  },
+  {
+    "id": "d15_q2",
+    "day": 15,
+    "number": 2,
+    "title": "The Missing Cookie",
+    "category": "Detective Elimination",
+    "theme": "Food",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "Someone ate the last cookie. The suspects are Amy, Ben, and Dan. Amy says: 'Ben ate it.' Ben says: 'Dan ate it.' Dan says: 'Ben is lying.' If only ONE person is telling the truth, who ate the cookie?",
+    "type": "multiple-choice",
+    "options": [
+      "Amy",
+      "Ben",
+      "Dan",
+      "Nobody"
+    ],
+    "correctAnswer": "Amy",
+    "hints": [
+      "Amy and Dan's statements are either both true or both false. If Ben ate it, both are true.",
+      "Since only one statement is true, Ben could not have eaten it. Work it out from there."
+    ],
+    "explanation": "If Ben ate it, Amy and Dan would both be telling the truth. Since only one tells the truth, Ben didn't eat it. If Dan ate it, Ben is telling the truth and Dan is lying, which works. Therefore, Amy ate it because if Amy ate it, Amy is lying, Ben is lying, and Dan is telling the truth (which is exactly one truth-teller!)."
+  },
+  {
+    "id": "d15_q3",
+    "day": 15,
+    "number": 3,
+    "title": "The Shadow in the Sun",
+    "category": "Perspective Shift",
+    "theme": "Nature",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "At noon on a sunny day, you walk outside but you notice that your shadow is completely gone. How is this possible?",
+    "type": "multiple-choice",
+    "options": [
+      "You are standing directly at the equator where the sun is straight overhead",
+      "The sun turned off for a second",
+      "You became invisible",
+      "You are wearing black clothes"
+    ],
+    "correctAnswer": "You are standing directly at the equator where the sun is straight overhead",
+    "hints": [
+      "Think about the angle of the sun in the sky.",
+      "Where does your shadow go when the light source is directly above you?"
+    ],
+    "explanation": "At the equator during the equinox, the sun passes directly overhead at noon, casting your shadow directly under your feet where you cannot see it."
+  },
+  {
+    "id": "d15_q4",
+    "day": 15,
+    "number": 4,
+    "title": "The Hidden Map",
+    "category": "Pirates",
+    "theme": "Pirates",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "A pirate finds a chest containing a map that shows exactly where the treasure is buried. But he cannot find the treasure. What is missing from the map?",
+    "type": "multiple-choice",
+    "options": [
+      "A starting point or reference landmark",
+      "A list of pirate names",
+      "The color of the chest",
+      "The name of the pirate ship"
+    ],
+    "correctAnswer": "A starting point or reference landmark",
+    "hints": [
+      "A map shows directions, but you need to know where to begin.",
+      "What does 'Walk 10 paces east' require you to know first?"
+    ],
+    "explanation": "Without a starting point or landmark (like 'The Red Rock'), the directions on a map cannot be followed."
+  },
+  {
+    "id": "d15_q5",
+    "day": 15,
+    "number": 5,
+    "title": "The Two Fathers and Two Sons",
+    "category": "Ambiguous Wording",
+    "theme": "Family",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Two fathers and two sons go fishing together. They catch exactly three fish, and each person takes home one whole fish. No fish are cut or left behind. How is this possible?",
+    "type": "multiple-choice",
+    "options": [
+      "They are a grandfather, a father, and a son (only three people total)",
+      "One fish had babies",
+      "They caught a giant fish that counted as two",
+      "One person didn't want any fish"
+    ],
+    "correctAnswer": "They are a grandfather, a father, and a son (only three people total)",
+    "hints": [
+      "Count the people: is it possible that two fathers and two sons are only three people?",
+      "Think about family generations."
+    ],
+    "explanation": "The grandfather is a father, the father is both a son and a father, and the son is a son. This makes two fathers and two sons, but only three people total!"
   }
 ]

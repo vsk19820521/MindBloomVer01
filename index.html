@@ -391,6 +391,49 @@
 
       <!-- Parent Panel Content (hidden until gate passes) -->
       <div id="parent-dashboard-content" class="hidden">
+        <!-- New Progress & Learning Insights Section -->
+        <div class="glass-panel" style="padding: 18px; border-radius: var(--radius-sm); margin-bottom: 20px;">
+          <h3 style="border-bottom: 2px dashed var(--card-border); padding-bottom: 8px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+            <span>📈</span> Learning Insights & Progress Tracker
+          </h3>
+          
+          <div class="insights-top-row">
+            <!-- Metric 1: Difficulty level progress -->
+            <div class="insight-card">
+              <h4>Difficulty Progress</h4>
+              <div id="parent-difficulty-stats">
+                <!-- Dynamically populated progress bars for Easy, Medium, Hard -->
+              </div>
+            </div>
+
+            <!-- Metric 2: Category strengths -->
+            <div class="insight-card">
+              <h4>Cognitive Skill Strength</h4>
+              <div id="parent-category-stats" class="skill-category-list">
+                <!-- Dynamically populated strengths -->
+              </div>
+            </div>
+          </div>
+
+          <div class="insights-bottom-row" style="margin-top: 20px;">
+            <!-- Metric 3: Activity & Consistency Calendar -->
+            <div class="insight-card">
+              <h4 style="display: flex; justify-content: space-between; align-items: center; margin-top: 0; padding-bottom: 6px; border-bottom: 1px solid var(--card-border);">
+                <span>Consistency Calendar</span>
+                <button id="btn-parent-load-prev-month" class="btn-secondary" style="padding: 4px 10px; font-size: 0.75rem; border-radius: var(--radius-sm); font-family: var(--font-body); margin: 0;">📅 Load Previous Month</button>
+              </h4>
+              <div id="parent-calendar-view" style="display: flex; gap: 40px; flex-wrap: wrap; justify-content: flex-start; margin-top: 15px;">
+                <!-- Dynamically populated monthly calendars -->
+              </div>
+              <div style="display: flex; justify-content: center; gap: 15px; margin-top: 12px; font-size: 0.8rem; color: var(--text-muted);">
+                <span style="display: flex; align-items: center; gap: 4px;"><span class="cal-dot-legend none"></span> No Play</span>
+                <span style="display: flex; align-items: center; gap: 4px;"><span class="cal-dot-legend partial"></span> Attempted</span>
+                <span style="display: flex; align-items: center; gap: 4px;"><span class="cal-dot-legend full"></span> Day Completed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="parent-grid">
           
           <!-- Column 1: Settings & Management -->
@@ -423,13 +466,13 @@
             </div>
           </div>
 
-          <!-- Column 2: Drawing Approvals -->
+          <!-- Column 2: Pending Approval -->
           <div class="glass-panel" style="padding: 18px; border-radius: var(--radius-sm);">
-            <h3 style="border-bottom: 2px dashed var(--card-border); padding-bottom: 8px; margin-bottom: 15px;">🎨 Drawings Pending Approval</h3>
+            <h3 style="border-bottom: 2px dashed var(--card-border); padding-bottom: 8px; margin-bottom: 15px;">🎨 Creative Pending Approval</h3>
             
             <div id="parent-review-list" class="review-list">
               <!-- Dynamically populated review card items -->
-              <p id="no-drawings-text" style="color: var(--text-muted); text-align: center; padding: 20px; font-weight: 600;">None - No drawings are currently waiting for approval.</p>
+              <p id="no-drawings-text" style="color: var(--text-muted); text-align: center; padding: 20px; font-weight: 600;">None - No submissions are currently waiting for approval.</p>
             </div>
           </div>
         </div>
@@ -450,6 +493,47 @@
       <p id="modal-level-coins" style="font-weight: bold; margin-bottom: 25px;">You have accumulated 150 gold coins!</p>
       
       <button id="btn-close-celebration" class="btn-primary" style="width: 100%;">Keep Playing! 🎉</button>
+    </div>
+  </div>
+
+  <!-- ================= DAILY REVIEW (BRAIN POWER-UP) MODAL ================= -->
+  <div id="review-overlay" class="modal-overlay hidden">
+    <div class="modal-content review-modal-content" style="max-width: 550px;">
+      <h2 style="margin-top: 0; color: var(--accent-text); display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <span>🧠</span> Daily Brain Power-Up! <span>🧠</span>
+      </h2>
+      <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px;">
+        Let's review a puzzle that was tricky yesterday to keep your brain growing!
+      </p>
+      
+      <!-- Card showing current puzzle under review -->
+      <div id="review-card" class="glass-panel" style="padding: 16px; border-radius: var(--radius-sm); margin-bottom: 20px; text-align: left;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <span id="review-category" class="category-badge">Logical Thinking</span>
+          <span id="review-difficulty" class="difficulty-badge hard">Hard</span>
+        </div>
+        <h3 id="review-title" style="margin: 0 0 10px 0; font-size: 1.2rem;">The Locked Treasure Box</h3>
+        <p id="review-question" style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">Sophie's birthday was yesterday...</p>
+        
+        <div style="border-top: 1px dashed var(--card-border); padding-top: 12px; margin-top: 12px;">
+          <h4 style="margin: 0 0 6px 0; color: var(--error); font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
+            <span>❌</span> Your Attempt:
+          </h4>
+          <p id="review-wrong-answer" style="margin: 0; font-weight: bold; background: rgba(220, 53, 69, 0.1); padding: 8px 12px; border-radius: 6px; color: var(--error); font-size: 0.9rem;">"Sunday"</p>
+        </div>
+
+        <div style="border-top: 1px dashed var(--card-border); padding-top: 12px; margin-top: 12px;">
+          <h4 style="margin: 0 0 6px 0; color: var(--success); font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
+            <span>✅</span> Correct Answer:
+          </h4>
+          <p id="review-correct-answer" style="margin: 0 0 10px 0; font-weight: bold; background: rgba(40, 167, 69, 0.1); padding: 8px 12px; border-radius: 6px; color: var(--success); font-size: 0.9rem;">"Not enough information"</p>
+          
+          <h4 style="margin: 0 0 6px 0; color: var(--accent-text); font-size: 0.9rem;">💡 Explanation:</h4>
+          <p id="review-explanation" style="margin: 0; font-size: 0.9rem; line-height: 1.5; color: var(--text-color);">Explanation here...</p>
+        </div>
+      </div>
+
+      <button id="btn-review-next" class="btn-primary" style="width: 100%; padding: 12px; font-size: 1.05rem; font-weight: bold;">I understand this now! 👍</button>
     </div>
   </div>
 
