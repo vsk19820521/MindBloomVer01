@@ -17,6 +17,7 @@ let activeTab = "play"; // "play" | "history" | "parent"
 let viewingDay = 1;
 let activePuzzle = null;
 let parentGateAnswer = null;
+let activePuzzleStartTime = null;
 
 // Canvas drawing state
 let isDrawing = false;
@@ -101,7 +102,6 @@ const historyDayTitle = document.getElementById("history-day-title");
 const historyDayPuzzlesList = document.getElementById("history-day-puzzles-list");
 
 const parentGate = document.getElementById("parent-gate");
-const parentGateQuestion = document.getElementById("parent-gate-question");
 const parentGateInput = document.getElementById("parent-gate-input");
 const btnParentGateSubmit = document.getElementById("btn-parent-gate-submit");
 const parentGateError = document.getElementById("parent-gate-error");
@@ -376,6 +376,11 @@ function switchTab(tab) {
     } catch (e) {
       console.error("Failed to render calendar:", e);
     }
+    try {
+      renderTimeStats();
+    } catch (e) {
+      console.error("Failed to render time stats:", e);
+    }
   } else if (tab === "parent") {
     if (tabParent) tabParent.classList.add("active");
     if (parentSection) parentSection.classList.remove("hidden");
@@ -423,9 +428,25 @@ registerForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   hideAuthError();
   
+  const password = document.getElementById("reg-password").value;
+  const confirmPassword = document.getElementById("reg-confirm-password").value;
+  if (password !== confirmPassword) {
+    SoundManager.playError();
+    showAuthError("Passwords do not match. Please retype your password.");
+    return;
+  }
+  
+  const parentCode = document.getElementById("parent-code").value.trim();
+  if (!/^\d{4}$/.test(parentCode)) {
+    SoundManager.playError();
+    showAuthError("Parent secret code must be exactly 4 digits!");
+    return;
+  }
+
   const parentData = {
     email: document.getElementById("parent-email").value,
-    phone: document.getElementById("parent-phone").value
+    phone: document.getElementById("parent-phone").value,
+    code: parentCode
   };
   
   const childData = {
@@ -440,7 +461,7 @@ registerForm.addEventListener("submit", async (e) => {
   
   const credentials = {
     username: document.getElementById("reg-username").value,
-    password: document.getElementById("reg-password").value
+    password: password
   };
 
   const res = await StorageService.registerUser(parentData, childData, credentials);
@@ -677,6 +698,7 @@ btnNextDay.addEventListener("click", () => {
 
 function loadActivePuzzle(puzzle) {
   activePuzzle = puzzle;
+  activePuzzleStartTime = Date.now();
   activePuzzleArena.classList.remove("hidden");
   
   puzzleTitle.innerText = puzzle.title;
@@ -870,6 +892,10 @@ btnSubmitAnswer.addEventListener("click", () => {
   const record = currentUser.gameState.completedPuzzles[activePuzzle.id];
   if (record && record.answered) return; // already solved
 
+  const secondsSpent = activePuzzleStartTime ? Math.max(1, Math.round((Date.now() - activePuzzleStartTime) / 1000)) : 10;
+  // reset timer for next attempt
+  activePuzzleStartTime = Date.now();
+
   let isCorrect = false;
   let userAnswer = null;
 
@@ -900,7 +926,8 @@ btnSubmitAnswer.addEventListener("click", () => {
       userAnswer: "[Canvas Drawing]",
       timeAttempted: new Date().toISOString(),
       dateAttempted: new Date().toISOString().split("T")[0],
-      correct: null
+      correct: null,
+      secondsSpent: secondsSpent
     });
 
     currentUser.gameState.completedPuzzles[activePuzzle.id] = {
@@ -936,7 +963,8 @@ btnSubmitAnswer.addEventListener("click", () => {
       userAnswer: userAnswer,
       timeAttempted: new Date().toISOString(),
       dateAttempted: new Date().toISOString().split("T")[0],
-      correct: true
+      correct: true,
+      secondsSpent: secondsSpent
     });
 
     currentUser.gameState.completedPuzzles[activePuzzle.id] = {
@@ -971,7 +999,8 @@ btnSubmitAnswer.addEventListener("click", () => {
       userAnswer: userAnswer,
       timeAttempted: new Date().toISOString(),
       dateAttempted: new Date().toISOString().split("T")[0],
-      correct: false
+      correct: false,
+      secondsSpent: secondsSpent
     });
 
     currentUser.gameState.completedPuzzles[activePuzzle.id] = {
@@ -1115,19 +1144,14 @@ function loadParentGate() {
   parentDashboardContent.classList.add("hidden");
   parentGateInput.value = "";
   parentGateError.classList.add("hidden");
-
-  // Create math challenge
-  const num1 = Math.floor(Math.random() * 8) + 6; // 6 to 13
-  const num2 = Math.floor(Math.random() * 6) + 4; // 4 to 9
-  parentGateAnswer = num1 * num2;
-  parentGateQuestion.innerText = `${num1} x ${num2} = ?`;
 }
 
 btnParentGateSubmit.addEventListener("click", () => {
   SoundManager.playClick();
   const inputVal = parentGateInput.value;
+  const expectedCode = currentUser ? (currentUser.parentCode || "0000") : "0000";
   
-  if (StorageService.verifyParentGate(inputVal, parentGateAnswer)) {
+  if (StorageService.verifyParentGate(inputVal, expectedCode)) {
     SoundManager.playSuccess();
     parentGate.classList.add("hidden");
     parentDashboardContent.classList.remove("hidden");
@@ -1135,8 +1159,8 @@ btnParentGateSubmit.addEventListener("click", () => {
   } else {
     SoundManager.playError();
     parentGateError.classList.remove("hidden");
-    parentGateError.innerText = "Incorrect answer! Parents only.";
-    loadParentGate();
+    parentGateError.innerText = "Incorrect code! Parents only.";
+    parentGateInput.value = ""; // Clear incorrect input
   }
 });
 
@@ -1148,6 +1172,7 @@ function renderParentDashboard() {
   renderParentDifficultyStats();
   renderParentCategoryStats();
   renderParentCalendarView();
+  renderTimeStats();
 }
 
 function renderParentDifficultyStats() {
@@ -1505,6 +1530,14 @@ function approveDrawing(puzzleId) {
     record.correct = true;
     record.coinsAwarded = puzzle.coinsReward;
     
+    // Mark latest attempt correct for time metrics
+    if (record.attempts && record.attempts.length > 0) {
+      const lastAttempt = record.attempts[record.attempts.length - 1];
+      if (lastAttempt.correct === null) {
+        lastAttempt.correct = true;
+      }
+    }
+    
     // Add coins
     currentUser.gameState.coins += puzzle.coinsReward;
     StorageService.updateGameState(currentUser.gameState);
@@ -1837,6 +1870,47 @@ function setupEventListeners() {
   
   // Canvas drawing config
   setupDrawingCanvas();
+}
+
+function renderTimeStats() {
+  let totalAttemptsCount = 0;
+  let totalAttemptsSeconds = 0;
+  let successAttemptsCount = 0;
+  let successAttemptsSeconds = 0;
+
+  if (currentUser && currentUser.gameState && currentUser.gameState.completedPuzzles) {
+    const completedPuzzles = currentUser.gameState.completedPuzzles;
+    Object.keys(completedPuzzles).forEach(pid => {
+      const record = completedPuzzles[pid];
+      if (record && record.attempts) {
+        record.attempts.forEach(attempt => {
+          const sec = attempt.secondsSpent || 10; // fallback for legacy
+          totalAttemptsCount++;
+          totalAttemptsSeconds += sec;
+          
+          if (attempt.correct === true) {
+            successAttemptsCount++;
+            successAttemptsSeconds += sec;
+          }
+        });
+      }
+    });
+  }
+
+  const avgAttempt = totalAttemptsCount > 0 ? Math.round(totalAttemptsSeconds / totalAttemptsCount) : 0;
+  const avgSuccess = successAttemptsCount > 0 ? Math.round(successAttemptsSeconds / successAttemptsCount) : 0;
+
+  // Update Kids Zone
+  const kidsAttemptEl = document.getElementById("kids-avg-time-attempt");
+  const kidsSuccessEl = document.getElementById("kids-avg-time-success");
+  if (kidsAttemptEl) kidsAttemptEl.innerText = `${avgAttempt}s`;
+  if (kidsSuccessEl) kidsSuccessEl.innerText = `${avgSuccess}s`;
+
+  // Update Parent Zone
+  const parentAttemptEl = document.getElementById("parent-avg-time-attempt");
+  const parentSuccessEl = document.getElementById("parent-avg-time-success");
+  if (parentAttemptEl) parentAttemptEl.innerText = `${avgAttempt}s`;
+  if (parentSuccessEl) parentSuccessEl.innerText = `${avgSuccess}s`;
 }
 
 // Start

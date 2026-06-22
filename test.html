@@ -320,7 +320,7 @@
 
       // 2. REGISTRATION
       await runTest("Parent Registration & Child Profile Schema", async (log) => {
-        const parentData = { email: "parent@test.com", phone: "+1234567890" };
+        const parentData = { email: "parent@test.com", phone: "+1234567890", code: "1234" };
         const childData = {
           firstName: "Emma",
           lastName: "Watson",
@@ -343,6 +343,7 @@
         const userObj = JSON.parse(storedData);
         log(assertEquals(userObj.childFirstName, "Emma", "Stored child first name matches"));
         log(assertEquals(userObj.childLastName, "Watson", "Stored child last name matches"));
+        log(assertEquals(userObj.parentCode, "1234", "Stored parent secret PIN code matches"));
         log(assertEquals(userObj.livingCountry, "United Kingdom", "Stored country is verified"));
         log(assertEquals(userObj.culturalAffiliation, "India", "Stored cultural identity is verified"));
         log(assertEquals(userObj.gameState.coins, 0, "Initial coins are set to 0"));
@@ -364,6 +365,12 @@
         const activeUser = StorageService.getCurrentUser();
         log(assert(activeUser !== null, "Active session exists"));
         log(assertEquals(activeUser.username, "__test_emma", "Active user username matches"));
+        log(assertEquals(activeUser.parentCode, "1234", "Active user parentCode is correctly loaded"));
+
+        // Verify Parent PIN Gate checking
+        log(assertEquals(StorageService.verifyParentGate("1234", activeUser.parentCode), true, "Parent Gate PIN verification passes with correct PIN"));
+        log(assertEquals(StorageService.verifyParentGate("9999", activeUser.parentCode), false, "Parent Gate PIN verification fails with incorrect PIN"));
+        log(assertEquals(StorageService.verifyParentGate("0012", "0012"), true, "Parent Gate PIN handles leading zeros correctly"));
       });
 
       // 4. GAMEPLAY PROGRESS & LOCKS
@@ -551,7 +558,7 @@
       // 12. DAILY REVIEW AND ATTEMPT TRACKING SYSTEM
       await runTest("Daily Review and Attempt Tracking System", async (log) => {
         // Register a clean test user
-        const parentData = { email: "parent2@test.com", phone: "+1234567890" };
+        const parentData = { email: "parent2@test.com", phone: "+1234567890", code: "5678" };
         const childData = {
           firstName: "Sophia",
           lastName: "Review",
@@ -578,7 +585,8 @@
           userAnswer: "Red, Green, Blue",
           timeAttempted: new Date().toISOString(),
           dateAttempted: "2026-06-21", // Backdated to yesterday!
-          correct: false
+          correct: false,
+          secondsSpent: 12
         });
 
         user.gameState.completedPuzzles[activePuzzleId] = {
@@ -610,7 +618,8 @@
           userAnswer: "Blue, Yellow, Red", // correct answer
           timeAttempted: new Date().toISOString(),
           dateAttempted: "2026-06-22",
-          correct: true
+          correct: true,
+          secondsSpent: 8
         });
 
         updatedUser.gameState.completedPuzzles[activePuzzleId] = {
@@ -659,6 +668,37 @@
 
         const afterReviewUser = StorageService.getCurrentUser();
         log(assertEquals(afterReviewUser.gameState.completedPuzzles["d1_q1"].reviewed, true, "Puzzle successfully marked as reviewed in DB"));
+
+        // Assert attempt times are logged correctly
+        const checkRecord = afterReviewUser.gameState.completedPuzzles["d1_q1"];
+        log(assertEquals(checkRecord.attempts[0].secondsSpent, 12, "Incorrect attempt logged secondsSpent = 12"));
+        log(assertEquals(checkRecord.attempts[1].secondsSpent, 8, "Correct attempt logged secondsSpent = 8"));
+
+        // Verify calculations: sum=20, count=2. Avg=10. Success=8, count=1. Avg=8.
+        let totalAttemptsCount = 0;
+        let totalAttemptsSeconds = 0;
+        let successAttemptsCount = 0;
+        let successAttemptsSeconds = 0;
+
+        Object.keys(afterReviewUser.gameState.completedPuzzles).forEach(pid => {
+          const rec = afterReviewUser.gameState.completedPuzzles[pid];
+          if (rec && rec.attempts) {
+            rec.attempts.forEach(att => {
+              const sec = att.secondsSpent || 10;
+              totalAttemptsCount++;
+              totalAttemptsSeconds += sec;
+              if (att.correct === true) {
+                successAttemptsCount++;
+                successAttemptsSeconds += sec;
+              }
+            });
+          }
+        });
+
+        log(assertEquals(totalAttemptsCount, 2, "Calculated exactly 2 total attempts"));
+        log(assertEquals(totalAttemptsSeconds, 20, "Calculated exactly 20 total seconds"));
+        log(assertEquals(successAttemptsCount, 1, "Calculated exactly 1 success attempt"));
+        log(assertEquals(successAttemptsSeconds, 8, "Calculated exactly 8 successful seconds"));
       });
 
       updateStats();

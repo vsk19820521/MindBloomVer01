@@ -34,6 +34,7 @@ export const StorageService = {
     const userData = {
       parentEmail: parentData.email,
       parentPhone: parentData.phone,
+      parentCode: parentData.code || "0000",
       childFirstName: childData.firstName,
       childLastName: childData.lastName,
       childGender: childData.gender,
@@ -199,6 +200,7 @@ export const StorageService = {
         culturalAffiliation: user.culturalAffiliation || "",
         parentEmail: user.parentEmail || "",
         parentPhone: user.parentPhone || "",
+        parentCode: user.parentCode || "0000",
         gameState: user.gameState
       };
     } catch (e) {
@@ -274,7 +276,7 @@ export const StorageService = {
    * Checks if parent verification is correct.
    */
   verifyParentGate(answer, expected) {
-    return parseInt(answer) === expected;
+    return String(answer).trim() === String(expected).trim();
   },
 
   /**
