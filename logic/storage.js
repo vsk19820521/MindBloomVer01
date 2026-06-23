@@ -89,31 +89,49 @@ export const StorageService = {
 
   /**
    * Logs in the child with username and password.
+   *
+   * Online mode  : POST /api/login  — server verifies bcrypt hash, returns profile.
+   *                Works with both the local Python server and Vercel serverless.
+   * Offline mode : Falls back to localStorage cache (plain-text password stored
+   *                locally at registration / last successful login).
    */
   async loginUser(username, password) {
     const normUsername = username.trim().toLowerCase();
     const userKey = `mindbloom_user_${normUsername}`;
 
+    // ── Online path: use secure server-side login endpoint ──────────────
     try {
-      const response = await fetch(`/api/get-user?username=${encodeURIComponent(normUsername)}`);
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: normUsername, password })
+      });
+
       if (response.ok) {
-        const user = await response.json();
-        if (user.password !== password) {
-          return { success: false, error: "Oops! Incorrect password. Try again." };
+        const data = await response.json();
+        if (data.success && data.user) {
+          // Cache locally (include plain-text password so offline fallback works)
+          localStorage.setItem(userKey, JSON.stringify({ password, ...data.user }));
+          localStorage.setItem(ACTIVE_USER_KEY, normUsername);
+          return { success: true, user: this.getCurrentUser() };
         }
-        
-        // Cache locally and set active user session
-        localStorage.setItem(userKey, JSON.stringify(user));
-        localStorage.setItem(ACTIVE_USER_KEY, normUsername);
-        return { success: true, user: this.getCurrentUser() };
-      } else if (response.status === 404) {
+        return { success: false, error: data.error || "Login failed." };
+      }
+
+      // Handle specific HTTP error codes returned by the server
+      if (response.status === 404) {
         return { success: false, error: "Username not found. Ask Mom or Dad to register you first!" };
       }
+      if (response.status === 401) {
+        return { success: false, error: "Oops! Incorrect password. Try again." };
+      }
+
+      // Any other non-200 code — fall through to offline check
     } catch (e) {
-      console.warn("Server connection failed during login. Falling back to local cache:", e);
+      console.warn("Server unreachable during login. Falling back to local cache:", e);
     }
 
-    // LocalStorage fallback (offline support)
+    // ── Offline fallback: compare against locally cached password ───────
     const userJson = localStorage.getItem(userKey);
     if (!userJson) {
       return { success: false, error: "Username not found. Ask Mom or Dad to register you first!" };

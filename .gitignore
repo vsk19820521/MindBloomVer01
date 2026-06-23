@@ -6,3 +6,16 @@ data/user_*.json
 *.log
 scratch/
 test_api.py
+
+# Node / npm
+node_modules/
+package-lock.json
+
+# Environment secrets — never commit these
+.env
+.env.local
+.env.production.local
+.env.development.local
+
+# Vercel build cache
+.vercel/

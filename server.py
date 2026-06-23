@@ -107,6 +107,57 @@ class MindBloomHandler(http.server.SimpleHTTPRequestHandler):
         parsed_url = urllib.parse.urlparse(self.path)
         path = parsed_url.path
 
+        # ── /api/login ── secure login (plain-text comparison for local dev) ──
+        if path == "/api/login":
+            content_length = int(self.headers.get('Content-Length', 0))
+            post_data = self.rfile.read(content_length)
+            try:
+                body = json.loads(post_data.decode('utf-8'))
+            except Exception:
+                self.send_json({"success": False, "error": "Invalid JSON payload"}, 400)
+                return
+
+            username = body.get("username", "").strip().lower()
+            password = body.get("password", "")
+
+            if not username or not password:
+                self.send_json({"success": False, "error": "Username and password are required."}, 400)
+                return
+
+            filepath = os.path.join(DATA_DIR, f"user_{username}.json")
+            if not os.path.exists(filepath):
+                self.send_json({"success": False, "error": "Username not found. Ask Mom or Dad to register you first!"}, 404)
+                return
+
+            try:
+                with open(filepath, "r", encoding="utf-8") as f:
+                    user_data = json.load(f)
+            except Exception as e:
+                self.send_json({"success": False, "error": f"Failed to read user file: {str(e)}"}, 500)
+                return
+
+            if user_data.get("password") != password:
+                self.send_json({"success": False, "error": "Oops! Incorrect password. Try again."}, 401)
+                return
+
+            # Build the same response shape as the Vercel /api/login handler
+            user = {
+                "username":            username,
+                "parentCode":          user_data.get("parentCode", "0000"),
+                "parentEmail":         user_data.get("parentEmail", ""),
+                "parentPhone":         user_data.get("parentPhone", ""),
+                "childFirstName":      user_data.get("childFirstName", ""),
+                "childLastName":       user_data.get("childLastName", ""),
+                "childGender":         user_data.get("childGender", "Other"),
+                "childAge":            user_data.get("childAge", 9),
+                "childAvatar":         user_data.get("childAvatar", "⚡ Pikachu"),
+                "livingCountry":       user_data.get("livingCountry", ""),
+                "culturalAffiliation": user_data.get("culturalAffiliation", ""),
+                "gameState":           user_data.get("gameState", {})
+            }
+            self.send_json({"success": True, "user": user}, 200)
+            return
+
         if path in ("/api/register", "/api/save-user", "/api/delete-user"):
             content_length = int(self.headers.get('Content-Length', 0))
             post_data = self.rfile.read(content_length)

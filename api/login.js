@@ -1,0 +1,64 @@
+/**
+ * api/login.js — Secure Server-Side Login
+ * POST /api/login
+ * Body: { username: string, password: string }
+ *
+ * Verifies the password against the bcrypt hash stored in Supabase.
+ * Returns the full user profile on success (without password hash).
+ * This replaces the old client-side password comparison pattern.
+ */
+
+const bcrypt = require('bcryptjs');
+const { supabase } = require('./_supabase');
+
+module.exports = async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ success: false, error: 'Method not allowed' });
+  }
+
+  const { username, password } = req.body || {};
+
+  if (!username || !password) {
+    return res.status(400).json({ success: false, error: 'Username and password are required.' });
+  }
+
+  const normUsername = username.trim().toLowerCase();
+
+  // Fetch the user row from Supabase
+  const { data, error } = await supabase
+    .from('users')
+    .select('username, password_hash, parent_code, profile, game_state')
+    .eq('username', normUsername)
+    .single();
+
+  if (error || !data) {
+    return res.status(404).json({
+      success: false,
+      error: 'Username not found. Ask Mom or Dad to register you first!'
+    });
+  }
+
+  // Verify password against bcrypt hash
+  const isMatch = await bcrypt.compare(password, data.password_hash);
+  if (!isMatch) {
+    return res.status(401).json({ success: false, error: 'Oops! Incorrect password. Try again.' });
+  }
+
+  // Build the user object the frontend expects (mirrors the old Python /api/get-user format)
+  const user = {
+    username: data.username,
+    parentCode: data.parent_code,
+    parentEmail: data.profile?.parentEmail || '',
+    parentPhone: data.profile?.parentPhone || '',
+    childFirstName: data.profile?.childFirstName || '',
+    childLastName: data.profile?.childLastName || '',
+    childGender: data.profile?.childGender || 'Other',
+    childAge: data.profile?.childAge || 9,
+    childAvatar: data.profile?.childAvatar || '⚡ Pikachu',
+    livingCountry: data.profile?.livingCountry || '',
+    culturalAffiliation: data.profile?.culturalAffiliation || '',
+    gameState: data.game_state || {}
+  };
+
+  return res.status(200).json({ success: true, user });
+};
