@@ -18,6 +18,7 @@ let viewingDay = 1;
 let activePuzzle = null;
 let parentGateAnswer = null;
 let activePuzzleStartTime = null;
+let globalPuzzleAverages = {};
 
 // Canvas drawing state
 let isDrawing = false;
@@ -77,6 +78,7 @@ const puzzleTitle = document.getElementById("puzzle-title");
 const puzzleCategory = document.getElementById("puzzle-category");
 const puzzleDifficulty = document.getElementById("puzzle-difficulty");
 const puzzleReward = document.getElementById("puzzle-reward");
+const puzzleAvgTime = document.getElementById("puzzle-avg-time");
 const puzzleQuestion = document.getElementById("puzzle-question");
 
 const mcContainer = document.getElementById("mc-container");
@@ -275,6 +277,13 @@ async function init() {
     console.error("Failed to load puzzles.json:", e);
     alert("Could not load puzzles.json. Make sure the HTTP server is running!");
     return;
+  }
+
+  // Load global puzzle averages
+  try {
+    globalPuzzleAverages = await StorageService.getPuzzleAverages();
+  } catch (e) {
+    console.warn("Failed to fetch puzzle averages:", e);
   }
 
   // Check if session exists
@@ -629,7 +638,11 @@ function renderPuzzleStrip() {
     }
     
     if (isCompleted) {
-      card.classList.add("completed");
+      if (record.correct === false && !record.pendingApproval) {
+        card.classList.add("incorrect");
+      } else {
+        card.classList.add("completed");
+      }
     } else if (isSequenceLocked) {
       card.classList.add("locked");
     }
@@ -637,7 +650,13 @@ function renderPuzzleStrip() {
     // Design layout
     let statusIcon = "⚡";
     if (isCompleted) {
-      statusIcon = record.pendingApproval ? "⏳" : "✅";
+      if (record.pendingApproval) {
+        statusIcon = "⏳";
+      } else if (record.correct) {
+        statusIcon = "✅";
+      } else {
+        statusIcon = "❌";
+      }
     } else if (isSequenceLocked) {
       statusIcon = "🔒";
     }
@@ -700,6 +719,11 @@ function loadActivePuzzle(puzzle) {
   activePuzzle = puzzle;
   activePuzzleStartTime = Date.now();
   activePuzzleArena.classList.remove("hidden");
+
+  const targetTime = puzzle.difficulty === "Easy" ? 20 : (puzzle.difficulty === "Medium" ? 30 : 40);
+  if (puzzleAvgTime) {
+    puzzleAvgTime.innerText = `⏱️ Target Time: ${targetTime}s`;
+  }
   
   puzzleTitle.innerText = puzzle.title;
   puzzleCategory.innerText = puzzle.category;
@@ -953,8 +977,13 @@ btnSubmitAnswer.addEventListener("click", () => {
   // MC and Text evaluation
   if (isCorrect) {
     SoundManager.playCoin();
+    
+    const targetTime = activePuzzle.difficulty === "Easy" ? 20 : (activePuzzle.difficulty === "Medium" ? 30 : 40);
+    const isSpeedBonus = (secondsSpent < targetTime);
+    const bonusCoins = isSpeedBonus ? 2 : 0;
+    
     // Add coins
-    currentUser.gameState.coins += activePuzzle.coinsReward;
+    currentUser.gameState.coins += activePuzzle.coinsReward + bonusCoins;
     
     // Save completion
     const existingRecord = currentUser.gameState.completedPuzzles[activePuzzle.id] || { attempts: [] };
@@ -971,7 +1000,8 @@ btnSubmitAnswer.addEventListener("click", () => {
       answered: true,
       correct: true,
       userAnswer: userAnswer,
-      coinsAwarded: activePuzzle.coinsReward,
+      coinsAwarded: activePuzzle.coinsReward + bonusCoins,
+      speedBonusAwarded: isSpeedBonus,
       timeSolved: new Date().toISOString().split("T")[0],
       needsReview: existingRecord.needsReview || false,
       reviewed: existingRecord.reviewed || false,
@@ -986,7 +1016,11 @@ btnSubmitAnswer.addEventListener("click", () => {
     renderHeader();
     renderPuzzleStrip();
     
-    alert(`🎉 Correct! You earned 💎 ${activePuzzle.coinsReward} gold coins!`);
+    if (isSpeedBonus) {
+      alert(`🎉 Awesome! You solved the puzzle in only ${secondsSpent}s (beating the Target Time of ${targetTime}s)! You earned 💎 ${activePuzzle.coinsReward} gold coins + 💎 2 Speed Bonus coins! 🚀`);
+    } else {
+      alert(`🎉 Correct! You earned 💎 ${activePuzzle.coinsReward} gold coins!`);
+    }
     
     checkAllDayPuzzlesCompleted();
   } else {
@@ -1004,7 +1038,7 @@ btnSubmitAnswer.addEventListener("click", () => {
     });
 
     currentUser.gameState.completedPuzzles[activePuzzle.id] = {
-      answered: false,
+      answered: true,
       correct: false,
       userAnswer: userAnswer,
       coinsAwarded: 0,
@@ -1016,7 +1050,11 @@ btnSubmitAnswer.addEventListener("click", () => {
 
     StorageService.updateGameState(currentUser.gameState);
     
-    alert("❌ Not quite! Give it another try or check the hints!");
+    renderPuzzleStrip();
+    
+    alert(`❌ Oops! That is incorrect. You only get one attempt per puzzle. You can review the correct answer and explanation tomorrow! Let's try another puzzle! 🌟`);
+    
+    checkAllDayPuzzlesCompleted();
   }
 });
 
@@ -1528,18 +1566,26 @@ function approveDrawing(puzzleId) {
   if (record && record.pendingApproval) {
     record.pendingApproval = false;
     record.correct = true;
-    record.coinsAwarded = puzzle.coinsReward;
     
     // Mark latest attempt correct for time metrics
+    let secondsSpent = 10;
     if (record.attempts && record.attempts.length > 0) {
       const lastAttempt = record.attempts[record.attempts.length - 1];
       if (lastAttempt.correct === null) {
         lastAttempt.correct = true;
       }
+      secondsSpent = lastAttempt.secondsSpent || 10;
     }
     
+    const targetTime = puzzle.difficulty === "Easy" ? 20 : (puzzle.difficulty === "Medium" ? 30 : 40);
+    const isSpeedBonus = (secondsSpent < targetTime);
+    const bonusCoins = isSpeedBonus ? 2 : 0;
+    
+    record.coinsAwarded = puzzle.coinsReward + bonusCoins;
+    record.speedBonusAwarded = isSpeedBonus;
+    
     // Add coins
-    currentUser.gameState.coins += puzzle.coinsReward;
+    currentUser.gameState.coins += puzzle.coinsReward + bonusCoins;
     StorageService.updateGameState(currentUser.gameState);
     
     SoundManager.playCoin();

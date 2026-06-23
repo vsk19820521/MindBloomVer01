@@ -68,6 +68,38 @@ class MindBloomHandler(http.server.SimpleHTTPRequestHandler):
             self.send_json(users, 200)
             return
 
+        elif path == "/api/puzzle-averages":
+            averages = {}
+            if os.path.exists(DATA_DIR):
+                for filename in os.listdir(DATA_DIR):
+                    if filename.startswith("user_") and filename.endswith(".json"):
+                        filepath = os.path.join(DATA_DIR, filename)
+                        try:
+                            with open(filepath, "r", encoding="utf-8") as f:
+                                data = json.load(f)
+                            completed = data.get("gameState", {}).get("completedPuzzles", {})
+                            for pid, record in completed.items():
+                                if record.get("answered") and record.get("correct") is True:
+                                    attempts = record.get("attempts", [])
+                                    seconds = None
+                                    for att in attempts:
+                                        if att.get("correct") is True:
+                                            seconds = att.get("secondsSpent")
+                                            break
+                                    if seconds is None:
+                                        seconds = 10
+                                    if pid not in averages:
+                                        averages[pid] = []
+                                    averages[pid].append(seconds)
+                        except Exception:
+                            pass
+            result = {}
+            for pid, times in averages.items():
+                if times:
+                    result[pid] = round(sum(times) / len(times))
+            self.send_json(result, 200)
+            return
+
         # Fall back to default handler for static files
         super().do_GET()
 

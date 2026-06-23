@@ -300,6 +300,21 @@ export const StorageService = {
       coins: users[username].gameState.coins,
       level: users[username].gameState.level
     }));
+  },
+
+  /**
+   * Fetches the global puzzle averages from the backend.
+   */
+  async getPuzzleAverages() {
+    try {
+      const response = await fetch("/api/puzzle-averages");
+      if (response.ok) {
+        return await response.json();
+      }
+    } catch (e) {
+      console.warn("Failed to fetch puzzle averages from server:", e);
+    }
+    return {};
   }
 };
 

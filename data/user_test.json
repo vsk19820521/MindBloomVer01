@@ -12,13 +12,54 @@
   "gameState": {
     "currentDay": 1,
     "unlockedUpToDay": 1,
-    "lastActiveDate": "2026-06-22",
-    "coins": 0,
+    "lastActiveDate": "2026-06-23",
+    "coins": 12,
     "level": 1,
     "levelName": "Mind Bloom",
     "theme": "dolphin",
     "isMuted": false,
-    "completedPuzzles": {}
+    "completedPuzzles": {
+      "d1_q1": {
+        "answered": true,
+        "correct": true,
+        "userAnswer": "Blue, Yellow, Red",
+        "coinsAwarded": 12,
+        "speedBonusAwarded": true,
+        "timeSolved": "2026-06-22",
+        "needsReview": true,
+        "reviewed": false,
+        "attempts": [
+          {
+            "userAnswer": "Red, Blue, Yellow",
+            "timeAttempted": "2026-06-22T23:33:15.909Z",
+            "dateAttempted": "2026-06-22",
+            "correct": false,
+            "secondsSpent": 38
+          },
+          {
+            "userAnswer": "Yellow, Red, Blue",
+            "timeAttempted": "2026-06-22T23:33:33.663Z",
+            "dateAttempted": "2026-06-22",
+            "correct": false,
+            "secondsSpent": 18
+          },
+          {
+            "userAnswer": "Blue, Red, Yellow",
+            "timeAttempted": "2026-06-22T23:33:39.965Z",
+            "dateAttempted": "2026-06-22",
+            "correct": false,
+            "secondsSpent": 6
+          },
+          {
+            "userAnswer": "Blue, Yellow, Red",
+            "timeAttempted": "2026-06-22T23:33:48.030Z",
+            "dateAttempted": "2026-06-22",
+            "correct": true,
+            "secondsSpent": 8
+          }
+        ]
+      }
+    }
   },
   "password": "test"
 }

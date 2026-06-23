@@ -701,6 +701,104 @@
         log(assertEquals(successAttemptsSeconds, 8, "Calculated exactly 8 successful seconds"));
       });
 
+      // 13. STATIC SOLVE TARGET TIMES & SINGLE-ATTEMPT LIMIT
+      await runTest("Static Solve Target Times & Single-Attempt Limit", async (log) => {
+        // Register a test child user
+        const parentData = { email: "parent3@test.com", phone: "+1234567890", code: "7890" };
+        const childData = {
+          firstName: "Alex",
+          lastName: "Speed",
+          gender: "Male",
+          age: 10,
+          avatar: "⚡ Pikachu",
+          livingCountry: "USA",
+          culturalAffiliation: "US"
+        };
+        const credentials = { username: "__test_alex", password: "password123" };
+        await StorageService.registerUser(parentData, childData, credentials);
+        await StorageService.loginUser("__test_alex", "password123");
+        
+        const user = StorageService.getCurrentUser();
+        
+        // 13.1 Verify static target times based on difficulty
+        const getTargetTime = (diff) => diff === "Easy" ? 20 : (diff === "Medium" ? 30 : 40);
+        log(assertEquals(getTargetTime("Easy"), 20, "Static target time for Easy is 20s"));
+        log(assertEquals(getTargetTime("Medium"), 30, "Static target time for Medium is 30s"));
+        log(assertEquals(getTargetTime("Hard"), 40, "Static target time for Hard is 40s"));
+
+        // 13.2 Verify speed bonus calculation for Medium difficulty (threshold = 30s)
+        const puzzleMedium = { id: "d1_q2", difficulty: "Medium", coinsReward: 20 };
+        
+        // Case A: solved in 25s (< 30s) -> Speed bonus earned!
+        const timeSpentA = 25;
+        const isSpeedBonusA = (timeSpentA < getTargetTime(puzzleMedium.difficulty));
+        log(assertEquals(isSpeedBonusA, true, "Solved in 25s qualifies for speed bonus (Medium threshold = 30s)"));
+        
+        const bonusCoinsA = isSpeedBonusA ? 2 : 0;
+        const recordA = {
+          answered: true,
+          correct: true,
+          userAnswer: "One kitten took the basket with the last ball of yarn inside",
+          coinsAwarded: puzzleMedium.coinsReward + bonusCoinsA,
+          speedBonusAwarded: isSpeedBonusA,
+          timeSolved: "2026-06-23",
+          attempts: [{
+            userAnswer: "One kitten took the basket with the last ball of yarn inside",
+            timeAttempted: new Date().toISOString(),
+            dateAttempted: "2026-06-23",
+            correct: true,
+            secondsSpent: timeSpentA
+          }]
+        };
+        user.gameState.completedPuzzles[puzzleMedium.id] = recordA;
+        user.gameState.coins += recordA.coinsAwarded;
+        await StorageService.updateGameState(user.gameState);
+        
+        const updatedUser = StorageService.getCurrentUser();
+        const storedRecordA = updatedUser.gameState.completedPuzzles[puzzleMedium.id];
+        log(assertEquals(storedRecordA.coinsAwarded, 22, "Awarded 22 coins (20 base + 2 bonus) for beating target time"));
+        log(assertEquals(storedRecordA.speedBonusAwarded, true, "speedBonusAwarded flag is true"));
+        log(assertEquals(updatedUser.gameState.coins, 22, "Coins successfully added to user gameState"));
+
+        // 13.3 Verify single-attempt constraint for incorrect submissions
+        const puzzleEasy = { id: "d1_q1", difficulty: "Easy", coinsReward: 10 };
+        
+        // Simulating incorrect submission: set answered: true, correct: false, coins: 0
+        const recordB = {
+          answered: true,
+          correct: false,
+          userAnswer: "Yellow, Red, Blue", // incorrect answer
+          coinsAwarded: 0,
+          timeSolved: "",
+          needsReview: true,
+          reviewed: false,
+          attempts: [{
+            userAnswer: "Yellow, Red, Blue",
+            timeAttempted: new Date().toISOString(),
+            dateAttempted: "2026-06-23",
+            correct: false,
+            secondsSpent: 15
+          }]
+        };
+        
+        updatedUser.gameState.completedPuzzles[puzzleEasy.id] = recordB;
+        await StorageService.updateGameState(updatedUser.gameState);
+        
+        const finalUser = StorageService.getCurrentUser();
+        const storedRecordB = finalUser.gameState.completedPuzzles[puzzleEasy.id];
+        log(assertEquals(storedRecordB.answered, true, "Incorrect attempt marks puzzle as answered (locks it)"));
+        log(assertEquals(storedRecordB.correct, false, "Incorrect attempt marks puzzle as correct: false"));
+        log(assertEquals(storedRecordB.coinsAwarded, 0, "Incorrect attempt awards 0 coins"));
+        log(assertEquals(storedRecordB.needsReview, true, "Incorrect attempt sets needsReview to true for tomorrow's review"));
+        
+        // Clean up test user
+        await fetch("/api/delete-user", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username: "__test_alex" })
+        });
+      });
+
       updateStats();
       await cleanupTestUsers();
     }

@@ -1320,3 +1320,11 @@ input:focus, select:focus {
     opacity: 1;
   }
 }
+
+.puzzle-card.incorrect {
+  border-color: var(--error) !important;
+  background: linear-gradient(180deg, var(--white) 80%, rgba(232, 65, 24, 0.08)) !important;
+}
+[data-theme="kitty"] .puzzle-card.incorrect {
+  background: linear-gradient(180deg, rgba(25, 22, 50, 0.75) 80%, rgba(232, 65, 24, 0.08)) !important;
+}
