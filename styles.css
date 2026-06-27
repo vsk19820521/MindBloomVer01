@@ -1183,9 +1183,8 @@ input:focus, select:focus {
 
 .skill-category-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 24px;
-  row-gap: 6px;
+  grid-template-columns: 1fr;
+  row-gap: 12px;
   max-height: none;
   overflow: visible;
   padding-right: 0;
@@ -1211,10 +1210,10 @@ input:focus, select:focus {
 }
 
 .skill-category-name {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 140px;
+  white-space: normal;
+  max-width: none;
+  flex: 1;
+  padding-right: 10px;
 }
 
 .skill-category-badge {

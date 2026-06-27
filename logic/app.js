@@ -117,7 +117,12 @@ function showMainApp() {
   // Load theme
   const userTheme = (currentUser.gameState && currentUser.gameState.theme) || "unicorn";
   document.documentElement.setAttribute("data-theme", userTheme);
-  document.getElementById("theme-selector").value = userTheme;
+  const themeContainer = document.getElementById("theme-selector");
+  if (themeContainer) {
+    themeContainer.querySelectorAll(".theme-btn").forEach(b => {
+      b.classList.toggle("selected", b.getAttribute("data-theme-val") === userTheme);
+    });
+  }
 
   // Load sound preference
   const isMuted = (currentUser.gameState && currentUser.gameState.isMuted) || false;

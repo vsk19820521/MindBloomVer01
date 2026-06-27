@@ -154,8 +154,12 @@ export function setupSoundAndTheme(getCurrentUser) {
     SoundManager.playClick();
   });
 
-  themeSelector.addEventListener("change", (e) => {
-    const newTheme = e.target.value;
+  // Event delegation for theme buttons
+  themeSelector.addEventListener("click", (e) => {
+    const btn = e.target.closest(".theme-btn");
+    if (!btn) return;
+    
+    const newTheme = btn.getAttribute("data-theme-val");
     document.documentElement.setAttribute("data-theme", newTheme);
     const currentUser = getCurrentUser();
     if (currentUser && currentUser.gameState) {
@@ -163,6 +167,10 @@ export function setupSoundAndTheme(getCurrentUser) {
       StorageService.updateGameState({ theme: newTheme });
     }
     SoundManager.playClick();
+    
+    // Update active state
+    document.querySelectorAll(".theme-btn").forEach(b => b.classList.remove("selected"));
+    btn.classList.add("selected");
     spawnEmojiBurst(8, currentUser);
   });
 }

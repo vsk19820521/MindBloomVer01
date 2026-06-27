@@ -138,6 +138,22 @@ export function resetAuthForms() {
   document.getElementById("tab-login").click();
 }
 
+// Add global Enter key support for auth forms
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    if (document.activeElement && document.activeElement.tagName === "INPUT") {
+      const form = document.activeElement.closest("form");
+      if (form && (form.id === "login-form" || form.id === "register-form")) {
+        e.preventDefault();
+        const submitBtn = form.querySelector("button[type='submit']");
+        if (submitBtn) {
+          submitBtn.click();
+        }
+      }
+    }
+  }
+});
+
 // ── Internal helpers ───────────────────────────────────────────────────────
 
 function showAuthError(message) {

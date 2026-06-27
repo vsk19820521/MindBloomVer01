@@ -87,7 +87,7 @@
 
       <div class="form-row">
         <div class="form-group">
-          <label for="child-country">Living Country</label>
+          <label for="child-country">Country (Current)</label>
           <select id="child-country" required>
             <option value="" disabled selected>Select country...</option>
             <option value="United Kingdom">United Kingdom</option>
@@ -117,8 +117,8 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="child-culture">Cultural Affiliation Country</label>
-          <select id="child-culture" required>
+          <label for="child-culture">Country (Native)</label>
+          <select id="child-culture">
             <option value="" disabled selected>Select country...</option>
             <option value="United Kingdom">United Kingdom</option>
             <option value="United States">United States</option>
@@ -340,36 +340,7 @@
             </div>
           </div>
 
-          <!-- Quick Actions & Theme (Sound & Theme selector) -->
-          <div class="glass-panel" style="padding: 20px; border-radius: var(--radius-sm); display: flex; flex-direction: column; gap: 15px;">
-            <h3 style="font-family: var(--font-title); font-size: 1.25rem;">⚙️ Settings</h3>
-            
-            <div class="form-group" style="margin: 0;">
-              <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.95rem;">Game Sound Effects</label>
-              <button id="btn-sound-toggle" class="btn-primary" style="width: 100%; padding: 10px 15px; font-size: 1rem; border-radius: 50px;">🔊 Sound On</button>
-            </div>
-
-            <div class="form-group" style="margin: 0;">
-              <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.95rem;">App Theme Style</label>
-              <select id="theme-selector" style="width: 100%; padding: 10px 15px; border-radius: 50px; background: var(--white); color: var(--text-main); border: 2px solid var(--card-border); cursor: pointer;" title="Choose Theme">
-                <option value="unicorn">🦄 Unicorn Sparkle</option>
-                <option value="dino">🦖 Dino Jungle</option>
-                <option value="kitty">🐱 Cosmic Kitty</option>
-                <option value="butterfly">🦋 Butterfly Meadow</option>
-                <option value="puppy">🐶 Puppy Playground</option>
-                <option value="dolphin">🐬 Dolphin Ocean</option>
-                <option value="forest">🍄 Magical Forest</option>
-                <option value="candy">🍭 Rainbow Candy</option>
-                <option value="space">🚀 Space Explorer</option>
-              </select>
-            </div>
-          </div>
-          
-          <!-- Avatar Grid inside Kids Zone -->
-          <div class="glass-panel" style="padding: 20px; border-radius: var(--radius-sm); max-height: 380px; overflow-y: auto;">
-            <h3 style="font-family: var(--font-title); font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">🌟 Select Your Avatar</h3>
-            <div id="kids-avatar-grid" class="avatar-grid" style="grid-template-columns: repeat(auto-fill, minmax(68px, 1fr)); gap: 8px;"></div>
-          </div>
+          <!-- Quick Actions & Theme (Sound & Theme selector) moved down -->
         </div>
 
         <!-- Right Side: Activities Calendar Card -->
@@ -394,6 +365,34 @@
           </div>
         </div>
 
+      </div>
+
+      <!-- Settings & Avatar Grid spanning full width -->
+      <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 20px;">
+        <!-- Theme Selection as Buttons -->
+        <div class="glass-panel" style="padding: 20px; border-radius: var(--radius-sm);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h3 style="font-family: var(--font-title); font-size: 1.25rem;">⚙️ App Theme Style</h3>
+            <button id="btn-sound-toggle" class="btn-primary" style="padding: 8px 16px; font-size: 0.9rem; border-radius: 50px;">🔊 Sound On</button>
+          </div>
+          <div id="theme-selector" style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn-secondary theme-btn" data-theme-val="unicorn">🦄 Unicorn Sparkle</button>
+            <button class="btn-secondary theme-btn" data-theme-val="dino">🦖 Dino Jungle</button>
+            <button class="btn-secondary theme-btn" data-theme-val="kitty">🐱 Cosmic Kitty</button>
+            <button class="btn-secondary theme-btn" data-theme-val="butterfly">🦋 Butterfly Meadow</button>
+            <button class="btn-secondary theme-btn" data-theme-val="puppy">🐶 Puppy Playground</button>
+            <button class="btn-secondary theme-btn" data-theme-val="dolphin">🐬 Dolphin Ocean</button>
+            <button class="btn-secondary theme-btn" data-theme-val="forest">🍄 Magical Forest</button>
+            <button class="btn-secondary theme-btn" data-theme-val="candy">🍭 Rainbow Candy</button>
+            <button class="btn-secondary theme-btn" data-theme-val="space">🚀 Space Explorer</button>
+          </div>
+        </div>
+
+        <!-- Avatar Selection -->
+        <div class="glass-panel" style="padding: 20px; border-radius: var(--radius-sm);">
+          <h3 style="font-family: var(--font-title); font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">🌟 Select Your Avatar</h3>
+          <div id="kids-avatar-grid" class="avatar-grid" style="grid-template-columns: repeat(auto-fill, minmax(68px, 1fr)); gap: 10px; max-height: none; overflow: visible;"></div>
+        </div>
       </div>
     </div>
 
