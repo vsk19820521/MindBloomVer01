@@ -9,5 +9,16 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "scripts": {
+    "local": "npx vercel dev",
+    "test": "node --test tests/unit/*.test.js tests/api/*.test.js",
+    "test:unit": "node --test tests/unit/*.test.js",
+    "test:api": "node --test tests/api/*.test.js",
+    "test:integration": "node --test tests/integration/flow.test.js",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1"
   }
 }

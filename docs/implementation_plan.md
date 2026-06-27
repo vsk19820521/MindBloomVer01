@@ -32,6 +32,7 @@ d:\Pet Projects\MindBloomVer01\
  │    ├── README.md               ← project overview (moved from root)
  │    └── TASK_LOG.md             ← running task checklist (updated as we work)
  ├── api/
+ │    ├── _logger.js              ← server-side request/error logger
  │    ├── _supabase.js            ← shared Supabase client
  │    ├── register.js             ← POST /api/register
  │    ├── login.js                ← POST /api/login  (bcrypt verify)
@@ -39,22 +40,33 @@ d:\Pet Projects\MindBloomVer01\
  │    ├── get-user.js             ← GET  /api/get-user
  │    ├── list-users.js           ← GET  /api/list-users
  │    ├── delete-user.js          ← POST /api/delete-user
- │    └── puzzle-averages.js      ← GET  /api/puzzle-averages
+ │    ├── puzzle-averages.js      ← GET  /api/puzzle-averages
+ │    └── log-event.js            ← POST /api/log-event (client error relay)
  ├── logic/
- │    ├── app.js                  ← 1964-line monolith (split in Phase 2)
- │    └── storage.js              ← Auth + game-state manager
+ │    ├── app.js                  ← thin orchestrator (~230 lines, refactored Phase 2)
+ │    ├── auth.js                 ← login/register/logout form handling
+ │    ├── puzzle.js               ← puzzle deck, arena, answer engine, canvas
+ │    ├── gameState.js            ← date-change, day advancement, review queue
+ │    ├── parentDash.js           ← parent gate, review queue, stats, calendar
+ │    ├── storage.js              ← Auth + game-state manager (online-only, no offline fallback)
+ │    └── ui/
+ │         ├── header.js          ← header bar, avatar selector, sound/theme
+ │         ├── history.js         ← puzzle history tab
+ │         └── celebrate.js       ← confetti, level-up modal, ambient emoji
  ├── helpers/
  │    ├── logger.js               ← client-side ring-buffer logger
  │    └── sound.js                ← Web Audio wrapper
  ├── data/
- │    ├── puzzles.json            ← current puzzle set (~8-9 yrs)
- │    └── user_adhyantha.json     ← local backup only, not used in production
+ │    └── puzzles.json            ← current puzzle set (~8-9 yrs)
+ ├── tests/
+ │    ├── api/                    ← API handler tests
+ │    ├── unit/                   ← Unit tests (age, puzzle-band)
+ │    └── integration/            ← End-to-end flow tests
  ├── index.html
  ├── styles.css
  ├── schema.sql                   ← Supabase DB schema (keep updated)
  ├── vercel.json
- ├── package.json
- └── server.py                    ← LOCAL DEV ONLY — to be removed in Phase 2
+ └── package.json
 ```
 
 ### Supabase DB schema (current)
@@ -118,6 +130,7 @@ theme, isMuted, completedPuzzles`
 
 ```
 Phase 1: Logging & Tests        ← safe, no user-facing changes
+Phase 1.5: Frontend End-to-End Testing (Playwright)
 Phase 2: Refactoring + Remove Offline
 Phase 3: DOB + Age Bands + New Puzzle Sets (AI-generated content)
 Phase 4: Drawing Storage TTL
@@ -130,7 +143,7 @@ Future:  Social Login (Gmail/Facebook/Apple)
 
 ## Phase 1 — Server-Side Logging & Test Framework
 
-**Risk:** Low | **Effort:** Medium | **Status:** ⬜ Not started
+**Risk:** Low | **Effort:** Medium | **Status:** ✅ Done
 
 ### 1A. Server-Side Request Logging
 
@@ -224,9 +237,34 @@ truncated before each run. Never touch `public.users` from tests.
 
 ---
 
+## Phase 1.5 — Frontend End-to-End Testing
+
+**Risk:** Low | **Effort:** Medium | **Status:** ⬜ Not started
+
+### 1.5A. Playwright Setup
+- Install `@playwright/test`
+- Configure `playwright.config.js` to run against `http://localhost:3000` (auto-starting the local dev server using `npx vercel dev`).
+
+### 1.5B. E2E Test Suite Creation
+Create `tests/e2e/` with the following test files:
+
+**`tests/e2e/auth.spec.js`**
+- Test Registration flow and Login flow.
+- Verify the 4-digit PIN requirement for Parent registration.
+
+**`tests/e2e/gameplay.spec.js`**
+- Log in and solve a mix of 5 puzzles with some correct and some wrong answers.
+- Verify that coins are awarded properly and the Day progression locks correctly.
+
+**`tests/e2e/parentDash.spec.js`**
+- Check metrics in the context of right and wrong answers (ensuring wrong answers don't inflate progress bars).
+- Verify the calendar updates correctly based on local time.
+
+---
+
 ## Phase 2 — Codebase Refactoring + Remove Offline Mode
 
-**Risk:** Medium | **Effort:** High | **Status:** ⬜ Not started
+**Risk:** Medium | **Effort:** High | **Status:** ✅ Done
 
 ### 2A. Split app.js monolith
 

@@ -10,6 +10,7 @@
  */
 
 const { supabase } = require('./_supabase');
+const { logRequest, logError } = require('./_logger');
 
 const PROFILE_FIELDS = [
   'childFirstName', 'childLastName', 'childGender', 'childAge',
@@ -18,7 +19,10 @@ const PROFILE_FIELDS = [
 ];
 
 module.exports = async function handler(req, res) {
+  const t0 = Date.now();
+  try {
   if (req.method !== 'POST') {
+    logRequest(req, { status: 405, ms: Date.now() - t0 });
     return res.status(405).json({ success: false, error: 'Method not allowed' });
   }
 
@@ -76,9 +80,15 @@ module.exports = async function handler(req, res) {
     .eq('username', normUsername);
 
   if (updateError) {
-    console.error('Supabase save-user error:', updateError);
+    logRequest(req, { status: 500, ms: Date.now() - t0, supabaseError: updateError.message });
     return res.status(500).json({ success: false, error: 'Failed to save user data.' });
   }
 
+  logRequest(req, { status: 200, ms: Date.now() - t0 });
   return res.status(200).json({ success: true });
+
+  } catch (err) {
+    logError(req, err);
+    return res.status(500).json({ success: false, error: 'Internal server error.' });
+  }
 };

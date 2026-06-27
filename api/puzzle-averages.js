@@ -11,52 +11,63 @@
  */
 
 const { supabase } = require('./_supabase');
+const { logRequest, logError } = require('./_logger');
 
 module.exports = async function handler(req, res) {
-  if (req.method !== 'GET') {
-    return res.status(405).json({ success: false, error: 'Method not allowed' });
-  }
+  const t0 = Date.now();
+  try {
+    if (req.method !== 'GET') {
+      logRequest(req, { status: 405, ms: Date.now() - t0 });
+      return res.status(405).json({ success: false, error: 'Method not allowed' });
+    }
 
-  const { data, error } = await supabase
-    .from('users')
-    .select('game_state');
+    const { data, error } = await supabase
+      .from('users')
+      .select('game_state')
+      .not('username', 'eq', '__admin__');
 
-  if (error) {
-    console.error('Supabase puzzle-averages error:', error);
+    if (error) {
+      logRequest(req, { status: 500, ms: Date.now() - t0, supabaseError: error.message });
+      return res.status(500).json({});
+    }
+
+    const buckets = {}; // { puzzleId: [seconds, ...] }
+
+    (data || []).forEach(row => {
+      const completedPuzzles = row.game_state?.completedPuzzles || {};
+      Object.entries(completedPuzzles).forEach(([pid, record]) => {
+        if (!record?.answered || record?.correct !== true) return;
+
+        const attempts = record.attempts || [];
+        let secondsSpent = null;
+
+        // Use the first attempt marked as correct
+        for (const att of attempts) {
+          if (att.correct === true) {
+            secondsSpent = att.secondsSpent;
+            break;
+          }
+        }
+
+        if (secondsSpent == null) secondsSpent = 10; // fallback default
+
+        if (!buckets[pid]) buckets[pid] = [];
+        buckets[pid].push(secondsSpent);
+      });
+    });
+
+    const result = {};
+    Object.entries(buckets).forEach(([pid, times]) => {
+      if (times.length > 0) {
+        result[pid] = Math.round(times.reduce((a, b) => a + b, 0) / times.length);
+      }
+    });
+
+    logRequest(req, { status: 200, ms: Date.now() - t0, puzzleCount: Object.keys(result).length });
+    return res.status(200).json(result);
+
+  } catch (err) {
+    logError(req, err);
     return res.status(500).json({});
   }
-
-  const buckets = {}; // { puzzleId: [seconds, ...] }
-
-  (data || []).forEach(row => {
-    const completedPuzzles = row.game_state?.completedPuzzles || {};
-    Object.entries(completedPuzzles).forEach(([pid, record]) => {
-      if (!record?.answered || record?.correct !== true) return;
-
-      const attempts = record.attempts || [];
-      let secondsSpent = null;
-
-      // Use the first attempt marked as correct
-      for (const att of attempts) {
-        if (att.correct === true) {
-          secondsSpent = att.secondsSpent;
-          break;
-        }
-      }
-
-      if (secondsSpent == null) secondsSpent = 10; // fallback default
-
-      if (!buckets[pid]) buckets[pid] = [];
-      buckets[pid].push(secondsSpent);
-    });
-  });
-
-  const result = {};
-  Object.entries(buckets).forEach(([pid, times]) => {
-    if (times.length > 0) {
-      result[pid] = Math.round(times.reduce((a, b) => a + b, 0) / times.length);
-    }
-  });
-
-  return res.status(200).json(result);
 };

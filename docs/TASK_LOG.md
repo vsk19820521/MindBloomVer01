@@ -15,47 +15,59 @@
 
 ---
 
-## Phase 1 — Server-Side Logging & Test Framework
+## Phase 1 — Server-Side Logging & Test Framework ✅
 
-- [ ] Create `api/_logger.js` (logRequest, logError)
-- [ ] Create `api/log-event.js` (client error POST endpoint)
-- [ ] Wrap `api/register.js` with logger
-- [ ] Wrap `api/login.js` with logger
-- [ ] Wrap `api/save-user.js` with logger
-- [ ] Wrap `api/get-user.js` with logger
-- [ ] Wrap `api/list-users.js` with logger
-- [ ] Wrap `api/delete-user.js` with logger
-- [ ] Wrap `api/puzzle-averages.js` with logger
-- [ ] Enhance `helpers/logger.js` (sessionId, explicit API, POST on unhandled error)
-- [ ] Create `tests/` folder structure
-- [ ] Write `tests/api/register.test.js`
-- [ ] Write `tests/api/login.test.js`
-- [ ] Write `tests/api/save-user.test.js`
-- [ ] Write `tests/api/get-user.test.js`
-- [ ] Write `tests/unit/age.test.js`
-- [ ] Write `tests/unit/puzzle-band.test.js`
-- [ ] Write `tests/integration/flow.test.js`
-- [ ] Update `package.json` with test scripts
-- [ ] Run full test suite — all pass
+- [x] Create `api/_logger.js` (logRequest, logError)
+- [x] Create `api/log-event.js` (client error POST endpoint)
+- [x] Wrap `api/register.js` with logger
+- [x] Wrap `api/login.js` with logger
+- [x] Wrap `api/save-user.js` with logger
+- [x] Wrap `api/get-user.js` with logger
+- [x] Wrap `api/list-users.js` with logger
+- [x] Wrap `api/delete-user.js` with logger
+- [x] Wrap `api/puzzle-averages.js` with logger
+- [x] Enhance `helpers/logger.js` (sessionId, explicit API, POST on unhandled error)
+- [x] Create `tests/` folder structure
+- [x] Write `tests/api/register.test.js`
+- [x] Write `tests/api/login.test.js`
+- [x] Write `tests/api/save-user.test.js`
+- [x] Write `tests/api/get-user.test.js`
+- [x] Write `tests/unit/age.test.js`
+- [x] Write `tests/unit/puzzle-band.test.js`
+- [x] Write `tests/integration/flow.test.js`
+- [x] Update `package.json` with test scripts
+- [x] Run full test suite — all pass
 
 ---
 
-## Phase 2 — Refactoring + Remove Offline Mode
+## Phase 1.5 — Frontend End-to-End Testing (Playwright)
 
-- [ ] Create `logic/auth.js`
-- [ ] Create `logic/puzzle.js`
-- [ ] Create `logic/gameState.js`
-- [ ] Create `logic/parentDash.js`
-- [ ] Create `logic/ui/header.js`
-- [ ] Create `logic/ui/history.js`
-- [ ] Create `logic/ui/celebrate.js`
-- [ ] Reduce `logic/app.js` to orchestrator (~150 lines)
-- [ ] Remove offline fallback from `logic/storage.js`
-- [ ] Delete `server.py`
-- [ ] Delete `data/user_adhyantha.json`, `data/user_test.json`, `data/user___test_alex.json`
-- [ ] Update `.gitignore` — add `data/user_*.json`
+- [ ] Install `@playwright/test`
+- [ ] Create `playwright.config.js`
+- [ ] Write `tests/e2e/auth.spec.js` (Register and Login flows)
+- [ ] Write `tests/e2e/gameplay.spec.js` (Play 5 puzzles with mixed correctness)
+- [ ] Write `tests/e2e/parentDash.spec.js` (Verify metrics with right/wrong answers)
+- [ ] Update `package.json` with `test:e2e` script
+- [ ] Run E2E test suite — all pass
+
+---
+
+## Phase 2 — Refactoring + Remove Offline Mode ✅
+
+- [x] Create `logic/auth.js`
+- [x] Create `logic/puzzle.js`
+- [x] Create `logic/gameState.js`
+- [x] Create `logic/parentDash.js`
+- [x] Create `logic/ui/header.js`
+- [x] Create `logic/ui/history.js`
+- [x] Create `logic/ui/celebrate.js`
+- [x] Reduce `logic/app.js` to orchestrator (~230 lines)
+- [x] Remove offline fallback from `logic/storage.js`
+- [x] Delete `server.py`
+- [x] Delete `data/user_adhyantha.json`, `data/user_test.json`, `data/user___test_alex.json`
+- [x] Update `.gitignore` — add `data/user_*.json` (done in Phase 1)
 - [ ] Verify app works end-to-end (login, play puzzle, save state)
-- [ ] Run test suite — all pass
+- [x] Run test suite — all pass
 
 ---
 

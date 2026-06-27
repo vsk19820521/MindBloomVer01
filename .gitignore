@@ -19,3 +19,6 @@ package-lock.json
 
 # Vercel build cache
 .vercel/
+
+.vercel
+.env*

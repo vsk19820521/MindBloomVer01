@@ -1,8 +1,10 @@
 /**
- * storage.js - Auth & Game State Manager
- * Integrates with Python server APIs for profile persistence.
- * Saves user profiles as separate user_{username}.json files on the server.
- * Retains LocalStorage as a local cache/fallback for instant lookups and offline support.
+ * storage.js — Auth & Game State Manager
+ *
+ * All reads and writes go through the Supabase-backed Vercel API.
+ * localStorage is used as a **read cache only** — populated after successful
+ * server responses so getCurrentUser() can return instantly without an
+ * async fetch.  There is no offline fallback; the app requires connectivity.
  */
 
 const ACTIVE_USER_KEY = "mindbloom_active_user";
@@ -45,7 +47,7 @@ export const StorageService = {
       gameState: {
         currentDay: 1,
         unlockedUpToDay: 1,
-        lastActiveDate: new Date().toISOString().split("T")[0],
+        lastActiveDate: new Date().toLocaleDateString('en-CA'),
         coins: 0,
         level: 1,
         levelName: "Mind Bloom",
@@ -71,35 +73,24 @@ export const StorageService = {
       if (!data.success) {
         return { success: false, error: data.error || "Username already exists. Try a different one!" };
       }
-      
+
       // Update local storage cache
       localStorage.setItem(userKey, JSON.stringify({ password: credentials.password, ...userData }));
       return { success: true };
     } catch (e) {
-      console.warn("Register server call failed. Attempting offline registration:", e);
-      
-      // Offline fallback check
-      if (localStorage.getItem(userKey)) {
-        return { success: false, error: "Username already exists. Try a different one!" };
-      }
-      localStorage.setItem(userKey, JSON.stringify({ password: credentials.password, ...userData }));
-      return { success: true };
+      console.error("Register server call failed:", e);
+      return { success: false, error: "Unable to reach the server. Please check your internet connection and try again." };
     }
   },
 
   /**
    * Logs in the child with username and password.
-   *
-   * Online mode  : POST /api/login  — server verifies bcrypt hash, returns profile.
-   *                Works with both the local Python server and Vercel serverless.
-   * Offline mode : Falls back to localStorage cache (plain-text password stored
-   *                locally at registration / last successful login).
+   * POST /api/login — server verifies bcrypt hash, returns profile.
    */
   async loginUser(username, password) {
     const normUsername = username.trim().toLowerCase();
     const userKey = `mindbloom_user_${normUsername}`;
 
-    // ── Online path: use secure server-side login endpoint ──────────────
     try {
       const response = await fetch("/api/login", {
         method: "POST",
@@ -110,7 +101,7 @@ export const StorageService = {
       if (response.ok) {
         const data = await response.json();
         if (data.success && data.user) {
-          // Cache locally (include plain-text password so offline fallback works)
+          // Cache locally for getCurrentUser() instant reads
           localStorage.setItem(userKey, JSON.stringify({ password, ...data.user }));
           localStorage.setItem(ACTIVE_USER_KEY, normUsername);
           return { success: true, user: this.getCurrentUser() };
@@ -126,30 +117,11 @@ export const StorageService = {
         return { success: false, error: "Oops! Incorrect password. Try again." };
       }
 
-      // Any other non-200 code — fall through to offline check
+      return { success: false, error: "Login failed. Please try again." };
     } catch (e) {
-      console.warn("Server unreachable during login. Falling back to local cache:", e);
+      console.error("Server unreachable during login:", e);
+      return { success: false, error: "Unable to reach the server. Please check your internet connection and try again." };
     }
-
-    // ── Offline fallback: compare against locally cached password ───────
-    const userJson = localStorage.getItem(userKey);
-    if (!userJson) {
-      return { success: false, error: "Username not found. Ask Mom or Dad to register you first!" };
-    }
-
-    let user;
-    try {
-      user = JSON.parse(userJson);
-    } catch (e) {
-      return { success: false, error: "Error reading user data." };
-    }
-
-    if (user.password !== password) {
-      return { success: false, error: "Oops! Incorrect password. Try again." };
-    }
-
-    localStorage.setItem(ACTIVE_USER_KEY, normUsername);
-    return { success: true, user: this.getCurrentUser() };
   },
 
   /**
@@ -178,7 +150,7 @@ export const StorageService = {
         user.gameState = {
           currentDay: 1,
           unlockedUpToDay: 1,
-          lastActiveDate: new Date().toISOString().split("T")[0],
+          lastActiveDate: new Date().toLocaleDateString('en-CA'),
           coins: 0,
           level: 1,
           levelName: "Mind Bloom",

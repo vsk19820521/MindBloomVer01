@@ -11,11 +11,16 @@
 
 const bcrypt = require('bcryptjs');
 const { supabase } = require('./_supabase');
+const { logRequest, logError } = require('./_logger');
 
 module.exports = async function handler(req, res) {
+  const t0 = Date.now();
   if (req.method !== 'POST') {
+    logRequest(req, { status: 405, ms: Date.now() - t0 });
     return res.status(405).json({ success: false, error: 'Method not allowed' });
   }
+
+  try {
 
   const { username, password, userData } = req.body || {};
 
@@ -33,6 +38,7 @@ module.exports = async function handler(req, res) {
     .maybeSingle();
 
   if (existing) {
+    logRequest(req, { status: 400, ms: Date.now() - t0, reason: 'duplicate_username' });
     return res.status(400).json({
       success: false,
       error: 'Username already exists. Try a different one!'
@@ -80,9 +86,15 @@ module.exports = async function handler(req, res) {
     });
 
   if (error) {
-    console.error('Supabase registration error:', error);
+    logRequest(req, { status: 500, ms: Date.now() - t0, supabaseError: error.message });
     return res.status(500).json({ success: false, error: 'Failed to save registration. Please try again.' });
   }
 
+  logRequest(req, { status: 200, ms: Date.now() - t0 });
   return res.status(200).json({ success: true });
+
+  } catch (err) {
+    logError(req, err);
+    return res.status(500).json({ success: false, error: 'Internal server error.' });
+  }
 };

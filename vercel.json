@@ -6,8 +6,7 @@
     {
       "source": "/api/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
-        { "key": "Content-Type", "value": "application/json; charset=utf-8" }
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
       ]
     },
     {
@@ -16,5 +15,15 @@
         { "key": "Cache-Control", "value": "public, max-age=3600" }
       ]
     }
+  ],
+  "rewrites": [
+    { "source": "/api/register",        "destination": "/api/register.js" },
+    { "source": "/api/login",           "destination": "/api/login.js" },
+    { "source": "/api/save-user",       "destination": "/api/save-user.js" },
+    { "source": "/api/get-user",        "destination": "/api/get-user.js" },
+    { "source": "/api/list-users",      "destination": "/api/list-users.js" },
+    { "source": "/api/delete-user",     "destination": "/api/delete-user.js" },
+    { "source": "/api/puzzle-averages", "destination": "/api/puzzle-averages.js" },
+    { "source": "/api/log-event",       "destination": "/api/log-event.js" }
   ]
 }

@@ -10,9 +10,13 @@
 
 const bcrypt = require('bcryptjs');
 const { supabase } = require('./_supabase');
+const { logRequest, logError } = require('./_logger');
 
 module.exports = async function handler(req, res) {
+  const t0 = Date.now();
+  try {
   if (req.method !== 'POST') {
+    logRequest(req, { status: 405, ms: Date.now() - t0 });
     return res.status(405).json({ success: false, error: 'Method not allowed' });
   }
 
@@ -32,6 +36,7 @@ module.exports = async function handler(req, res) {
     .single();
 
   if (error || !data) {
+    logRequest(req, { status: 404, ms: Date.now() - t0 });
     return res.status(404).json({
       success: false,
       error: 'Username not found. Ask Mom or Dad to register you first!'
@@ -41,6 +46,7 @@ module.exports = async function handler(req, res) {
   // Verify password against bcrypt hash
   const isMatch = await bcrypt.compare(password, data.password_hash);
   if (!isMatch) {
+    logRequest(req, { status: 401, ms: Date.now() - t0 });
     return res.status(401).json({ success: false, error: 'Oops! Incorrect password. Try again.' });
   }
 
@@ -60,5 +66,11 @@ module.exports = async function handler(req, res) {
     gameState: data.game_state || {}
   };
 
+  logRequest(req, { status: 200, ms: Date.now() - t0 });
   return res.status(200).json({ success: true, user });
+
+  } catch (err) {
+    logError(req, err);
+    return res.status(500).json({ success: false, error: 'Internal server error.' });
+  }
 };
