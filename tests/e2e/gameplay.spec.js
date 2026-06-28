@@ -101,6 +101,15 @@ test.describe('Gameplay Flow', () => {
 
 
     // --- Puzzle 3: Drawing (Pending) ---
+    // Mock the upload-drawing endpoint since we don't have a real Supabase bucket for tests
+    await page.route('/api/upload-drawing', async route => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({ success: true, path: 'drawings/test/mock.png' })
+      });
+    });
+
     await puzzleCards.nth(2).click();
     
     // We just click submit for drawing

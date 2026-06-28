@@ -183,7 +183,7 @@ export function setupPuzzleControls(getCurrentUser, getPUZZLES, getViewingDay, s
   });
 
   // Submit Answer
-  btnSubmitAnswer.addEventListener("click", () => {
+  btnSubmitAnswer.addEventListener("click", async () => {
     const currentUser = getCurrentUser();
     if (!activePuzzle) return;
 
@@ -218,7 +218,37 @@ export function setupPuzzleControls(getCurrentUser, getPUZZLES, getViewingDay, s
       }
       isCorrect = (userAnswer.toLowerCase() === activePuzzle.correctAnswer.toLowerCase());
     } else if (activePuzzle.type === "drawing") {
-      userAnswer = drawingBoard.toDataURL();
+      const imageDataUrl = drawingBoard.toDataURL();
+      btnSubmitAnswer.innerText = "Uploading...";
+      btnSubmitAnswer.disabled = true;
+
+      try {
+        const response = await fetch('/api/upload-drawing', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: currentUser.username,
+            puzzleId: activePuzzle.id,
+            imageDataUrl
+          })
+        });
+
+        const data = await response.json();
+        if (!data.success) {
+          throw new Error(data.error || 'Upload failed');
+        }
+
+        userAnswer = data.path; // e.g. "drawings/adhyantha/..."
+      } catch (err) {
+        console.error("Drawing upload failed", err);
+        alert("Failed to upload drawing. Please try again.");
+        btnSubmitAnswer.innerText = "Submit Answer";
+        btnSubmitAnswer.disabled = false;
+        return;
+      } finally {
+        btnSubmitAnswer.innerText = "Submit Answer";
+        btnSubmitAnswer.disabled = false;
+      }
 
       const existingRecord = currentUser.gameState.completedPuzzles[activePuzzle.id] || { attempts: [] };
       const newAttempts = [...(existingRecord.attempts || [])];
@@ -230,10 +260,15 @@ export function setupPuzzleControls(getCurrentUser, getPUZZLES, getViewingDay, s
         secondsSpent: secondsSpent
       });
 
+      // TTL is 7 days from now
+      const expiresDate = new Date();
+      expiresDate.setDate(expiresDate.getDate() + 7);
+
       currentUser.gameState.completedPuzzles[activePuzzle.id] = {
         answered: true,
         correct: null,
         userAnswer: userAnswer,
+        drawingExpiresAt: expiresDate.toISOString(),
         pendingApproval: true,
         coinsAwarded: 0,
         timeSolved: new Date().toLocaleDateString('en-CA'),

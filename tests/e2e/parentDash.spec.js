@@ -68,6 +68,13 @@ test.describe('Parent Dashboard Metrics', () => {
     await expect(puzzleCards.nth(1)).toHaveClass(/incorrect/);
 
     // --- Puzzle 3: Drawing (Pending) ---
+    await page.route('**/api/upload-drawing', async route => {
+      await route.fulfill({ status: 200, json: { success: true, path: 'drawings/test/mock.png' } });
+    });
+    await page.route('**/api/get-drawing-url*', async route => {
+      await route.fulfill({ status: 200, json: { success: true, url: 'data:image/png;base64,mock' } });
+    });
+
     await puzzleCards.nth(2).click();
     page.once('dialog', async d => await d.accept());
     await page.click('#btn-submit-answer');

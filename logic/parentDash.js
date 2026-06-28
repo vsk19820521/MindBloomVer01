@@ -402,7 +402,7 @@ function renderParentDrawings(currentUser, PUZZLES) {
         <div style="display: flex; gap: 20px; align-items: center; justify-content: space-around; flex-wrap: wrap; margin: 15px 0;">
           <div style="text-align: center; flex: 1; min-width: 150px;">
             <span style="font-size: 0.85rem; font-weight: bold; display: block; margin-bottom: 5px; color: var(--text-muted); font-family: var(--font-title);">${currentUser.childFirstName}'s Creation</span>
-            <img class="review-img" src="${record.userAnswer}" style="border: 2px solid var(--primary-color); border-radius: var(--radius-sm); max-width: 100%; max-height: 150px; background: white;">
+            <img class="review-img" src="" alt="Loading..." style="border: 2px solid var(--primary-color); border-radius: var(--radius-sm); max-width: 100%; max-height: 150px; background: white;">
           </div>
           <div style="text-align: center; flex: 1; min-width: 150px;">
             <span style="font-size: 0.85rem; font-weight: bold; display: block; margin-bottom: 5px; color: var(--text-muted); font-family: var(--font-title);">Reference Model</span>
@@ -416,6 +416,28 @@ function renderParentDrawings(currentUser, PUZZLES) {
           <button class="btn-primary btn-approve" data-id="${puzzleId}" style="padding:8px 16px; font-size:0.9rem;">Approve Submission & Give Coins</button>
         </div>
       `;
+
+      const imgElement = item.querySelector('.review-img');
+      if (record.userAnswer && record.userAnswer.startsWith('drawings/')) {
+        fetch(`/api/get-drawing-url?path=${encodeURIComponent(record.userAnswer)}`)
+          .then(res => res.json())
+          .then(data => {
+            if (data.success && data.url) {
+              imgElement.src = data.url;
+              imgElement.alt = "Child's Drawing";
+            } else {
+              imgElement.alt = "Failed to load drawing";
+            }
+          })
+          .catch(err => {
+            console.error("Error fetching drawing URL:", err);
+            imgElement.alt = "Failed to load drawing";
+          });
+      } else {
+        // Fallback for legacy base64 strings
+        imgElement.src = record.userAnswer;
+        imgElement.alt = "Child's Drawing";
+      }
 
       item.querySelector(".btn-approve").addEventListener("click", (e) => {
         const id = e.target.getAttribute("data-id");

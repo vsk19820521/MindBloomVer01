@@ -24,6 +24,15 @@
     { "source": "/api/list-users",      "destination": "/api/list-users.js" },
     { "source": "/api/delete-user",     "destination": "/api/delete-user.js" },
     { "source": "/api/puzzle-averages", "destination": "/api/puzzle-averages.js" },
-    { "source": "/api/log-event",       "destination": "/api/log-event.js" }
+    { "source": "/api/log-event",       "destination": "/api/log-event.js" },
+    { "source": "/api/upload-drawing",  "destination": "/api/upload-drawing.js" },
+    { "source": "/api/get-drawing-url", "destination": "/api/get-drawing-url.js" },
+    { "source": "/api/cron-delete-drawings", "destination": "/api/cron-delete-drawings.js" }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron-delete-drawings",
+      "schedule": "0 2 * * *"
+    }
   ]
 }
