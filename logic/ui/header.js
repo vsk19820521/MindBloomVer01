@@ -218,3 +218,87 @@ export function renderTimeStats(currentUser) {
   if (parentAttemptEl) parentAttemptEl.innerText = `${avgAttempt}s`;
   if (parentSuccessEl) parentSuccessEl.innerText = `${avgSuccess}s`;
 }
+
+/**
+ * Calculates and displays the 30-day consistency score.
+ */
+export function renderConsistencyScore(currentUser) {
+  const scoreContainer = document.getElementById("kids-consistency-score");
+  const percentDisplay = document.getElementById("kids-consistency-percentage");
+  if (!scoreContainer || !percentDisplay || !currentUser || !currentUser.gameState) return;
+
+  const activeDatesStr = new Set();
+  const completedPuzzles = currentUser.gameState.completedPuzzles || {};
+  Object.values(completedPuzzles).forEach(record => {
+    if (record.timeSolved) activeDatesStr.add(record.timeSolved);
+    if (record.attempts) {
+      record.attempts.forEach(a => {
+        if (a.dateAttempted) activeDatesStr.add(a.dateAttempted);
+      });
+    }
+  });
+
+  const today = new Date();
+  let activeDaysCount = 0;
+  
+  scoreContainer.innerHTML = '';
+  
+  // Generate last 30 days array from oldest to newest (left to right)
+  for (let i = 29; i >= 0; i--) {
+    const d = new Date(today);
+    d.setDate(d.getDate() - i);
+    const dateStr = d.toLocaleDateString('en-CA');
+    const isActive = activeDatesStr.has(dateStr);
+    
+    if (isActive) activeDaysCount++;
+    
+    const block = document.createElement("div");
+    block.style.width = "18px";
+    block.style.height = "18px";
+    block.style.borderRadius = "4px";
+    block.style.flexShrink = "0";
+    block.style.background = isActive ? "var(--success)" : "rgba(0,0,0,0.06)";
+    block.title = `${dateStr}${isActive ? ' (Active)' : ''}`;
+    
+    scoreContainer.appendChild(block);
+  }
+  
+  const percentage = Math.round((activeDaysCount / 30) * 100);
+  percentDisplay.innerText = `${percentage}%`;
+}
+
+/**
+ * Renders the level progress timeline horizontally.
+ */
+export function renderLevelsProgress(currentUser) {
+  const progressContainer = document.getElementById("kids-level-progress");
+  if (!progressContainer || !currentUser || !currentUser.gameState) return;
+  
+  progressContainer.innerHTML = '';
+  const totalCoins = currentUser.gameState.coins || 0;
+  
+  STAGE_LEVELS.forEach((level) => {
+    const isUnlocked = totalCoins >= level.minCoins;
+    const isCurrent = currentUser.gameState.levelName === level.name;
+    
+    const card = document.createElement("div");
+    card.style.minWidth = "110px";
+    card.style.padding = "10px";
+    card.style.borderRadius = "var(--radius-sm)";
+    card.style.textAlign = "center";
+    card.style.flexShrink = "0";
+    card.style.border = isCurrent ? "2px solid var(--primary-color)" : "1px solid var(--card-border)";
+    card.style.background = isUnlocked ? (isCurrent ? "rgba(108, 92, 231, 0.1)" : "var(--white)") : "rgba(0,0,0,0.02)";
+    card.style.opacity = isUnlocked ? "1" : "0.5";
+    
+    card.innerHTML = `
+      <div style="font-size: 1.8rem; margin-bottom: 5px;">${level.emoji}</div>
+      <div style="font-weight: bold; font-size: 0.9rem;">${level.badge}</div>
+      <div style="font-size: 0.8rem; margin-bottom: 5px;">${level.name}</div>
+      <div style="font-size: 0.75rem; color: var(--text-muted);">
+        ${isUnlocked ? 'Unlocked' : `Need ${level.minCoins} 💎`}
+      </div>
+    `;
+    progressContainer.appendChild(card);
+  });
+}

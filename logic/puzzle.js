@@ -15,6 +15,7 @@ import { checkAllDayPuzzlesCompleted } from "./gameState.js";
 // ── Module state ───────────────────────────────────────────────────────────
 let activePuzzle = null;
 let activePuzzleStartTime = null;
+export let puzzleTimerInterval = null;
 
 // Canvas drawing state
 let isDrawing = false;
@@ -467,6 +468,26 @@ function loadActivePuzzle(puzzle, currentUser) {
   } else {
     btnSubmitAnswer.classList.remove("hidden");
     btnShowHint.classList.remove("hidden");
+  }
+
+  // Timer logic
+  const timerDisplay = document.getElementById("puzzle-timer-display");
+  if (puzzleTimerInterval) clearInterval(puzzleTimerInterval);
+  
+  if (isCompleted) {
+    if (timerDisplay) {
+      const attempts = record.attempts || [];
+      const timeSpent = attempts.length > 0 ? attempts[0].secondsSpent : 0;
+      timerDisplay.innerText = `⏳ ${timeSpent}s`;
+    }
+  } else {
+    if (timerDisplay) {
+      timerDisplay.innerText = `⏳ 0s`;
+      puzzleTimerInterval = setInterval(() => {
+        const elapsed = Math.round((Date.now() - activePuzzleStartTime) / 1000);
+        timerDisplay.innerText = `⏳ ${elapsed}s`;
+      }, 1000);
+    }
   }
 }
 

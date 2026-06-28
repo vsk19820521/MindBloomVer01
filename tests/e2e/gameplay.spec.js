@@ -50,6 +50,13 @@ test.describe('Gameplay Flow', () => {
     
     await expect(page.locator('#main-view')).toBeVisible();
 
+    // Verify Kids Zone New UI Elements
+    await page.click('#tab-kids');
+    await expect(page.locator('#kids-level-progress')).toBeVisible();
+    await expect(page.locator('#kids-consistency-score')).toBeVisible();
+    await expect(page.locator('#kids-consistency-percentage')).toContainText('%');
+    await page.click('#tab-play');
+
     // The puzzle strip should have 5 puzzles
     const puzzleCards = page.locator('.puzzle-card');
     await expect(puzzleCards).toHaveCount(5);
@@ -58,6 +65,10 @@ test.describe('Gameplay Flow', () => {
     // Click first puzzle
     await puzzleCards.nth(0).click();
     await expect(page.locator('#active-puzzle-arena')).toBeVisible();
+    
+    // Verify Puzzle Timer exists and starts with 0s
+    await expect(page.locator('#puzzle-timer-display')).toBeVisible();
+    await expect(page.locator('#puzzle-timer-display')).toContainText('0s');
     
     // Select Option A (Correct answer for d1_q1)
     await page.locator('#mc-container .option-btn').nth(0).click();

@@ -227,6 +227,7 @@
             <span id="puzzle-difficulty" class="meta-tag difficulty-easy">Easy</span>
             <span id="puzzle-reward" class="puzzle-reward-tag">💎 10 Coins</span>
             <span id="puzzle-avg-time" class="puzzle-reward-tag" style="background: rgba(0, 168, 255, 0.1); color: var(--accent-text);">⏱️ Target Time: --</span>
+            <span id="puzzle-timer-display" class="puzzle-reward-tag" style="background: rgba(0, 0, 0, 0.05); color: var(--text-main); border: 1px solid var(--card-border);">⏳ 0s</span>
           </div>
         </div>
 
@@ -392,6 +393,26 @@
         <div class="glass-panel" style="padding: 20px; border-radius: var(--radius-sm);">
           <h3 style="font-family: var(--font-title); font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">🌟 Select Your Avatar</h3>
           <div id="kids-avatar-grid" class="avatar-grid" style="grid-template-columns: repeat(auto-fill, minmax(68px, 1fr)); gap: 10px; max-height: none; overflow: visible;"></div>
+        </div>
+
+        <!-- Level Progress (Full Width) -->
+        <div class="glass-panel" style="padding: 20px; border-radius: var(--radius-sm);">
+          <h3 style="font-family: var(--font-title); font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">🏆 Level Progress</h3>
+          <div id="kids-level-progress" style="display: flex; gap: 15px; overflow-x: auto; padding: 10px 0;">
+            <!-- Dynamically populated levels -->
+          </div>
+        </div>
+
+        <!-- Consistency Score Tracker (Full Width) -->
+        <div class="glass-panel" style="padding: 20px; border-radius: var(--radius-sm);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h3 style="font-family: var(--font-title); font-size: 1.25rem; margin: 0; display: flex; align-items: center; gap: 8px;">🔥 30-Day Consistency</h3>
+            <div id="kids-consistency-percentage" style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color);">0%</div>
+          </div>
+          <div id="kids-consistency-score" style="display: flex; gap: 4px; overflow-x: auto; padding: 5px 0;">
+            <!-- Dynamically populated 30-day blocks -->
+          </div>
+          <div style="text-align: right; font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Last 30 Days</div>
         </div>
       </div>
     </div>

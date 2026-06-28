@@ -22,7 +22,7 @@ import { setupAuth, resetAuthForms } from "./auth.js";
 import { renderPuzzleStrip, setupPuzzleControls } from "./puzzle.js";
 import { checkDateChange, checkAndTriggerReviews, setupReviewModal } from "./gameState.js";
 import { loadParentGate, setupParentControls } from "./parentDash.js";
-import { renderHeader, renderAvatarSelector, setupSoundAndTheme, renderTimeStats } from "./ui/header.js";
+import { renderHeader, renderAvatarSelector, setupSoundAndTheme, renderTimeStats, renderLevelsProgress, renderConsistencyScore } from "./ui/header.js";
 import { renderHistoryTab } from "./ui/history.js";
 import { initConfetti, setupCelebrationModal, spawnFloatingEmoji } from "./ui/celebrate.js";
 
@@ -137,6 +137,8 @@ function showMainApp() {
   switchTab("play");
   renderHeader(currentUser);
   renderAvatarSelector(currentUser);
+  renderLevelsProgress(currentUser);
+  renderConsistencyScore(currentUser);
 
   // Trigger daily brain power-up review if needed
   checkAndTriggerReviews(currentUser, PUZZLES);
