@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MindBloom - Local Browser Test Suite</title>
+  <title>Mind's Bloom - Local Browser Test Suite</title>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Outfit:wght@400;600;800&family=Pacifico&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -221,7 +221,7 @@
 
   <div class="container">
     <header>
-      <h1>Mind<span class="bloom-text">Bloom</span> 🌸 <span>Test Runner</span></h1>
+      <h1>Mind's <span class="bloom-text">Bloom</span> 🌸 <span>Test Runner</span></h1>
       <p class="subtitle">Self-contained browser verification harness</p>
     </header>
 
@@ -271,7 +271,7 @@
     async function cleanupTestUsers() {
       for (let i = localStorage.length - 1; i >= 0; i--) {
         const key = localStorage.key(i);
-        if (key && key.startsWith("mindbloom_user___test_")) {
+        if (key && key.startsWith("Mind's Bloom_user___test_")) {
           localStorage.removeItem(key);
         }
       }
@@ -336,9 +336,9 @@
         log(assertEquals(regRes.success, true, "Registration returns success = true"));
 
         // Verify lookup isolated
-        const storedKey = "mindbloom_user___test_emma";
+        const storedKey = "Mind's Bloom_user___test_emma";
         const storedData = localStorage.getItem(storedKey);
-        log(assert(storedData !== null, "User entry stored under key 'mindbloom_user___test_emma'"));
+        log(assert(storedData !== null, "User entry stored under key 'Mind's Bloom_user___test_emma'"));
         
         const userObj = JSON.parse(storedData);
         log(assertEquals(userObj.childFirstName, "Emma", "Stored child first name matches"));
