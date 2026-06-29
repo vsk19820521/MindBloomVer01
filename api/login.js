@@ -36,7 +36,8 @@ module.exports = async function handler(req, res) {
     .single();
 
   if (error || !data) {
-    logRequest(req, { status: 404, ms: Date.now() - t0 });
+    console.error("SUPABASE ERROR IN LOGIN:", error);
+    logRequest(req, { status: 404, ms: Date.now() - t0, supabaseError: error?.message });
     return res.status(404).json({
       success: false,
       error: 'Username not found. Ask Mom or Dad to register you first!'

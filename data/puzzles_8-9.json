@@ -1731,5 +1731,77 @@
       "Think about family generations."
     ],
     "explanation": "The grandfather is a father, the father is both a son and a father, and the son is a son. This makes two fathers and two sons, but only three people total!"
+  },
+  {
+    "id": "d16_q1",
+    "day": 16,
+    "number": 1,
+    "title": "Rohan's Birthday Math",
+    "category": "Logical Thinking",
+    "theme": "Calendar",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "Rohan is looking forward to celebrating his 10th birthday on a Thursday in April of 2022. The first of April 2022 is a Friday. Rohan was born on an odd-numbered day of the month. What is a possible date that Rohan was born?",
+    "type": "multiple-choice",
+    "options": [
+      "April 7 in the year 2012",
+      "April 14 in the year 2012",
+      "April 21 in the year 2022",
+      "April 28 in the year 2011"
+    ],
+    "correctAnswer": "April 7 in the year 2012",
+    "hints": [
+      "If April 1 is a Friday, what dates will be Thursdays? Count forward to find out.",
+      "His birthday must be an odd number. Also, if he is turning 10 in 2022, what year was he born?"
+    ],
+    "explanation": "If April 1 is Friday, Thursdays fall on the 7th, 14th, 21st, and 28th. The odd-numbered Thursdays are the 7th and 21st. Since he is turning 10 in 2022, he must have been born in 2012 (2022 - 10 = 2012). So April 7, 2012 is a correct possible date."
+  },
+  {
+    "id": "d16_q2",
+    "day": 16,
+    "number": 2,
+    "title": "Priya's Pizza Party",
+    "category": "Logical Thinking",
+    "theme": "Calendar",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "Priya wants to throw a pizza party for her 9th birthday on a Tuesday in October 2023. The 1st of October 2023 is a Sunday. Priya's birthday is an odd-numbered day of the month. Which date could be her birthday?",
+    "type": "multiple-choice",
+    "options": [
+      "October 17 in the year 2014",
+      "October 10 in the year 2014",
+      "October 3 in the year 2015",
+      "October 31 in the year 2013"
+    ],
+    "correctAnswer": "October 17 in the year 2014",
+    "hints": [
+      "If October 1 is Sunday, what date is the first Tuesday?",
+      "If she turns 9 in 2023, subtract 9 to find her birth year."
+    ],
+    "explanation": "If Oct 1 is Sunday, then Oct 2 is Monday and Oct 3 is Tuesday. Tuesdays fall on the 3rd, 10th, 17th, 24th, 31st. The odd-numbered Tuesdays are 3, 17, and 31. She turns 9 in 2023, so her birth year is 2014 (2023 - 9 = 2014). Therefore, October 17, 2014 is a valid answer."
+  },
+  {
+    "id": "d16_q3",
+    "day": 16,
+    "number": 3,
+    "title": "Arjun's Leap Year Party",
+    "category": "Logical Thinking",
+    "theme": "Calendar",
+    "difficulty": "Hard",
+    "coinsReward": 30,
+    "question": "Arjun's 8th birthday is on a Monday in June 2024. The 1st of June 2024 is a Saturday. Arjun's birthday is a multiple of 10. When was Arjun born?",
+    "type": "multiple-choice",
+    "options": [
+      "June 10 in the year 2016",
+      "June 20 in the year 2016",
+      "June 10 in the year 2024",
+      "June 30 in the year 2015"
+    ],
+    "correctAnswer": "June 10 in the year 2016",
+    "hints": [
+      "If June 1 is Saturday, find the first Monday.",
+      "What multiples of 10 exist in a month?"
+    ],
+    "explanation": "If June 1 is Saturday, June 2 is Sunday, and June 3 is Monday. Mondays are 3, 10, 17, 24. The only multiple of 10 here is 10. Turning 8 in 2024 means he was born in 2016. So June 10, 2016 is his birthday."
   }
 ]
