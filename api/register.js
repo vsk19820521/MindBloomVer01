@@ -67,7 +67,7 @@ module.exports = async function handler(req, res) {
     lastActiveDate: new Date().toISOString().split('T')[0],
     coins: 0,
     level: 1,
-    levelName: 'Mind Bloom',
+    levelName: "Mind's Bloom",
     theme: 'unicorn',
     isMuted: false,
     completedPuzzles: {}

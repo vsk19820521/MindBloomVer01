@@ -1,7 +1,7 @@
 {
   "name": "mindbloom",
   "version": "1.0.0",
-  "description": "MindBloom - Logic & Lateral Thinking Puzzles for Kids",
+  "description": "Mind's Bloom - Logic & Lateral Thinking Puzzles for Kids",
   "private": true,
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",

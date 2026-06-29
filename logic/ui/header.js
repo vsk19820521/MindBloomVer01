@@ -41,7 +41,7 @@ const CARTOON_AVATARS = [
 
 // Level definitions (shared read-only constant)
 export const STAGE_LEVELS = [
-  { name: "Mind Bloom",       minCoins: 0,    emoji: "🌸", badge: "Lvl 1" },
+  { name: "Mind's Bloom",       minCoins: 0,    emoji: "🌸", badge: "Lvl 1" },
   { name: "Brain Bunny",      minCoins: 150,  emoji: "🐰", badge: "Lvl 2" },
   { name: "Puzzle Planet",    minCoins: 400,  emoji: "🪐", badge: "Lvl 3" },
   { name: "Think Tank",       minCoins: 750,  emoji: "🧠", badge: "Lvl 4" },

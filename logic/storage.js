@@ -50,7 +50,7 @@ export const StorageService = {
         lastActiveDate: new Date().toLocaleDateString('en-CA'),
         coins: 0,
         level: 1,
-        levelName: "Mind Bloom",
+        levelName: "Mind's Bloom",
         theme: "unicorn",
         isMuted: false,
         completedPuzzles: {}, // Maps puzzleId -> { answered: boolean, correct: boolean|null, userAnswer: any, timeSolved: string, approvedByParent: boolean, needsReview: boolean, reviewed: boolean, attempts: Array<{ userAnswer, timeAttempted, dateAttempted, correct }> }
@@ -153,7 +153,7 @@ export const StorageService = {
           lastActiveDate: new Date().toLocaleDateString('en-CA'),
           coins: 0,
           level: 1,
-          levelName: "Mind Bloom",
+          levelName: "Mind's Bloom",
           theme: "unicorn",
           isMuted: false,
           completedPuzzles: {}
@@ -169,7 +169,7 @@ export const StorageService = {
           user.gameState.level = 1;
         }
         if (!user.gameState.levelName) {
-          user.gameState.levelName = "Mind Bloom";
+          user.gameState.levelName = "Mind's Bloom";
         }
         if (!user.gameState.theme) {
           user.gameState.theme = "unicorn";
