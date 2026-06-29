@@ -13,6 +13,19 @@ const bcrypt = require('bcryptjs');
 const { supabase } = require('./_supabase');
 const { logRequest, logError } = require('./_logger');
 
+function calcAge(birthMonth, birthYear) {
+  const now = new Date();
+  let age = now.getFullYear() - birthYear;
+  if (now.getMonth() + 1 < birthMonth) age--; 
+  return age;
+}
+
+function ageToBand(age) {
+  if (age <= 5) return '4-5';
+  if (age <= 7) return '6-7';
+  return '8-9';
+}
+
 module.exports = async function handler(req, res) {
   const t0 = Date.now();
   if (req.method !== 'POST') {
@@ -49,11 +62,16 @@ module.exports = async function handler(req, res) {
   const passwordHash = await bcrypt.hash(password, 10);
 
   // Split into profile and game_state columns for efficient partial updates later
+  const birth_month = parseInt(userData.birthMonth) || 1;
+  const birth_year = parseInt(userData.birthYear) || 2017;
+  const computedAge = calcAge(birth_month, birth_year);
+  const puzzle_band = ageToBand(computedAge);
+
   const profile = {
     childFirstName:     userData.childFirstName     || '',
     childLastName:      userData.childLastName      || '',
     childGender:        userData.childGender        || 'Other',
-    childAge:           parseInt(userData.childAge) || 9,
+    childAge:           computedAge,
     childAvatar:        userData.childAvatar        || '⚡ Pikachu',
     livingCountry:      userData.livingCountry      || '',
     culturalAffiliation: userData.culturalAffiliation || '',
@@ -81,6 +99,9 @@ module.exports = async function handler(req, res) {
       parent_code:   userData.parentCode || '0000',
       parent_email:  profile.parentEmail,
       parent_phone:  profile.parentPhone,
+      birth_month:   birth_month,
+      birth_year:    birth_year,
+      puzzle_band:   puzzle_band,
       profile,
       game_state:    gameState
     });

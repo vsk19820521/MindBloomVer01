@@ -377,12 +377,43 @@ function _handleDayCompletion(currentUser, PUZZLES, viewingDay) {
       StorageService.updateGameState(currentUser.gameState);
       
       setTimeout(() => {
-        if (unlockedNewDay) {
-          alert(`🎉 Wonderful job! You completed all 5 puzzles for Day ${currentUser.gameState.currentDay}! Day ${nextDay} is now unlocked! Click the arrow to check it out! 🚀`);
+        const maxDayInJson = PUZZLES.length > 0 ? Math.max(...PUZZLES.map(p => p.day)) : 1;
+        if (currentUser.gameState.currentDay >= maxDayInJson) {
+           // BAND PROGRESSION
+           let nextBand = null;
+           if (currentUser.puzzleBand === '4-5') nextBand = '6-7';
+           else if (currentUser.puzzleBand === '6-7') nextBand = '8-9';
+           
+           if (nextBand) {
+             alert(`🌟 Incredible! You've mastered the ${currentUser.puzzleBand} age puzzles! Ready for harder ones? Moving you to the ${nextBand} level! 🚀`);
+             currentUser.puzzleBand = nextBand;
+             currentUser.gameState.currentDay = 1;
+             currentUser.gameState.unlockedUpToDay = 1;
+             currentUser.gameState.completedPuzzles = {}; // Reset completed puzzles for new band
+             currentUser.gameState.dayCompletedAlerts = {};
+             // Save immediately
+             StorageService.updateGameState(currentUser.gameState);
+             fetch(`/api/save-user`, {
+               method: "POST",
+               headers: { "Content-Type": "application/json" },
+               body: JSON.stringify({
+                 username: currentUser.username,
+                 userData: { puzzleBand: nextBand, gameState: currentUser.gameState }
+               })
+             }).then(() => {
+                 window.location.reload(); // Reload to fetch new puzzles
+             });
+           } else {
+             alert(`🎉 Amazing! You've completed every single puzzle available for the hardest level! You are a true genius! 🏆`);
+           }
         } else {
-          alert(`🎉 Wonderful job! You completed all 5 puzzles for Day ${currentUser.gameState.currentDay}!`);
+          if (unlockedNewDay) {
+            alert(`🎉 Wonderful job! You completed all 5 puzzles for Day ${currentUser.gameState.currentDay}! Day ${nextDay} is now unlocked! Click the arrow to check it out! 🚀`);
+          } else {
+            alert(`🎉 Wonderful job! You completed all 5 puzzles for Day ${currentUser.gameState.currentDay}!`);
+          }
+          renderPuzzleStrip(currentUser, PUZZLES, viewingDay);
         }
-        renderPuzzleStrip(currentUser, PUZZLES, viewingDay);
       }, 800);
     }
   }

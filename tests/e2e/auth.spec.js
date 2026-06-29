@@ -55,6 +55,8 @@ test.describe('Auth Flow', () => {
     await page.fill('#child-last-name', 'Test');
     await page.selectOption('#child-country', 'United States');
     await page.selectOption('#child-culture', 'United States');
+    await page.selectOption('#child-birth-month', '8');
+    await page.selectOption('#child-birth-year', '2018');
     
     const isValid = await page.evaluate(() => document.getElementById('register-form').reportValidity());
     console.log("IS VALID:", isValid);

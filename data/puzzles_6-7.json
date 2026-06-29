@@ -1,0 +1,691 @@
+[
+  {
+    "id": "d14_q1",
+    "day": 14,
+    "number": 1,
+    "title": "The Toy Train Line",
+    "category": "Logical Thinking",
+    "theme": "Trains",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "A toy train has three carriages: Red, Blue, and Green. Red is first. Green is last. Which carriage is in the middle?",
+    "type": "multiple-choice",
+    "options": [
+      "Blue",
+      "Red",
+      "Green",
+      "Cannot tell"
+    ],
+    "correctAnswer": "Blue",
+    "hints": [
+      "There are only three carriages.",
+      "The middle one is between the first and last."
+    ],
+    "explanation": "If Red is first and Green is last, Blue must be in the middle."
+  },
+  {
+    "id": "d14_q2",
+    "day": 14,
+    "number": 2,
+    "title": "The Busy Spider",
+    "category": "Logical Thinking",
+    "theme": "Spiders",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "A spider has 8 legs. Two spiders are building webs together. How many legs do they have altogether?",
+    "type": "text-input",
+    "correctAnswer": "16",
+    "hints": [
+      "One spider has 8 legs.",
+      "Count two groups of 8."
+    ],
+    "explanation": "2 × 8 = 16 legs."
+  },
+  {
+    "id": "d14_q3",
+    "day": 14,
+    "number": 3,
+    "title": "The Rainy Day",
+    "category": "Lateral Thinking",
+    "theme": "Weather",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Jack carried an umbrella all day, but he never opened it. Why?",
+    "type": "multiple-choice",
+    "options": [
+      "He forgot he had an umbrella",
+      "The umbrella was broken",
+      "It never rained",
+      "It blew away"
+    ],
+    "correctAnswer": "It never rained",
+    "hints": [
+      "You don't always need an umbrella.",
+      "Think about the weather."
+    ],
+    "explanation": "Jack carried the umbrella just in case, but it never rained."
+  },
+  {
+    "id": "d14_q4",
+    "day": 14,
+    "number": 4,
+    "title": "The Birthday Balloons",
+    "category": "Logical Thinking",
+    "theme": "Birthday",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "The balloons are in this pattern: Red, Yellow, Red, Yellow, Red. What color should the next balloon be?",
+    "type": "multiple-choice",
+    "options": [
+      "Yellow",
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "correctAnswer": "Yellow",
+    "hints": [
+      "Look for the repeating pattern.",
+      "The colors keep repeating."
+    ],
+    "explanation": "The pattern repeats Red, Yellow."
+  },
+  {
+    "id": "d14_q5",
+    "day": 14,
+    "number": 5,
+    "title": "The Sleepy Puppy",
+    "category": "Lateral Thinking",
+    "theme": "Dogs",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "A puppy closed its eyes before going to sleep. How could it still hear its owner calling?",
+    "type": "multiple-choice",
+    "options": [
+      "Its ears were open",
+      "It woke up",
+      "It opened one eye",
+      "Dogs cannot hear while sleeping"
+    ],
+    "correctAnswer": "Its ears were open",
+    "hints": [
+      "What do dogs hear with?",
+      "Closing one body part doesn't close another."
+    ],
+    "explanation": "Dogs hear with their ears, not their eyes."
+  },
+  {
+    "id": "d15_q1",
+    "day": 15,
+    "number": 1,
+    "title": "The Three Ice Creams",
+    "category": "Logical Thinking",
+    "theme": "Ice Cream",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Vanilla is taller than Strawberry. Strawberry is taller than Chocolate. Which ice cream scoop is the tallest?",
+    "type": "multiple-choice",
+    "options": [
+      "Vanilla",
+      "Strawberry",
+      "Chocolate",
+      "They are all the same"
+    ],
+    "correctAnswer": "Vanilla",
+    "hints": [
+      "Arrange them from tallest to shortest.",
+      "Who is taller than everyone else?"
+    ],
+    "explanation": "Vanilla is taller than Strawberry, which is taller than Chocolate."
+  },
+  {
+    "id": "d15_q2",
+    "day": 15,
+    "number": 2,
+    "title": "The Penguin Parade",
+    "category": "Logical Thinking",
+    "theme": "Penguins",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Five penguins are walking in a line. Penny is first. Pip is last. How many penguins are walking between Penny and Pip?",
+    "type": "text-input",
+    "correctAnswer": "3",
+    "hints": [
+      "There are five penguins altogether.",
+      "Don't count the first or last penguin."
+    ],
+    "explanation": "The second, third and fourth penguins are between Penny and Pip."
+  },
+  {
+    "id": "d15_q3",
+    "day": 15,
+    "number": 3,
+    "title": "The Missing Hat",
+    "category": "Lateral Thinking",
+    "theme": "Clothes",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Lucy couldn't find her hat. Then she looked in the place where she had left it. Where was her hat?",
+    "type": "multiple-choice",
+    "options": [
+      "Exactly where she left it",
+      "At her friend's house",
+      "In the garden",
+      "Someone had taken it"
+    ],
+    "correctAnswer": "Exactly where she left it",
+    "hints": [
+      "Read carefully.",
+      "Where did she finally look?"
+    ],
+    "explanation": "She found it exactly where she had left it."
+  },
+  {
+    "id": "d15_q4",
+    "day": 15,
+    "number": 4,
+    "title": "The Farm Gate",
+    "category": "Logical Thinking",
+    "theme": "Farm",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "A farmer has 4 sheep inside a gate. Two more sheep walk inside. How many sheep are inside the gate now?",
+    "type": "text-input",
+    "correctAnswer": "6",
+    "hints": [
+      "Add the sheep together.",
+      "4 plus 2."
+    ],
+    "explanation": "There are now 6 sheep inside the gate."
+  },
+  {
+    "id": "d15_q5",
+    "day": 15,
+    "number": 5,
+    "title": "The Friendly Duck",
+    "category": "Lateral Thinking",
+    "theme": "Birds",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "A duck walked across a road without looking left or right. It crossed safely. How?",
+    "type": "multiple-choice",
+    "options": [
+      "There were no vehicles",
+      "It ran fast like a bunny",
+      "It could fly fast & past any distance",
+      "Someone carried it"
+    ],
+    "correctAnswer": "There were no vehicles",
+    "hints": [
+      "The road doesn't always have traffic. Does it ?"
+    ],
+    "explanation": "The duck crossed safely because there were no cars on the road."
+  },
+  {
+    "id": "d16_q1",
+    "day": 16,
+    "number": 1,
+    "title": "The Frog Family",
+    "category": "Logical Thinking",
+    "theme": "Frogs",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "A mother frog has 4 baby frogs on a lily pad. Two more baby frogs hop onto the pad. How many baby frogs are there now?",
+    "type": "text-input",
+    "correctAnswer": "6",
+    "hints": [
+      "Start with 4 baby frogs.",
+      "Add 2 more."
+    ],
+    "explanation": "4 + 2 = 6 baby frogs."
+  },
+  {
+    "id": "d16_q2",
+    "day": 16,
+    "number": 2,
+    "title": "The Color Blocks",
+    "category": "Pattern Recognition",
+    "theme": "Blocks",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "The toy blocks are stacked Blue, Green, Blue, Green, Blue. What color should the next block be?",
+    "type": "multiple-choice",
+    "options": [
+      "Green",
+      "Blue",
+      "Yellow",
+      "Red"
+    ],
+    "correctAnswer": "Green",
+    "hints": [
+      "The colors repeat.",
+      "Blue is always followed by Green."
+    ],
+    "explanation": "The repeating pattern is Blue, Green."
+  },
+  {
+    "id": "d16_q3",
+    "day": 16,
+    "number": 3,
+    "title": "The Sleeping Bear",
+    "category": "Lateral Thinking",
+    "theme": "Bears",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "A bear was sleeping under a tree. When it woke up, the tree was still standing. Why?",
+    "type": "multiple-choice",
+    "options": [
+      "The bear never pushed the tree",
+      "The tree was magical",
+      "The tree flew away",
+      "The bear climbed the tree"
+    ],
+    "correctAnswer": "The bear never pushed the tree",
+    "hints": [
+      "Did the bear do anything to the tree?",
+      "Sleeping doesn't knock trees over."
+    ],
+    "explanation": "The bear simply slept under the tree."
+  },
+  {
+    "id": "d16_q4",
+    "day": 16,
+    "number": 4,
+    "title": "The Happy Fish",
+    "category": "Logical Thinking",
+    "theme": "Fish",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Goldie the fish swims faster than Blue. Blue swims faster than Tiny. Which fish is the slowest?",
+    "type": "multiple-choice",
+    "options": [
+      "Tiny",
+      "Blue",
+      "Goldie",
+      "They all swim equally fast"
+    ],
+    "correctAnswer": "Tiny",
+    "hints": [
+      "Who is slower than Blue?",
+      "Arrange them from fastest to slowest."
+    ],
+    "explanation": "Goldie is fastest, then Blue, then Tiny."
+  },
+  {
+    "id": "d16_q5",
+    "day": 16,
+    "number": 5,
+    "title": "The Empty Swing",
+    "category": "Lateral Thinking",
+    "theme": "Playground",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "A swing in the playground keeps moving, but nobody is sitting on it. How?",
+    "type": "multiple-choice",
+    "options": [
+      "The wind is blowing it",
+      "It is alive",
+      "A bird is pushing it",
+      "The swing is broken"
+    ],
+    "correctAnswer": "The wind is blowing it",
+    "hints": [
+      "What can move light things outside?",
+      "Think about a windy day."
+    ],
+    "explanation": "The wind can make an empty swing move."
+  },
+  {
+    "id": "d17_q1",
+    "day": 17,
+    "number": 1,
+    "title": "The Toy Cars",
+    "category": "Logical Thinking",
+    "theme": "Cars",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Sam has 5 toy cars. He gives 1 toy car to his friend. How many toy cars does Sam have left?",
+    "type": "text-input",
+    "correctAnswer": "4",
+    "hints": [
+      "Start with 5.",
+      "Take away 1."
+    ],
+    "explanation": "5 - 1 = 4."
+  },
+  {
+    "id": "d17_q2",
+    "day": 17,
+    "number": 2,
+    "title": "The Long Snake",
+    "category": "Logical Thinking",
+    "theme": "Snakes",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "A green snake is longer than a blue snake. The blue snake is longer than a red snake. Which snake is the shortest?",
+    "type": "multiple-choice",
+    "options": [
+      "Red",
+      "Blue",
+      "Green",
+      "Cannot tell"
+    ],
+    "correctAnswer": "Red",
+    "hints": [
+      "Who is shorter than Blue?",
+      "Put them in order."
+    ],
+    "explanation": "Green is longest, Blue is next, and Red is shortest."
+  },
+  {
+    "id": "d17_q3",
+    "day": 17,
+    "number": 3,
+    "title": "The Sunny Picnic",
+    "category": "Lateral Thinking",
+    "theme": "Picnic",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Mia packed a raincoat for her picnic, but she never wore it. Why?",
+    "type": "multiple-choice",
+    "options": [
+      "It stayed sunny all day",
+      "She forgot the raincoat",
+      "She gave it away",
+      "It disappeared"
+    ],
+    "correctAnswer": "It stayed sunny all day",
+    "hints": [
+      "Why do people wear raincoats?",
+      "Think about the weather."
+    ],
+    "explanation": "It never rained, so she didn't need her raincoat."
+  },
+  {
+    "id": "d17_q4",
+    "day": 17,
+    "number": 4,
+    "title": "The Apple Basket",
+    "category": "Observation",
+    "theme": "Fruit",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "A basket has 5 apples. Ben takes one apple out. How many apples does Ben have?",
+    "type": "multiple-choice",
+    "options": [
+      "1",
+      "4",
+      "5",
+      "0"
+    ],
+    "correctAnswer": "1",
+    "hints": [
+      "The question asks about Ben.",
+      "He took one apple."
+    ],
+    "explanation": "Ben has the apple he took."
+  },
+  {
+    "id": "d17_q5",
+    "day": 17,
+    "number": 5,
+    "title": "The Little Bird",
+    "category": "Lateral Thinking",
+    "theme": "Birds",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "A little bird landed on the roof of a house. How did it get there?",
+    "type": "multiple-choice",
+    "options": [
+      "It flew",
+      "It climbed a ladder",
+      "Someone threw it",
+      "It used an elevator"
+    ],
+    "correctAnswer": "It flew",
+    "hints": [
+      "What can birds do?",
+      "Think of the easiest way."
+    ],
+    "explanation": "Birds can fly onto rooftops."
+  },
+  {
+    "id": "d18_q1",
+    "day": 18,
+    "number": 1,
+    "title": "The Wrong Shoe",
+    "category": "Observation",
+    "theme": "Clothes",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Tom put both shoes on the same foot. How many shoes are on his other foot?",
+    "type": "multiple-choice",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "Can't happen"
+    ],
+    "correctAnswer": "0",
+    "hints": [
+      "Both shoes are on one foot.",
+      "What is left for the other foot?"
+    ],
+    "explanation": "If both shoes are on one foot, the other foot has no shoes."
+  },
+  {
+    "id": "d18_q2",
+    "day": 18,
+    "number": 2,
+    "title": "The Animal Race",
+    "category": "Simple Deduction",
+    "theme": "Animals",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "A rabbit finished before a turtle. A turtle finished before a snail. Who finished last?",
+    "type": "multiple-choice",
+    "options": [
+      "Snail",
+      "Rabbit",
+      "Turtle",
+      "Cannot tell"
+    ],
+    "correctAnswer": "Snail",
+    "hints": [
+      "Think about the finishing order.",
+      "Who came after everyone else?"
+    ],
+    "explanation": "The order is Rabbit, Turtle, Snail."
+  },
+  {
+    "id": "d18_q3",
+    "day": 18,
+    "number": 3,
+    "title": "The Cookie Jar",
+    "category": "Lateral Thinking",
+    "theme": "Kitchen",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Emma reached into the glass cookie jar but didn't take a single cookie. Why?",
+    "type": "multiple-choice",
+    "options": [
+      "She changed her mind",
+      "The jar was empty",
+      "She took two cookies",
+      "She wasn't hungry"
+    ],
+    "correctAnswer": "She took two cookies",
+    "hints": [
+      "The puzzle only says she didn't take one cookie.",
+      "Did she have to take exactly one?"
+    ],
+    "explanation": "She didn't take a single cookie because she took two."
+  },
+  {
+    "id": "d18_q4",
+    "day": 18,
+    "number": 4,
+    "title": "The Toy Shelf",
+    "category": "Pattern Recognition",
+    "theme": "Toys",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Bear, Car, Ball, Bear, Car, Ball, Bear... What comes next?",
+    "type": "multiple-choice",
+    "options": [
+      "Car",
+      "Ball",
+      "Bear",
+      "Robot"
+    ],
+    "correctAnswer": "Car",
+    "hints": [
+      "The toys repeat.",
+      "Look at the first three."
+    ],
+    "explanation": "The repeating pattern is Bear, Car, Ball."
+  },
+  {
+    "id": "d18_q5",
+    "day": 18,
+    "number": 5,
+    "title": "The Big Box",
+    "category": "Perspective Shift",
+    "theme": "Moving House",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "A tiny toy fits inside a big box. Can the big box fit inside the tiny toy?",
+    "type": "multiple-choice",
+    "options": [
+      "No",
+      "Yes",
+      "Only sometimes",
+      "Maybe"
+    ],
+    "correctAnswer": "No",
+    "hints": [
+      "Which one is bigger?",
+      "Think about their sizes."
+    ],
+    "explanation": "A bigger object cannot fit inside a much smaller one."
+  },
+  {
+    "id": "d19_q1",
+    "day": 19,
+    "number": 1,
+    "title": "The Classroom Line",
+    "category": "Simple Deduction",
+    "theme": "School",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Lily is behind Ben. Ben is behind Ava. Who is at the front of the line?",
+    "type": "multiple-choice",
+    "options": [
+      "Ava",
+      "Ben",
+      "Lily",
+      "Cannot tell"
+    ],
+    "correctAnswer": "Ava",
+    "hints": [
+      "Draw the line in your head.",
+      "Who has nobody in front?"
+    ],
+    "explanation": "The order is Ava, Ben, Lily."
+  },
+  {
+    "id": "d19_q2",
+    "day": 19,
+    "number": 2,
+    "title": "The Shadow",
+    "category": "Observation",
+    "theme": "Nature",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Mia saw her shadow on the ground. What was shining?",
+    "type": "multiple-choice",
+    "options": [
+      "The Sun",
+      "The Moon",
+      "A torch",
+      "Nothing"
+    ],
+    "correctAnswer": "The Sun",
+    "hints": [
+      "What usually makes shadows outside?",
+      "Think about daytime."
+    ],
+    "explanation": "The Sun shines and creates shadows."
+  },
+  {
+    "id": "d19_q3",
+    "day": 19,
+    "number": 3,
+    "title": "The Empty Backpack",
+    "category": "Missing Information",
+    "theme": "School",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Noah said, 'My backpack feels lighter today.' What is one possible reason?",
+    "type": "multiple-choice",
+    "options": [
+      "He took some books out",
+      "His backpack disappeared",
+      "Backpacks cannot feel lighter",
+      "He grew taller"
+    ],
+    "correctAnswer": "He took some books out",
+    "hints": [
+      "Think about what makes a backpack heavy.",
+      "Which answer is the most sensible?"
+    ],
+    "explanation": "Removing books would make the backpack lighter."
+  },
+  {
+    "id": "d19_q4",
+    "day": 19,
+    "number": 4,
+    "title": "The Snowman",
+    "category": "Cause and Effect",
+    "theme": "Winter",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "The weather became warm. What happened to the snowman?",
+    "type": "multiple-choice",
+    "options": [
+      "It melted",
+      "It grew bigger",
+      "It turned into ice cream",
+      "It flew away"
+    ],
+    "correctAnswer": "It melted",
+    "hints": [
+      "What happens to snow when it gets warm?",
+      "Think about ice."
+    ],
+    "explanation": "Snow melts when the weather became warm."
+  },
+  {
+    "id": "d19_q5",
+    "day": 19,
+    "number": 5,
+    "title": "The Mystery Sound",
+    "category": "Detective Thinking",
+    "theme": "Home",
+    "difficulty": "Medium",
+    "coinsReward": 20,
+    "question": "Ella heard 'Meow!' from behind the sofa. Which animal is most likely hiding there?",
+    "type": "multiple-choice",
+    "options": [
+      "A cat",
+      "A fish",
+      "A rabbit",
+      "A turtle"
+    ],
+    "correctAnswer": "A cat",
+    "hints": [
+      "Which animal says 'Meow'?",
+      "Listen to the sound."
+    ],
+    "explanation": "Cats make a 'Meow' sound."
+  }
+]

@@ -10,7 +10,7 @@ const { test } = require('node:test');
 const assert   = require('node:assert/strict');
 
 const PROFILE_FIELDS = [
-  'childFirstName', 'childLastName', 'childGender', 'childAge',
+  'childFirstName', 'childLastName', 'childGender', 'birthMonth', 'birthYear', 'puzzleBand',
   'childAvatar', 'livingCountry', 'culturalAffiliation',
   'parentEmail', 'parentPhone'
 ];
@@ -55,13 +55,13 @@ test('save-user: merges game_state without losing existing fields', () => {
 
 test('save-user: merges profile fields partially', () => {
   const existing = {
-    profile: { childFirstName: 'Old', childAge: 8, livingCountry: 'UK' }
+    profile: { childFirstName: 'Old', birthMonth: 8, birthYear: 2018, livingCountry: 'UK' }
   };
   const userData = { childFirstName: 'New' };
   const updates  = buildUpdates(existing, userData);
 
   assert.equal(updates.profile.childFirstName, 'New', 'Updated field must change');
-  assert.equal(updates.profile.childAge, 8,            'Untouched field must survive');
+  assert.equal(updates.profile.birthMonth, 8,            'Untouched field must survive');
   assert.equal(updates.profile.livingCountry, 'UK',    'Untouched field must survive');
 });
 

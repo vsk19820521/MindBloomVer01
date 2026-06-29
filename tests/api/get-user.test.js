@@ -19,7 +19,9 @@ function shapeUser(dbRow) {
     childFirstName:      dbRow.profile?.childFirstName      || '',
     childLastName:       dbRow.profile?.childLastName       || '',
     childGender:         dbRow.profile?.childGender         || 'Other',
-    childAge:            dbRow.profile?.childAge            || 9,
+    birthMonth:          dbRow.profile?.birthMonth          || 1,
+    birthYear:           dbRow.profile?.birthYear           || 2017,
+    puzzleBand:          dbRow.profile?.puzzleBand          || '8-9',
     childAvatar:         dbRow.profile?.childAvatar         || '⚡ Pikachu',
     livingCountry:       dbRow.profile?.livingCountry       || '',
     culturalAffiliation: dbRow.profile?.culturalAffiliation || '',
@@ -36,7 +38,7 @@ test('get-user: shapes full DB row correctly', () => {
     profile: {
       parentEmail: 'p@test.com', parentPhone: '+44123',
       childFirstName: 'Adhyantha', childLastName: 'V',
-      childGender: 'Female', childAge: 9,
+      childGender: 'Female', birthMonth: 8, birthYear: 2018, puzzleBand: '6-7',
       childAvatar: '🐱 Doraemon',
       livingCountry: 'UK', culturalAffiliation: 'India'
     },
@@ -62,7 +64,9 @@ test('get-user: fills defaults for missing profile fields', () => {
   const user = shapeUser(dbRow);
   assert.equal(user.childFirstName, '');
   assert.equal(user.childGender, 'Other');
-  assert.equal(user.childAge, 9);
+  assert.equal(user.birthMonth, 1);
+  assert.equal(user.birthYear, 2017);
+  assert.equal(user.puzzleBand, '8-9');
   assert.equal(user.childAvatar, '⚡ Pikachu');
 });
 

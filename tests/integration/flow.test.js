@@ -114,8 +114,9 @@ test('integration: register a new test user', async () => {
       parentPhone:         '+441234567890',
       childFirstName:      'IntTest',
       childLastName:       'Child',
-      childGender:         'Other',
-      childAge:            9,
+      birthMonth:          1,
+      birthYear:           2017,
+      puzzleBand:          '8-9',
       childAvatar:         '⚡ Pikachu',
       livingCountry:       'United Kingdom',
       culturalAffiliation: 'India'
@@ -130,7 +131,7 @@ test('integration: duplicate registration is rejected', async () => {
   const res = await post('/api/register', {
     username: TEST_USERNAME,
     password: TEST_PASSWORD,
-    userData: { parentCode: '0000', childFirstName: 'Dup', childLastName: 'User', childGender: 'Other', childAge: 9 }
+    userData: { parentCode: '0000', childFirstName: 'Dup', childLastName: 'User', childGender: 'Other', birthMonth: 1, birthYear: 2017, puzzleBand: '8-9' }
   });
   assert.equal(res.status, 400, 'Duplicate username should return 400');
   assert.ok(!res.body.success);

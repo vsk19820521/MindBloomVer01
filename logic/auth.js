@@ -74,11 +74,21 @@ export function setupAuth(callbacks) {
       code: parentCode
     };
 
+      const birthYear = parseInt(document.getElementById("child-birth-year").value, 10);
+      const birthMonth = parseInt(document.getElementById("child-birth-month").value, 10);
+      
+      if (birthYear < 2016) {
+        SoundManager.playError();
+        showAuthError("The app currently supports only ages from 4 to 9 years. Children born before 2016 cannot register at this time.");
+        return;
+      }
+
     const childData = {
       firstName: document.getElementById("child-first-name").value,
       lastName: document.getElementById("child-last-name").value,
       gender: document.getElementById("child-gender").value,
-      age: document.getElementById("child-age").value,
+      birthMonth: birthMonth,
+      birthYear: birthYear,
       avatar: document.getElementById("child-avatar").value,
       livingCountry: document.getElementById("child-country").value,
       culturalAffiliation: document.getElementById("child-culture").value

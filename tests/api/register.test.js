@@ -27,7 +27,8 @@ function makeReq(overrides = {}) {
         childFirstName: 'TestChild',
         childLastName: 'Unit',
         childGender: 'Other',
-        childAge: 9,
+        birthMonth: 8,
+        birthYear: 2018,
         childAvatar: '⚡ Pikachu',
         livingCountry: 'United Kingdom',
         culturalAffiliation: 'India'
@@ -82,7 +83,9 @@ test('register: profile fields are mapped correctly', () => {
     childFirstName:      ud.childFirstName      || '',
     childLastName:       ud.childLastName       || '',
     childGender:         ud.childGender         || 'Other',
-    childAge:            parseInt(ud.childAge)  || 9,
+    birthMonth:          parseInt(ud.birthMonth)|| 1,
+    birthYear:           parseInt(ud.birthYear) || 2017,
+    puzzleBand:          ud.puzzleBand          || '8-9',
     childAvatar:         ud.childAvatar         || '⚡ Pikachu',
     livingCountry:       ud.livingCountry       || '',
     culturalAffiliation: ud.culturalAffiliation || '',
@@ -90,7 +93,8 @@ test('register: profile fields are mapped correctly', () => {
     parentPhone:         ud.parentPhone         || ''
   };
   assert.equal(profile.childFirstName, 'TestChild');
-  assert.equal(profile.childAge, 9);
+  assert.equal(profile.birthMonth, 8);
+  assert.equal(profile.birthYear, 2018);
   assert.equal(profile.childGender, 'Other');
 });
 

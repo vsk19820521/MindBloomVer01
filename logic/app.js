@@ -44,15 +44,7 @@ const mainView = document.getElementById("main-view");
 // ── Initialisation ─────────────────────────────────────────────────────────
 
 async function init() {
-  // 1. Load puzzle data
-  try {
-    const response = await fetch("data/puzzles.json?v=" + Date.now());
-    PUZZLES = await response.json();
-  } catch (e) {
-    console.error("Failed to load puzzles.json:", e);
-    alert("Could not load puzzles.json. Make sure the HTTP server is running!");
-    return;
-  }
+  // 1. Puzzles are now loaded in showMainApp() based on the user's age band.
 
   // 2. Load global puzzle averages (non-blocking)
   StorageService.getPuzzleAverages().catch(e => {
@@ -104,12 +96,27 @@ function showAuthScreen() {
   resetAuthForms();
 }
 
-function showMainApp() {
+async function showMainApp() {
   authView.classList.add("hidden");
   mainView.classList.remove("hidden");
 
+  // Load Puzzle Data for the user's age band
+  const band = currentUser.puzzleBand || "8-9";
+  try {
+    const response = await fetch(`data/puzzles_${band}.json?v=` + Date.now());
+    PUZZLES = await response.json();
+  } catch (e) {
+    console.error(`Failed to load puzzles_${band}.json:`, e);
+    alert(`Could not load puzzles_${band}.json. Make sure the HTTP server is running!`);
+  }
+
   const childWelcomeBanner = document.getElementById("child-welcome-banner");
   childWelcomeBanner.innerHTML = `Hello, ${currentUser.childAvatar} <strong>${currentUser.childFirstName} ${currentUser.childLastName}</strong>! 👋`;
+
+  const ageGroupDisplay = document.getElementById("age-group-display");
+  if (ageGroupDisplay) {
+    ageGroupDisplay.innerText = `Age Group : ${currentUser.puzzleBand || '8-9'} yrs`;
+  }
 
   // Date lock checker
   checkDateChange(currentUser, PUZZLES);

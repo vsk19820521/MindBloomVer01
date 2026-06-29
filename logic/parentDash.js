@@ -211,13 +211,19 @@ function renderParentCategoryStats(currentUser, PUZZLES) {
   if (!parentCategoryStats) return;
   parentCategoryStats.innerHTML = "";
 
-  const categories = [...new Set(PUZZLES.map(p => p.category))];
+  const ALL_CATEGORIES = [
+    "Logical Thinking", "Lateral Thinking", "Creative Crafting", 
+    "Pattern Recognition", "Observation", "Perspective Shift", 
+    "Simple Deduction", "Missing Information", "Cause and Effect", "Detective Thinking"
+  ];
+  const categories = [...new Set([...PUZZLES.map(p => p.category), ...ALL_CATEGORIES])];
 
   const stats = categories.map(cat => {
     const catPuzzles = PUZZLES.filter(p => p.category === cat);
 
     let totalAttempts = 0;
     let succeeded = 0;
+    let isApplicable = catPuzzles.length > 0;
 
     catPuzzles.forEach(p => {
       const rec = currentUser.gameState.completedPuzzles[p.id];
@@ -233,39 +239,60 @@ function renderParentCategoryStats(currentUser, PUZZLES) {
       }
     });
 
-    return { category: cat, totalAttempts, succeeded };
+    return { category: cat, totalAttempts, succeeded, isApplicable };
   });
 
   stats.sort((a, b) => b.succeeded - a.succeeded || b.totalAttempts - a.totalAttempts);
 
   stats.forEach(item => {
     let badgeHtml = "";
+    let badgeClass = "";
+    let badgeText = "";
     const percent = item.totalAttempts > 0 ? Math.round((item.succeeded / item.totalAttempts) * 100) : 0;
 
     if (item.totalAttempts > 0) {
-      let badgeClass = "average";
-      let badgeText = "Learning";
+      badgeClass = "average";
+      badgeText = "Learning";
       const ratio = item.succeeded / item.totalAttempts;
 
       if (ratio >= 0.8) {
         badgeClass = "strength";
         badgeText = "Strength 🌟";
       } else if (ratio < 0.5) {
-        badgeClass = "needs-work";
-        badgeText = "Needs Work 💡";
+        badgeClass = "low";
+        badgeText = "Needs Focus";
       }
+    } else if (!item.isApplicable) {
+      badgeClass = "low";
+      badgeText = "Applicable only to age band 8-9";
+    } else {
+      badgeClass = "low";
+      badgeText = "Needs Focus";
+    }
 
-      badgeHtml = `<span class="skill-category-badge ${badgeClass}">${badgeText}</span>`;
+    if (item.isApplicable && item.totalAttempts > 0) {
+       badgeHtml = `<span class="parent-stat-badge ${badgeClass}">${badgeText}</span>`;
+    } else if (!item.isApplicable) {
+       badgeHtml = `<span class="parent-stat-badge" style="background:#e0e0e0; color:#555;">${badgeText}</span>`;
+    } else {
+       badgeHtml = `<span class="parent-stat-badge" style="background:var(--card-border); color:var(--text-color);">Not started</span>`;
     }
 
     const row = document.createElement("div");
-    row.className = "skill-category-item";
+    row.className = "parent-stat-row";
+    row.style.display = "flex";
+    row.style.justifyContent = "space-between";
+    row.style.alignItems = "center";
+    row.style.padding = "8px 0";
+    row.style.borderBottom = "1px solid var(--card-border)";
     row.innerHTML = `
-      <span class="skill-category-name" title="${item.category}">${item.category}</span>
-      <span style="font-size: 0.8rem; color: var(--text-muted); margin-left: auto; margin-right: 12px;">
-        ${item.succeeded}/${item.totalAttempts} (Solved: ${percent}%)
-      </span>
-      ${badgeHtml}
+      <div class="parent-stat-label" style="flex: 2; min-width: 150px; font-weight: 500;">${item.category}</div>
+      <div class="parent-stat-value" style="flex: 1; text-align: left; color: var(--text-muted); font-size: 0.9rem;">
+        ${item.isApplicable ? `${item.succeeded} of ${item.totalAttempts} correct` : 'N/A'}
+      </div>
+      <div class="parent-stat-remark" style="flex: 1; text-align: left; font-size: 0.9rem;">
+        ; ${badgeHtml}
+      </div>
     `;
     parentCategoryStats.appendChild(row);
   });

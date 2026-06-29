@@ -73,6 +73,11 @@ module.exports = async function handler(req, res) {
     updates.parent_code = String(userData.parentCode);
   }
 
+  // Update puzzle_band if provided
+  if (userData.puzzleBand !== undefined) {
+    updates.puzzle_band = String(userData.puzzleBand);
+  }
+
   // ── 3. Persist ───────────────────────────────────────────────────────
   const { error: updateError } = await supabase
     .from('users')

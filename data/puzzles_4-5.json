@@ -1,0 +1,117 @@
+[
+  {
+    "id": "d1_q1_45",
+    "day": 1,
+    "number": 1,
+    "title": "The Red Apple",
+    "category": "Logical Thinking",
+    "theme": "Fruit",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Which fruit is red?",
+    "type": "multiple-choice",
+    "options": [
+      "Apple",
+      "Banana",
+      "Blueberry",
+      "Kiwi"
+    ],
+    "correctAnswer": "Apple",
+    "hints": [
+      "Bananas are yellow.",
+      "Think about what you eat that is red and crunchy."
+    ],
+    "explanation": "Apples can be a bright red color!"
+  },
+  {
+    "id": "d1_q2_45",
+    "day": 1,
+    "number": 2,
+    "title": "Counting Legs",
+    "category": "Observation",
+    "theme": "Animals",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "How many legs does a normal dog have?",
+    "type": "multiple-choice",
+    "options": [
+      "2",
+      "4",
+      "6",
+      "8"
+    ],
+    "correctAnswer": "4",
+    "hints": [
+      "Dogs have two front legs and two back legs."
+    ],
+    "explanation": "Dogs are four-legged animals!"
+  },
+  {
+    "id": "d1_q3_45",
+    "day": 1,
+    "number": 3,
+    "title": "Sun Drawing",
+    "category": "Creative Crafting",
+    "theme": "Weather",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Draw a bright yellow sun with rays shining out!",
+    "type": "drawing",
+    "options": [],
+    "correctAnswer": "A drawing of a sun.",
+    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\"><circle cx=\"50\" cy=\"50\" r=\"20\" fill=\"#ffeb3b\" /><path d=\"M50,15 L50,5 M50,85 L50,95 M15,50 L5,50 M85,50 L95,50 M25,25 L15,15 M75,75 L85,85 M25,75 L15,85 M75,25 L85,15\" stroke=\"#ffeb3b\" stroke-width=\"4\" /></svg>",
+    "hints": [
+      "Draw a big circle in the middle.",
+      "Draw lines coming out of it like a star!"
+    ],
+    "explanation": "What a beautiful and bright sun!"
+  },
+  {
+    "id": "d1_q4_45",
+    "day": 1,
+    "number": 4,
+    "title": "The Blue Car",
+    "category": "Pattern Recognition",
+    "theme": "Cars",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Car, Truck, Car, Truck. What comes next?",
+    "type": "multiple-choice",
+    "options": [
+      "Truck",
+      "Car",
+      "Bus",
+      "Train"
+    ],
+    "correctAnswer": "Car",
+    "hints": [
+      "The pattern goes back and forth.",
+      "After Truck, it starts again with Car."
+    ],
+    "explanation": "The pattern is Car, Truck, Car, Truck... so Car is next!"
+  },
+  {
+    "id": "d1_q5_45",
+    "day": 1,
+    "number": 5,
+    "title": "Big and Small",
+    "category": "Observation",
+    "theme": "Animals",
+    "difficulty": "Easy",
+    "coinsReward": 10,
+    "question": "Which animal is bigger?",
+    "type": "multiple-choice",
+    "options": [
+      "Mouse",
+      "Elephant",
+      "Ladybug",
+      "Frog"
+    ],
+    "correctAnswer": "Elephant",
+    "hints": [
+      "Mice and ladybugs are very small.",
+      "Think of the animal with a big trunk."
+    ],
+    "explanation": "An elephant is much, much bigger than the other animals!"
+  }
+]

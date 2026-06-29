@@ -5,6 +5,15 @@
 
 ---
 
+## Phase 3 — DOB Input & Age-Banded Puzzle Sets (Done ✅)
+- [x] Database schema updates (birth_month, birth_year, puzzle_band)
+- [x] Core Logic & API updates (age calculation, store band)
+- [x] Frontend Updates (dropdowns, validation pop-up)
+- [x] Game & Progress Logic (dynamic puzzle loading, band progression)
+- [x] UI Enhancements (display band, Parent dashboard adjustments)
+
+---
+
 ## Pre-Phase: Infrastructure Fixes (Done ✅)
 
 - [x] Fix `SUPABASE_URL` env var (was `/rest/v1/rest/v1/users` double-path bug)

@@ -10,6 +10,9 @@ CREATE TABLE IF NOT EXISTS public.users (
   parent_code     TEXT NOT NULL DEFAULT '0000',
   parent_email    TEXT,
   parent_phone    TEXT,
+  birth_month     SMALLINT,
+  birth_year      SMALLINT,
+  puzzle_band     TEXT NOT NULL DEFAULT '8-9',
   profile         JSONB NOT NULL DEFAULT '{}',
   -- profile stores: childFirstName, childLastName, childGender, childAge,
   --                 childAvatar, livingCountry, culturalAffiliation

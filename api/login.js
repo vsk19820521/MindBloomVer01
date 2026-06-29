@@ -31,7 +31,7 @@ module.exports = async function handler(req, res) {
   // Fetch the user row from Supabase
   const { data, error } = await supabase
     .from('users')
-    .select('username, password_hash, parent_code, profile, game_state')
+    .select('username, password_hash, parent_code, birth_month, birth_year, puzzle_band, profile, game_state')
     .eq('username', normUsername)
     .single();
 
@@ -60,6 +60,9 @@ module.exports = async function handler(req, res) {
     childLastName: data.profile?.childLastName || '',
     childGender: data.profile?.childGender || 'Other',
     childAge: data.profile?.childAge || 9,
+    birthMonth: data.birth_month || 1,
+    birthYear: data.birth_year || 2017,
+    puzzleBand: data.puzzle_band || '8-9',
     childAvatar: data.profile?.childAvatar || '⚡ Pikachu',
     livingCountry: data.profile?.livingCountry || '',
     culturalAffiliation: data.profile?.culturalAffiliation || '',

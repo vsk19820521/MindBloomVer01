@@ -136,6 +136,7 @@ Phase 3: DOB + Age Bands + New Puzzle Sets (AI-generated content)
 Phase 4: Drawing Storage TTL
 Phase 5: Friend Invite & Peer Panel
 Phase 6: Admin Dashboard
+Future:  Landing Login Page
 Future:  Social Login (Gmail/Facebook/Apple)
 ```
 
@@ -325,7 +326,7 @@ Rules:
 
 ## Phase 3 — DOB Input & Age-Banded Puzzle Sets
 
-**Risk:** Low-Medium | **Effort:** High | **Status:** ⬜ Not started
+**Risk:** Low-Medium | **Effort:** High | **Status:** ⏳ In Progress
 
 ### 3A. Schema changes — `public.users`
 
@@ -453,7 +454,7 @@ Band order: `4-5` → `6-7` → `8-9` → (stays at 8-9, no more bands)
 
 ## Phase 4 — Canvas Drawing Storage with 7-Day TTL
 
-**Risk:** Low | **Effort:** Medium | **Status:** ⬜ Not started
+**Risk:** Low | **Effort:** Medium | **Status:** ✅ Done
 
 ### Problem
 
@@ -685,6 +686,21 @@ Returns per-user:
 | MODIFY | `index.html` — admin section (hidden for non-admins) |
 | MODIFY | `logic/app.js` — admin routing |
 | MODIFY | `api/login.js` — add `isAdmin` flag |
+
+---
+
+## Future Expansion — Landing Login Page
+
+**Risk:** Low | **Effort:** Medium | **Status:** ⬜ Not started
+
+### Requirements
+Create a landing login page with additional details about the app:
+- State clearly: "5 puzzles a day - not to overload the kids"
+- Disclaimer: "This is not a substitute for curriculum"
+- Intended audience: "Meant for curious minds"
+- Validation: "Validated to be age-appropriate"
+- Legal & curation: "Puzzles not curated or approved by any agency or board or authority"
+- Legal: "No legal challenge by parents on the app or the company owning and developing the app"
 
 ---
 
