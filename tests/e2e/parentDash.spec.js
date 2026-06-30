@@ -36,6 +36,7 @@ test.describe('Parent Dashboard Metrics', () => {
     const parentCode = '5555';
     
     await page.goto('/');
+    await page.click('#btn-show-auth');
     await page.click('#tab-register');
     await page.fill('#parent-email', 'metrics@parent.com');
     await page.fill('#parent-phone', '1234567890');

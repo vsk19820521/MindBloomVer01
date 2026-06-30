@@ -301,7 +301,9 @@ h1, h2, h3, h4 {
 
 .flower-icon {
   -webkit-text-fill-color: initial;
+  -webkit-background-clip: initial;
   background: none;
+  display: inline-block;
   display: inline-block;
 }
 
@@ -1401,4 +1403,29 @@ input:focus, select:focus {
 }
 [data-theme="kitty"] .puzzle-card.incorrect {
   background: linear-gradient(180deg, rgba(25, 22, 50, 0.75) 80%, rgba(232, 65, 24, 0.08)) !important;
+}
+
+.admin-tab-content {
+  background: var(--card-bg);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  border: 1px solid var(--card-border);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+}
+.admin-table th, .admin-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--card-border);
+}
+.admin-table th {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+.admin-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.4);
 }

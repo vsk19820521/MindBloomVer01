@@ -11,7 +11,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "local": "npx vercel dev",
+    "local": "npx vercel dev --yes",
     "scratch": "node scratch.js",
     "test": "node --test tests/unit/*.test.js tests/api/*.test.js",
     "test:unit": "node --test tests/unit/*.test.js",

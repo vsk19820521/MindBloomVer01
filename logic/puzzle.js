@@ -182,6 +182,48 @@ export function setupPuzzleControls(getCurrentUser, getPUZZLES, getViewingDay, s
     }
   });
 
+  // Report Puzzle
+  const btnReportPuzzle = document.getElementById("btn-report-puzzle");
+  if (btnReportPuzzle) {
+    btnReportPuzzle.addEventListener("click", async () => {
+      const currentUser = getCurrentUser();
+      if (!activePuzzle) return;
+
+      const code = prompt("Parents: Enter your 4-digit code to report this puzzle:");
+      if (!code) return;
+
+      const reason = prompt("Optional: What is wrong with this puzzle? (e.g. wrong answer, typo)");
+      
+      btnReportPuzzle.disabled = true;
+      btnReportPuzzle.innerText = "Reporting...";
+
+      try {
+        const res = await fetch('/api/report-puzzle', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: currentUser.username,
+            parentCode: code,
+            puzzleId: activePuzzle.id,
+            reason: reason || ''
+          })
+        });
+        
+        const data = await res.json();
+        if (data.success) {
+          alert("Thank you! The puzzle has been reported for admin review.");
+        } else {
+          alert("Error: " + data.error);
+        }
+      } catch (err) {
+        alert("Failed to report puzzle. Please try again.");
+      } finally {
+        btnReportPuzzle.disabled = false;
+        btnReportPuzzle.innerText = "⚠️ Report Puzzle";
+      }
+    });
+  }
+
   // Submit Answer
   btnSubmitAnswer.addEventListener("click", async () => {
     const currentUser = getCurrentUser();
@@ -354,6 +396,17 @@ export function setupPuzzleControls(getCurrentUser, getPUZZLES, getViewingDay, s
       };
 
       StorageService.updateGameState(currentUser.gameState);
+      
+      // Silently log failure for analytics
+      fetch('/api/log-failure', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: currentUser.username,
+          puzzleId: activePuzzle.id
+        })
+      }).catch(e => console.error('Failed to log failure', e));
+
       renderPuzzleStrip(currentUser, PUZZLES, viewingDay);
       alert(`❌ Oops! That is incorrect. You only get one attempt per puzzle. You can review the correct answer and explanation tomorrow! Let's try another puzzle! 🌟`);
       _handleDayCompletion(currentUser, PUZZLES, viewingDay);

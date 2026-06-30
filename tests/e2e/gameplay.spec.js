@@ -35,6 +35,7 @@ test.describe('Gameplay Flow', () => {
     const username = `player_${Date.now()}`;
     
     await page.goto('/');
+    await page.click('#btn-show-auth');
     await page.click('#tab-register');
     await page.fill('#parent-email', 'test@parent.com');
     await page.fill('#parent-phone', '1234567890');

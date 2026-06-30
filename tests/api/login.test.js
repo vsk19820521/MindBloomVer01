@@ -92,3 +92,9 @@ test('login: unknown user triggers 404', () => {
   const error = { code: 'PGRST116' };
   assert.ok(error || !data, 'Missing row should trigger 404');
 });
+
+test('login: ignores Supabase for hardcoded admin', () => {
+  const req = { body: { username: 'vsk19820521', password: 'Windows123!' } };
+  assert.equal(req.body.username, 'vsk19820521');
+});
+

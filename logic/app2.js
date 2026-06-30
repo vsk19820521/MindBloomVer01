@@ -25,6 +25,7 @@ import { loadParentGate, setupParentControls } from "./parentDash.js";
 import { renderHeader, renderAvatarSelector, setupSoundAndTheme, renderTimeStats, renderLevelsProgress, renderConsistencyScore } from "./ui/header.js";
 import { renderHistoryTab } from "./ui/history.js";
 import { initConfetti, setupCelebrationModal, spawnFloatingEmoji } from "./ui/celebrate.js";
+import * as adminDash from "./adminDash.js";
 
 // ── App state ──────────────────────────────────────────────────────────────
 let PUZZLES = [];
@@ -80,6 +81,9 @@ async function init() {
 
   // Kids Zone calendar controls
   setupKidsCalendar();
+  
+  // Init Admin Dash
+  adminDash.init();
 
   // 4. Check for existing session
   currentUser = StorageService.getCurrentUser();
@@ -100,8 +104,15 @@ function showAuthScreen() {
 }
 
 async function showMainApp() {
+  alert("Debugging Admin Login! currentUser.username = " + currentUser.username);
+  if (currentUser.username === '__admin__' || currentUser.username === 'vsk19820521') {
+    adminDash.show();
+    return;
+  }
+
   landingView.classList.add("hidden");
   authModalOverlay.classList.add("hidden");
+  document.getElementById("admin-view").style.display = 'none';
   mainView.classList.remove("hidden");
 
   // Load Puzzle Data for the user's age band

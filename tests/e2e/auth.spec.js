@@ -35,6 +35,9 @@ test.describe('Auth Flow', () => {
     
     await page.goto('/');
 
+    // Open Auth Modal
+    await page.click('#btn-show-auth');
+
     // Ensure we are on the auth screen
     await expect(page.locator('#auth-view')).toBeVisible();
 
@@ -89,6 +92,10 @@ test.describe('Auth Flow', () => {
 
     // Logout
     await page.click('#btn-logout');
+    await expect(page.locator('#btn-show-auth')).toBeVisible();
+
+    // Re-open auth modal
+    await page.click('#btn-show-auth');
     await expect(page.locator('#auth-view')).toBeVisible();
 
     // Login with the new account
