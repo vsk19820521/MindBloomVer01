@@ -104,8 +104,7 @@ function showAuthScreen() {
 }
 
 async function showMainApp() {
-  alert("Debugging Admin Login! currentUser.username = " + currentUser.username);
-  if (currentUser.username === '__admin__' || currentUser.username === 'vsk19820521') {
+  if (currentUser.username === '__admin__') {
     adminDash.show();
     return;
   }

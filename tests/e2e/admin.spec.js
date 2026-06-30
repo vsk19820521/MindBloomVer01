@@ -51,7 +51,7 @@ test.describe('Admin Dashboard Flow', () => {
     
     // Verify app.js content from server
     const appJsContent = await page.evaluate(async () => {
-      const res = await fetch('/logic/app2.js');
+      const res = await fetch('/logic/app.js');
       return await res.text();
     });
     console.log("SERVER APP.JS HAS ADMIN CHECK:", appJsContent.includes("__admin__"));

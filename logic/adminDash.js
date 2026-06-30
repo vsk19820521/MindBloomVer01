@@ -8,16 +8,20 @@ import * as auth from './auth.js';
 let usersData = [];
 let puzzlesData = [];
 let failuresData = [];
+let reportsData = [];
 
 export function init() {
   document.getElementById('btn-admin-logout').addEventListener('click', () => {
-    auth.logout();
+    storage.StorageService.logoutUser();
+    window.location.reload();
   });
 
   document.getElementById('tab-admin-users').addEventListener('click', () => switchTab('users'));
   document.getElementById('tab-admin-puzzles').addEventListener('click', () => switchTab('puzzles'));
   document.getElementById('tab-admin-analytics').addEventListener('click', () => switchTab('analytics'));
+  document.getElementById('tab-admin-notifications').addEventListener('click', () => switchTab('notifications'));
 
+  // Filters
   document.getElementById('admin-search-users').addEventListener('input', renderUsers);
   document.getElementById('admin-filter-band').addEventListener('change', renderUsers);
   
@@ -26,6 +30,9 @@ export function init() {
   
   document.getElementById('admin-search-failures').addEventListener('input', renderFailures);
   document.getElementById('btn-admin-refresh-failures').addEventListener('click', loadFailures);
+  
+  document.getElementById('admin-search-reports').addEventListener('input', renderReports);
+  document.getElementById('btn-admin-refresh-reports').addEventListener('click', loadReports);
 }
 
 export async function show() {
@@ -37,7 +44,8 @@ export async function show() {
   await Promise.all([
     loadUsers(),
     loadPuzzles(),
-    loadFailures()
+    loadFailures(),
+    loadReports()
   ]);
   
   switchTab('users');
@@ -78,6 +86,16 @@ async function loadFailures() {
     renderFailures();
   } catch (err) {
     console.error('Failed to load failures:', err);
+  }
+}
+
+async function loadReports() {
+  try {
+    const res = await fetch('/api/admin-reports');
+    reportsData = await res.json();
+    renderReports();
+  } catch (err) {
+    console.error('Failed to load reports:', err);
   }
 }
 
@@ -146,6 +164,28 @@ function renderFailures() {
       <td>${f.puzzle_id}</td>
       <td>${f.fail_count}</td>
       <td>${f.users.join(', ')}</td>
+    </tr>
+  `).join('');
+}
+
+function renderReports() {
+  const search = document.getElementById('admin-search-reports').value.toLowerCase();
+  
+  const filtered = reportsData.filter(r => {
+    if (search) {
+      return r.puzzle_id.toLowerCase().includes(search) || r.username.toLowerCase().includes(search);
+    }
+    return true;
+  });
+
+  const tbody = document.querySelector('#admin-reports-table tbody');
+  tbody.innerHTML = filtered.map(r => `
+    <tr>
+      <td>${new Date(r.reported_at).toLocaleDateString()}</td>
+      <td>${r.username}</td>
+      <td>${r.puzzle_id}</td>
+      <td>${r.reason || '-'}</td>
+      <td><span class="badge ${r.status === 'open' ? 'badge-warning' : 'badge-success'}">${r.status.toUpperCase()}</span></td>
     </tr>
   `).join('');
 }
