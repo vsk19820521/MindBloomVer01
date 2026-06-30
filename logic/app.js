@@ -38,6 +38,8 @@ const getViewingDay = () => viewingDay;
 const setViewingDay = (d) => { viewingDay = d; };
 
 // ── DOM handles ────────────────────────────────────────────────────────────
+const landingView = document.getElementById("landing-view");
+const authModalOverlay = document.getElementById("auth-modal-overlay");
 const authView = document.getElementById("auth-view");
 const mainView = document.getElementById("main-view");
 
@@ -91,13 +93,15 @@ async function init() {
 // ── Routing ────────────────────────────────────────────────────────────────
 
 function showAuthScreen() {
-  authView.classList.remove("hidden");
+  landingView.classList.remove("hidden");
+  authModalOverlay.classList.add("hidden");
   mainView.classList.add("hidden");
   resetAuthForms();
 }
 
 async function showMainApp() {
-  authView.classList.add("hidden");
+  landingView.classList.add("hidden");
+  authModalOverlay.classList.add("hidden");
   mainView.classList.remove("hidden");
 
   // Load Puzzle Data for the user's age band

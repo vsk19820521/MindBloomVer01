@@ -42,6 +42,26 @@ export function setupAuth(callbacks) {
     SoundManager.playClick();
   });
 
+  // Modal logic
+  const btnShowAuth = document.getElementById("btn-show-auth");
+  const btnCloseAuth = document.getElementById("btn-close-auth");
+  const authOverlay = document.getElementById("auth-modal-overlay");
+
+  if (btnShowAuth && authOverlay) {
+    btnShowAuth.addEventListener("click", () => {
+      SoundManager.playClick();
+      authOverlay.classList.remove("hidden");
+    });
+  }
+
+  if (btnCloseAuth && authOverlay) {
+    btnCloseAuth.addEventListener("click", () => {
+      SoundManager.playClick();
+      authOverlay.classList.add("hidden");
+      hideAuthError();
+    });
+  }
+
   // Register submit
   const regForm = document.getElementById("register-form");
   if (regForm) {

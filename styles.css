@@ -224,21 +224,94 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-lg);
 }
 
+/* Landing Page Styles */
+.landing-container {
+  max-width: 900px;
+  margin: 60px auto;
+  width: 100%;
+  padding: 40px;
+}
+
+.landing-hero {
+  text-align: left;
+}
+
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Modal Overlay */
+#auth-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
 /* Auth Screens */
 .auth-wrapper {
   max-width: 480px;
-  margin: 60px auto;
   width: 100%;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.btn-close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.btn-close-modal:hover {
+  color: var(--text-main);
 }
 
 .auth-title {
   text-align: center;
+  font-family: 'Pacifico', cursive;
   font-size: 2.2rem;
   margin-bottom: 10px;
   background: linear-gradient(90deg, var(--primary-color), var(--accent-text));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.2rem;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-text));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.flower-icon {
+  -webkit-text-fill-color: initial;
+  background: none;
+  display: inline-block;
+}
+
+.decorative-sketch {
+  position: absolute;
+  width: 150px;
+  opacity: 0.7;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .auth-subtitle {
