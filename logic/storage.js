@@ -146,6 +146,10 @@ export const StorageService = {
     try {
       const user = JSON.parse(userJson);
       
+      if (user.username === '__admin__') {
+        return user;
+      }
+      
       // Safeguard game state and nested objects
       if (!user.gameState) {
         user.gameState = {

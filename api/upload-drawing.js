@@ -39,16 +39,33 @@ module.exports = async function handler(req, res) {
     const timestamp = Date.now();
     const filePath = `${username}/${puzzleId}_${timestamp}.${extension}`;
 
-    const { data, error } = await supabase.storage
+    let { data, error } = await supabase.storage
       .from('drawings')
       .upload(filePath, buffer, {
         contentType: `image/${matches[1]}`
       });
 
+    // Auto-create bucket if it doesn't exist
+    if (error && error.message.includes('Bucket not found')) {
+      const { error: createError } = await supabase.storage.createBucket('drawings', { public: true });
+      if (!createError) {
+        // Retry upload after creating the bucket
+        const retry = await supabase.storage
+          .from('drawings')
+          .upload(filePath, buffer, {
+            contentType: `image/${matches[1]}`
+          });
+        data = retry.data;
+        error = retry.error;
+      } else {
+        error = createError; // Surface the bucket creation error
+      }
+    }
+
     if (error) {
       logError({ endpoint: '/api/upload-drawing', username }, error);
       logRequest(req, { status: 500, ms: Date.now() - t0 });
-      return res.status(500).json({ success: false, error: 'Upload failed' });
+      return res.status(500).json({ success: false, error: 'Upload failed: ' + error.message });
     }
 
     logRequest(req, { status: 200, ms: Date.now() - t0 });
@@ -62,4 +79,12 @@ module.exports = async function handler(req, res) {
     logRequest(req, { status: 500, ms: Date.now() - t0 });
     res.status(500).json({ success: false, error: 'Server error' });
   }
+};
+
+module.exports.config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '4mb',
+    },
+  },
 };
