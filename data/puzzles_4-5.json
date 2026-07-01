@@ -1,117 +1,909 @@
-[
-  {
-    "id": "d1_q1_45",
-    "day": 1,
-    "number": 1,
-    "title": "The Red Apple",
-    "category": "Logical Thinking",
-    "theme": "Fruit",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Which fruit is red?",
-    "type": "multiple-choice",
-    "options": [
-      "Apple",
-      "Banana",
-      "Blueberry",
-      "Kiwi"
-    ],
-    "correctAnswer": "Apple",
-    "hints": [
-      "Bananas are yellow.",
-      "Think about what you eat that is red and crunchy."
-    ],
-    "explanation": "Apples can be a bright red color!"
-  },
-  {
-    "id": "d1_q2_45",
-    "day": 1,
-    "number": 2,
-    "title": "Counting Legs",
-    "category": "Observation",
-    "theme": "Animals",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "How many legs does a normal dog have?",
-    "type": "multiple-choice",
-    "options": [
-      "2",
-      "4",
-      "6",
-      "8"
-    ],
-    "correctAnswer": "4",
-    "hints": [
-      "Dogs have two front legs and two back legs."
-    ],
-    "explanation": "Dogs are four-legged animals!"
-  },
-  {
-    "id": "d1_q3_45",
-    "day": 1,
-    "number": 3,
-    "title": "Sun Drawing",
-    "category": "Creative Crafting",
-    "theme": "Weather",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Draw a bright yellow sun with rays shining out!",
-    "type": "drawing",
-    "options": [],
-    "correctAnswer": "A drawing of a sun.",
-    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\"><circle cx=\"50\" cy=\"50\" r=\"20\" fill=\"#ffeb3b\" /><path d=\"M50,15 L50,5 M50,85 L50,95 M15,50 L5,50 M85,50 L95,50 M25,25 L15,15 M75,75 L85,85 M25,75 L15,85 M75,25 L85,15\" stroke=\"#ffeb3b\" stroke-width=\"4\" /></svg>",
-    "hints": [
-      "Draw a big circle in the middle.",
-      "Draw lines coming out of it like a star!"
-    ],
-    "explanation": "What a beautiful and bright sun!"
-  },
-  {
-    "id": "d1_q4_45",
-    "day": 1,
-    "number": 4,
-    "title": "The Blue Car",
-    "category": "Pattern Recognition",
-    "theme": "Cars",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Car, Truck, Car, Truck. What comes next?",
-    "type": "multiple-choice",
-    "options": [
-      "Truck",
-      "Car",
-      "Bus",
-      "Train"
-    ],
-    "correctAnswer": "Car",
-    "hints": [
-      "The pattern goes back and forth.",
-      "After Truck, it starts again with Car."
-    ],
-    "explanation": "The pattern is Car, Truck, Car, Truck... so Car is next!"
-  },
-  {
-    "id": "d1_q5_45",
-    "day": 1,
-    "number": 5,
-    "title": "Big and Small",
-    "category": "Observation",
-    "theme": "Animals",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Which animal is bigger?",
-    "type": "multiple-choice",
-    "options": [
-      "Mouse",
-      "Elephant",
-      "Ladybug",
-      "Frog"
-    ],
-    "correctAnswer": "Elephant",
-    "hints": [
-      "Mice and ladybugs are very small.",
-      "Think of the animal with a big trunk."
-    ],
-    "explanation": "An elephant is much, much bigger than the other animals!"
-  }
+﻿[
+    {
+        "id":  "d1_q1_45",
+        "day":  1,
+        "number":  1,
+        "title":  "The Red Apple",
+        "category":  "Logical Thinking",
+        "theme":  "Fruit",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Which fruit is red?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Apple",
+                        "Banana",
+                        "Blueberry",
+                        "Kiwi"
+                    ],
+        "correctAnswer":  "Apple",
+        "hints":  [
+                      "Bananas are yellow.",
+                      "Think about what you eat that is red and crunchy."
+                  ],
+        "explanation":  "Apples can be a bright red color!"
+    },
+    {
+        "id":  "d1_q2_45",
+        "day":  1,
+        "number":  2,
+        "title":  "Counting Legs",
+        "category":  "Observation",
+        "theme":  "Animals",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "How many legs does a normal dog have?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "2",
+                        "4",
+                        "6",
+                        "8"
+                    ],
+        "correctAnswer":  "4",
+        "hints":  [
+                      "Dogs have two front legs and two back legs."
+                  ],
+        "explanation":  "Dogs are four-legged animals!"
+    },
+    {
+        "id":  "d1_q3_45",
+        "day":  1,
+        "number":  3,
+        "title":  "Sun Drawing",
+        "category":  "Creative Crafting",
+        "theme":  "Weather",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Draw a bright yellow sun with rays shining out!",
+        "type":  "drawing",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "A drawing of a sun.",
+        "referenceSvg":  "\u003csvg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\"\u003e\u003ccircle cx=\"50\" cy=\"50\" r=\"20\" fill=\"#ffeb3b\" /\u003e\u003cpath d=\"M50,15 L50,5 M50,85 L50,95 M15,50 L5,50 M85,50 L95,50 M25,25 L15,15 M75,75 L85,85 M25,75 L15,85 M75,25 L85,15\" stroke=\"#ffeb3b\" stroke-width=\"4\" /\u003e\u003c/svg\u003e",
+        "hints":  [
+                      "Draw a big circle in the middle.",
+                      "Draw lines coming out of it like a star!"
+                  ],
+        "explanation":  "What a beautiful and bright sun!"
+    },
+    {
+        "id":  "d1_q4_45",
+        "day":  1,
+        "number":  4,
+        "title":  "The Blue Car",
+        "category":  "Pattern Recognition",
+        "theme":  "Cars",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Car, Truck, Car, Truck. What comes next?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Truck",
+                        "Car",
+                        "Bus",
+                        "Train"
+                    ],
+        "correctAnswer":  "Car",
+        "hints":  [
+                      "The pattern goes back and forth.",
+                      "After Truck, it starts again with Car."
+                  ],
+        "explanation":  "The pattern is Car, Truck, Car, Truck... so Car is next!"
+    },
+    {
+        "id":  "d1_q5_45",
+        "day":  1,
+        "number":  5,
+        "title":  "Big and Small",
+        "category":  "Observation",
+        "theme":  "Animals",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Which animal is bigger?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Mouse",
+                        "Elephant",
+                        "Ladybug",
+                        "Frog"
+                    ],
+        "correctAnswer":  "Elephant",
+        "hints":  [
+                      "Mice and ladybugs are very small.",
+                      "Think of the animal with a big trunk."
+                  ],
+        "explanation":  "An elephant is much, much bigger than the other animals!"
+    },
+    {
+        "id":  "new_45_1",
+        "day":  2,
+        "number":  1,
+        "title":  "The Hungry Bunny",
+        "category":  "Logical Thinking",
+        "theme":  "Animals",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "A bunny has 3 carrots. He eats 1 carrot. How many carrots does the bunny have left?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "1",
+                        "2",
+                        "3",
+                        "4"
+                    ],
+        "correctAnswer":  "2",
+        "hints":  [
+                      "Hold up 3 fingers, then put 1 down."
+                  ],
+        "explanation":  "3 minus 1 equals 2."
+    },
+    {
+        "id":  "new_45_2",
+        "day":  2,
+        "number":  2,
+        "title":  "The Hidden Bird",
+        "category":  "Observation",
+        "theme":  "Animals",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Look up at the trees! What animal has wings and sings a song?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Bird",
+                        "Dog",
+                        "Fish",
+                        "Cat"
+                    ],
+        "correctAnswer":  "Bird",
+        "hints":  [
+                      "It flies in the sky."
+                  ],
+        "explanation":  "Birds have wings and sing songs."
+    },
+    {
+        "id":  "new_45_3",
+        "day":  2,
+        "number":  3,
+        "title":  "Shape Sorter",
+        "category":  "Pattern Recognition",
+        "theme":  "Shapes",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Circle, Square, Circle, Square. What shape comes next?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Circle",
+                        "Square",
+                        "Triangle",
+                        "Star"
+                    ],
+        "correctAnswer":  "Circle",
+        "hints":  [
+                      "It goes back and forth."
+                  ],
+        "explanation":  "The pattern repeats Circle then Square."
+    },
+    {
+        "id":  "new_45_4",
+        "day":  2,
+        "number":  4,
+        "title":  "The Wet Dog",
+        "category":  "Lateral Thinking",
+        "theme":  "Animals",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "A dog walked in the rain without an umbrella, but he didn\u0027t get wet. How?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "He was wearing a raincoat",
+                        "He dodged the raindrops",
+                        "He is made of water",
+                        "He drank all the rain"
+                    ],
+        "correctAnswer":  "He was wearing a raincoat",
+        "hints":  [
+                      "What do you wear in the rain to stay dry?"
+                  ],
+        "explanation":  "A raincoat keeps you dry in the rain."
+    },
+    {
+        "id":  "new_45_5",
+        "day":  2,
+        "number":  5,
+        "title":  "The Ice Cube",
+        "category":  "Cause and Effect",
+        "theme":  "Weather",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "You leave an ice cube outside in the hot sun. What happens to it?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "It melts",
+                        "It grows",
+                        "It freezes",
+                        "It turns green"
+                    ],
+        "correctAnswer":  "It melts",
+        "hints":  [
+                      "What happens to cold ice when it gets hot?"
+                  ],
+        "explanation":  "Heat makes ice melt into water."
+    },
+    {
+        "id":  "new_45_6",
+        "day":  3,
+        "number":  1,
+        "title":  "The Ant\u0027s View",
+        "category":  "Perspective Shift",
+        "theme":  "Nature",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "To an ant, a blade of grass looks like a giant tree. True or False?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "True",
+                        "False"
+                    ],
+        "correctAnswer":  "True",
+        "hints":  [
+                      "Ants are very, very small."
+                  ],
+        "explanation":  "Because ants are so small, normal things look giant to them."
+    },
+    {
+        "id":  "new_45_7",
+        "day":  3,
+        "number":  2,
+        "title":  "The Locked Door",
+        "category":  "Missing Information",
+        "theme":  "House",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "You have a lock on your door, but you can\u0027t open it. What are you missing?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "A key",
+                        "A hammer",
+                        "A window",
+                        "A doorbell"
+                    ],
+        "correctAnswer":  "A key",
+        "hints":  [
+                      "What goes inside a lock to turn it?"
+                  ],
+        "explanation":  "You need a key to open a locked door."
+    },
+    {
+        "id":  "new_45_8",
+        "day":  3,
+        "number":  3,
+        "title":  "Smiley Face",
+        "category":  "Creative Crafting",
+        "theme":  "Art",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Draw a big smiley face with two eyes and a happy mouth!",
+        "type":  "drawing",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "A drawing of a smiley face.",
+        "hints":  [
+                      "Draw a big circle, two little circles inside for eyes, and a curved line for a smile."
+                  ],
+        "explanation":  "What a happy face!"
+    },
+    {
+        "id":  "new_45_9",
+        "day":  3,
+        "number":  4,
+        "title":  "Bedtime",
+        "category":  "Logical Thinking",
+        "theme":  "Time",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "The sun is going down and the moon is coming up. What time is it?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Nighttime",
+                        "Morning",
+                        "Lunchtime",
+                        "Breakfast time"
+                    ],
+        "correctAnswer":  "Nighttime",
+        "hints":  [
+                      "When the moon is out, it\u0027s time to sleep."
+                  ],
+        "explanation":  "The moon comes out at night."
+    },
+    {
+        "id":  "new_45_10",
+        "day":  3,
+        "number":  5,
+        "title":  "The Missing Cookie",
+        "category":  "Detective Thinking",
+        "theme":  "Food",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Someone ate the last cookie! There are crumbs on your brother\u0027s face. Who ate the cookie?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "My brother",
+                        "The dog",
+                        "The cat",
+                        "A ghost"
+                    ],
+        "correctAnswer":  "My brother",
+        "hints":  [
+                      "Follow the clues! Who has the evidence on their face?"
+                  ],
+        "explanation":  "The crumbs give it away! Your brother ate the cookie."
+    },
+    {
+        "id":  "new_45_11",
+        "day":  4,
+        "number":  1,
+        "title":  "The Big Shadow",
+        "category":  "Perspective Shift",
+        "theme":  "Sun",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "When the sun is shining behind you, what follows you on the ground?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Your shadow",
+                        "A ghost",
+                        "A cloud",
+                        "A puddle"
+                    ],
+        "correctAnswer":  "Your shadow",
+        "hints":  [
+                      "It is dark and looks just like you!"
+                  ],
+        "explanation":  "Your body blocks the sunlight, making a shadow."
+    },
+    {
+        "id":  "new_45_12",
+        "day":  4,
+        "number":  2,
+        "title":  "The Popped Bubble",
+        "category":  "Cause and Effect",
+        "theme":  "Toys",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "You blow a big soap bubble and it touches a sharp thorn. What happens?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "It pops",
+                        "It bounces",
+                        "It turns into a ball",
+                        "It sings"
+                    ],
+        "correctAnswer":  "It pops",
+        "hints":  [
+                      "Bubbles are very delicate."
+                  ],
+        "explanation":  "Sharp things make bubbles pop!"
+    },
+    {
+        "id":  "new_45_13",
+        "day":  4,
+        "number":  3,
+        "title":  "The Puzzle Piece",
+        "category":  "Missing Information",
+        "theme":  "Games",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "You finish putting together a jigsaw puzzle, but there is a hole in the middle. What are you missing?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "One puzzle piece",
+                        "Glue",
+                        "A picture frame",
+                        "A sticker"
+                    ],
+        "correctAnswer":  "One puzzle piece",
+        "hints":  [
+                      "What are puzzles made of?"
+                  ],
+        "explanation":  "You are missing the final puzzle piece to fill the hole."
+    },
+    {
+        "id":  "new_45_14",
+        "day":  4,
+        "number":  4,
+        "title":  "The Lost Sock",
+        "category":  "Detective Thinking",
+        "theme":  "Clothes",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "You have one red sock on your left foot. Your right foot is bare. Where is your other sock?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "It is lost",
+                        "It is on your head",
+                        "It flew away",
+                        "It turned into a shoe"
+                    ],
+        "correctAnswer":  "It is lost",
+        "hints":  [
+                      "If you can\u0027t find something, what do we call it?"
+                  ],
+        "explanation":  "If it isn\u0027t on your foot, it must be lost!"
+    },
+    {
+        "id":  "new_45_15",
+        "day":  4,
+        "number":  5,
+        "title":  "The Tall Tower",
+        "category":  "Lateral Thinking",
+        "theme":  "Blocks",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "You build a very tall tower of blocks. It starts to wobble and shake. What will happen next?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "It will fall down",
+                        "It will fly into space",
+                        "It will turn to jelly",
+                        "It will become invisible"
+                    ],
+        "correctAnswer":  "It will fall down",
+        "hints":  [
+                      "What happens when things wobble too much?"
+                  ],
+        "explanation":  "Wobbly towers fall down!"
+    },
+    {
+        "id":  "new_45_16",
+        "day":  5,
+        "number":  1,
+        "title":  "The Rainy Cloud",
+        "category":  "Cause and Effect",
+        "theme":  "Weather",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "A big dark cloud covers the sun. Soon, drops of water fall from the sky. What is happening?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "It is raining",
+                        "It is snowing",
+                        "It is sunny",
+                        "It is windy"
+                    ],
+        "correctAnswer":  "It is raining",
+        "hints":  [
+                      "Water falling from clouds has a special name."
+                  ],
+        "explanation":  "Water falling from clouds is called rain."
+    },
+    {
+        "id":  "new_45_17",
+        "day":  5,
+        "number":  2,
+        "title":  "The Empty Bowl",
+        "category":  "Missing Information",
+        "theme":  "Pets",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Your dog is whining at his bowl. The bowl is empty. What does he want?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Food or water",
+                        "A toy",
+                        "To go for a walk",
+                        "To sleep"
+                    ],
+        "correctAnswer":  "Food or water",
+        "hints":  [
+                      "What do dogs put in their bowls?"
+                  ],
+        "explanation":  "Dogs use bowls for food and water."
+    },
+    {
+        "id":  "new_45_18",
+        "day":  5,
+        "number":  3,
+        "title":  "The Fish\u0027s Home",
+        "category":  "Perspective Shift",
+        "theme":  "Animals",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "To a fish, a fishbowl is a whole world. True or False?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "True",
+                        "False"
+                    ],
+        "correctAnswer":  "True",
+        "hints":  [
+                      "Fish live underwater."
+                  ],
+        "explanation":  "Because they live inside it, the bowl is their whole world."
+    },
+    {
+        "id":  "new_45_19",
+        "day":  5,
+        "number":  4,
+        "title":  "The Broken Crayon",
+        "category":  "Detective Thinking",
+        "theme":  "Art",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "You find a broken red crayon on the floor. Your little sister is coloring with red on her paper. Who broke the crayon?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "My sister",
+                        "The dog",
+                        "A ghost",
+                        "The wind"
+                    ],
+        "correctAnswer":  "My sister",
+        "hints":  [
+                      "Who is using the red crayon right now?"
+                  ],
+        "explanation":  "Your sister is using the red crayon, so she probably broke it."
+    },
+    {
+        "id":  "new_45_20",
+        "day":  5,
+        "number":  5,
+        "title":  "Draw a Tree",
+        "category":  "Creative Crafting",
+        "theme":  "Nature",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Draw a tall tree with green leaves and a brown trunk!",
+        "type":  "drawing",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "A drawing of a tree.",
+        "hints":  [
+                      "Draw a rectangle for the trunk, and a big fluffy circle for the leaves."
+                  ],
+        "explanation":  "What a beautiful tree!"
+    },
+    {
+        "id":  "new_45_21",
+        "day":  6,
+        "number":  1,
+        "title":  "The Traffic Light",
+        "category":  "Pattern Recognition",
+        "theme":  "Roads",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Red, Yellow, Green. Red, Yellow, Green. Red, Yellow... What color comes next?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Green",
+                        "Blue",
+                        "Red",
+                        "Yellow"
+                    ],
+        "correctAnswer":  "Green",
+        "hints":  [
+                      "It tells the cars to GO!"
+                  ],
+        "explanation":  "The pattern is Red, Yellow, Green."
+    },
+    {
+        "id":  "new_45_22",
+        "day":  6,
+        "number":  2,
+        "title":  "The Tallest Animal",
+        "category":  "Observation",
+        "theme":  "Animals",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Which animal has the longest neck to reach leaves high up in a tree?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Giraffe",
+                        "Elephant",
+                        "Lion",
+                        "Zebra"
+                    ],
+        "correctAnswer":  "Giraffe",
+        "hints":  [
+                      "They are yellow with brown spots."
+                  ],
+        "explanation":  "Giraffes have very long necks to eat from tall trees."
+    },
+    {
+        "id":  "new_45_23",
+        "day":  6,
+        "number":  3,
+        "title":  "The Half Apple",
+        "category":  "Logical Thinking",
+        "theme":  "Food",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "You cut an apple perfectly in half. How many pieces do you have?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "2",
+                        "1",
+                        "3",
+                        "4"
+                    ],
+        "correctAnswer":  "2",
+        "hints":  [
+                      "If you cut something once down the middle, it splits."
+                  ],
+        "explanation":  "Cutting an apple in half gives you two equal pieces."
+    },
+    {
+        "id":  "new_45_24",
+        "day":  6,
+        "number":  4,
+        "title":  "The Missing Wheel",
+        "category":  "Missing Information",
+        "theme":  "Vehicles",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "A normal car has a steering wheel, seats, and 3 tires. What is missing?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "1 tire",
+                        "A horn",
+                        "A trunk",
+                        "A driver"
+                    ],
+        "correctAnswer":  "1 tire",
+        "hints":  [
+                      "How many tires does a normal car have?"
+                  ],
+        "explanation":  "A normal car needs 4 tires, so 1 tire is missing."
+    },
+    {
+        "id":  "new_45_25",
+        "day":  6,
+        "number":  5,
+        "title":  "The Pushed Ball",
+        "category":  "Cause and Effect",
+        "theme":  "Toys",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "You push a round ball down a big hill. What will it do?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Roll to the bottom",
+                        "Fly into the sky",
+                        "Turn into a square",
+                        "Stop moving immediately"
+                    ],
+        "correctAnswer":  "Roll to the bottom",
+        "hints":  [
+                      "Balls love to move when they are on a slope."
+                  ],
+        "explanation":  "Gravity makes the round ball roll down the hill."
+    },
+    {
+        "id":  "new_45_26",
+        "day":  7,
+        "number":  1,
+        "title":  "The Sleepy Bear",
+        "category":  "Logical Thinking",
+        "theme":  "Animals",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "A bear sleeps all winter long. What season comes after winter when the bear wakes up?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Spring",
+                        "Summer",
+                        "Autumn",
+                        "Winter again"
+                    ],
+        "correctAnswer":  "Spring",
+        "hints":  [
+                      "It\u0027s the season when flowers start to bloom."
+                  ],
+        "explanation":  "Spring follows winter!"
+    },
+    {
+        "id":  "new_45_27",
+        "day":  7,
+        "number":  2,
+        "title":  "The Colorful Rainbow",
+        "category":  "Observation",
+        "theme":  "Weather",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Which of these is a color you see in a rainbow?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Blue",
+                        "Black",
+                        "Brown",
+                        "Grey"
+                    ],
+        "correctAnswer":  "Blue",
+        "hints":  [
+                      "Look up at the bright sky colors!"
+                  ],
+        "explanation":  "Blue is one of the bright colors in a rainbow."
+    },
+    {
+        "id":  "new_45_28",
+        "day":  7,
+        "number":  3,
+        "title":  "The Star Pattern",
+        "category":  "Pattern Recognition",
+        "theme":  "Shapes",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Star, Moon, Star, Moon. What comes next?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Star",
+                        "Moon",
+                        "Sun",
+                        "Cloud"
+                    ],
+        "correctAnswer":  "Star",
+        "hints":  [
+                      "It goes back and forth!"
+                  ],
+        "explanation":  "The pattern repeats Star, then Moon."
+    },
+    {
+        "id":  "new_45_29",
+        "day":  7,
+        "number":  4,
+        "title":  "The Hot Fire",
+        "category":  "Lateral Thinking",
+        "theme":  "Home",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "If you are very cold, what can you sit near to get warm?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "A fireplace",
+                        "A refrigerator",
+                        "An ice cube",
+                        "A swimming pool"
+                    ],
+        "correctAnswer":  "A fireplace",
+        "hints":  [
+                      "What makes heat in a house?"
+                  ],
+        "explanation":  "A fireplace produces heat to keep you warm."
+    },
+    {
+        "id":  "new_45_30",
+        "day":  7,
+        "number":  5,
+        "title":  "The Plant Seed",
+        "category":  "Cause and Effect",
+        "theme":  "Nature",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "You plant a tiny seed in the dirt and water it every day. What happens?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "It grows into a plant",
+                        "It turns into a rock",
+                        "It flies away",
+                        "It starts singing"
+                    ],
+        "correctAnswer":  "It grows into a plant",
+        "hints":  [
+                      "What do seeds do when they get water?"
+                  ],
+        "explanation":  "Seeds grow into beautiful plants!"
+    },
+    {
+        "id":  "new_45_31",
+        "day":  8,
+        "number":  1,
+        "title":  "The Baby Bird",
+        "category":  "Perspective Shift",
+        "theme":  "Animals",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "To a tiny baby bird, its nest is its entire house. True or False?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "True",
+                        "False"
+                    ],
+        "correctAnswer":  "True",
+        "hints":  [
+                      "Where do baby birds live?"
+                  ],
+        "explanation":  "A nest provides shelter and a home for birds."
+    },
+    {
+        "id":  "new_45_32",
+        "day":  8,
+        "number":  2,
+        "title":  "The Missing Shoe",
+        "category":  "Missing Information",
+        "theme":  "Clothes",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "You put on your left shoe, but your right foot is cold. What are you missing?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "My right shoe",
+                        "A hat",
+                        "A jacket",
+                        "A glove"
+                    ],
+        "correctAnswer":  "My right shoe",
+        "hints":  [
+                      "What goes on your feet?"
+                  ],
+        "explanation":  "You need your other shoe!"
+    },
+    {
+        "id":  "new_45_33",
+        "day":  8,
+        "number":  3,
+        "title":  "Draw a Sun",
+        "category":  "Creative Crafting",
+        "theme":  "Art",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Draw a big, bright yellow sun with sunglasses!",
+        "type":  "drawing",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "A drawing of a cool sun.",
+        "hints":  [
+                      "Draw a circle, lines for rays, and two dark circles for sunglasses."
+                  ],
+        "explanation":  "What a cool looking sun!"
+    },
+    {
+        "id":  "new_45_34",
+        "day":  8,
+        "number":  4,
+        "title":  "The Broken Vase",
+        "category":  "Detective Thinking",
+        "theme":  "House",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "A vase is broken on the floor. Your cat is hiding under the sofa. Who broke it?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "The cat",
+                        "A fish",
+                        "A plant",
+                        "A rock"
+                    ],
+        "correctAnswer":  "The cat",
+        "hints":  [
+                      "Who was running around the house?"
+                  ],
+        "explanation":  "The cat probably knocked it over!"
+    },
+    {
+        "id":  "new_45_35",
+        "day":  8,
+        "number":  5,
+        "title":  "The Counting Game",
+        "category":  "Logical Thinking",
+        "theme":  "Math",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "If you have 1 cookie and you get 1 more, how many do you have?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "2",
+                        "1",
+                        "3",
+                        "4"
+                    ],
+        "correctAnswer":  "2",
+        "hints":  [
+                      "1 plus 1."
+                  ],
+        "explanation":  "1 + 1 = 2 cookies!"
+    }
 ]

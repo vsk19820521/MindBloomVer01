@@ -1,1807 +1,2292 @@
-[
-  {
-    "id": "d1_q1",
-    "day": 1,
-    "number": 1,
-    "title": "The Unicorn's Rainbow Path",
-    "category": "Logical Thinking",
-    "theme": "Unicorns",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Rainbow Sparkle the Unicorn can only step on clouds that form a repeating pattern: Red, Blue, Yellow, Red, Blue, Yellow. She is standing on a Red cloud. What are the colors of the next three clouds she must step on to cross the sky?",
-    "type": "multiple-choice",
-    "options": [
-      "Blue, Yellow, Red",
-      "Red, Blue, Yellow",
-      "Yellow, Red, Blue",
-      "Blue, Red, Yellow"
-    ],
-    "correctAnswer": "Blue, Yellow, Red",
-    "hints": [
-      "Look at the repeating pattern: Red, then Blue, then Yellow, and then it starts over with Red.",
-      "She is on Red now. What comes immediately after Red in the pattern?"
-    ],
-    "explanation": "The pattern is Red -> Blue -> Yellow. Since she is currently standing on a Red cloud, the next three clouds in order must be Blue, Yellow, and then Red again."
-  },
-  {
-    "id": "d1_q2",
-    "day": 1,
-    "number": 2,
-    "title": "Bella the Cat's Yarn Basket",
-    "category": "Lateral Thinking",
-    "theme": "Cats",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Bella the Cat has a basket with 5 balls of colorful yarn. Five of her kitten friends each take 1 ball of yarn, but 1 ball of yarn is still left inside the basket! How is this possible?",
-    "type": "multiple-choice",
-    "options": [
-      "One kitten took the basket with the last ball of yarn inside",
-      "One kitten didn't want any yarn",
-      "The basket has a secret double bottom holding a extra ball",
-      "Bella hid a sixth ball of yarn behind her back"
-    ],
-    "correctAnswer": "One kitten took the basket with the last ball of yarn inside",
-    "hints": [
-      "Think about how the kittens took their yarn. Does a ball of yarn have to be empty-handed?",
-      "If you take a basket that has a ball inside it, you have the ball, but where is the ball?"
-    ],
-    "explanation": "The last kitten took the basket itself with the final ball of yarn still sitting inside it! So all 5 kittens got a ball of yarn, and one ball remains in the basket."
-  },
-  {
-    "id": "d1_q3",
-    "day": 1,
-    "number": 3,
-    "title": "Rocky's T-Rex Cave Sign",
-    "category": "Creative Crafting",
-    "theme": "T-Rex",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Rocky the T-Rex wants to make a welcome sign for his cave. Draw a giant dinosaur footprint with three big toes on the screen!",
-    "type": "drawing",
-    "options": [],
-    "correctAnswer": "A drawing of a 3-toed dinosaur footprint.",
-    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" fill=\"var(--primary-color)\"><path d=\"M50,85 C55,80 62,70 65,60 C68,50 78,35 85,25 C87,22 83,22 80,24 C72,29 64,35 60,40 C58,35 54,20 50,10 C46,20 42,35 40,40 C36,35 28,29 20,24 C17,22 13,22 15,25 C22,35 32,50 35,60 C38,70 45,80 50,85 Z\" /></svg>",
-    "hints": [
-      "T-Rexes have three main toes pointing forward on their feet.",
-      "Select a bright color like green or orange and draw a shape with three thick toe lines!"
-    ],
-    "explanation": "Rocky is super excited to see your three-toed dinosaur print! It makes his cave look very friendly."
-  },
-  {
-    "id": "d1_q4",
-    "day": 1,
-    "number": 4,
-    "title": "Crafty Scissors",
-    "category": "Logical Thinking",
-    "theme": "Arts & Crafts",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Lily is cutting a long strip of paper. If she cuts the paper straight across exactly 4 times, how many separate pieces of paper will she have in the end?",
-    "type": "multiple-choice",
-    "options": [
-      "4 pieces",
-      "5 pieces",
-      "3 pieces",
-      "6 pieces"
-    ],
-    "correctAnswer": "5 pieces",
-    "hints": [
-      "Try drawing a line and putting cuts on it, or fold a piece of paper in your head.",
-      "1 cut makes 2 pieces. 2 cuts make 3 pieces. Do you see a pattern?"
-    ],
-    "explanation": "Each straight cut through a strip of paper creates one more piece than the number of cuts. So 4 cuts will yield 5 pieces."
-  },
-  {
-    "id": "d1_q5",
-    "day": 1,
-    "number": 5,
-    "title": "Three Little Birds",
-    "category": "Logical Thinking",
-    "theme": "Birds",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Three colorful birds—Ruby (red), Sky (blue), and Sunny (yellow)—live in three different trees: Oak, Pine, and Maple. The red bird does not live in the Oak tree. The blue bird lives in the Pine tree. Which bird lives in the Maple tree?",
-    "type": "text-input",
-    "correctAnswer": "Ruby",
-    "hints": [
-      "We know the blue bird (Sky) lives in the Pine tree. That leaves Oak and Maple trees for Ruby and Sunny.",
-      "If the red bird (Ruby) does not live in the Oak, she must live in the only other option left!"
-    ],
-    "explanation": "Sky lives in the Pine tree. This leaves the Oak and Maple trees. Since Ruby (the red bird) does not live in the Oak tree, she must live in the Maple tree. (This leaves Sunny to live in the Oak tree!)."
-  },
-  {
-    "id": "d2_q1",
-    "day": 2,
-    "number": 1,
-    "title": "Rex the Raptor's Butterfly Chase",
-    "category": "Logical Thinking",
-    "theme": "Raptors",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Rex the Raptor is chasing a butterfly. Rex always turns left at every crossing. He starts by walking North. At the first crossing, he turns left. At the second crossing, he turns left again. Which direction is Rex facing now?",
-    "type": "multiple-choice",
-    "options": [
-      "North",
-      "South",
-      "East",
-      "West"
-    ],
-    "correctAnswer": "South",
-    "hints": [
-      "If you walk North and turn left, you face West.",
-      "If you walk West and turn left again, which direction do you face?"
-    ],
-    "explanation": "Starting North, a left turn puts Rex facing West. The second left turn from West puts him facing South."
-  },
-  {
-    "id": "d2_q2",
-    "day": 2,
-    "number": 2,
-    "title": "Butterfly Symmetry",
-    "category": "Creative Crafting",
-    "theme": "Butterflies",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Draw a beautiful butterfly! Try to make the left wing and the right wing look symmetrical (matching each other). Use lots of colors!",
-    "type": "drawing",
-    "options": [],
-    "correctAnswer": "A symmetrical drawing of a butterfly.",
-    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" fill=\"var(--primary-color)\"><path d=\"M50,30 C45,15 20,10 15,30 C12,42 22,55 45,55 C48,55 49,52 50,50 C51,52 52,55 55,55 C78,55 88,42 85,30 C80,10 55,15 50,30 Z M50,50 C45,62 25,65 20,75 C15,82 25,90 45,78 C48,76 49,72 50,70 C51,72 52,76 55,78 C75,90 85,82 80,75 C75,65 55,62 50,50 Z\" /><rect x=\"48\" y=\"20\" width=\"4\" height=\"60\" rx=\"2\" fill=\"var(--accent-text)\" /><path d=\"M48,22 Q40,12 36,15\" stroke=\"var(--accent-text)\" stroke-width=\"2\" fill=\"none\" /><path d=\"M52,22 Q60,12 64,15\" stroke=\"var(--accent-text)\" stroke-width=\"2\" fill=\"none\" /></svg>",
-    "hints": [
-      "Draw the body in the middle first, then draw a wing on the left and a matching wing on the right.",
-      "Add colorful dots or patterns on both sides!"
-    ],
-    "explanation": "Symmetry means both sides look like mirror images. Your butterfly looks balanced and beautiful!"
-  },
-  {
-    "id": "d2_q3",
-    "day": 2,
-    "number": 3,
-    "title": "Whiskers' Secret Number Code",
-    "category": "Logical Thinking",
-    "theme": "Cats",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "Whiskers the Cat wrote a code using letters and numbers: CAT is written as 3-1-20. DOG is written as 4-15-7. Using Whiskers' secret rule, how would you write BIRD?",
-    "type": "multiple-choice",
-    "options": [
-      "2-9-18-4",
-      "1-8-17-3",
-      "2-10-18-5",
-      "2-9-19-4"
-    ],
-    "correctAnswer": "2-9-18-4",
-    "hints": [
-      "Look at the alphabet. A is 1, B is 2, C is 3... Z is 26.",
-      "Check CAT: C=3, A=1, T=20. Yes, it matches! What are the letters for B, I, R, and D?"
-    ],
-    "explanation": "The secret code matches each letter to its position in the alphabet. B is 2, I is 9, R is 18, and D is 4. So BIRD is 2-9-18-4."
-  },
-  {
-    "id": "d2_q4",
-    "day": 2,
-    "number": 4,
-    "title": "Max the Dog's Long Rope",
-    "category": "Lateral Thinking",
-    "theme": "Dogs",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Max the Dog is tied to a rope that is 3 meters long. A juicy bone is sitting 5 meters away from Max. Max easily walks over to the bone and starts chewing on it without breaking or stretching the rope. How is this possible?",
-    "type": "multiple-choice",
-    "options": [
-      "The other end of the rope isn't tied to anything",
-      "Max stretched the rope with his teeth",
-      "The bone was tied to a string that Max pulled",
-      "A friendly bird pushed the bone closer"
-    ],
-    "correctAnswer": "The other end of the rope isn't tied to anything",
-    "hints": [
-      "The question says Max is tied to a rope, but what is the rope tied to?",
-      "If you tie a string to your shoe, but don't tie it to a chair, can you walk around?"
-    ],
-    "explanation": "The rope is tied to Max, but the other end of the rope isn't tied to a tree or the ground! Max can walk as far as he wants."
-  },
-  {
-    "id": "d2_q5",
-    "day": 2,
-    "number": 5,
-    "title": "Origami Paper Folds",
-    "category": "Logical Thinking",
-    "theme": "Arts & Crafts",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "If you take a square sheet of craft paper, fold it in half exactly once, and then fold it in half again in the same direction, what shape do you have?",
-    "type": "multiple-choice",
-    "options": [
-      "A long, thin rectangle",
-      "A circle",
-      "A triangle",
-      "A star"
-    ],
-    "correctAnswer": "A long, thin rectangle",
-    "hints": [
-      "Fold a square in half once: it becomes a rectangle.",
-      "If you fold that rectangle in half again along the same direction, it gets even narrower."
-    ],
-    "explanation": "Folding it in half once divides the width by 2, making a rectangle. Folding it again in the same direction divides the width by 4, creating a longer, narrower rectangle."
-  },
-  {
-    "id": "d3_q1",
-    "day": 3,
-    "number": 1,
-    "title": "Dinosaur Leg Counting",
-    "category": "Logical Thinking",
-    "theme": "T-Rex",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "In the dino forest, a Triceratops has 4 legs, and a Raptor has 2 legs. You count exactly 12 dinosaur legs in total. If you know there are exactly 2 Triceratops, how many Raptors are there?",
-    "type": "text-input",
-    "options": [],
-    "correctAnswer": "2",
-    "hints": [
-      "First, find out how many legs the 2 Triceratops have. (Each has 4 legs).",
-      "Subtract those legs from 12. The remaining legs belong to the Raptors. How many legs does each Raptor have?"
-    ],
-    "explanation": "2 Triceratops have 2 x 4 = 8 legs. Out of 12 legs, 12 - 8 = 4 legs remain. Since each Raptor has 2 legs, there must be 4 / 2 = 2 Raptors."
-  },
-  {
-    "id": "d3_q2",
-    "day": 3,
-    "number": 2,
-    "title": "Mia's Butterfly Painting",
-    "category": "Logical Thinking",
-    "theme": "Butterflies",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Mia is painting three butterfly models of different sizes: Big, Middle, and Small. She has three pots of paint: Pink, Purple, and Yellow. She paints each butterfly a different color. If the Big butterfly is not Yellow, and the Small butterfly is Pink, what color is the Middle butterfly?",
-    "type": "multiple-choice",
-    "options": [
-      "Yellow",
-      "Purple",
-      "Pink",
-      "Red"
-    ],
-    "correctAnswer": "Yellow",
-    "hints": [
-      "We know the Small butterfly is Pink. That leaves Purple and Yellow for the Big and Middle butterflies.",
-      "If the Big butterfly cannot be Yellow, what color must it be? That leaves only one color for the Middle butterfly!"
-    ],
-    "explanation": "Since the Small butterfly is Pink, we have Purple and Yellow left. The Big butterfly is not Yellow, so it must be Purple. That leaves Yellow for the Middle butterfly."
-  },
-  {
-    "id": "d3_q3",
-    "day": 3,
-    "number": 3,
-    "title": "Cute Kitten Portrait",
-    "category": "Creative Crafting",
-    "theme": "Cats",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Draw a cute cartoon kitten face! Make sure to include two triangle ears, round shiny eyes, a cute nose, and whiskers!",
-    "type": "drawing",
-    "options": [],
-    "correctAnswer": "A drawing of a kitten face.",
-    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"><circle cx=\"50\" cy=\"55\" r=\"30\" /><polygon points=\"25,35 20,10 40,28\" fill=\"var(--secondary-color)\" /><polygon points=\"75,35 80,10 60,28\" fill=\"var(--secondary-color)\" /><circle cx=\"40\" cy=\"50\" r=\"3\" fill=\"var(--primary-color)\" /><circle cx=\"60\" cy=\"50\" r=\"3\" fill=\"var(--primary-color)\" /><polygon points=\"48,58 52,58 50,60\" fill=\"var(--primary-color)\" /><path d=\"M50,60 Q47,64 44,62 M50,60 Q53,64 56,62\" /><line x1=\"20\" y1=\"55\" x2=\"5\" y2=\"53\" /><line x1=\"20\" y1=\"58\" x2=\"3\" y2=\"58\" /><line x1=\"20\" y1=\"61\" x2=\"5\" y2=\"63\" /><line x1=\"80\" y1=\"55\" x2=\"95\" y2=\"53\" /><line x1=\"80\" y1=\"58\" x2=\"97\" y2=\"58\" /><line x1=\"80\" y1=\"61\" x2=\"95\" y2=\"63\" /></svg>",
-    "hints": [
-      "Draw a round circle for the head first.",
-      "Add two triangles on top for ears, and draw three whiskers on each side of the face!"
-    ],
-    "explanation": "That kitten looks super cute! It's purr-fect!"
-  },
-  {
-    "id": "d3_q4",
-    "day": 3,
-    "number": 4,
-    "title": "Feathers vs. Carving Tools",
-    "category": "Lateral Thinking",
-    "theme": "Arts & Crafts",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Which weighs more: a kilogram of colorful craft feathers or a kilogram of heavy steel carving tools?",
-    "type": "multiple-choice",
-    "options": [
-      "They weigh exactly the same",
-      "The steel carving tools",
-      "The colorful craft feathers",
-      "It depends on which box is larger"
-    ],
-    "correctAnswer": "They weigh exactly the same",
-    "hints": [
-      "A kilogram is a measure of weight. One feather is lighter than one tool, but what about a kilogram of both?",
-      "If you put 1 kg of feathers on one side of a scale, and 1 kg of steel on the other, does one side push down more?"
-    ],
-    "explanation": "Both weigh exactly one kilogram! Feathers are much lighter individually, so you would need a massive bag of feathers to make a kilogram, but the total weight is the same."
-  },
-  {
-    "id": "d3_q5",
-    "day": 3,
-    "number": 5,
-    "title": "Unicorn Horn Counting",
-    "category": "Logical Thinking",
-    "theme": "Unicorns",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "In Unicorn Land, Silver Unicorns have 1 gold horn. Golden Unicorns are special and have 2 silver horns! If there are 5 Silver Unicorns and 3 Golden Unicorns playing in a field, how many horns are there in total?",
-    "type": "text-input",
-    "options": [],
-    "correctAnswer": "11",
-    "hints": [
-      "Calculate horns for Silver Unicorns: 5 unicorns times 1 horn.",
-      "Calculate horns for Golden Unicorns: 3 unicorns times 2 horns. Then add them together."
-    ],
-    "explanation": "5 Silver Unicorns have 5 x 1 = 5 horns. 3 Golden Unicorns have 3 x 2 = 6 horns. Total horns = 5 + 6 = 11 horns."
-  },
-  {
-    "id": "d4_q1",
-    "day": 4,
-    "number": 1,
-    "title": "Sarah's Beaded Dog Collar",
-    "category": "Logical Thinking",
-    "theme": "Dogs",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Sarah is making a dog collar out of beads. She strings them in a repeating pattern: Blue, Red, Green, Blue, Red, Green. If she has placed 14 beads on the string so far, what color will the 15th bead be?",
-    "type": "multiple-choice",
-    "options": [
-      "Green",
-      "Blue",
-      "Red",
-      "Yellow"
-    ],
-    "correctAnswer": "Green",
-    "hints": [
-      "The pattern repeats every 3 beads: 1st is Blue, 2nd is Red, 3rd is Green.",
-      "Every bead that is a multiple of 3 (3, 6, 9, 12...) will be Green. Is 15 a multiple of 3?"
-    ],
-    "explanation": "The pattern repeats every 3 beads: Blue (1), Red (2), Green (3). Since 15 is divisible by 3, the 15th bead will be Green (the last color of the pattern triplet)."
-  },
-  {
-    "id": "d4_q2",
-    "day": 4,
-    "number": 2,
-    "title": "Youngest Pup in the Pack",
-    "category": "Logical Thinking",
-    "theme": "Dogs",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Bingo the Pug is older than Cooper the Beagle. Cooper the Beagle is older than Daisy the Poodle. Who is the youngest dog in the group?",
-    "type": "multiple-choice",
-    "options": [
-      "Daisy the Poodle",
-      "Cooper the Beagle",
-      "Bingo the Pug",
-      "They are all the same age"
-    ],
-    "correctAnswer": "Daisy the Poodle",
-    "hints": [
-      "Bingo is older than Cooper. Cooper is older than Daisy.",
-      "Think of it like a staircase of ages. Bingo is at the top. Who is at the bottom?"
-    ],
-    "explanation": "If Bingo > Cooper and Cooper > Daisy, then Daisy is younger than both Cooper and Bingo, making Daisy the youngest."
-  },
-  {
-    "id": "d4_q3",
-    "day": 4,
-    "number": 3,
-    "title": "The Munching Caterpillar",
-    "category": "Creative Crafting",
-    "theme": "Butterflies",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Draw a green caterpillar crawling on a big leaf, taking a bite out of it!",
-    "type": "drawing",
-    "options": [],
-    "correctAnswer": "A drawing of a caterpillar on a leaf.",
-    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" fill=\"none\"><path d=\"M10,80 Q40,30 90,20 Q80,70 10,80 Z\" fill=\"#4caf50\" opacity=\"0.8\" /><circle cx=\"90\" cy=\"20\" r=\"15\" fill=\"#fcfbf7\" /><path d=\"M10,80 L90,20\" stroke=\"#388e3c\" stroke-width=\"2\" /><circle cx=\"30\" cy=\"55\" r=\"8\" fill=\"#8bc34a\" /><circle cx=\"42\" cy=\"50\" r=\"8\" fill=\"#8bc34a\" /><circle cx=\"54\" cy=\"52\" r=\"8\" fill=\"#8bc34a\" /><circle cx=\"66\" cy=\"48\" r=\"8\" fill=\"#ffeb3b\" /><circle cx=\"74\" cy=\"42\" r=\"9\" fill=\"#ff5722\" /><circle cx=\"76\" cy=\"38\" r=\"1\" fill=\"black\" /></svg>",
-    "hints": [
-      "Draw a big green leaf first, and maybe put a little bite mark (a gap) in it.",
-      "Draw the caterpillar as a chain of little circles joined together!"
-    ],
-    "explanation": "Delicious! That caterpillar looks very happy eating its green leaf lunch."
-  },
-  {
-    "id": "d4_q4",
-    "day": 4,
-    "number": 4,
-    "title": "Raptor Race",
-    "category": "Logical Thinking",
-    "theme": "Raptors",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Three raptors, Blue, Green, and Stripe, ran a race. Green finished ahead of Stripe. Blue finished behind Stripe. Who came in first place?",
-    "type": "multiple-choice",
-    "options": [
-      "Green",
-      "Stripe",
-      "Blue",
-      "It was a three-way tie"
-    ],
-    "correctAnswer": "Green",
-    "hints": [
-      "Green came before Stripe. So Stripe cannot be first.",
-      "Blue came behind Stripe. That means Stripe beat Blue. Who beats them all?"
-    ],
-    "explanation": "Green finished ahead of Stripe (Green > Stripe). Blue finished behind Stripe (Stripe > Blue). Combining these, we get Green > Stripe > Blue. So Green finished first."
-  },
-  {
-    "id": "d4_q5",
-    "day": 4,
-    "number": 5,
-    "title": "Milk on the Cabinet",
-    "category": "Lateral Thinking",
-    "theme": "Cats",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "A cat is only able to jump 2 meters high. There is a delicious bowl of milk sitting on top of a tall 3-meter cabinet. How does the cat get to the milk bowl without knocking the cabinet over?",
-    "type": "multiple-choice",
-    "options": [
-      "The cat climbs up the cabinet sides",
-      "The cat waits for the milk to fall down",
-      "The cat calls a dog to push it down",
-      "The cat uses a ladder"
-    ],
-    "correctAnswer": "The cat climbs up the cabinet sides",
-    "hints": [
-      "A cat cannot jump 3 meters, but cats have sharp claws. What else are cats famous for doing in trees?",
-      "Jumping isn't the only way to go up."
-    ],
-    "explanation": "Cats are excellent climbers! Even though it can't jump 3 meters in a single leap, it can easily climb up the front or sides of the wooden cabinet to reach the top."
-  },
-  {
-    "id": "d5_q1",
-    "day": 5,
-    "number": 1,
-    "title": "Baby T-Rex Teeth",
-    "category": "Logical Thinking",
-    "theme": "T-Rex",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "A baby T-Rex starts with 10 sharp teeth. Every day, it grows 2 brand new teeth, but loses 1 old tooth. How many teeth will the baby T-Rex have in total after 5 days?",
-    "type": "text-input",
-    "options": [],
-    "correctAnswer": "15",
-    "hints": [
-      "Find out the net change of teeth per day. If it grows 2 and loses 1, how many teeth does it gain each day?",
-      "Multiply that daily gain by 5 days, and add it to the starting number of teeth (10)."
-    ],
-    "explanation": "Each day, the baby T-Rex gains 2 - 1 = 1 tooth. Over 5 days, it gains 5 x 1 = 5 teeth. Starting with 10 teeth, it ends up with 10 + 5 = 15 teeth."
-  },
-  {
-    "id": "d5_q2",
-    "day": 5,
-    "number": 2,
-    "title": "Parrots on a Branch",
-    "category": "Lateral Thinking",
-    "theme": "Birds",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Five colorful parrots are sitting together on a branch. A loud thunderclap scares them, and 2 parrots fly away. How many parrots are left sitting on the branch?",
-    "type": "multiple-choice",
-    "options": [
-      "0 parrots",
-      "3 parrots",
-      "5 parrots",
-      "2 parrots"
-    ],
-    "correctAnswer": "0 parrots",
-    "hints": [
-      "If you were sitting on a branch with friends and a super loud scary sound happened, what would you do?",
-      "If 2 of the birds fly away because they are scared, what do the other 3 do?"
-    ],
-    "explanation": "If a loud scary sound occurs, all the parrots will be frightened and fly away, leaving 0 parrots on the branch!"
-  },
-  {
-    "id": "d5_q3",
-    "day": 5,
-    "number": 3,
-    "title": "Unicorn Sky",
-    "category": "Creative Crafting",
-    "theme": "Unicorns",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Draw a magical sky scene containing a bright rainbow arching over a fluffy white cloud!",
-    "type": "drawing",
-    "options": [],
-    "correctAnswer": "A drawing of a rainbow and cloud.",
-    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" fill=\"none\"><path d=\"M15,70 A40,40 0 0,1 85,70\" stroke=\"#ff5252\" stroke-width=\"8\" /><path d=\"M22,70 A30,30 0 0,1 78,70\" stroke=\"#ffeb3b\" stroke-width=\"8\" /><path d=\"M29,70 A20,20 0 0,1 71,70\" stroke=\"#2196f3\" stroke-width=\"8\" /><path d=\"M10,75 C5,75 5,65 15,65 C15,55 30,55 35,63 C40,55 55,60 50,75 Z\" fill=\"white\" stroke=\"#e0e0e0\" stroke-width=\"2\" /><path d=\"M50,75 C45,75 45,65 55,65 C55,55 70,55 75,63 C80,55 95,60 90,75 Z\" fill=\"white\" stroke=\"#e0e0e0\" stroke-width=\"2\" /></svg>",
-    "hints": [
-      "Choose red, yellow, and blue colors to draw a curved rainbow arch.",
-      "Draw a bubbly cloud shape at the bottom of the rainbow!"
-    ],
-    "explanation": "Magic is in the air! What a beautiful sky painting."
-  },
-  {
-    "id": "d5_q4",
-    "day": 5,
-    "number": 4,
-    "title": "Butterfly Magic Card",
-    "category": "Logical Thinking",
-    "theme": "Butterflies",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "In a craft game, there is a card with a picture on it. If you flip it once, the picture changes: a Butterfly changes into a Flower. If you flip a Flower card, it changes back into a Butterfly. If you start with a Butterfly card and flip it exactly 101 times, what picture will be showing?",
-    "type": "multiple-choice",
-    "options": [
-      "A Flower",
-      "A Butterfly",
-      "A Caterpillar",
-      "An Empty Card"
-    ],
-    "correctAnswer": "A Flower",
-    "hints": [
-      "Start with Butterfly. 1st flip = Flower. 2nd flip = Butterfly. 3rd flip = Flower.",
-      "Notice that odd flips (1, 3, 5...) show the Flower, and even flips (2, 4, 6...) show the Butterfly. Is 101 odd or even?"
-    ],
-    "explanation": "Every odd-numbered flip (1, 3, 5, ..., 101) turns the card into a Flower. Every even-numbered flip turns it back into a Butterfly. Since 101 is an odd number, the showing picture will be a Flower."
-  },
-  {
-    "id": "d5_q5",
-    "day": 5,
-    "number": 5,
-    "title": "Creases of a Boat",
-    "category": "Logical Thinking",
-    "theme": "Arts & Crafts",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "To make an origami paper boat, you fold a square paper many times. If you take a finished paper boat and unfold it completely flat again, what will you see on the paper?",
-    "type": "multiple-choice",
-    "options": [
-      "A grid pattern of crease lines",
-      "A colored drawing of a boat",
-      "A shredded piece of paper",
-      "A completely smooth paper with no marks"
-    ],
-    "correctAnswer": "A grid pattern of crease lines",
-    "hints": [
-      "Folding paper presses lines into it. What are those lines called?",
-      "The paper doesn't print images on itself just by folding, nor does it shred unless you tear it."
-    ],
-    "explanation": "Folding paper leaves permanent indentations called crease lines. Unfolding it flat reveals a beautiful geometric map of all the folds you made!"
-  },
-  {
-    "id": "d6_q1",
-    "day": 6,
-    "number": 1,
-    "title": "The Scared Birds",
-    "category": "Lateral Thinking",
-    "theme": "Birds",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Seven birds are sitting on a fence. A loud firework goes off and 3 birds fly away. How many birds are left sitting on the fence?",
-    "type": "multiple-choice",
-    "options": [
-      "0",
-      "4",
-      "3",
-      "7"
-    ],
-    "correctAnswer": "0",
-    "hints": [
-      "What would the other birds do when they hear the loud noise?",
-      "Do only the 3 birds react?"
-    ],
-    "explanation": "The loud firework scares all the birds, not just the three that flew away first. The fence ends up empty."
-  },
-  {
-    "id": "d6_q2",
-    "day": 6,
-    "number": 2,
-    "title": "The Wet Umbrella",
-    "category": "Lateral Thinking",
-    "theme": "Rain",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Emma walked outside carrying an umbrella. When she came home, her umbrella was soaking wet, but Emma's clothes were completely dry. How is that possible?",
-    "type": "multiple-choice",
-    "options": [
-      "It rained while the umbrella was outside drying",
-      "Emma never opened the umbrella",
-      "Someone poured water on it",
-      "The umbrella fell into a pond"
-    ],
-    "correctAnswer": "It rained while the umbrella was outside drying",
-    "hints": [
-      "The puzzle never says the umbrella got wet while Emma was using it.",
-      "Think about what happened after Emma got home."
-    ],
-    "explanation": "The umbrella was outside and got wet later. Emma stayed indoors and remained dry."
-  },
-  {
-    "id": "d6_q3",
-    "day": 6,
-    "number": 3,
-    "title": "The Clever Rabbit",
-    "category": "Lateral Thinking",
-    "theme": "Animals",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "A rabbit wanted to cross a river but there was no bridge, no boat, and the rabbit couldn't swim. Yet it crossed safely. How?",
-    "type": "multiple-choice",
-    "options": [
-      "The river was frozen",
-      "The rabbit jumped 100 meters",
-      "A bird carried it",
-      "The rabbit dug a tunnel"
-    ],
-    "correctAnswer": "The river was frozen",
-    "hints": [
-      "The puzzle never says it was summer.",
-      "What happens to rivers in very cold weather?"
-    ],
-    "explanation": "The rabbit simply walked across the frozen river."
-  },
-  {
-    "id": "d6_q4",
-    "day": 6,
-    "number": 4,
-    "title": "The Missing Apple",
-    "category": "Lateral Thinking",
-    "theme": "Fruit",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "A bowl contains 6 apples. You take away 2 apples. How many apples do you have?",
-    "type": "multiple-choice",
-    "options": [
-      "2",
-      "4",
-      "6",
-      "8"
-    ],
-    "correctAnswer": "2",
-    "hints": [
-      "Read carefully.",
-      "The question asks how many apples YOU have."
-    ],
-    "explanation": "You took 2 apples, so you have 2 apples."
-  },
-  {
-    "id": "d6_q5",
-    "day": 6,
-    "number": 5,
-    "title": "The Tired Turtle",
-    "category": "Lateral Thinking",
-    "theme": "Turtles",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "A turtle was at the bottom of a 10-meter well. Every day it climbed 3 meters up, but every night it slipped 2 meters down. How many meters higher is it after one full day and night?",
-    "type": "multiple-choice",
-    "options": [
-      "1 meter",
-      "3 meters",
-      "2 meters",
-      "5 meters"
-    ],
-    "correctAnswer": "1 meter",
-    "hints": [
-      "Calculate the net movement.",
-      "Up 3, down 2."
-    ],
-    "explanation": "The turtle gains 1 meter each complete day."
-  },
-  {
-    "id": "d7_q1",
-    "day": 7,
-    "number": 1,
-    "title": "The Backward Race",
-    "category": "Lateral Thinking",
-    "theme": "Sports",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "You are running a race. You pass the runner who is in second place. What place are you in now?",
-    "type": "multiple-choice",
-    "options": [
-      "Second",
-      "First",
-      "Third",
-      "Fourth"
-    ],
-    "correctAnswer": "Second",
-    "hints": [
-      "Who did you pass?",
-      "Did you pass the person in first place?"
-    ],
-    "explanation": "You took over second place. First place is still ahead of you."
-  },
-  {
-    "id": "d7_q2",
-    "day": 7,
-    "number": 2,
-    "title": "The Farmer's Sheep",
-    "category": "Lateral Thinking",
-    "theme": "Farm",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "A farmer has 17 sheep. All but 9 run away. How many sheep remain?",
-    "type": "multiple-choice",
-    "options": [
-      "9",
-      "8",
-      "17",
-      "0"
-    ],
-    "correctAnswer": "9",
-    "hints": [
-      "What does 'all but 9' mean?",
-      "Read the sentence slowly."
-    ],
-    "explanation": "'All but 9' means all except 9. Therefore 9 sheep remain."
-  },
-  {
-    "id": "d7_q3",
-    "day": 7,
-    "number": 3,
-    "title": "Mirror Drawing",
-    "category": "Creative Crafting",
-    "theme": "Art",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Draw half of a smiling face on one side of the screen and then complete the other side so it looks like a mirror image.",
-    "type": "drawing",
-    "options": [],
-    "correctAnswer": "A symmetrical face drawing.",
-    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"><path d=\"M50,20 C30,20 20,35 20,55 C20,75 35,85 50,85\" /><circle cx=\"35\" cy=\"45\" r=\"4\" fill=\"var(--primary-color)\" /><path d=\"M35,65 Q42,70 50,70\" /><line x1=\"50\" y1=\"10\" x2=\"50\" y2=\"90\" stroke=\"var(--accent-text)\" stroke-dasharray=\"4\" /><path d=\"M50,20 C70,20 80,35 80,55 C80,75 65,85 50,85\" stroke-dasharray=\"4\" /><circle cx=\"65\" cy=\"45\" r=\"4\" fill=\"none\" stroke-dasharray=\"2\" /><path d=\"M50,70 Q58,70 65,65\" stroke-dasharray=\"3\" /></svg>",
-    "hints": [
-      "Try matching the eyes and ears.",
-      "Imagine a mirror in the middle."
-    ],
-    "explanation": "Great symmetry! Mirror images help train visual thinking."
-  },
-  {
-    "id": "d7_q4",
-    "day": 7,
-    "number": 4,
-    "title": "The Library Book",
-    "category": "Lateral Thinking",
-    "theme": "Books",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Tom borrowed a library book on Monday. He returned it on Friday. Yet he only had it for one day. How is that possible?",
-    "type": "multiple-choice",
-    "options": [
-      "The days were named after towns",
-      "The book was called Monday and Friday",
-      "Tom traveled through time",
-      "The library was closed"
-    ],
-    "correctAnswer": "The days were named after towns",
-    "hints": [
-      "The puzzle never says Monday and Friday are days of the week.",
-      "Could they be something else?"
-    ],
-    "explanation": "Monday and Friday could be place names rather than weekdays."
-  },
-  {
-    "id": "d7_q5",
-    "day": 7,
-    "number": 5,
-    "title": "The Sleeping Dinosaur",
-    "category": "Lateral Thinking",
-    "theme": "Dinosaurs",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "A dinosaur was sleeping with one eye open. How could it still be asleep?",
-    "type": "multiple-choice",
-    "options": [
-      "It only had one eye",
-      "Dinosaurs never slept",
-      "The eye was painted on",
-      "It was pretending"
-    ],
-    "correctAnswer": "It only had one eye",
-    "hints": [
-      "The puzzle never says it had two eyes.",
-      "Think about what is being assumed."
-    ],
-    "explanation": "If it only had one eye, sleeping with one eye open is possible because there isn't another eye to close."
-  },
-  {
-    "id": "mind_001",
-    "day": 8,
-    "number": 1,
-    "title": "The Missing Birthday",
-    "category": "Missing Information",
-    "theme": "Family",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "Sophie's birthday was yesterday. Next year, her birthday will be on a Monday. What day of the week is it today?",
-    "type": "multiple-choice",
-    "options": [
-      "Not enough information",
-      "Tuesday",
-      "Sunday",
-      "Monday"
-    ],
-    "correctAnswer": "Not enough information",
-    "hints": [
-      "Do we know what day her birthday was this year?",
-      "Can you work out today's day without knowing the year?"
-    ],
-    "explanation": "Important information is missing. There isn't enough information to determine today's day."
-  },
-  {
-    "id": "mind_002",
-    "day": 8,
-    "number": 2,
-    "title": "The Locked Treasure Box",
-    "category": "Missing Information",
-    "theme": "Pirates",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Captain Gold says the treasure is hidden in one of three caves. Cave A is blue. Cave B is red. Cave C is green. Which cave contains the treasure?",
-    "type": "multiple-choice",
-    "options": [
-      "Cannot be determined",
-      "Cave A",
-      "Cave B",
-      "Cave C"
-    ],
-    "correctAnswer": "Cannot be determined",
-    "hints": [
-      "What clues were provided?",
-      "Do colors tell us where the treasure is?"
-    ],
-    "explanation": "Sometimes there simply isn't enough information to answer a question."
-  },
-  {
-    "id": "d8_q3",
-    "day": 8,
-    "number": 3,
-    "title": "Draw a Pirate Flag",
-    "category": "Creative Crafting",
-    "theme": "Pirates",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Captain Gold wants a new flag for his pirate ship! Draw a pirate flag with a skull or a big 'X' marking the spot on the canvas!",
-    "type": "drawing",
-    "options": [],
-    "correctAnswer": "A drawing of a pirate flag.",
-    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"><rect x=\"15\" y=\"15\" width=\"70\" height=\"45\" rx=\"4\" fill=\"var(--text-main)\" /><line x1=\"15\" y1=\"15\" x2=\"15\" y2=\"90\" stroke=\"var(--accent-text)\" stroke-width=\"4\" /><path d=\"M40,30 L60,50 M60,30 L40,50\" stroke=\"white\" stroke-width=\"4\" /><circle cx=\"50\" cy=\"35\" r=\"5\" fill=\"white\" /></svg>",
-    "hints": [
-      "Draw the flag rectangle first, and then add a big 'X' in the center.",
-      "Use black and white or red colors to make it look like a real pirate flag!"
-    ],
-    "explanation": "Arr! That pirate flag looks amazing! Captain Gold is ready to set sail!"
-  },
-  {
-    "id": "mind_003",
-    "day": 8,
-    "number": 4,
-    "title": "The Last Cookie",
-    "category": "Ambiguous Wording",
-    "theme": "Cookies",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "Three children shared cookies. Emma ate more cookies than Lily. Lily ate more cookies than Noah. Who ate the least?",
-    "type": "multiple-choice",
-    "options": [
-      "Noah",
-      "Lily",
-      "Emma",
-      "Cannot know"
-    ],
-    "correctAnswer": "Noah",
-    "hints": [
-      "Arrange the children from most to least.",
-      "Look carefully at the wording."
-    ],
-    "explanation": "Emma > Lily > Noah. Therefore Noah ate the least."
-  },
-  {
-    "id": "mind_004",
-    "day": 8,
-    "number": 5,
-    "title": "The Tall Building",
-    "category": "Ambiguous Wording",
-    "theme": "City",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "A building is 20 stories tall. A painter is painting the outside. What color is the paint?",
-    "type": "multiple-choice",
-    "options": [
-      "Cannot be determined",
-      "Blue",
-      "White",
-      "Gray"
-    ],
-    "correctAnswer": "Cannot be determined",
-    "hints": [
-      "Did the puzzle ever mention the color?",
-      "Don't add information that wasn't given."
-    ],
-    "explanation": "The puzzle never tells us the paint color."
-  },
-  {
-    "id": "mind_005",
-    "day": 9,
-    "number": 1,
-    "title": "The Race Position",
-    "category": "Perspective Shift",
-    "theme": "Sports",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "You are running in a race. You pass the runner in third place. What place are you now in?",
-    "type": "multiple-choice",
-    "options": [
-      "Third",
-      "Second",
-      "First",
-      "Fourth"
-    ],
-    "correctAnswer": "Third",
-    "hints": [
-      "You take the position of the runner you passed.",
-      "You didn't pass second place."
-    ],
-    "explanation": "Passing the runner in third place means you become third."
-  },
-  {
-    "id": "mind_006",
-    "day": 9,
-    "number": 2,
-    "title": "The Classroom Door",
-    "category": "Perspective Shift",
-    "theme": "School",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "A classroom door has a sign that says 'Push'. Tom pushes the door, but it doesn't move. Why?",
-    "type": "multiple-choice",
-    "options": [
-      "He is standing on the wrong side",
-      "The door is locked",
-      "The sign is wrong",
-      "The door is broken"
-    ],
-    "correctAnswer": "He is standing on the wrong side",
-    "hints": [
-      "Who says he is looking at the sign from the correct side?",
-      "Think about where Tom is standing."
-    ],
-    "explanation": "The sign might apply only from the other side of the door."
-  },
-  {
-    "id": "d9_q3",
-    "day": 9,
-    "number": 3,
-    "title": "Draw a School Bus",
-    "category": "Creative Crafting",
-    "theme": "School",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "The children are ready to go to school! Draw a bright yellow school bus with two big round wheels on the road!",
-    "type": "drawing",
-    "options": [],
-    "correctAnswer": "A drawing of a school bus.",
-    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"><rect x=\"15\" y=\"30\" width=\"70\" height=\"35\" rx=\"6\" fill=\"gold\" /><circle cx=\"30\" cy=\"65\" r=\"8\" fill=\"var(--text-main)\" /><circle cx=\"70\" cy=\"65\" r=\"8\" fill=\"var(--text-main)\" /><rect x=\"25\" y=\"38\" width=\"15\" height=\"12\" rx=\"1\" fill=\"white\" /><rect x=\"45\" y=\"38\" width=\"15\" height=\"12\" rx=\"1\" fill=\"white\" /><rect x=\"65\" y=\"38\" width=\"15\" height=\"12\" rx=\"1\" fill=\"white\" /></svg>",
-    "hints": [
-      "Draw a big rectangle for the bus body, then add two circles at the bottom for wheels.",
-      "Color it bright yellow and add square windows for the children!"
-    ],
-    "explanation": "Honk honk! The yellow school bus is ready to take everyone to class!"
-  },
-  {
-    "id": "mind_007",
-    "day": 9,
-    "number": 4,
-    "title": "The Tiny Giant",
-    "category": "Impossible Assumption",
-    "theme": "Fantasy",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "A giant walked through a tiny doorway without bending down. How is that possible?",
-    "type": "multiple-choice",
-    "options": [
-      "It was a toy giant",
-      "The doorway grew larger",
-      "Magic happened",
-      "The giant crawled"
-    ],
-    "correctAnswer": "It was a toy giant",
-    "hints": [
-      "Who said the giant was real?",
-      "Could it be something else called a giant?"
-    ],
-    "explanation": "The giant could simply be a toy figure."
-  },
-  {
-    "id": "mind_008",
-    "day": 9,
-    "number": 5,
-    "title": "The Flying Elephant",
-    "category": "Impossible Assumption",
-    "theme": "Animals",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "An elephant flew across a room. How is that possible?",
-    "type": "multiple-choice",
-    "options": [
-      "It was a toy elephant",
-      "It had wings",
-      "A helicopter carried it",
-      "It jumped"
-    ],
-    "correctAnswer": "It was a toy elephant",
-    "hints": [
-      "The puzzle never says it was a real elephant.",
-      "Think smaller."
-    ],
-    "explanation": "It could have been a toy elephant thrown across the room."
-  },
-  {
-    "id": "mind_009",
-    "day": 10,
-    "number": 1,
-    "title": "The Bigger Box",
-    "category": "Counter-Intuitive Outcome",
-    "theme": "Storage",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Which weighs more: an empty big box or an empty small box?",
-    "type": "multiple-choice",
-    "options": [
-      "Cannot be determined",
-      "Big box",
-      "Small box",
-      "They are always equal"
-    ],
-    "correctAnswer": "Cannot be determined",
-    "hints": [
-      "Do we know what the boxes are made from?",
-      "Bigger does not always mean heavier."
-    ],
-    "explanation": "A large cardboard box can weigh less than a small wooden box."
-  },
-  {
-    "id": "mind_010",
-    "day": 10,
-    "number": 2,
-    "title": "The Heavy Feather",
-    "category": "Counter-Intuitive Outcome",
-    "theme": "Nature",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Which weighs more: one kilogram of feathers or one kilogram of rocks?",
-    "type": "multiple-choice",
-    "options": [
-      "They weigh the same",
-      "The rocks",
-      "The feathers",
-      "Depends on the scale"
-    ],
-    "correctAnswer": "They weigh the same",
-    "hints": [
-      "Look at the units.",
-      "One kilogram is one kilogram."
-    ],
-    "explanation": "The materials are different, but the total weight is the same."
-  },
-  {
-    "id": "d10_q3",
-    "day": 10,
-    "number": 3,
-    "title": "Draw a Nature Tree",
-    "category": "Creative Crafting",
-    "theme": "Nature",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Draw a beautiful tree in the forest with a thick brown trunk and a big fluffy green top!",
-    "type": "drawing",
-    "options": [],
-    "correctAnswer": "A drawing of a tree.",
-    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"><path d=\"M45,85 L45,55 L55,55 L55,85 Z\" fill=\"saddlebrown\" /><path d=\"M50,20 C30,20 20,35 25,50 C30,65 70,65 75,50 C80,35 70,20 50,20 Z\" fill=\"var(--success)\" /></svg>",
-    "hints": [
-      "Start with a tall trunk in the middle using a brown brush.",
-      "Draw a big cloud-like green shape on top for the leaves!"
-    ],
-    "explanation": "Your tree looks green and healthy! The birds in the forest will love nesting here."
-  },
-  {
-    "id": "mind_011",
-    "day": 10,
-    "number": 4,
-    "title": "The Missing Sandwich",
-    "category": "Detective Elimination",
-    "theme": "School",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "Someone ate the missing sandwich. Amy says, 'I didn't do it.' Ben says, 'Amy did it.' Charlie says, 'Ben is lying.' Only one child is telling the truth. Who ate the sandwich?",
-    "type": "multiple-choice",
-    "options": [
-      "Amy",
-      "Ben",
-      "Charlie",
-      "Cannot know"
-    ],
-    "correctAnswer": "Amy",
-    "hints": [
-      "Test each possibility.",
-      "Only one statement can be true."
-    ],
-    "explanation": "If Amy ate it, Amy lies, Ben tells the truth, Charlie lies. Exactly one truth."
-  },
-  {
-    "id": "mind_012",
-    "day": 10,
-    "number": 5,
-    "title": "The Lost Crayon",
-    "category": "Detective Elimination",
-    "theme": "Art",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "Three children are asked who lost the red crayon. Mia says, 'It wasn't me.' Leo says, 'It was Ava.' Ava says, 'Leo is wrong.' Only one child is telling the truth. Who lost the crayon?",
-    "type": "multiple-choice",
-    "options": [
-      "Ava",
-      "Mia",
-      "Leo",
-      "Cannot know"
-    ],
-    "correctAnswer": "Mia",
-    "hints": [
-      "Try each child as the culprit.",
-      "Check how many truths result."
-    ],
-    "explanation": "If Mia lost it, Mia lies, Leo lies, Ava tells the truth. Exactly one truth."
-  },
-  {
-    "id": "mind_013",
-    "day": 11,
-    "number": 1,
-    "title": "The Magic Sticker",
-    "category": "Psychological",
-    "theme": "School",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "A teacher gives two children the exact same sticker. One child is thrilled and the other is disappointed. How is that possible?",
-    "type": "multiple-choice",
-    "options": [
-      "One child already had that sticker",
-      "The sticker changed color",
-      "One sticker was fake",
-      "The teacher made a mistake"
-    ],
-    "correctAnswer": "One child already had that sticker",
-    "hints": [
-      "People react differently to the same thing.",
-      "Think about what each child already owns."
-    ],
-    "explanation": "The value of something depends on what you already have."
-  },
-  {
-    "id": "mind_014",
-    "day": 11,
-    "number": 2,
-    "title": "The Two Ice Creams",
-    "category": "Psychological",
-    "theme": "Food",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "Two children receive exactly the same ice cream. One thinks it is huge. The other thinks it is tiny. How can both be right?",
-    "type": "multiple-choice",
-    "options": [
-      "They are comparing it to different things",
-      "The ice cream changed size",
-      "One child counted wrong",
-      "The ice cream melted"
-    ],
-    "correctAnswer": "They are comparing it to different things",
-    "hints": [
-      "People judge things relative to expectations.",
-      "Compared with what?"
-    ],
-    "explanation": "Perception depends on context. The same thing can feel big or small depending on what came before."
-  },
-  {
-    "id": "d11_q3",
-    "day": 11,
-    "number": 3,
-    "title": "Draw an Ice Cream Cone",
-    "category": "Creative Crafting",
-    "theme": "Food",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Draw a giant ice cream cone! Draw a triangle cone at the bottom and a big round scoop of ice cream on top with a cherry!",
-    "type": "drawing",
-    "options": [],
-    "correctAnswer": "A drawing of an ice cream cone.",
-    "referenceSvg": "<svg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"><polygon points=\"35,50 65,50 50,90\" fill=\"peru\" /><circle cx=\"50\" cy=\"42\" r=\"15\" fill=\"pink\" /><circle cx=\"50\" cy=\"22\" r=\"4\" fill=\"red\" /><path d=\"M50,18 Q55,10 60,12\" stroke=\"red\" stroke-width=\"2\" /></svg>",
-    "hints": [
-      "Draw a downward-pointing triangle for the cone first.",
-      "Add a circle on top for the ice cream scoop, and top it with a tiny cherry!"
-    ],
-    "explanation": "Yum! That looks delicious. Pink strawberry is a classic choice!"
-  },
-  {
-    "id": "d11_q4",
-    "day": 11,
-    "number": 4,
-    "title": "The Toy Airplane",
-    "category": "Impossible Assumption",
-    "theme": "Toys",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "A toy airplane flies across the room, but it doesn't have any batteries, motor, or rubber bands. How is it moving?",
-    "type": "multiple-choice",
-    "options": [
-      "Someone threw it",
-      "It is a magical airplane",
-      "Wind blew it from outside",
-      "It has secret solar panels"
-    ],
-    "correctAnswer": "Someone threw it",
-    "hints": [
-      "How do paper or plastic toy gliders fly?",
-      "Think about who is playing with the toy."
-    ],
-    "explanation": "Simple toy gliders fly when someone throws them through the air."
-  },
-  {
-    "id": "d11_q5",
-    "day": 11,
-    "number": 5,
-    "title": "The Alphabet Key",
-    "category": "Logical Thinking",
-    "theme": "School",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "If A=1, B=2, C=3, and D=4, what word is spelled by the numbers 2-1-7?",
-    "type": "text-input",
-    "correctAnswer": "BAG",
-    "hints": [
-      "Find the letters for 2, 1, and 7.",
-      "2 is B, 1 is A. What letter is the 7th in the alphabet?"
-    ],
-    "explanation": "2 is B, 1 is A, and 7 is G. Spells BAG."
-  },
-  {
-    "id": "d12_q1",
-    "day": 12,
-    "number": 1,
-    "title": "The Lost Car Keys",
-    "category": "Missing Information",
-    "theme": "Family",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Liam went to look for his mom's car keys in the drawer, but they weren't there. He searched the kitchen, living room, and hallway. Later, his mom said, 'The keys are exactly where I left them!' What is missing to find the keys?",
-    "type": "multiple-choice",
-    "options": [
-      "Where mom actually left them",
-      "How many keys are on the ring",
-      "The color of the car keys keychain",
-      "What time mom came home"
-    ],
-    "correctAnswer": "Where mom actually left them",
-    "hints": [
-      "Mom says she left them somewhere.",
-      "Do we know where that place is?"
-    ],
-    "explanation": "We are missing the information of where the mom actually put down/left the keys."
-  },
-  {
-    "id": "d12_q2",
-    "day": 12,
-    "number": 2,
-    "title": "The Fast Walker",
-    "category": "Ambiguous Wording",
-    "theme": "Sports",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "A man claims that he can walk faster than any race car can drive. Everyone laughs at him, but then he proves it's true. How?",
-    "type": "multiple-choice",
-    "options": [
-      "The race car is parked and turned off",
-      "He walks on a treadmill on a high speed",
-      "He is walking inside a moving train",
-      "The race car is going backwards"
-    ],
-    "correctAnswer": "The race car is parked and turned off",
-    "hints": [
-      "Does walking faster than a car drive mean the car is driving fast?",
-      "What if the car isn't driving at all?"
-    ],
-    "explanation": "Walking faster than a car can drive is easy if the car is parked or turned off—its driving speed is zero!"
-  },
-  {
-    "id": "d12_q3",
-    "day": 12,
-    "number": 3,
-    "title": "The Upside Down Book",
-    "category": "Perspective Shift",
-    "theme": "School",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "Leo is reading a book. He says that if he rotates the book 180 degrees (upside down), the words look exactly the same and still make sense. How is this possible?",
-    "type": "multiple-choice",
-    "options": [
-      "The book is a book of numbers like '808' and '906'",
-      "Leo is reading a picture-only book",
-      "The language of the book is sideways",
-      "Leo is hanging upside down from a tree"
-    ],
-    "correctAnswer": "The book is a book of numbers like '808' and '906'",
-    "hints": [
-      "Think about characters that look the same upside down.",
-      "Numbers like 0, 8, and some upside-down numbers like 9 and 6 are key."
-    ],
-    "explanation": "Rotating certain symmetrical words or numeric books (like '808' or '906') upside down makes them look identical."
-  },
-  {
-    "id": "d12_q4",
-    "day": 12,
-    "number": 4,
-    "title": "The Heavier Drop",
-    "category": "Counter-Intuitive Outcome",
-    "theme": "Science",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "If you drop a 10-pound metal bowling ball and a 1-pound metal ball from the exact same height at the exact same time, which one will hit the ground first? (Assume no wind resistance)",
-    "type": "multiple-choice",
-    "options": [
-      "Both will hit at the exact same time",
-      "The 10-pound ball will hit first",
-      "The 1-pound ball will hit first",
-      "It depends on how wide they are"
-    ],
-    "correctAnswer": "Both will hit at the exact same time",
-    "hints": [
-      "Gravity pulls on objects equally regardless of their weight.",
-      "Think about Galileo's famous experiment at the Leaning Tower of Pisa."
-    ],
-    "explanation": "Gravity accelerates all objects at the same rate, so they fall and hit the ground together, even if one is much heavier!"
-  },
-  {
-    "id": "d12_q5",
-    "day": 12,
-    "number": 5,
-    "title": "The Chocolate Thief",
-    "category": "Detective Elimination",
-    "theme": "Family",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "Mom's chocolate bar is missing. Suspense rests on three siblings: Maya says 'Ben took it', Ben says 'Maya is lying', and Leo says 'I didn't take it'. If only ONE of them is telling the truth, who stole the chocolate?",
-    "type": "multiple-choice",
-    "options": [
-      "Leo",
-      "Maya",
-      "Ben",
-      "Nobody"
-    ],
-    "correctAnswer": "Leo",
-    "hints": [
-      "Look at Maya and Ben: one of them must be lying and one must be telling the truth.",
-      "Since only one sibling is telling the truth, the truth-teller is either Maya or Ben. That means Leo is lying!"
-    ],
-    "explanation": "Maya and Ben make contradictory statements, so one of them must be telling the truth. Since only ONE person tells the truth, Leo's statement ('I didn't take it') must be a lie. Therefore, Leo stole the chocolate."
-  },
-  {
-    "id": "d13_q1",
-    "day": 13,
-    "number": 1,
-    "title": "The Shared Toy",
-    "category": "Psychological",
-    "theme": "Toys",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Two friends, Leo and Sam, want to play with the exact same toy truck. Instead of fighting, they decide to play together, and both have twice as much fun. Why did their fun increase?",
-    "type": "multiple-choice",
-    "options": [
-      "Sharing and playing together is more fun than playing alone",
-      "The toy truck magically duplicated",
-      "They got coins for sharing",
-      "The truck was very fast"
-    ],
-    "correctAnswer": "Sharing and playing together is more fun than playing alone",
-    "hints": [
-      "Think about playing with a friend vs. playing by yourself.",
-      "Fun isn't just about the physical toy, it's about the company."
-    ],
-    "explanation": "Playing together allows children to invent games and share stories, which makes the activity much more engaging than playing alone."
-  },
-  {
-    "id": "d13_q2",
-    "day": 13,
-    "number": 2,
-    "title": "The Closed Museum",
-    "category": "Missing Information",
-    "theme": "School",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "The school bus arrived at the science museum, but the doors were locked and the lights were off. The teacher checked her calendar and said, 'Oh, we cannot go inside today!' What information did she forget to check before planning the trip?",
-    "type": "multiple-choice",
-    "options": [
-      "The museum's opening days and hours",
-      "How many students were on the bus",
-      "The price of the tickets",
-      "The bus driver's name"
-    ],
-    "correctAnswer": "The museum's opening days and hours",
-    "hints": [
-      "Why would a museum be locked on a day people visit?",
-      "Think about holidays or weekly closing days."
-    ],
-    "explanation": "We did not know if the museum was open today. Checking the museum's schedule is crucial before planning a trip."
-  },
-  {
-    "id": "d13_q3",
-    "day": 13,
-    "number": 3,
-    "title": "The Room with No Doors",
-    "category": "Ambiguous Wording",
-    "theme": "House",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "A girl is locked inside a room that has no doors, no windows, and no openings in the walls, floor, or ceiling. Yet she walks out of the room easily. How?",
-    "type": "multiple-choice",
-    "options": [
-      "It is a mushroom (which is called a room)",
-      "She has a magical key",
-      "She crawled through a tiny mouse hole",
-      "The ceiling was open"
-    ],
-    "correctAnswer": "It is a mushroom (which is called a room)",
-    "hints": [
-      "Is this room a real building?",
-      "Think about a word that ends with 'room' but grows in the forest."
-    ],
-    "explanation": "A mush-room is a fungus, not a physical room, so walking 'out of it' is just a play on words."
-  },
-  {
-    "id": "d13_q4",
-    "day": 13,
-    "number": 4,
-    "title": "The Reflection in the Mirror",
-    "category": "Perspective Shift",
-    "theme": "House",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "If you stand in front of a mirror and raise your right hand, which hand does your reflection raise?",
-    "type": "multiple-choice",
-    "options": [
-      "Its left hand",
-      "Its right hand",
-      "Both hands",
-      "No hands"
-    ],
-    "correctAnswer": "Its left hand",
-    "hints": [
-      "Look closely at a mirror image. It reverses things horizontally.",
-      "Imagine walking into the mirror and turning around to face yourself."
-    ],
-    "explanation": "A mirror reflection is horizontally reversed. Raising your right hand makes your reflection raise its left hand from its perspective."
-  },
-  {
-    "id": "d13_q5",
-    "day": 13,
-    "number": 5,
-    "title": "The Paper Cup Fire",
-    "category": "Counter-Intuitive Outcome",
-    "theme": "Science",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "If you fill a paper cup with cold water and place it directly over a candle flame, what happens to the paper cup?",
-    "type": "multiple-choice",
-    "options": [
-      "It does not burn or catch fire because the water absorbs the heat",
-      "It immediately burns and water spills everywhere",
-      "The paper cup melts like plastic",
-      "The water turns into ice"
-    ],
-    "correctAnswer": "It does not burn or catch fire because the water absorbs the heat",
-    "hints": [
-      "Water is excellent at absorbing and carrying away heat.",
-      "Paper needs to reach a very high temperature to catch fire, but water keeps it cool."
-    ],
-    "explanation": "The water absorbs the heat from the flame rapidly, keeping the paper below its ignition temperature, so the cup won't burn."
-  },
-  {
-    "id": "d14_q1",
-    "day": 14,
-    "number": 1,
-    "title": "The Broken Toy Window",
-    "category": "Detective Elimination",
-    "theme": "Family",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "A toy window was broken. Maya says, 'Lara did it.' Lara says, 'Leo did it.' Leo says, 'Lara is lying.' If only ONE sibling is telling the truth, who broke the window?",
-    "type": "multiple-choice",
-    "options": [
-      "Lara",
-      "Maya",
-      "Leo",
-      "Nobody"
-    ],
-    "correctAnswer": "Lara",
-    "hints": [
-      "Look at Lara's statement ('Leo did it') and Leo's statement ('Lara is lying'). They contradict each other.",
-      "One of those two must be telling the truth. Since only ONE person is telling the truth, Maya's statement ('Lara did it') must be a lie."
-    ],
-    "explanation": "Since only one statement is true, and the clash between Lara and Leo guarantees one of them is the truth-teller, Maya's statement must be false. Therefore, Lara broke the window."
-  },
-  {
-    "id": "d14_q2",
-    "day": 14,
-    "number": 2,
-    "title": "The Gold Medal",
-    "category": "Psychological",
-    "theme": "Sports",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "At a race, the runner who came in second place looks extremely sad, but the runner who came in third place is smiling and happy. Why is the third-place runner happier than the second-place runner?",
-    "type": "multiple-choice",
-    "options": [
-      "The second-place runner is focusing on missing gold; the third-place runner is happy to win any medal",
-      "The third-place runner got more coins",
-      "The second-place runner was disqualified",
-      "Third place gets a bigger trophy"
-    ],
-    "correctAnswer": "The second-place runner is focusing on missing gold; the third-place runner is happy to win any medal",
-    "hints": [
-      "Think about what each runner is comparing their result to.",
-      "Who was closer to winning the whole race?"
-    ],
-    "explanation": "Second-place runners often compare themselves to the winner (feeling they lost the gold), while third-place runners compare themselves to those who got no medal at all (feeling lucky to make the podium)."
-  },
-  {
-    "id": "d14_q3",
-    "day": 14,
-    "number": 3,
-    "title": "The Forgotten Birthday",
-    "category": "Missing Information",
-    "theme": "Family",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "A father told his son, 'Tomorrow is a very special birthday for someone in our family!' He didn't say who. The son searched the calendar but couldn't guess. What information was the son missing?",
-    "type": "multiple-choice",
-    "options": [
-      "The birth dates of his family members",
-      "What present to buy",
-      "What time the party starts",
-      "The father's age"
-    ],
-    "correctAnswer": "The birth dates of his family members",
-    "hints": [
-      "To know whose birthday it is, you need to match the date with a person.",
-      "What list of dates would solve this?"
-    ],
-    "explanation": "Knowing the calendar date is useless unless you have the list of family birth dates to match it against."
-  },
-  {
-    "id": "d14_q4",
-    "day": 14,
-    "number": 4,
-    "title": "The Wet Dog",
-    "category": "Ambiguous Wording",
-    "theme": "Animals",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "A black dog walks across a bridge during a heavy rainstorm, but not a single hair on the dog's body gets wet. How is this possible?",
-    "type": "multiple-choice",
-    "options": [
-      "It is a hairless dog",
-      "It is wearing a tiny dog raincoat",
-      "It is walking under an umbrella",
-      "The dog is running very fast"
-    ],
-    "correctAnswer": "It is a hairless dog",
-    "hints": [
-      "Read the question carefully: 'not a single hair... gets wet'.",
-      "What if the dog doesn't have any hair?"
-    ],
-    "explanation": "A hairless dog (like a Xoloitzcuintli) has no hair, so not a single hair can get wet!"
-  },
-  {
-    "id": "d14_q5",
-    "day": 14,
-    "number": 5,
-    "title": "The Mountain Summit",
-    "category": "Perspective Shift",
-    "theme": "Nature",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Before Mount Everest was discovered, what was the highest mountain on Earth?",
-    "type": "multiple-choice",
-    "options": [
-      "Mount Everest",
-      "Mount Kilimanjaro",
-      "Mount Fuji",
-      "Mont Blanc"
-    ],
-    "correctAnswer": "Mount Everest",
-    "hints": [
-      "Does a mountain need to be discovered by humans to exist?",
-      "Think about the actual height of the mountains, regardless of our knowledge."
-    ],
-    "explanation": "Mount Everest was always the highest mountain on Earth, even before humans discovered and named it!"
-  },
-  {
-    "id": "d15_q1",
-    "day": 15,
-    "number": 1,
-    "title": "The Floating Needle",
-    "category": "Counter-Intuitive Outcome",
-    "theme": "Science",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "A heavy steel needle normally sinks in water. But if you place it very gently on a small piece of tissue paper on the water's surface, and the paper sinks, the needle stays floating. Why?",
-    "type": "multiple-choice",
-    "options": [
-      "Surface tension of the water holds it up",
-      "The needle becomes magnetic",
-      "The water became denser",
-      "The needle is hollow"
-    ],
-    "correctAnswer": "Surface tension of the water holds it up",
-    "hints": [
-      "Think about the 'skin' on the surface of water.",
-      "What force allows water strider insects to walk on ponds?"
-    ],
-    "explanation": "Water molecules cling tightly together at the surface, creating surface tension that can support lightweight metal objects if placed very gently."
-  },
-  {
-    "id": "d15_q2",
-    "day": 15,
-    "number": 2,
-    "title": "The Missing Cookie",
-    "category": "Detective Elimination",
-    "theme": "Food",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "Someone ate the last cookie. The suspects are Amy, Ben, and Dan. Amy says: 'Ben ate it.' Ben says: 'Dan ate it.' Dan says: 'Ben is lying.' If only ONE person is telling the truth, who ate the cookie?",
-    "type": "multiple-choice",
-    "options": [
-      "Amy",
-      "Ben",
-      "Dan",
-      "Nobody"
-    ],
-    "correctAnswer": "Amy",
-    "hints": [
-      "Amy and Dan's statements are either both true or both false. If Ben ate it, both are true.",
-      "Since only one statement is true, Ben could not have eaten it. Work it out from there."
-    ],
-    "explanation": "If Ben ate it, Amy and Dan would both be telling the truth. Since only one tells the truth, Ben didn't eat it. If Dan ate it, Ben is telling the truth and Dan is lying, which works. Therefore, Amy ate it because if Amy ate it, Amy is lying, Ben is lying, and Dan is telling the truth (which is exactly one truth-teller!)."
-  },
-  {
-    "id": "d15_q3",
-    "day": 15,
-    "number": 3,
-    "title": "The Shadow in the Sun",
-    "category": "Perspective Shift",
-    "theme": "Nature",
-    "difficulty": "Easy",
-    "coinsReward": 10,
-    "question": "At noon on a sunny day, you walk outside but you notice that your shadow is completely gone. How is this possible?",
-    "type": "multiple-choice",
-    "options": [
-      "You are standing directly at the equator where the sun is straight overhead",
-      "The sun turned off for a second",
-      "You became invisible",
-      "You are wearing black clothes"
-    ],
-    "correctAnswer": "You are standing directly at the equator where the sun is straight overhead",
-    "hints": [
-      "Think about the angle of the sun in the sky.",
-      "Where does your shadow go when the light source is directly above you?"
-    ],
-    "explanation": "At the equator during the equinox, the sun passes directly overhead at noon, casting your shadow directly under your feet where you cannot see it."
-  },
-  {
-    "id": "d15_q4",
-    "day": 15,
-    "number": 4,
-    "title": "The Hidden Map",
-    "category": "Pirates",
-    "theme": "Pirates",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "A pirate finds a chest containing a map that shows exactly where the treasure is buried. But he cannot find the treasure. What is missing from the map?",
-    "type": "multiple-choice",
-    "options": [
-      "A starting point or reference landmark",
-      "A list of pirate names",
-      "The color of the chest",
-      "The name of the pirate ship"
-    ],
-    "correctAnswer": "A starting point or reference landmark",
-    "hints": [
-      "A map shows directions, but you need to know where to begin.",
-      "What does 'Walk 10 paces east' require you to know first?"
-    ],
-    "explanation": "Without a starting point or landmark (like 'The Red Rock'), the directions on a map cannot be followed."
-  },
-  {
-    "id": "d15_q5",
-    "day": 15,
-    "number": 5,
-    "title": "The Two Fathers and Two Sons",
-    "category": "Ambiguous Wording",
-    "theme": "Family",
-    "difficulty": "Medium",
-    "coinsReward": 20,
-    "question": "Two fathers and two sons go fishing together. They catch exactly three fish, and each person takes home one whole fish. No fish are cut or left behind. How is this possible?",
-    "type": "multiple-choice",
-    "options": [
-      "They are a grandfather, a father, and a son (only three people total)",
-      "One fish had babies",
-      "They caught a giant fish that counted as two",
-      "One person didn't want any fish"
-    ],
-    "correctAnswer": "They are a grandfather, a father, and a son (only three people total)",
-    "hints": [
-      "Count the people: is it possible that two fathers and two sons are only three people?",
-      "Think about family generations."
-    ],
-    "explanation": "The grandfather is a father, the father is both a son and a father, and the son is a son. This makes two fathers and two sons, but only three people total!"
-  },
-  {
-    "id": "d16_q1",
-    "day": 16,
-    "number": 1,
-    "title": "Rohan's Birthday Math",
-    "category": "Logical Thinking",
-    "theme": "Calendar",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "Rohan is looking forward to celebrating his 10th birthday on a Thursday in April of 2022. The first of April 2022 is a Friday. Rohan was born on an odd-numbered day of the month. What is a possible date that Rohan was born?",
-    "type": "multiple-choice",
-    "options": [
-      "April 7 in the year 2012",
-      "April 14 in the year 2012",
-      "April 21 in the year 2022",
-      "April 28 in the year 2011"
-    ],
-    "correctAnswer": "April 7 in the year 2012",
-    "hints": [
-      "If April 1 is a Friday, what dates will be Thursdays? Count forward to find out.",
-      "His birthday must be an odd number. Also, if he is turning 10 in 2022, what year was he born?"
-    ],
-    "explanation": "If April 1 is Friday, Thursdays fall on the 7th, 14th, 21st, and 28th. The odd-numbered Thursdays are the 7th and 21st. Since he is turning 10 in 2022, he must have been born in 2012 (2022 - 10 = 2012). So April 7, 2012 is a correct possible date."
-  },
-  {
-    "id": "d16_q2",
-    "day": 16,
-    "number": 2,
-    "title": "Priya's Pizza Party",
-    "category": "Logical Thinking",
-    "theme": "Calendar",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "Priya wants to throw a pizza party for her 9th birthday on a Tuesday in October 2023. The 1st of October 2023 is a Sunday. Priya's birthday is an odd-numbered day of the month. Which date could be her birthday?",
-    "type": "multiple-choice",
-    "options": [
-      "October 17 in the year 2014",
-      "October 10 in the year 2014",
-      "October 3 in the year 2015",
-      "October 31 in the year 2013"
-    ],
-    "correctAnswer": "October 17 in the year 2014",
-    "hints": [
-      "If October 1 is Sunday, what date is the first Tuesday?",
-      "If she turns 9 in 2023, subtract 9 to find her birth year."
-    ],
-    "explanation": "If Oct 1 is Sunday, then Oct 2 is Monday and Oct 3 is Tuesday. Tuesdays fall on the 3rd, 10th, 17th, 24th, 31st. The odd-numbered Tuesdays are 3, 17, and 31. She turns 9 in 2023, so her birth year is 2014 (2023 - 9 = 2014). Therefore, October 17, 2014 is a valid answer."
-  },
-  {
-    "id": "d16_q3",
-    "day": 16,
-    "number": 3,
-    "title": "Arjun's Leap Year Party",
-    "category": "Logical Thinking",
-    "theme": "Calendar",
-    "difficulty": "Hard",
-    "coinsReward": 30,
-    "question": "Arjun's 8th birthday is on a Monday in June 2024. The 1st of June 2024 is a Saturday. Arjun's birthday is a multiple of 10. When was Arjun born?",
-    "type": "multiple-choice",
-    "options": [
-      "June 10 in the year 2016",
-      "June 20 in the year 2016",
-      "June 10 in the year 2024",
-      "June 30 in the year 2015"
-    ],
-    "correctAnswer": "June 10 in the year 2016",
-    "hints": [
-      "If June 1 is Saturday, find the first Monday.",
-      "What multiples of 10 exist in a month?"
-    ],
-    "explanation": "If June 1 is Saturday, June 2 is Sunday, and June 3 is Monday. Mondays are 3, 10, 17, 24. The only multiple of 10 here is 10. Turning 8 in 2024 means he was born in 2016. So June 10, 2016 is his birthday."
-  }
+﻿[
+    {
+        "id":  "d1_q1",
+        "day":  1,
+        "number":  1,
+        "title":  "The Unicorn\u0027s Rainbow Path",
+        "category":  "Logical Thinking",
+        "theme":  "Unicorns",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Rainbow Sparkle the Unicorn can only step on clouds that form a repeating pattern: Red, Blue, Yellow, Red, Blue, Yellow. She is standing on a Red cloud. What are the colors of the next three clouds she must step on to cross the sky?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Blue, Yellow, Red",
+                        "Red, Blue, Yellow",
+                        "Yellow, Red, Blue",
+                        "Blue, Red, Yellow"
+                    ],
+        "correctAnswer":  "Blue, Yellow, Red",
+        "hints":  [
+                      "Look at the repeating pattern: Red, then Blue, then Yellow, and then it starts over with Red.",
+                      "She is on Red now. What comes immediately after Red in the pattern?"
+                  ],
+        "explanation":  "The pattern is Red -\u003e Blue -\u003e Yellow. Since she is currently standing on a Red cloud, the next three clouds in order must be Blue, Yellow, and then Red again."
+    },
+    {
+        "id":  "d1_q2",
+        "day":  1,
+        "number":  2,
+        "title":  "Bella the Cat\u0027s Yarn Basket",
+        "category":  "Lateral Thinking",
+        "theme":  "Cats",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Bella the Cat has a basket with 5 balls of colorful yarn. Five of her kitten friends each take 1 ball of yarn, but 1 ball of yarn is still left inside the basket! How is this possible?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "One kitten took the basket with the last ball of yarn inside",
+                        "One kitten didn\u0027t want any yarn",
+                        "The basket has a secret double bottom holding a extra ball",
+                        "Bella hid a sixth ball of yarn behind her back"
+                    ],
+        "correctAnswer":  "One kitten took the basket with the last ball of yarn inside",
+        "hints":  [
+                      "Think about how the kittens took their yarn. Does a ball of yarn have to be empty-handed?",
+                      "If you take a basket that has a ball inside it, you have the ball, but where is the ball?"
+                  ],
+        "explanation":  "The last kitten took the basket itself with the final ball of yarn still sitting inside it! So all 5 kittens got a ball of yarn, and one ball remains in the basket."
+    },
+    {
+        "id":  "d1_q3",
+        "day":  1,
+        "number":  3,
+        "title":  "Rocky\u0027s T-Rex Cave Sign",
+        "category":  "Creative Crafting",
+        "theme":  "T-Rex",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Rocky the T-Rex wants to make a welcome sign for his cave. Draw a giant dinosaur footprint with three big toes on the screen!",
+        "type":  "drawing",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "A drawing of a 3-toed dinosaur footprint.",
+        "referenceSvg":  "\u003csvg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" fill=\"var(--primary-color)\"\u003e\u003cpath d=\"M50,85 C55,80 62,70 65,60 C68,50 78,35 85,25 C87,22 83,22 80,24 C72,29 64,35 60,40 C58,35 54,20 50,10 C46,20 42,35 40,40 C36,35 28,29 20,24 C17,22 13,22 15,25 C22,35 32,50 35,60 C38,70 45,80 50,85 Z\" /\u003e\u003c/svg\u003e",
+        "hints":  [
+                      "T-Rexes have three main toes pointing forward on their feet.",
+                      "Select a bright color like green or orange and draw a shape with three thick toe lines!"
+                  ],
+        "explanation":  "Rocky is super excited to see your three-toed dinosaur print! It makes his cave look very friendly."
+    },
+    {
+        "id":  "d1_q4",
+        "day":  1,
+        "number":  4,
+        "title":  "Crafty Scissors",
+        "category":  "Logical Thinking",
+        "theme":  "Arts \u0026 Crafts",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Lily is cutting a long strip of paper. If she cuts the paper straight across exactly 4 times, how many separate pieces of paper will she have in the end?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "4 pieces",
+                        "5 pieces",
+                        "3 pieces",
+                        "6 pieces"
+                    ],
+        "correctAnswer":  "5 pieces",
+        "hints":  [
+                      "Try drawing a line and putting cuts on it, or fold a piece of paper in your head.",
+                      "1 cut makes 2 pieces. 2 cuts make 3 pieces. Do you see a pattern?"
+                  ],
+        "explanation":  "Each straight cut through a strip of paper creates one more piece than the number of cuts. So 4 cuts will yield 5 pieces."
+    },
+    {
+        "id":  "d1_q5",
+        "day":  1,
+        "number":  5,
+        "title":  "Three Little Birds",
+        "category":  "Logical Thinking",
+        "theme":  "Birds",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Three colorful birdsâ€”Ruby (red), Sky (blue), and Sunny (yellow)â€”live in three different trees: Oak, Pine, and Maple. The red bird does not live in the Oak tree. The blue bird lives in the Pine tree. Which bird lives in the Maple tree?",
+        "type":  "text-input",
+        "correctAnswer":  "Ruby",
+        "hints":  [
+                      "We know the blue bird (Sky) lives in the Pine tree. That leaves Oak and Maple trees for Ruby and Sunny.",
+                      "If the red bird (Ruby) does not live in the Oak, she must live in the only other option left!"
+                  ],
+        "explanation":  "Sky lives in the Pine tree. This leaves the Oak and Maple trees. Since Ruby (the red bird) does not live in the Oak tree, she must live in the Maple tree. (This leaves Sunny to live in the Oak tree!)."
+    },
+    {
+        "id":  "d2_q1",
+        "day":  2,
+        "number":  1,
+        "title":  "Rex the Raptor\u0027s Butterfly Chase",
+        "category":  "Logical Thinking",
+        "theme":  "Raptors",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Rex the Raptor is chasing a butterfly. Rex always turns left at every crossing. He starts by walking North. At the first crossing, he turns left. At the second crossing, he turns left again. Which direction is Rex facing now?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "North",
+                        "South",
+                        "East",
+                        "West"
+                    ],
+        "correctAnswer":  "South",
+        "hints":  [
+                      "If you walk North and turn left, you face West.",
+                      "If you walk West and turn left again, which direction do you face?"
+                  ],
+        "explanation":  "Starting North, a left turn puts Rex facing West. The second left turn from West puts him facing South."
+    },
+    {
+        "id":  "d2_q2",
+        "day":  2,
+        "number":  2,
+        "title":  "Butterfly Symmetry",
+        "category":  "Creative Crafting",
+        "theme":  "Butterflies",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Draw a beautiful butterfly! Try to make the left wing and the right wing look symmetrical (matching each other). Use lots of colors!",
+        "type":  "drawing",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "A symmetrical drawing of a butterfly.",
+        "referenceSvg":  "\u003csvg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" fill=\"var(--primary-color)\"\u003e\u003cpath d=\"M50,30 C45,15 20,10 15,30 C12,42 22,55 45,55 C48,55 49,52 50,50 C51,52 52,55 55,55 C78,55 88,42 85,30 C80,10 55,15 50,30 Z M50,50 C45,62 25,65 20,75 C15,82 25,90 45,78 C48,76 49,72 50,70 C51,72 52,76 55,78 C75,90 85,82 80,75 C75,65 55,62 50,50 Z\" /\u003e\u003crect x=\"48\" y=\"20\" width=\"4\" height=\"60\" rx=\"2\" fill=\"var(--accent-text)\" /\u003e\u003cpath d=\"M48,22 Q40,12 36,15\" stroke=\"var(--accent-text)\" stroke-width=\"2\" fill=\"none\" /\u003e\u003cpath d=\"M52,22 Q60,12 64,15\" stroke=\"var(--accent-text)\" stroke-width=\"2\" fill=\"none\" /\u003e\u003c/svg\u003e",
+        "hints":  [
+                      "Draw the body in the middle first, then draw a wing on the left and a matching wing on the right.",
+                      "Add colorful dots or patterns on both sides!"
+                  ],
+        "explanation":  "Symmetry means both sides look like mirror images. Your butterfly looks balanced and beautiful!"
+    },
+    {
+        "id":  "d2_q3",
+        "day":  2,
+        "number":  3,
+        "title":  "Whiskers\u0027 Secret Number Code",
+        "category":  "Logical Thinking",
+        "theme":  "Cats",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "Whiskers the Cat wrote a code using letters and numbers: CAT is written as 3-1-20. DOG is written as 4-15-7. Using Whiskers\u0027 secret rule, how would you write BIRD?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "2-9-18-4",
+                        "1-8-17-3",
+                        "2-10-18-5",
+                        "2-9-19-4"
+                    ],
+        "correctAnswer":  "2-9-18-4",
+        "hints":  [
+                      "Look at the alphabet. A is 1, B is 2, C is 3... Z is 26.",
+                      "Check CAT: C=3, A=1, T=20. Yes, it matches! What are the letters for B, I, R, and D?"
+                  ],
+        "explanation":  "The secret code matches each letter to its position in the alphabet. B is 2, I is 9, R is 18, and D is 4. So BIRD is 2-9-18-4."
+    },
+    {
+        "id":  "d2_q4",
+        "day":  2,
+        "number":  4,
+        "title":  "Max the Dog\u0027s Long Rope",
+        "category":  "Lateral Thinking",
+        "theme":  "Dogs",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Max the Dog is tied to a rope that is 3 meters long. A juicy bone is sitting 5 meters away from Max. Max easily walks over to the bone and starts chewing on it without breaking or stretching the rope. How is this possible?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "The other end of the rope isn\u0027t tied to anything",
+                        "Max stretched the rope with his teeth",
+                        "The bone was tied to a string that Max pulled",
+                        "A friendly bird pushed the bone closer"
+                    ],
+        "correctAnswer":  "The other end of the rope isn\u0027t tied to anything",
+        "hints":  [
+                      "The question says Max is tied to a rope, but what is the rope tied to?",
+                      "If you tie a string to your shoe, but don\u0027t tie it to a chair, can you walk around?"
+                  ],
+        "explanation":  "The rope is tied to Max, but the other end of the rope isn\u0027t tied to a tree or the ground! Max can walk as far as he wants."
+    },
+    {
+        "id":  "d2_q5",
+        "day":  2,
+        "number":  5,
+        "title":  "Origami Paper Folds",
+        "category":  "Logical Thinking",
+        "theme":  "Arts \u0026 Crafts",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "If you take a square sheet of craft paper, fold it in half exactly once, and then fold it in half again in the same direction, what shape do you have?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "A long, thin rectangle",
+                        "A circle",
+                        "A triangle",
+                        "A star"
+                    ],
+        "correctAnswer":  "A long, thin rectangle",
+        "hints":  [
+                      "Fold a square in half once: it becomes a rectangle.",
+                      "If you fold that rectangle in half again along the same direction, it gets even narrower."
+                  ],
+        "explanation":  "Folding it in half once divides the width by 2, making a rectangle. Folding it again in the same direction divides the width by 4, creating a longer, narrower rectangle."
+    },
+    {
+        "id":  "d3_q1",
+        "day":  3,
+        "number":  1,
+        "title":  "Dinosaur Leg Counting",
+        "category":  "Logical Thinking",
+        "theme":  "T-Rex",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "In the dino forest, a Triceratops has 4 legs, and a Raptor has 2 legs. You count exactly 12 dinosaur legs in total. If you know there are exactly 2 Triceratops, how many Raptors are there?",
+        "type":  "text-input",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "2",
+        "hints":  [
+                      "First, find out how many legs the 2 Triceratops have. (Each has 4 legs).",
+                      "Subtract those legs from 12. The remaining legs belong to the Raptors. How many legs does each Raptor have?"
+                  ],
+        "explanation":  "2 Triceratops have 2 x 4 = 8 legs. Out of 12 legs, 12 - 8 = 4 legs remain. Since each Raptor has 2 legs, there must be 4 / 2 = 2 Raptors."
+    },
+    {
+        "id":  "d3_q2",
+        "day":  3,
+        "number":  2,
+        "title":  "Mia\u0027s Butterfly Painting",
+        "category":  "Logical Thinking",
+        "theme":  "Butterflies",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Mia is painting three butterfly models of different sizes: Big, Middle, and Small. She has three pots of paint: Pink, Purple, and Yellow. She paints each butterfly a different color. If the Big butterfly is not Yellow, and the Small butterfly is Pink, what color is the Middle butterfly?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Yellow",
+                        "Purple",
+                        "Pink",
+                        "Red"
+                    ],
+        "correctAnswer":  "Yellow",
+        "hints":  [
+                      "We know the Small butterfly is Pink. That leaves Purple and Yellow for the Big and Middle butterflies.",
+                      "If the Big butterfly cannot be Yellow, what color must it be? That leaves only one color for the Middle butterfly!"
+                  ],
+        "explanation":  "Since the Small butterfly is Pink, we have Purple and Yellow left. The Big butterfly is not Yellow, so it must be Purple. That leaves Yellow for the Middle butterfly."
+    },
+    {
+        "id":  "d3_q3",
+        "day":  3,
+        "number":  3,
+        "title":  "Cute Kitten Portrait",
+        "category":  "Creative Crafting",
+        "theme":  "Cats",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Draw a cute cartoon kitten face! Make sure to include two triangle ears, round shiny eyes, a cute nose, and whiskers!",
+        "type":  "drawing",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "A drawing of a kitten face.",
+        "referenceSvg":  "\u003csvg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"\u003e\u003ccircle cx=\"50\" cy=\"55\" r=\"30\" /\u003e\u003cpolygon points=\"25,35 20,10 40,28\" fill=\"var(--secondary-color)\" /\u003e\u003cpolygon points=\"75,35 80,10 60,28\" fill=\"var(--secondary-color)\" /\u003e\u003ccircle cx=\"40\" cy=\"50\" r=\"3\" fill=\"var(--primary-color)\" /\u003e\u003ccircle cx=\"60\" cy=\"50\" r=\"3\" fill=\"var(--primary-color)\" /\u003e\u003cpolygon points=\"48,58 52,58 50,60\" fill=\"var(--primary-color)\" /\u003e\u003cpath d=\"M50,60 Q47,64 44,62 M50,60 Q53,64 56,62\" /\u003e\u003cline x1=\"20\" y1=\"55\" x2=\"5\" y2=\"53\" /\u003e\u003cline x1=\"20\" y1=\"58\" x2=\"3\" y2=\"58\" /\u003e\u003cline x1=\"20\" y1=\"61\" x2=\"5\" y2=\"63\" /\u003e\u003cline x1=\"80\" y1=\"55\" x2=\"95\" y2=\"53\" /\u003e\u003cline x1=\"80\" y1=\"58\" x2=\"97\" y2=\"58\" /\u003e\u003cline x1=\"80\" y1=\"61\" x2=\"95\" y2=\"63\" /\u003e\u003c/svg\u003e",
+        "hints":  [
+                      "Draw a round circle for the head first.",
+                      "Add two triangles on top for ears, and draw three whiskers on each side of the face!"
+                  ],
+        "explanation":  "That kitten looks super cute! It\u0027s purr-fect!"
+    },
+    {
+        "id":  "d3_q4",
+        "day":  3,
+        "number":  4,
+        "title":  "Feathers vs. Carving Tools",
+        "category":  "Lateral Thinking",
+        "theme":  "Arts \u0026 Crafts",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Which weighs more: a kilogram of colorful craft feathers or a kilogram of heavy steel carving tools?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "They weigh exactly the same",
+                        "The steel carving tools",
+                        "The colorful craft feathers",
+                        "It depends on which box is larger"
+                    ],
+        "correctAnswer":  "They weigh exactly the same",
+        "hints":  [
+                      "A kilogram is a measure of weight. One feather is lighter than one tool, but what about a kilogram of both?",
+                      "If you put 1 kg of feathers on one side of a scale, and 1 kg of steel on the other, does one side push down more?"
+                  ],
+        "explanation":  "Both weigh exactly one kilogram! Feathers are much lighter individually, so you would need a massive bag of feathers to make a kilogram, but the total weight is the same."
+    },
+    {
+        "id":  "d3_q5",
+        "day":  3,
+        "number":  5,
+        "title":  "Unicorn Horn Counting",
+        "category":  "Logical Thinking",
+        "theme":  "Unicorns",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "In Unicorn Land, Silver Unicorns have 1 gold horn. Golden Unicorns are special and have 2 silver horns! If there are 5 Silver Unicorns and 3 Golden Unicorns playing in a field, how many horns are there in total?",
+        "type":  "text-input",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "11",
+        "hints":  [
+                      "Calculate horns for Silver Unicorns: 5 unicorns times 1 horn.",
+                      "Calculate horns for Golden Unicorns: 3 unicorns times 2 horns. Then add them together."
+                  ],
+        "explanation":  "5 Silver Unicorns have 5 x 1 = 5 horns. 3 Golden Unicorns have 3 x 2 = 6 horns. Total horns = 5 + 6 = 11 horns."
+    },
+    {
+        "id":  "d4_q1",
+        "day":  4,
+        "number":  1,
+        "title":  "Sarah\u0027s Beaded Dog Collar",
+        "category":  "Logical Thinking",
+        "theme":  "Dogs",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Sarah is making a dog collar out of beads. She strings them in a repeating pattern: Blue, Red, Green, Blue, Red, Green. If she has placed 14 beads on the string so far, what color will the 15th bead be?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Green",
+                        "Blue",
+                        "Red",
+                        "Yellow"
+                    ],
+        "correctAnswer":  "Green",
+        "hints":  [
+                      "The pattern repeats every 3 beads: 1st is Blue, 2nd is Red, 3rd is Green.",
+                      "Every bead that is a multiple of 3 (3, 6, 9, 12...) will be Green. Is 15 a multiple of 3?"
+                  ],
+        "explanation":  "The pattern repeats every 3 beads: Blue (1), Red (2), Green (3). Since 15 is divisible by 3, the 15th bead will be Green (the last color of the pattern triplet)."
+    },
+    {
+        "id":  "d4_q2",
+        "day":  4,
+        "number":  2,
+        "title":  "Youngest Pup in the Pack",
+        "category":  "Logical Thinking",
+        "theme":  "Dogs",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Bingo the Pug is older than Cooper the Beagle. Cooper the Beagle is older than Daisy the Poodle. Who is the youngest dog in the group?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Daisy the Poodle",
+                        "Cooper the Beagle",
+                        "Bingo the Pug",
+                        "They are all the same age"
+                    ],
+        "correctAnswer":  "Daisy the Poodle",
+        "hints":  [
+                      "Bingo is older than Cooper. Cooper is older than Daisy.",
+                      "Think of it like a staircase of ages. Bingo is at the top. Who is at the bottom?"
+                  ],
+        "explanation":  "If Bingo \u003e Cooper and Cooper \u003e Daisy, then Daisy is younger than both Cooper and Bingo, making Daisy the youngest."
+    },
+    {
+        "id":  "d4_q3",
+        "day":  4,
+        "number":  3,
+        "title":  "The Munching Caterpillar",
+        "category":  "Creative Crafting",
+        "theme":  "Butterflies",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Draw a green caterpillar crawling on a big leaf, taking a bite out of it!",
+        "type":  "drawing",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "A drawing of a caterpillar on a leaf.",
+        "referenceSvg":  "\u003csvg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" fill=\"none\"\u003e\u003cpath d=\"M10,80 Q40,30 90,20 Q80,70 10,80 Z\" fill=\"#4caf50\" opacity=\"0.8\" /\u003e\u003ccircle cx=\"90\" cy=\"20\" r=\"15\" fill=\"#fcfbf7\" /\u003e\u003cpath d=\"M10,80 L90,20\" stroke=\"#388e3c\" stroke-width=\"2\" /\u003e\u003ccircle cx=\"30\" cy=\"55\" r=\"8\" fill=\"#8bc34a\" /\u003e\u003ccircle cx=\"42\" cy=\"50\" r=\"8\" fill=\"#8bc34a\" /\u003e\u003ccircle cx=\"54\" cy=\"52\" r=\"8\" fill=\"#8bc34a\" /\u003e\u003ccircle cx=\"66\" cy=\"48\" r=\"8\" fill=\"#ffeb3b\" /\u003e\u003ccircle cx=\"74\" cy=\"42\" r=\"9\" fill=\"#ff5722\" /\u003e\u003ccircle cx=\"76\" cy=\"38\" r=\"1\" fill=\"black\" /\u003e\u003c/svg\u003e",
+        "hints":  [
+                      "Draw a big green leaf first, and maybe put a little bite mark (a gap) in it.",
+                      "Draw the caterpillar as a chain of little circles joined together!"
+                  ],
+        "explanation":  "Delicious! That caterpillar looks very happy eating its green leaf lunch."
+    },
+    {
+        "id":  "d4_q4",
+        "day":  4,
+        "number":  4,
+        "title":  "Raptor Race",
+        "category":  "Logical Thinking",
+        "theme":  "Raptors",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Three raptors, Blue, Green, and Stripe, ran a race. Green finished ahead of Stripe. Blue finished behind Stripe. Who came in first place?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Green",
+                        "Stripe",
+                        "Blue",
+                        "It was a three-way tie"
+                    ],
+        "correctAnswer":  "Green",
+        "hints":  [
+                      "Green came before Stripe. So Stripe cannot be first.",
+                      "Blue came behind Stripe. That means Stripe beat Blue. Who beats them all?"
+                  ],
+        "explanation":  "Green finished ahead of Stripe (Green \u003e Stripe). Blue finished behind Stripe (Stripe \u003e Blue). Combining these, we get Green \u003e Stripe \u003e Blue. So Green finished first."
+    },
+    {
+        "id":  "d4_q5",
+        "day":  4,
+        "number":  5,
+        "title":  "Milk on the Cabinet",
+        "category":  "Lateral Thinking",
+        "theme":  "Cats",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "A cat is only able to jump 2 meters high. There is a delicious bowl of milk sitting on top of a tall 3-meter cabinet. How does the cat get to the milk bowl without knocking the cabinet over?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "The cat climbs up the cabinet sides",
+                        "The cat waits for the milk to fall down",
+                        "The cat calls a dog to push it down",
+                        "The cat uses a ladder"
+                    ],
+        "correctAnswer":  "The cat climbs up the cabinet sides",
+        "hints":  [
+                      "A cat cannot jump 3 meters, but cats have sharp claws. What else are cats famous for doing in trees?",
+                      "Jumping isn\u0027t the only way to go up."
+                  ],
+        "explanation":  "Cats are excellent climbers! Even though it can\u0027t jump 3 meters in a single leap, it can easily climb up the front or sides of the wooden cabinet to reach the top."
+    },
+    {
+        "id":  "d5_q1",
+        "day":  5,
+        "number":  1,
+        "title":  "Baby T-Rex Teeth",
+        "category":  "Logical Thinking",
+        "theme":  "T-Rex",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "A baby T-Rex starts with 10 sharp teeth. Every day, it grows 2 brand new teeth, but loses 1 old tooth. How many teeth will the baby T-Rex have in total after 5 days?",
+        "type":  "text-input",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "15",
+        "hints":  [
+                      "Find out the net change of teeth per day. If it grows 2 and loses 1, how many teeth does it gain each day?",
+                      "Multiply that daily gain by 5 days, and add it to the starting number of teeth (10)."
+                  ],
+        "explanation":  "Each day, the baby T-Rex gains 2 - 1 = 1 tooth. Over 5 days, it gains 5 x 1 = 5 teeth. Starting with 10 teeth, it ends up with 10 + 5 = 15 teeth."
+    },
+    {
+        "id":  "d5_q2",
+        "day":  5,
+        "number":  2,
+        "title":  "Parrots on a Branch",
+        "category":  "Lateral Thinking",
+        "theme":  "Birds",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Five colorful parrots are sitting together on a branch. A loud thunderclap scares them, and 2 parrots fly away. How many parrots are left sitting on the branch?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "0 parrots",
+                        "3 parrots",
+                        "5 parrots",
+                        "2 parrots"
+                    ],
+        "correctAnswer":  "0 parrots",
+        "hints":  [
+                      "If you were sitting on a branch with friends and a super loud scary sound happened, what would you do?",
+                      "If 2 of the birds fly away because they are scared, what do the other 3 do?"
+                  ],
+        "explanation":  "If a loud scary sound occurs, all the parrots will be frightened and fly away, leaving 0 parrots on the branch!"
+    },
+    {
+        "id":  "d5_q3",
+        "day":  5,
+        "number":  3,
+        "title":  "Unicorn Sky",
+        "category":  "Creative Crafting",
+        "theme":  "Unicorns",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Draw a magical sky scene containing a bright rainbow arching over a fluffy white cloud!",
+        "type":  "drawing",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "A drawing of a rainbow and cloud.",
+        "referenceSvg":  "\u003csvg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" fill=\"none\"\u003e\u003cpath d=\"M15,70 A40,40 0 0,1 85,70\" stroke=\"#ff5252\" stroke-width=\"8\" /\u003e\u003cpath d=\"M22,70 A30,30 0 0,1 78,70\" stroke=\"#ffeb3b\" stroke-width=\"8\" /\u003e\u003cpath d=\"M29,70 A20,20 0 0,1 71,70\" stroke=\"#2196f3\" stroke-width=\"8\" /\u003e\u003cpath d=\"M10,75 C5,75 5,65 15,65 C15,55 30,55 35,63 C40,55 55,60 50,75 Z\" fill=\"white\" stroke=\"#e0e0e0\" stroke-width=\"2\" /\u003e\u003cpath d=\"M50,75 C45,75 45,65 55,65 C55,55 70,55 75,63 C80,55 95,60 90,75 Z\" fill=\"white\" stroke=\"#e0e0e0\" stroke-width=\"2\" /\u003e\u003c/svg\u003e",
+        "hints":  [
+                      "Choose red, yellow, and blue colors to draw a curved rainbow arch.",
+                      "Draw a bubbly cloud shape at the bottom of the rainbow!"
+                  ],
+        "explanation":  "Magic is in the air! What a beautiful sky painting."
+    },
+    {
+        "id":  "d5_q4",
+        "day":  5,
+        "number":  4,
+        "title":  "Butterfly Magic Card",
+        "category":  "Logical Thinking",
+        "theme":  "Butterflies",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "In a craft game, there is a card with a picture on it. If you flip it once, the picture changes: a Butterfly changes into a Flower. If you flip a Flower card, it changes back into a Butterfly. If you start with a Butterfly card and flip it exactly 101 times, what picture will be showing?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "A Flower",
+                        "A Butterfly",
+                        "A Caterpillar",
+                        "An Empty Card"
+                    ],
+        "correctAnswer":  "A Flower",
+        "hints":  [
+                      "Start with Butterfly. 1st flip = Flower. 2nd flip = Butterfly. 3rd flip = Flower.",
+                      "Notice that odd flips (1, 3, 5...) show the Flower, and even flips (2, 4, 6...) show the Butterfly. Is 101 odd or even?"
+                  ],
+        "explanation":  "Every odd-numbered flip (1, 3, 5, ..., 101) turns the card into a Flower. Every even-numbered flip turns it back into a Butterfly. Since 101 is an odd number, the showing picture will be a Flower."
+    },
+    {
+        "id":  "d5_q5",
+        "day":  5,
+        "number":  5,
+        "title":  "Creases of a Boat",
+        "category":  "Logical Thinking",
+        "theme":  "Arts \u0026 Crafts",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "To make an origami paper boat, you fold a square paper many times. If you take a finished paper boat and unfold it completely flat again, what will you see on the paper?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "A grid pattern of crease lines",
+                        "A colored drawing of a boat",
+                        "A shredded piece of paper",
+                        "A completely smooth paper with no marks"
+                    ],
+        "correctAnswer":  "A grid pattern of crease lines",
+        "hints":  [
+                      "Folding paper presses lines into it. What are those lines called?",
+                      "The paper doesn\u0027t print images on itself just by folding, nor does it shred unless you tear it."
+                  ],
+        "explanation":  "Folding paper leaves permanent indentations called crease lines. Unfolding it flat reveals a beautiful geometric map of all the folds you made!"
+    },
+    {
+        "id":  "d6_q1",
+        "day":  6,
+        "number":  1,
+        "title":  "The Scared Birds",
+        "category":  "Lateral Thinking",
+        "theme":  "Birds",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Seven birds are sitting on a fence. A loud firework goes off and 3 birds fly away. How many birds are left sitting on the fence?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "0",
+                        "4",
+                        "3",
+                        "7"
+                    ],
+        "correctAnswer":  "0",
+        "hints":  [
+                      "What would the other birds do when they hear the loud noise?",
+                      "Do only the 3 birds react?"
+                  ],
+        "explanation":  "The loud firework scares all the birds, not just the three that flew away first. The fence ends up empty."
+    },
+    {
+        "id":  "d6_q2",
+        "day":  6,
+        "number":  2,
+        "title":  "The Wet Umbrella",
+        "category":  "Lateral Thinking",
+        "theme":  "Rain",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Emma walked outside carrying an umbrella. When she came home, her umbrella was soaking wet, but Emma\u0027s clothes were completely dry. How is that possible?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "It rained while the umbrella was outside drying",
+                        "Emma never opened the umbrella",
+                        "Someone poured water on it",
+                        "The umbrella fell into a pond"
+                    ],
+        "correctAnswer":  "It rained while the umbrella was outside drying",
+        "hints":  [
+                      "The puzzle never says the umbrella got wet while Emma was using it.",
+                      "Think about what happened after Emma got home."
+                  ],
+        "explanation":  "The umbrella was outside and got wet later. Emma stayed indoors and remained dry."
+    },
+    {
+        "id":  "d6_q3",
+        "day":  6,
+        "number":  3,
+        "title":  "The Clever Rabbit",
+        "category":  "Lateral Thinking",
+        "theme":  "Animals",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "A rabbit wanted to cross a river but there was no bridge, no boat, and the rabbit couldn\u0027t swim. Yet it crossed safely. How?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "The river was frozen",
+                        "The rabbit jumped 100 meters",
+                        "A bird carried it",
+                        "The rabbit dug a tunnel"
+                    ],
+        "correctAnswer":  "The river was frozen",
+        "hints":  [
+                      "The puzzle never says it was summer.",
+                      "What happens to rivers in very cold weather?"
+                  ],
+        "explanation":  "The rabbit simply walked across the frozen river."
+    },
+    {
+        "id":  "d6_q4",
+        "day":  6,
+        "number":  4,
+        "title":  "The Missing Apple",
+        "category":  "Lateral Thinking",
+        "theme":  "Fruit",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "A bowl contains 6 apples. You take away 2 apples. How many apples do you have?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "2",
+                        "4",
+                        "6",
+                        "8"
+                    ],
+        "correctAnswer":  "2",
+        "hints":  [
+                      "Read carefully.",
+                      "The question asks how many apples YOU have."
+                  ],
+        "explanation":  "You took 2 apples, so you have 2 apples."
+    },
+    {
+        "id":  "d6_q5",
+        "day":  6,
+        "number":  5,
+        "title":  "The Tired Turtle",
+        "category":  "Lateral Thinking",
+        "theme":  "Turtles",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "A turtle was at the bottom of a 10-meter well. Every day it climbed 3 meters up, but every night it slipped 2 meters down. How many meters higher is it after one full day and night?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "1 meter",
+                        "3 meters",
+                        "2 meters",
+                        "5 meters"
+                    ],
+        "correctAnswer":  "1 meter",
+        "hints":  [
+                      "Calculate the net movement.",
+                      "Up 3, down 2."
+                  ],
+        "explanation":  "The turtle gains 1 meter each complete day."
+    },
+    {
+        "id":  "d7_q1",
+        "day":  7,
+        "number":  1,
+        "title":  "The Backward Race",
+        "category":  "Lateral Thinking",
+        "theme":  "Sports",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "You are running a race. You pass the runner who is in second place. What place are you in now?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Second",
+                        "First",
+                        "Third",
+                        "Fourth"
+                    ],
+        "correctAnswer":  "Second",
+        "hints":  [
+                      "Who did you pass?",
+                      "Did you pass the person in first place?"
+                  ],
+        "explanation":  "You took over second place. First place is still ahead of you."
+    },
+    {
+        "id":  "d7_q2",
+        "day":  7,
+        "number":  2,
+        "title":  "The Farmer\u0027s Sheep",
+        "category":  "Lateral Thinking",
+        "theme":  "Farm",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "A farmer has 17 sheep. All but 9 run away. How many sheep remain?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "9",
+                        "8",
+                        "17",
+                        "0"
+                    ],
+        "correctAnswer":  "9",
+        "hints":  [
+                      "What does \u0027all but 9\u0027 mean?",
+                      "Read the sentence slowly."
+                  ],
+        "explanation":  "\u0027All but 9\u0027 means all except 9. Therefore 9 sheep remain."
+    },
+    {
+        "id":  "d7_q3",
+        "day":  7,
+        "number":  3,
+        "title":  "Mirror Drawing",
+        "category":  "Creative Crafting",
+        "theme":  "Art",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Draw half of a smiling face on one side of the screen and then complete the other side so it looks like a mirror image.",
+        "type":  "drawing",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "A symmetrical face drawing.",
+        "referenceSvg":  "\u003csvg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"\u003e\u003cpath d=\"M50,20 C30,20 20,35 20,55 C20,75 35,85 50,85\" /\u003e\u003ccircle cx=\"35\" cy=\"45\" r=\"4\" fill=\"var(--primary-color)\" /\u003e\u003cpath d=\"M35,65 Q42,70 50,70\" /\u003e\u003cline x1=\"50\" y1=\"10\" x2=\"50\" y2=\"90\" stroke=\"var(--accent-text)\" stroke-dasharray=\"4\" /\u003e\u003cpath d=\"M50,20 C70,20 80,35 80,55 C80,75 65,85 50,85\" stroke-dasharray=\"4\" /\u003e\u003ccircle cx=\"65\" cy=\"45\" r=\"4\" fill=\"none\" stroke-dasharray=\"2\" /\u003e\u003cpath d=\"M50,70 Q58,70 65,65\" stroke-dasharray=\"3\" /\u003e\u003c/svg\u003e",
+        "hints":  [
+                      "Try matching the eyes and ears.",
+                      "Imagine a mirror in the middle."
+                  ],
+        "explanation":  "Great symmetry! Mirror images help train visual thinking."
+    },
+    {
+        "id":  "d7_q4",
+        "day":  7,
+        "number":  4,
+        "title":  "The Library Book",
+        "category":  "Lateral Thinking",
+        "theme":  "Books",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Tom borrowed a library book on Monday. He returned it on Friday. Yet he only had it for one day. How is that possible?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "The days were named after towns",
+                        "The book was called Monday and Friday",
+                        "Tom traveled through time",
+                        "The library was closed"
+                    ],
+        "correctAnswer":  "The days were named after towns",
+        "hints":  [
+                      "The puzzle never says Monday and Friday are days of the week.",
+                      "Could they be something else?"
+                  ],
+        "explanation":  "Monday and Friday could be place names rather than weekdays."
+    },
+    {
+        "id":  "d7_q5",
+        "day":  7,
+        "number":  5,
+        "title":  "The Sleeping Dinosaur",
+        "category":  "Lateral Thinking",
+        "theme":  "Dinosaurs",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "A dinosaur was sleeping with one eye open. How could it still be asleep?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "It only had one eye",
+                        "Dinosaurs never slept",
+                        "The eye was painted on",
+                        "It was pretending"
+                    ],
+        "correctAnswer":  "It only had one eye",
+        "hints":  [
+                      "The puzzle never says it had two eyes.",
+                      "Think about what is being assumed."
+                  ],
+        "explanation":  "If it only had one eye, sleeping with one eye open is possible because there isn\u0027t another eye to close."
+    },
+    {
+        "id":  "mind_001",
+        "day":  8,
+        "number":  1,
+        "title":  "The Missing Birthday",
+        "category":  "Missing Information",
+        "theme":  "Family",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "Sophie\u0027s birthday was yesterday. Next year, her birthday will be on a Monday. What day of the week is it today?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Not enough information",
+                        "Tuesday",
+                        "Sunday",
+                        "Monday"
+                    ],
+        "correctAnswer":  "Not enough information",
+        "hints":  [
+                      "Do we know what day her birthday was this year?",
+                      "Can you work out today\u0027s day without knowing the year?"
+                  ],
+        "explanation":  "Important information is missing. There isn\u0027t enough information to determine today\u0027s day."
+    },
+    {
+        "id":  "mind_002",
+        "day":  8,
+        "number":  2,
+        "title":  "The Locked Treasure Box",
+        "category":  "Missing Information",
+        "theme":  "Pirates",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Captain Gold says the treasure is hidden in one of three caves. Cave A is blue. Cave B is red. Cave C is green. Which cave contains the treasure?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Cannot be determined",
+                        "Cave A",
+                        "Cave B",
+                        "Cave C"
+                    ],
+        "correctAnswer":  "Cannot be determined",
+        "hints":  [
+                      "What clues were provided?",
+                      "Do colors tell us where the treasure is?"
+                  ],
+        "explanation":  "Sometimes there simply isn\u0027t enough information to answer a question."
+    },
+    {
+        "id":  "d8_q3",
+        "day":  8,
+        "number":  3,
+        "title":  "Draw a Pirate Flag",
+        "category":  "Creative Crafting",
+        "theme":  "Pirates",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Captain Gold wants a new flag for his pirate ship! Draw a pirate flag with a skull or a big \u0027X\u0027 marking the spot on the canvas!",
+        "type":  "drawing",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "A drawing of a pirate flag.",
+        "referenceSvg":  "\u003csvg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"\u003e\u003crect x=\"15\" y=\"15\" width=\"70\" height=\"45\" rx=\"4\" fill=\"var(--text-main)\" /\u003e\u003cline x1=\"15\" y1=\"15\" x2=\"15\" y2=\"90\" stroke=\"var(--accent-text)\" stroke-width=\"4\" /\u003e\u003cpath d=\"M40,30 L60,50 M60,30 L40,50\" stroke=\"white\" stroke-width=\"4\" /\u003e\u003ccircle cx=\"50\" cy=\"35\" r=\"5\" fill=\"white\" /\u003e\u003c/svg\u003e",
+        "hints":  [
+                      "Draw the flag rectangle first, and then add a big \u0027X\u0027 in the center.",
+                      "Use black and white or red colors to make it look like a real pirate flag!"
+                  ],
+        "explanation":  "Arr! That pirate flag looks amazing! Captain Gold is ready to set sail!"
+    },
+    {
+        "id":  "mind_003",
+        "day":  8,
+        "number":  4,
+        "title":  "The Last Cookie",
+        "category":  "Ambiguous Wording",
+        "theme":  "Cookies",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "Three children shared cookies. Emma ate more cookies than Lily. Lily ate more cookies than Noah. Who ate the least?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Noah",
+                        "Lily",
+                        "Emma",
+                        "Cannot know"
+                    ],
+        "correctAnswer":  "Noah",
+        "hints":  [
+                      "Arrange the children from most to least.",
+                      "Look carefully at the wording."
+                  ],
+        "explanation":  "Emma \u003e Lily \u003e Noah. Therefore Noah ate the least."
+    },
+    {
+        "id":  "mind_004",
+        "day":  8,
+        "number":  5,
+        "title":  "The Tall Building",
+        "category":  "Ambiguous Wording",
+        "theme":  "City",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "A building is 20 stories tall. A painter is painting the outside. What color is the paint?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Cannot be determined",
+                        "Blue",
+                        "White",
+                        "Gray"
+                    ],
+        "correctAnswer":  "Cannot be determined",
+        "hints":  [
+                      "Did the puzzle ever mention the color?",
+                      "Don\u0027t add information that wasn\u0027t given."
+                  ],
+        "explanation":  "The puzzle never tells us the paint color."
+    },
+    {
+        "id":  "mind_005",
+        "day":  9,
+        "number":  1,
+        "title":  "The Race Position",
+        "category":  "Perspective Shift",
+        "theme":  "Sports",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "You are running in a race. You pass the runner in third place. What place are you now in?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Third",
+                        "Second",
+                        "First",
+                        "Fourth"
+                    ],
+        "correctAnswer":  "Third",
+        "hints":  [
+                      "You take the position of the runner you passed.",
+                      "You didn\u0027t pass second place."
+                  ],
+        "explanation":  "Passing the runner in third place means you become third."
+    },
+    {
+        "id":  "mind_006",
+        "day":  9,
+        "number":  2,
+        "title":  "The Classroom Door",
+        "category":  "Perspective Shift",
+        "theme":  "School",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "A classroom door has a sign that says \u0027Push\u0027. Tom pushes the door, but it doesn\u0027t move. Why?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "He is standing on the wrong side",
+                        "The door is locked",
+                        "The sign is wrong",
+                        "The door is broken"
+                    ],
+        "correctAnswer":  "He is standing on the wrong side",
+        "hints":  [
+                      "Who says he is looking at the sign from the correct side?",
+                      "Think about where Tom is standing."
+                  ],
+        "explanation":  "The sign might apply only from the other side of the door."
+    },
+    {
+        "id":  "d9_q3",
+        "day":  9,
+        "number":  3,
+        "title":  "Draw a School Bus",
+        "category":  "Creative Crafting",
+        "theme":  "School",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "The children are ready to go to school! Draw a bright yellow school bus with two big round wheels on the road!",
+        "type":  "drawing",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "A drawing of a school bus.",
+        "referenceSvg":  "\u003csvg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"\u003e\u003crect x=\"15\" y=\"30\" width=\"70\" height=\"35\" rx=\"6\" fill=\"gold\" /\u003e\u003ccircle cx=\"30\" cy=\"65\" r=\"8\" fill=\"var(--text-main)\" /\u003e\u003ccircle cx=\"70\" cy=\"65\" r=\"8\" fill=\"var(--text-main)\" /\u003e\u003crect x=\"25\" y=\"38\" width=\"15\" height=\"12\" rx=\"1\" fill=\"white\" /\u003e\u003crect x=\"45\" y=\"38\" width=\"15\" height=\"12\" rx=\"1\" fill=\"white\" /\u003e\u003crect x=\"65\" y=\"38\" width=\"15\" height=\"12\" rx=\"1\" fill=\"white\" /\u003e\u003c/svg\u003e",
+        "hints":  [
+                      "Draw a big rectangle for the bus body, then add two circles at the bottom for wheels.",
+                      "Color it bright yellow and add square windows for the children!"
+                  ],
+        "explanation":  "Honk honk! The yellow school bus is ready to take everyone to class!"
+    },
+    {
+        "id":  "mind_007",
+        "day":  9,
+        "number":  4,
+        "title":  "The Tiny Giant",
+        "category":  "Impossible Assumption",
+        "theme":  "Fantasy",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "A giant walked through a tiny doorway without bending down. How is that possible?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "It was a toy giant",
+                        "The doorway grew larger",
+                        "Magic happened",
+                        "The giant crawled"
+                    ],
+        "correctAnswer":  "It was a toy giant",
+        "hints":  [
+                      "Who said the giant was real?",
+                      "Could it be something else called a giant?"
+                  ],
+        "explanation":  "The giant could simply be a toy figure."
+    },
+    {
+        "id":  "mind_008",
+        "day":  9,
+        "number":  5,
+        "title":  "The Flying Elephant",
+        "category":  "Impossible Assumption",
+        "theme":  "Animals",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "An elephant flew across a room. How is that possible?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "It was a toy elephant",
+                        "It had wings",
+                        "A helicopter carried it",
+                        "It jumped"
+                    ],
+        "correctAnswer":  "It was a toy elephant",
+        "hints":  [
+                      "The puzzle never says it was a real elephant.",
+                      "Think smaller."
+                  ],
+        "explanation":  "It could have been a toy elephant thrown across the room."
+    },
+    {
+        "id":  "mind_009",
+        "day":  10,
+        "number":  1,
+        "title":  "The Bigger Box",
+        "category":  "Counter-Intuitive Outcome",
+        "theme":  "Storage",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Which weighs more: an empty big box or an empty small box?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Cannot be determined",
+                        "Big box",
+                        "Small box",
+                        "They are always equal"
+                    ],
+        "correctAnswer":  "Cannot be determined",
+        "hints":  [
+                      "Do we know what the boxes are made from?",
+                      "Bigger does not always mean heavier."
+                  ],
+        "explanation":  "A large cardboard box can weigh less than a small wooden box."
+    },
+    {
+        "id":  "mind_010",
+        "day":  10,
+        "number":  2,
+        "title":  "The Heavy Feather",
+        "category":  "Counter-Intuitive Outcome",
+        "theme":  "Nature",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Which weighs more: one kilogram of feathers or one kilogram of rocks?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "They weigh the same",
+                        "The rocks",
+                        "The feathers",
+                        "Depends on the scale"
+                    ],
+        "correctAnswer":  "They weigh the same",
+        "hints":  [
+                      "Look at the units.",
+                      "One kilogram is one kilogram."
+                  ],
+        "explanation":  "The materials are different, but the total weight is the same."
+    },
+    {
+        "id":  "d10_q3",
+        "day":  10,
+        "number":  3,
+        "title":  "Draw a Nature Tree",
+        "category":  "Creative Crafting",
+        "theme":  "Nature",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Draw a beautiful tree in the forest with a thick brown trunk and a big fluffy green top!",
+        "type":  "drawing",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "A drawing of a tree.",
+        "referenceSvg":  "\u003csvg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"\u003e\u003cpath d=\"M45,85 L45,55 L55,55 L55,85 Z\" fill=\"saddlebrown\" /\u003e\u003cpath d=\"M50,20 C30,20 20,35 25,50 C30,65 70,65 75,50 C80,35 70,20 50,20 Z\" fill=\"var(--success)\" /\u003e\u003c/svg\u003e",
+        "hints":  [
+                      "Start with a tall trunk in the middle using a brown brush.",
+                      "Draw a big cloud-like green shape on top for the leaves!"
+                  ],
+        "explanation":  "Your tree looks green and healthy! The birds in the forest will love nesting here."
+    },
+    {
+        "id":  "mind_011",
+        "day":  10,
+        "number":  4,
+        "title":  "The Missing Sandwich",
+        "category":  "Detective Elimination",
+        "theme":  "School",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "Someone ate the missing sandwich. Amy says, \u0027I didn\u0027t do it.\u0027 Ben says, \u0027Amy did it.\u0027 Charlie says, \u0027Ben is lying.\u0027 Only one child is telling the truth. Who ate the sandwich?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Amy",
+                        "Ben",
+                        "Charlie",
+                        "Cannot know"
+                    ],
+        "correctAnswer":  "Amy",
+        "hints":  [
+                      "Test each possibility.",
+                      "Only one statement can be true."
+                  ],
+        "explanation":  "If Amy ate it, Amy lies, Ben tells the truth, Charlie lies. Exactly one truth."
+    },
+    {
+        "id":  "mind_012",
+        "day":  10,
+        "number":  5,
+        "title":  "The Lost Crayon",
+        "category":  "Detective Elimination",
+        "theme":  "Art",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "Three children are asked who lost the red crayon. Mia says, \u0027It wasn\u0027t me.\u0027 Leo says, \u0027It was Ava.\u0027 Ava says, \u0027Leo is wrong.\u0027 Only one child is telling the truth. Who lost the crayon?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Ava",
+                        "Mia",
+                        "Leo",
+                        "Cannot know"
+                    ],
+        "correctAnswer":  "Mia",
+        "hints":  [
+                      "Try each child as the culprit.",
+                      "Check how many truths result."
+                  ],
+        "explanation":  "If Mia lost it, Mia lies, Leo lies, Ava tells the truth. Exactly one truth."
+    },
+    {
+        "id":  "mind_013",
+        "day":  11,
+        "number":  1,
+        "title":  "The Magic Sticker",
+        "category":  "Psychological",
+        "theme":  "School",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "A teacher gives two children the exact same sticker. One child is thrilled and the other is disappointed. How is that possible?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "One child already had that sticker",
+                        "The sticker changed color",
+                        "One sticker was fake",
+                        "The teacher made a mistake"
+                    ],
+        "correctAnswer":  "One child already had that sticker",
+        "hints":  [
+                      "People react differently to the same thing.",
+                      "Think about what each child already owns."
+                  ],
+        "explanation":  "The value of something depends on what you already have."
+    },
+    {
+        "id":  "mind_014",
+        "day":  11,
+        "number":  2,
+        "title":  "The Two Ice Creams",
+        "category":  "Psychological",
+        "theme":  "Food",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "Two children receive exactly the same ice cream. One thinks it is huge. The other thinks it is tiny. How can both be right?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "They are comparing it to different things",
+                        "The ice cream changed size",
+                        "One child counted wrong",
+                        "The ice cream melted"
+                    ],
+        "correctAnswer":  "They are comparing it to different things",
+        "hints":  [
+                      "People judge things relative to expectations.",
+                      "Compared with what?"
+                  ],
+        "explanation":  "Perception depends on context. The same thing can feel big or small depending on what came before."
+    },
+    {
+        "id":  "d11_q3",
+        "day":  11,
+        "number":  3,
+        "title":  "Draw an Ice Cream Cone",
+        "category":  "Creative Crafting",
+        "theme":  "Food",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Draw a giant ice cream cone! Draw a triangle cone at the bottom and a big round scoop of ice cream on top with a cherry!",
+        "type":  "drawing",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "A drawing of an ice cream cone.",
+        "referenceSvg":  "\u003csvg viewBox=\"0 0 100 100\" width=\"120\" height=\"120\" stroke=\"var(--primary-color)\" stroke-width=\"3\" fill=\"none\"\u003e\u003cpolygon points=\"35,50 65,50 50,90\" fill=\"peru\" /\u003e\u003ccircle cx=\"50\" cy=\"42\" r=\"15\" fill=\"pink\" /\u003e\u003ccircle cx=\"50\" cy=\"22\" r=\"4\" fill=\"red\" /\u003e\u003cpath d=\"M50,18 Q55,10 60,12\" stroke=\"red\" stroke-width=\"2\" /\u003e\u003c/svg\u003e",
+        "hints":  [
+                      "Draw a downward-pointing triangle for the cone first.",
+                      "Add a circle on top for the ice cream scoop, and top it with a tiny cherry!"
+                  ],
+        "explanation":  "Yum! That looks delicious. Pink strawberry is a classic choice!"
+    },
+    {
+        "id":  "d11_q4",
+        "day":  11,
+        "number":  4,
+        "title":  "The Toy Airplane",
+        "category":  "Impossible Assumption",
+        "theme":  "Toys",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "A toy airplane flies across the room, but it doesn\u0027t have any batteries, motor, or rubber bands. How is it moving?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Someone threw it",
+                        "It is a magical airplane",
+                        "Wind blew it from outside",
+                        "It has secret solar panels"
+                    ],
+        "correctAnswer":  "Someone threw it",
+        "hints":  [
+                      "How do paper or plastic toy gliders fly?",
+                      "Think about who is playing with the toy."
+                  ],
+        "explanation":  "Simple toy gliders fly when someone throws them through the air."
+    },
+    {
+        "id":  "d11_q5",
+        "day":  11,
+        "number":  5,
+        "title":  "The Alphabet Key",
+        "category":  "Logical Thinking",
+        "theme":  "School",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "If A=1, B=2, C=3, and D=4, what word is spelled by the numbers 2-1-7?",
+        "type":  "text-input",
+        "correctAnswer":  "BAG",
+        "hints":  [
+                      "Find the letters for 2, 1, and 7.",
+                      "2 is B, 1 is A. What letter is the 7th in the alphabet?"
+                  ],
+        "explanation":  "2 is B, 1 is A, and 7 is G. Spells BAG."
+    },
+    {
+        "id":  "d12_q1",
+        "day":  12,
+        "number":  1,
+        "title":  "The Lost Car Keys",
+        "category":  "Missing Information",
+        "theme":  "Family",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Liam went to look for his mom\u0027s car keys in the drawer, but they weren\u0027t there. He searched the kitchen, living room, and hallway. Later, his mom said, \u0027The keys are exactly where I left them!\u0027 What is missing to find the keys?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Where mom actually left them",
+                        "How many keys are on the ring",
+                        "The color of the car keys keychain",
+                        "What time mom came home"
+                    ],
+        "correctAnswer":  "Where mom actually left them",
+        "hints":  [
+                      "Mom says she left them somewhere.",
+                      "Do we know where that place is?"
+                  ],
+        "explanation":  "We are missing the information of where the mom actually put down/left the keys."
+    },
+    {
+        "id":  "d12_q2",
+        "day":  12,
+        "number":  2,
+        "title":  "The Fast Walker",
+        "category":  "Ambiguous Wording",
+        "theme":  "Sports",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "A man claims that he can walk faster than any race car can drive. Everyone laughs at him, but then he proves it\u0027s true. How?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "The race car is parked and turned off",
+                        "He walks on a treadmill on a high speed",
+                        "He is walking inside a moving train",
+                        "The race car is going backwards"
+                    ],
+        "correctAnswer":  "The race car is parked and turned off",
+        "hints":  [
+                      "Does walking faster than a car drive mean the car is driving fast?",
+                      "What if the car isn\u0027t driving at all?"
+                  ],
+        "explanation":  "Walking faster than a car can drive is easy if the car is parked or turned offâ€”its driving speed is zero!"
+    },
+    {
+        "id":  "d12_q3",
+        "day":  12,
+        "number":  3,
+        "title":  "The Upside Down Book",
+        "category":  "Perspective Shift",
+        "theme":  "School",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "Leo is reading a book. He says that if he rotates the book 180 degrees (upside down), the words look exactly the same and still make sense. How is this possible?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "The book is a book of numbers like \u0027808\u0027 and \u0027906\u0027",
+                        "Leo is reading a picture-only book",
+                        "The language of the book is sideways",
+                        "Leo is hanging upside down from a tree"
+                    ],
+        "correctAnswer":  "The book is a book of numbers like \u0027808\u0027 and \u0027906\u0027",
+        "hints":  [
+                      "Think about characters that look the same upside down.",
+                      "Numbers like 0, 8, and some upside-down numbers like 9 and 6 are key."
+                  ],
+        "explanation":  "Rotating certain symmetrical words or numeric books (like \u0027808\u0027 or \u0027906\u0027) upside down makes them look identical."
+    },
+    {
+        "id":  "d12_q4",
+        "day":  12,
+        "number":  4,
+        "title":  "The Heavier Drop",
+        "category":  "Counter-Intuitive Outcome",
+        "theme":  "Science",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "If you drop a 10-pound metal bowling ball and a 1-pound metal ball from the exact same height at the exact same time, which one will hit the ground first? (Assume no wind resistance)",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Both will hit at the exact same time",
+                        "The 10-pound ball will hit first",
+                        "The 1-pound ball will hit first",
+                        "It depends on how wide they are"
+                    ],
+        "correctAnswer":  "Both will hit at the exact same time",
+        "hints":  [
+                      "Gravity pulls on objects equally regardless of their weight.",
+                      "Think about Galileo\u0027s famous experiment at the Leaning Tower of Pisa."
+                  ],
+        "explanation":  "Gravity accelerates all objects at the same rate, so they fall and hit the ground together, even if one is much heavier!"
+    },
+    {
+        "id":  "d12_q5",
+        "day":  12,
+        "number":  5,
+        "title":  "The Chocolate Thief",
+        "category":  "Detective Elimination",
+        "theme":  "Family",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "Mom\u0027s chocolate bar is missing. Suspense rests on three siblings: Maya says \u0027Ben took it\u0027, Ben says \u0027Maya is lying\u0027, and Leo says \u0027I didn\u0027t take it\u0027. If only ONE of them is telling the truth, who stole the chocolate?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Leo",
+                        "Maya",
+                        "Ben",
+                        "Nobody"
+                    ],
+        "correctAnswer":  "Leo",
+        "hints":  [
+                      "Look at Maya and Ben: one of them must be lying and one must be telling the truth.",
+                      "Since only one sibling is telling the truth, the truth-teller is either Maya or Ben. That means Leo is lying!"
+                  ],
+        "explanation":  "Maya and Ben make contradictory statements, so one of them must be telling the truth. Since only ONE person tells the truth, Leo\u0027s statement (\u0027I didn\u0027t take it\u0027) must be a lie. Therefore, Leo stole the chocolate."
+    },
+    {
+        "id":  "d13_q1",
+        "day":  13,
+        "number":  1,
+        "title":  "The Shared Toy",
+        "category":  "Psychological",
+        "theme":  "Toys",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Two friends, Leo and Sam, want to play with the exact same toy truck. Instead of fighting, they decide to play together, and both have twice as much fun. Why did their fun increase?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Sharing and playing together is more fun than playing alone",
+                        "The toy truck magically duplicated",
+                        "They got coins for sharing",
+                        "The truck was very fast"
+                    ],
+        "correctAnswer":  "Sharing and playing together is more fun than playing alone",
+        "hints":  [
+                      "Think about playing with a friend vs. playing by yourself.",
+                      "Fun isn\u0027t just about the physical toy, it\u0027s about the company."
+                  ],
+        "explanation":  "Playing together allows children to invent games and share stories, which makes the activity much more engaging than playing alone."
+    },
+    {
+        "id":  "d13_q2",
+        "day":  13,
+        "number":  2,
+        "title":  "The Closed Museum",
+        "category":  "Missing Information",
+        "theme":  "School",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "The school bus arrived at the science museum, but the doors were locked and the lights were off. The teacher checked her calendar and said, \u0027Oh, we cannot go inside today!\u0027 What information did she forget to check before planning the trip?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "The museum\u0027s opening days and hours",
+                        "How many students were on the bus",
+                        "The price of the tickets",
+                        "The bus driver\u0027s name"
+                    ],
+        "correctAnswer":  "The museum\u0027s opening days and hours",
+        "hints":  [
+                      "Why would a museum be locked on a day people visit?",
+                      "Think about holidays or weekly closing days."
+                  ],
+        "explanation":  "We did not know if the museum was open today. Checking the museum\u0027s schedule is crucial before planning a trip."
+    },
+    {
+        "id":  "d13_q3",
+        "day":  13,
+        "number":  3,
+        "title":  "The Room with No Doors",
+        "category":  "Ambiguous Wording",
+        "theme":  "House",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "A girl is locked inside a room that has no doors, no windows, and no openings in the walls, floor, or ceiling. Yet she walks out of the room easily. How?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "It is a mushroom (which is called a room)",
+                        "She has a magical key",
+                        "She crawled through a tiny mouse hole",
+                        "The ceiling was open"
+                    ],
+        "correctAnswer":  "It is a mushroom (which is called a room)",
+        "hints":  [
+                      "Is this room a real building?",
+                      "Think about a word that ends with \u0027room\u0027 but grows in the forest."
+                  ],
+        "explanation":  "A mush-room is a fungus, not a physical room, so walking \u0027out of it\u0027 is just a play on words."
+    },
+    {
+        "id":  "d13_q4",
+        "day":  13,
+        "number":  4,
+        "title":  "The Reflection in the Mirror",
+        "category":  "Perspective Shift",
+        "theme":  "House",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "If you stand in front of a mirror and raise your right hand, which hand does your reflection raise?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Its left hand",
+                        "Its right hand",
+                        "Both hands",
+                        "No hands"
+                    ],
+        "correctAnswer":  "Its left hand",
+        "hints":  [
+                      "Look closely at a mirror image. It reverses things horizontally.",
+                      "Imagine walking into the mirror and turning around to face yourself."
+                  ],
+        "explanation":  "A mirror reflection is horizontally reversed. Raising your right hand makes your reflection raise its left hand from its perspective."
+    },
+    {
+        "id":  "d13_q5",
+        "day":  13,
+        "number":  5,
+        "title":  "The Paper Cup Fire",
+        "category":  "Counter-Intuitive Outcome",
+        "theme":  "Science",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "If you fill a paper cup with cold water and place it directly over a candle flame, what happens to the paper cup?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "It does not burn or catch fire because the water absorbs the heat",
+                        "It immediately burns and water spills everywhere",
+                        "The paper cup melts like plastic",
+                        "The water turns into ice"
+                    ],
+        "correctAnswer":  "It does not burn or catch fire because the water absorbs the heat",
+        "hints":  [
+                      "Water is excellent at absorbing and carrying away heat.",
+                      "Paper needs to reach a very high temperature to catch fire, but water keeps it cool."
+                  ],
+        "explanation":  "The water absorbs the heat from the flame rapidly, keeping the paper below its ignition temperature, so the cup won\u0027t burn."
+    },
+    {
+        "id":  "d14_q1",
+        "day":  14,
+        "number":  1,
+        "title":  "The Broken Toy Window",
+        "category":  "Detective Elimination",
+        "theme":  "Family",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "A toy window was broken. Maya says, \u0027Lara did it.\u0027 Lara says, \u0027Leo did it.\u0027 Leo says, \u0027Lara is lying.\u0027 If only ONE sibling is telling the truth, who broke the window?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Lara",
+                        "Maya",
+                        "Leo",
+                        "Nobody"
+                    ],
+        "correctAnswer":  "Lara",
+        "hints":  [
+                      "Look at Lara\u0027s statement (\u0027Leo did it\u0027) and Leo\u0027s statement (\u0027Lara is lying\u0027). They contradict each other.",
+                      "One of those two must be telling the truth. Since only ONE person is telling the truth, Maya\u0027s statement (\u0027Lara did it\u0027) must be a lie."
+                  ],
+        "explanation":  "Since only one statement is true, and the clash between Lara and Leo guarantees one of them is the truth-teller, Maya\u0027s statement must be false. Therefore, Lara broke the window."
+    },
+    {
+        "id":  "d14_q2",
+        "day":  14,
+        "number":  2,
+        "title":  "The Gold Medal",
+        "category":  "Psychological",
+        "theme":  "Sports",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "At a race, the runner who came in second place looks extremely sad, but the runner who came in third place is smiling and happy. Why is the third-place runner happier than the second-place runner?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "The second-place runner is focusing on missing gold; the third-place runner is happy to win any medal",
+                        "The third-place runner got more coins",
+                        "The second-place runner was disqualified",
+                        "Third place gets a bigger trophy"
+                    ],
+        "correctAnswer":  "The second-place runner is focusing on missing gold; the third-place runner is happy to win any medal",
+        "hints":  [
+                      "Think about what each runner is comparing their result to.",
+                      "Who was closer to winning the whole race?"
+                  ],
+        "explanation":  "Second-place runners often compare themselves to the winner (feeling they lost the gold), while third-place runners compare themselves to those who got no medal at all (feeling lucky to make the podium)."
+    },
+    {
+        "id":  "d14_q3",
+        "day":  14,
+        "number":  3,
+        "title":  "The Forgotten Birthday",
+        "category":  "Missing Information",
+        "theme":  "Family",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "A father told his son, \u0027Tomorrow is a very special birthday for someone in our family!\u0027 He didn\u0027t say who. The son searched the calendar but couldn\u0027t guess. What information was the son missing?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "The birth dates of his family members",
+                        "What present to buy",
+                        "What time the party starts",
+                        "The father\u0027s age"
+                    ],
+        "correctAnswer":  "The birth dates of his family members",
+        "hints":  [
+                      "To know whose birthday it is, you need to match the date with a person.",
+                      "What list of dates would solve this?"
+                  ],
+        "explanation":  "Knowing the calendar date is useless unless you have the list of family birth dates to match it against."
+    },
+    {
+        "id":  "d14_q4",
+        "day":  14,
+        "number":  4,
+        "title":  "The Wet Dog",
+        "category":  "Ambiguous Wording",
+        "theme":  "Animals",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "A black dog walks across a bridge during a heavy rainstorm, but not a single hair on the dog\u0027s body gets wet. How is this possible?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "It is a hairless dog",
+                        "It is wearing a tiny dog raincoat",
+                        "It is walking under an umbrella",
+                        "The dog is running very fast"
+                    ],
+        "correctAnswer":  "It is a hairless dog",
+        "hints":  [
+                      "Read the question carefully: \u0027not a single hair... gets wet\u0027.",
+                      "What if the dog doesn\u0027t have any hair?"
+                  ],
+        "explanation":  "A hairless dog (like a Xoloitzcuintli) has no hair, so not a single hair can get wet!"
+    },
+    {
+        "id":  "d14_q5",
+        "day":  14,
+        "number":  5,
+        "title":  "The Mountain Summit",
+        "category":  "Perspective Shift",
+        "theme":  "Nature",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Before Mount Everest was discovered, what was the highest mountain on Earth?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Mount Everest",
+                        "Mount Kilimanjaro",
+                        "Mount Fuji",
+                        "Mont Blanc"
+                    ],
+        "correctAnswer":  "Mount Everest",
+        "hints":  [
+                      "Does a mountain need to be discovered by humans to exist?",
+                      "Think about the actual height of the mountains, regardless of our knowledge."
+                  ],
+        "explanation":  "Mount Everest was always the highest mountain on Earth, even before humans discovered and named it!"
+    },
+    {
+        "id":  "d15_q1",
+        "day":  15,
+        "number":  1,
+        "title":  "The Floating Needle",
+        "category":  "Counter-Intuitive Outcome",
+        "theme":  "Science",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "A heavy steel needle normally sinks in water. But if you place it very gently on a small piece of tissue paper on the water\u0027s surface, and the paper sinks, the needle stays floating. Why?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Surface tension of the water holds it up",
+                        "The needle becomes magnetic",
+                        "The water became denser",
+                        "The needle is hollow"
+                    ],
+        "correctAnswer":  "Surface tension of the water holds it up",
+        "hints":  [
+                      "Think about the \u0027skin\u0027 on the surface of water.",
+                      "What force allows water strider insects to walk on ponds?"
+                  ],
+        "explanation":  "Water molecules cling tightly together at the surface, creating surface tension that can support lightweight metal objects if placed very gently."
+    },
+    {
+        "id":  "d15_q2",
+        "day":  15,
+        "number":  2,
+        "title":  "The Missing Cookie",
+        "category":  "Detective Elimination",
+        "theme":  "Food",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "Someone ate the last cookie. The suspects are Amy, Ben, and Dan. Amy says: \u0027Ben ate it.\u0027 Ben says: \u0027Dan ate it.\u0027 Dan says: \u0027Ben is lying.\u0027 If only ONE person is telling the truth, who ate the cookie?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Amy",
+                        "Ben",
+                        "Dan",
+                        "Nobody"
+                    ],
+        "correctAnswer":  "Amy",
+        "hints":  [
+                      "Amy and Dan\u0027s statements are either both true or both false. If Ben ate it, both are true.",
+                      "Since only one statement is true, Ben could not have eaten it. Work it out from there."
+                  ],
+        "explanation":  "If Ben ate it, Amy and Dan would both be telling the truth. Since only one tells the truth, Ben didn\u0027t eat it. If Dan ate it, Ben is telling the truth and Dan is lying, which works. Therefore, Amy ate it because if Amy ate it, Amy is lying, Ben is lying, and Dan is telling the truth (which is exactly one truth-teller!)."
+    },
+    {
+        "id":  "d15_q3",
+        "day":  15,
+        "number":  3,
+        "title":  "The Shadow in the Sun",
+        "category":  "Perspective Shift",
+        "theme":  "Nature",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "At noon on a sunny day, you walk outside but you notice that your shadow is completely gone. How is this possible?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "You are standing directly at the equator where the sun is straight overhead",
+                        "The sun turned off for a second",
+                        "You became invisible",
+                        "You are wearing black clothes"
+                    ],
+        "correctAnswer":  "You are standing directly at the equator where the sun is straight overhead",
+        "hints":  [
+                      "Think about the angle of the sun in the sky.",
+                      "Where does your shadow go when the light source is directly above you?"
+                  ],
+        "explanation":  "At the equator during the equinox, the sun passes directly overhead at noon, casting your shadow directly under your feet where you cannot see it."
+    },
+    {
+        "id":  "d15_q4",
+        "day":  15,
+        "number":  4,
+        "title":  "The Hidden Map",
+        "category":  "Pirates",
+        "theme":  "Pirates",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "A pirate finds a chest containing a map that shows exactly where the treasure is buried. But he cannot find the treasure. What is missing from the map?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "A starting point or reference landmark",
+                        "A list of pirate names",
+                        "The color of the chest",
+                        "The name of the pirate ship"
+                    ],
+        "correctAnswer":  "A starting point or reference landmark",
+        "hints":  [
+                      "A map shows directions, but you need to know where to begin.",
+                      "What does \u0027Walk 10 paces east\u0027 require you to know first?"
+                  ],
+        "explanation":  "Without a starting point or landmark (like \u0027The Red Rock\u0027), the directions on a map cannot be followed."
+    },
+    {
+        "id":  "d15_q5",
+        "day":  15,
+        "number":  5,
+        "title":  "The Two Fathers and Two Sons",
+        "category":  "Ambiguous Wording",
+        "theme":  "Family",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Two fathers and two sons go fishing together. They catch exactly three fish, and each person takes home one whole fish. No fish are cut or left behind. How is this possible?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "They are a grandfather, a father, and a son (only three people total)",
+                        "One fish had babies",
+                        "They caught a giant fish that counted as two",
+                        "One person didn\u0027t want any fish"
+                    ],
+        "correctAnswer":  "They are a grandfather, a father, and a son (only three people total)",
+        "hints":  [
+                      "Count the people: is it possible that two fathers and two sons are only three people?",
+                      "Think about family generations."
+                  ],
+        "explanation":  "The grandfather is a father, the father is both a son and a father, and the son is a son. This makes two fathers and two sons, but only three people total!"
+    },
+    {
+        "id":  "d16_q1",
+        "day":  16,
+        "number":  1,
+        "title":  "Rohan\u0027s Birthday Math",
+        "category":  "Logical Thinking",
+        "theme":  "Calendar",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "Rohan is looking forward to celebrating his 10th birthday on a Thursday in April of 2022. The first of April 2022 is a Friday. Rohan was born on an odd-numbered day of the month. What is a possible date that Rohan was born?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "April 7 in the year 2012",
+                        "April 14 in the year 2012",
+                        "April 21 in the year 2022",
+                        "April 28 in the year 2011"
+                    ],
+        "correctAnswer":  "April 7 in the year 2012",
+        "hints":  [
+                      "If April 1 is a Friday, what dates will be Thursdays? Count forward to find out.",
+                      "His birthday must be an odd number. Also, if he is turning 10 in 2022, what year was he born?"
+                  ],
+        "explanation":  "If April 1 is Friday, Thursdays fall on the 7th, 14th, 21st, and 28th. The odd-numbered Thursdays are the 7th and 21st. Since he is turning 10 in 2022, he must have been born in 2012 (2022 - 10 = 2012). So April 7, 2012 is a correct possible date."
+    },
+    {
+        "id":  "d16_q2",
+        "day":  16,
+        "number":  2,
+        "title":  "Priya\u0027s Pizza Party",
+        "category":  "Logical Thinking",
+        "theme":  "Calendar",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "Priya wants to throw a pizza party for her 9th birthday on a Tuesday in October 2023. The 1st of October 2023 is a Sunday. Priya\u0027s birthday is an odd-numbered day of the month. Which date could be her birthday?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "October 17 in the year 2014",
+                        "October 10 in the year 2014",
+                        "October 3 in the year 2015",
+                        "October 31 in the year 2013"
+                    ],
+        "correctAnswer":  "October 17 in the year 2014",
+        "hints":  [
+                      "If October 1 is Sunday, what date is the first Tuesday?",
+                      "If she turns 9 in 2023, subtract 9 to find her birth year."
+                  ],
+        "explanation":  "If Oct 1 is Sunday, then Oct 2 is Monday and Oct 3 is Tuesday. Tuesdays fall on the 3rd, 10th, 17th, 24th, 31st. The odd-numbered Tuesdays are 3, 17, and 31. She turns 9 in 2023, so her birth year is 2014 (2023 - 9 = 2014). Therefore, October 17, 2014 is a valid answer."
+    },
+    {
+        "id":  "d16_q3",
+        "day":  16,
+        "number":  3,
+        "title":  "Arjun\u0027s Leap Year Party",
+        "category":  "Logical Thinking",
+        "theme":  "Calendar",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "Arjun\u0027s 8th birthday is on a Monday in June 2024. The 1st of June 2024 is a Saturday. Arjun\u0027s birthday is a multiple of 10. When was Arjun born?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "June 10 in the year 2016",
+                        "June 20 in the year 2016",
+                        "June 10 in the year 2024",
+                        "June 30 in the year 2015"
+                    ],
+        "correctAnswer":  "June 10 in the year 2016",
+        "hints":  [
+                      "If June 1 is Saturday, find the first Monday.",
+                      "What multiples of 10 exist in a month?"
+                  ],
+        "explanation":  "If June 1 is Saturday, June 2 is Sunday, and June 3 is Monday. Mondays are 3, 10, 17, 24. The only multiple of 10 here is 10. Turning 8 in 2024 means he was born in 2016. So June 10, 2016 is his birthday."
+    },
+    {
+        "id":  "new_89_1",
+        "day":  40,
+        "number":  1,
+        "title":  "The Pirate\u0027s Compass",
+        "category":  "Pirates",
+        "theme":  "Ocean",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Captain Redbeard faces North. He turns 180 degrees around to face the other way. Then he turns 90 degrees to his right. Which direction is he facing now?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "West",
+                        "East",
+                        "North",
+                        "South"
+                    ],
+        "correctAnswer":  "West",
+        "hints":  [
+                      "Turning 180 degrees from North makes him face South.",
+                      "What is 90 degrees to the right of South?"
+                  ],
+        "explanation":  "Facing South, a 90-degree right turn points West."
+    },
+    {
+        "id":  "new_89_2",
+        "day":  40,
+        "number":  2,
+        "title":  "The Pirate\u0027s Gold",
+        "category":  "Pirates",
+        "theme":  "Treasure",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "A chest has 100 gold coins. The captain takes half. The first mate takes half of what is left. How many coins are left for the crew?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "25",
+                        "50",
+                        "0",
+                        "75"
+                    ],
+        "correctAnswer":  "25",
+        "hints":  [
+                      "Captain takes half of 100.",
+                      "First mate takes half of the remaining 50."
+                  ],
+        "explanation":  "100 - 50 = 50. Then 50 / 2 = 25 left."
+    },
+    {
+        "id":  "new_89_3",
+        "day":  40,
+        "number":  3,
+        "title":  "The Fearful Knight",
+        "category":  "Psychological",
+        "theme":  "Knights",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "A knight is afraid of the dark, but he volunteers to guard the dungeon at midnight without a torch. Why?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "He is trying to overcome his fear",
+                        "He brought a flashlight",
+                        "The dungeon has lights",
+                        "He is actually a ghost"
+                    ],
+        "correctAnswer":  "He is trying to overcome his fear",
+        "hints":  [
+                      "Sometimes people do scary things on purpose.",
+                      "Why do heroes face their fears?"
+                  ],
+        "explanation":  "He is bravely facing his fear to become a stronger knight."
+    },
+    {
+        "id":  "new_89_4",
+        "day":  40,
+        "number":  4,
+        "title":  "The Flying Submarine",
+        "category":  "Impossible Assumption",
+        "theme":  "Vehicles",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "A submarine crashes on a mountain peak 10,000 feet in the air. Where do you bury the survivors?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "You don\u0027t bury survivors",
+                        "In the ocean",
+                        "On the mountain",
+                        "In a cemetery"
+                    ],
+        "correctAnswer":  "You don\u0027t bury survivors",
+        "hints":  [
+                      "Read the last word very carefully.",
+                      "Are survivors dead?"
+                  ],
+        "explanation":  "Survivors are alive, so they do not need to be buried!"
+    },
+    {
+        "id":  "new_89_5",
+        "day":  40,
+        "number":  5,
+        "title":  "The Heavy Ice",
+        "category":  "Counter-Intuitive Outcome",
+        "theme":  "Science",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "A glass is filled to the very top with water and a floating ice cube. When the ice cube completely melts, does the water overflow?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "No",
+                        "Yes",
+                        "Only slightly",
+                        "The glass breaks"
+                    ],
+        "correctAnswer":  "No",
+        "hints":  [
+                      "Ice displaces exactly its own weight in water.",
+                      "When it melts, it perfectly fills the space it displaced."
+                  ],
+        "explanation":  "The melted water takes up the exact same volume as the submerged part of the ice cube. The water level stays exactly the same!"
+    },
+    {
+        "id":  "new_89_6",
+        "day":  41,
+        "number":  1,
+        "title":  "The Missing Diamond",
+        "category":  "Detective Elimination",
+        "theme":  "Jewelry",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "A diamond was stolen. Suspect A was at the baker, Suspect B was at the library, Suspect C was in the vault. Who is most likely the thief?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Suspect C",
+                        "Suspect A",
+                        "Suspect B",
+                        "The baker"
+                    ],
+        "correctAnswer":  "Suspect C",
+        "hints":  [
+                      "Where are diamonds kept?",
+                      "Who was at the scene of the crime?"
+                  ],
+        "explanation":  "Suspect C was in the vault where the diamond is kept."
+    },
+    {
+        "id":  "new_89_7",
+        "day":  41,
+        "number":  2,
+        "title":  "The Month Maker",
+        "category":  "Ambiguous Wording",
+        "theme":  "Time",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "Some months have 31 days. Some have 30 days. How many have 28 days?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "All 12",
+                        "1",
+                        "0",
+                        "6"
+                    ],
+        "correctAnswer":  "All 12",
+        "hints":  [
+                      "Every month has at least 28 days.",
+                      "Read carefully, it doesn\u0027t say \u0027ONLY 28 days\u0027."
+                  ],
+        "explanation":  "Every single month in the calendar has at least 28 days in it."
+    },
+    {
+        "id":  "new_89_8",
+        "day":  41,
+        "number":  3,
+        "title":  "The Locked Chest",
+        "category":  "Missing Information",
+        "theme":  "Treasure",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "You have a treasure map and a shovel. You dig up a chest, but it has a heavy iron padlock. What are you missing?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "The key",
+                        "A boat",
+                        "More treasure",
+                        "A pirate hat"
+                    ],
+        "correctAnswer":  "The key",
+        "hints":  [
+                      "How do you open a padlock?"
+                  ],
+        "explanation":  "You need the key to open the padlock."
+    },
+    {
+        "id":  "new_89_9",
+        "day":  41,
+        "number":  4,
+        "title":  "The Giant\u0027s Teacup",
+        "category":  "Perspective Shift",
+        "theme":  "Magic",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "To a giant, a human swimming pool looks like a small puddle. True or False?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "True",
+                        "False"
+                    ],
+        "correctAnswer":  "True",
+        "hints":  [
+                      "Giants are incredibly large.",
+                      "Large things look small to giants."
+                  ],
+        "explanation":  "Because a giant is so massive, a large pool appears like a tiny puddle to them."
+    },
+    {
+        "id":  "new_89_10",
+        "day":  41,
+        "number":  5,
+        "title":  "The Silent Room",
+        "category":  "Lateral Thinking",
+        "theme":  "Sound",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "A man is alone in a dark, silent room. He suddenly shouts, but nobody hears him. Why?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "He is completely deaf",
+                        "He is underwater",
+                        "He is in space",
+                        "He is asleep and dreaming"
+                    ],
+        "correctAnswer":  "He is asleep and dreaming",
+        "hints":  [
+                      "He is alone.",
+                      "Is he awake?"
+                  ],
+        "explanation":  "He is dreaming, so the shout only happens in his mind."
+    },
+    {
+        "id":  "new_89_11",
+        "day":  42,
+        "number":  1,
+        "title":  "The Pirate\u0027s Parrot",
+        "category":  "Pirates",
+        "theme":  "Birds",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "A pirate\u0027s parrot repeats every word the pirate says. The pirate says \u0027I have 5 coins\u0027. How many words did the parrot say?",
+        "type":  "text-input",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "4",
+        "hints":  [
+                      "Count the words in \u0027I have 5 coins\u0027."
+                  ],
+        "explanation":  "The parrot repeated 4 words: I, have, 5, coins."
+    },
+    {
+        "id":  "new_89_12",
+        "day":  42,
+        "number":  2,
+        "title":  "The Stolen Map",
+        "category":  "Detective Elimination",
+        "theme":  "Treasure",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "A treasure map was stolen. Jack was swabbing the deck. Will was steering the ship. The map was in the captain\u0027s quarters. Who had the opportunity to steal it?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Neither",
+                        "Jack",
+                        "Will",
+                        "Both"
+                    ],
+        "correctAnswer":  "Neither",
+        "hints":  [
+                      "They were both busy in other parts of the ship."
+                  ],
+        "explanation":  "Neither had the opportunity since they were both busy doing their jobs elsewhere."
+    },
+    {
+        "id":  "new_89_13",
+        "day":  42,
+        "number":  3,
+        "title":  "The Heavy Weight",
+        "category":  "Ambiguous Wording",
+        "theme":  "Riddles",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "What gets heavier the more you put into it?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "A box",
+                        "A hole",
+                        "A balloon",
+                        "A thought"
+                    ],
+        "correctAnswer":  "A box",
+        "hints":  [
+                      "Think of a physical object."
+                  ],
+        "explanation":  "Adding items to a box increases its physical weight."
+    },
+    {
+        "id":  "new_89_14",
+        "day":  42,
+        "number":  4,
+        "title":  "The Dark Forest",
+        "category":  "Psychological",
+        "theme":  "Fear",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "A boy is terrified of the dark forest, but he runs in to save his dog. What is this an example of?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Bravery",
+                        "Sleepwalking",
+                        "Magic",
+                        "A dream"
+                    ],
+        "correctAnswer":  "Bravery",
+        "hints":  [
+                      "Doing something despite being scared is called..."
+                  ],
+        "explanation":  "Bravery means acting despite being afraid."
+    },
+    {
+        "id":  "new_89_15",
+        "day":  42,
+        "number":  5,
+        "title":  "The Missing Ingredient",
+        "category":  "Missing Information",
+        "theme":  "Baking",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "You have flour, sugar, and milk, but your cake won\u0027t rise. What are you missing?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Baking powder or yeast",
+                        "More sugar",
+                        "An oven",
+                        "A spoon"
+                    ],
+        "correctAnswer":  "Baking powder or yeast",
+        "hints":  [
+                      "What makes cakes fluffy?"
+                  ],
+        "explanation":  "Baking powder or yeast causes cakes to rise."
+    },
+    {
+        "id":  "new_89_16",
+        "day":  43,
+        "number":  1,
+        "title":  "The Walking Fish",
+        "category":  "Impossible Assumption",
+        "theme":  "Nature",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "If a goldfish walks exactly 5 miles North, and 5 miles South, where does it end up?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Goldfish don\u0027t walk",
+                        "Exactly where it started",
+                        "10 miles away",
+                        "At the North Pole"
+                    ],
+        "correctAnswer":  "Goldfish don\u0027t walk",
+        "hints":  [
+                      "Read carefully. Can goldfish walk?"
+                  ],
+        "explanation":  "The premise is impossible because goldfish cannot walk."
+    },
+    {
+        "id":  "new_89_17",
+        "day":  43,
+        "number":  2,
+        "title":  "The Cold Blanket",
+        "category":  "Counter-Intuitive Outcome",
+        "theme":  "Science",
+        "difficulty":  "Hard",
+        "coinsReward":  30,
+        "question":  "If you wrap a snowman in a thick wool blanket, does it melt faster or slower?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Slower",
+                        "Faster",
+                        "The same",
+                        "It explodes"
+                    ],
+        "correctAnswer":  "Slower",
+        "hints":  [
+                      "Blankets insulate. They keep warm things warm and cold things..."
+                  ],
+        "explanation":  "Blankets trap temperatures. It will keep the cold air near the snowman, slowing down the melting process!"
+    },
+    {
+        "id":  "new_89_18",
+        "day":  43,
+        "number":  3,
+        "title":  "The Broken Clock",
+        "category":  "Lateral Thinking",
+        "theme":  "Time",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "A broken clock that has stopped completely is right how many times a day?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "Twice",
+                        "Once",
+                        "Never",
+                        "24 times"
+                    ],
+        "correctAnswer":  "Twice",
+        "hints":  [
+                      "There are 24 hours in a day, but an analog clock only shows 12 hours."
+                  ],
+        "explanation":  "An analog clock shows 12 hours, so it points to the correct time once in the AM and once in the PM."
+    },
+    {
+        "id":  "new_89_19",
+        "day":  43,
+        "number":  4,
+        "title":  "The Giant\u0027s Foot",
+        "category":  "Perspective Shift",
+        "theme":  "Magic",
+        "difficulty":  "Medium",
+        "coinsReward":  20,
+        "question":  "To an ant, a human\u0027s foot looks like a massive mountain. True or False?",
+        "type":  "multiple-choice",
+        "options":  [
+                        "True",
+                        "False"
+                    ],
+        "correctAnswer":  "True",
+        "hints":  [
+                      "Think about the size difference."
+                  ],
+        "explanation":  "Because ants are so small, large objects appear like geographic features to them."
+    },
+    {
+        "id":  "new_89_20",
+        "day":  43,
+        "number":  5,
+        "title":  "The Heavy Book",
+        "category":  "Logical Thinking",
+        "theme":  "School",
+        "difficulty":  "Easy",
+        "coinsReward":  10,
+        "question":  "If you add 3 thick books to a backpack that already has 2 books, how many books are inside?",
+        "type":  "text-input",
+        "options":  [
+
+                    ],
+        "correctAnswer":  "5",
+        "hints":  [
+                      "2 + 3"
+                  ],
+        "explanation":  "2 + 3 = 5 books."
+    }
 ]
