@@ -51,9 +51,13 @@
       </div>
     </div>
 
-    <footer class="landing-footer" style="margin-top: 40px; border-top: 1px solid var(--card-border); padding-top: 20px; text-align: center; font-size: 0.75rem; color: var(--text-muted);">
-      <p><strong>Disclaimer:</strong> Puzzles are not curated or approved by any agency, board, or authority.</p>
-      <p style="margin-top: 5px;">There shall be no legal challenge by parents on the app or the company owning and developing the app.</p>
+    <footer class="landing-footer" style="margin-top: 40px; border-top: 1px solid var(--card-border); padding-top: 20px; text-align: left; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; padding-bottom: 20px;">
+      <p style="margin-bottom: 8px;"><strong>Disclaimer:</strong></p>
+      <ul style="margin-top: 0; padding-left: 20px;">
+        <li>Puzzles are curated by Mind's Bloom web app development team, but the contents are not approved by any Government agency, board, or authority.</li>
+        <li style="margin-top: 4px;">This web app shall be used by a child at his/her parent's discretion and approval. The Mind's Bloom web app is not liable to any legal action or challenge by/from its users.</li>
+        <li style="margin-top: 4px;">The data submitted as part of the registration process will not be shared to any third party by Mind's Bloom.</li>
+      </ul>
     </footer>
   </div>
 
@@ -683,7 +687,7 @@
   </div>
 
   <!-- ================= ADMIN VIEW ================= -->
-  <div id="admin-view" class="glass-panel" style="max-width: 1200px; margin: 40px auto; padding: 40px; display: none;">
+  <div id="admin-view" class="glass-panel" style="width: 95%; margin: 40px auto; padding: 40px; display: none;">
     <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--card-border); padding-bottom: 15px; margin-bottom: 20px;">
       <h2 style="font-family: var(--font-title); font-size: 2rem; color: var(--primary-color);">Admin Dashboard</h2>
       <button id="btn-admin-logout" class="btn-primary" style="padding: 8px 16px; font-size: 1rem;">Sign Out</button>
@@ -711,14 +715,14 @@
         <table class="admin-table" id="admin-users-table">
           <thead>
             <tr>
-              <th>Username</th>
-              <th>Name</th>
-              <th>Age Band</th>
-              <th>Progress</th>
-              <th>Parent Email</th>
-              <th>Parent Phone</th>
-              <th>Country</th>
-              <th>Last Login</th>
+              <th data-sort="username" class="sortable">Username ↕</th>
+              <th data-sort="name" class="sortable">Name ↕</th>
+              <th data-sort="band" class="sortable">Age Band ↕</th>
+              <th data-sort="progress" class="sortable">Progress ↕</th>
+              <th data-sort="email" class="sortable">Parent Email ↕</th>
+              <th data-sort="phone" class="sortable">Parent Phone ↕</th>
+              <th data-sort="country" class="sortable">Country ↕</th>
+              <th data-sort="lastLogin" class="sortable">Last Login ↕</th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -741,16 +745,24 @@
           <option value="Medium">Medium</option>
           <option value="Hard">Hard</option>
         </select>
+        <select id="admin-filter-category" style="width: 200px;">
+          <option value="">All Categories</option>
+          <option value="Logical Thinking">Logical Thinking</option>
+          <option value="Lateral Thinking">Lateral Thinking</option>
+          <option value="Spatial Reasoning">Spatial Reasoning</option>
+          <option value="Math & Numbers">Math & Numbers</option>
+          <option value="Pattern Recognition">Pattern Recognition</option>
+        </select>
       </div>
       <div style="overflow-x: auto;">
         <table class="admin-table" id="admin-puzzles-table">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Band</th>
-              <th>Category</th>
-              <th>Theme</th>
-              <th>Difficulty</th>
+              <th data-sort="id" class="sortable">ID ↕</th>
+              <th data-sort="band" class="sortable">Band ↕</th>
+              <th data-sort="category" class="sortable">Category ↕</th>
+              <th data-sort="theme" class="sortable">Theme ↕</th>
+              <th data-sort="difficulty" class="sortable">Difficulty ↕</th>
               <th>Question</th>
             </tr>
           </thead>
@@ -761,41 +773,82 @@
 
     <!-- Analytics Tab -->
     <div id="admin-analytics-tab" class="admin-tab-content" style="display: none;">
-      <div style="display: flex; gap: 15px; margin-bottom: 15px;">
-        <input type="text" id="admin-search-failures" placeholder="Filter by Username..." style="flex: 1; max-width: 300px;">
-        <button id="btn-admin-refresh-failures" class="btn-primary" style="padding: 10px;">Refresh</button>
+      <div style="display: flex; justify-content: flex-end; margin-bottom: 15px;">
+        <button id="btn-admin-refresh-analytics" class="btn-primary" style="padding: 10px;">Refresh Analytics</button>
       </div>
-      <h3 style="margin-bottom: 15px; color: var(--text-main);">Most Failed Puzzles</h3>
-      <div style="overflow-x: auto;">
-        <table class="admin-table" id="admin-failures-table">
-          <thead>
-            <tr>
-              <th>Puzzle ID</th>
-              <th>Fail Count</th>
-              <th>Users Who Failed</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+      
+      <!-- Analytics Grid -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <!-- Puzzles by Category x Age Group -->
+        <div class="glass-panel" style="padding: 20px;">
+          <h3 style="margin-bottom: 15px; color: var(--text-main);">Puzzles per Category & Age Group</h3>
+          <div style="overflow-x: auto;">
+            <table class="admin-table" id="analytics-cat-band-table">
+              <thead><tr><th>Category</th><th>4-5</th><th>6-7</th><th>8-9</th><th>Total</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Most Failures Category x Age Group -->
+        <div class="glass-panel" style="padding: 20px;">
+          <h3 style="margin-bottom: 15px; color: var(--text-main);">Most Failed Categories</h3>
+          <div style="overflow-x: auto;">
+            <table class="admin-table" id="analytics-failures-table">
+              <thead><tr><th>Category</th><th>4-5</th><th>6-7</th><th>8-9</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Puzzles by Difficulty x Age Group -->
+        <div class="glass-panel" style="padding: 20px;">
+          <h3 style="margin-bottom: 15px; color: var(--text-main);">Puzzles per Difficulty & Age Group</h3>
+          <div style="overflow-x: auto;">
+            <table class="admin-table" id="analytics-diff-band-table">
+              <thead><tr><th>Difficulty</th><th>4-5</th><th>6-7</th><th>8-9</th><th>Total</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Users Demographics -->
+        <div class="glass-panel" style="padding: 20px;">
+          <h3 style="margin-bottom: 15px; color: var(--text-main);">User Demographics</h3>
+          
+          <h4 style="margin-top: 10px; color: var(--primary-color);">Users per Age Group</h4>
+          <ul id="analytics-users-band" style="list-style: none; padding: 0; margin-bottom: 15px;"></ul>
+
+          <h4 style="color: var(--primary-color);">Users per Level</h4>
+          <ul id="analytics-users-level" style="list-style: none; padding: 0; margin-bottom: 15px;"></ul>
+
+          <h4 style="color: var(--primary-color);">Users per Country</h4>
+          <ul id="analytics-users-country" style="list-style: none; padding: 0;"></ul>
+        </div>
       </div>
     </div>
 
     <!-- Notifications Tab -->
     <div id="admin-notifications-tab" class="admin-tab-content" style="display: none;">
-      <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+      <div style="display: flex; gap: 15px; margin-bottom: 15px; align-items: center;">
         <input type="text" id="admin-search-reports" placeholder="Filter by Puzzle ID or Username..." style="flex: 1; max-width: 300px;">
         <button id="btn-admin-refresh-reports" class="btn-primary" style="padding: 10px;">Refresh</button>
+        <div style="margin-left: auto; display: flex; gap: 10px;">
+          <button id="btn-admin-resolve-reports" class="btn-success" style="padding: 10px;">Mark as Fixed</button>
+          <button id="btn-admin-delete-reports" class="btn-danger" style="padding: 10px; background: var(--error); color: white; border: none; border-radius: 6px; cursor: pointer;">Delete Selected</button>
+        </div>
       </div>
       <h3 style="margin-bottom: 15px; color: var(--text-main);">Parent Puzzle Reports</h3>
       <div style="overflow-x: auto;">
         <table class="admin-table" id="admin-reports-table">
           <thead>
             <tr>
-              <th>Date</th>
-              <th>Username</th>
-              <th>Puzzle ID</th>
-              <th>Reason</th>
-              <th>Status</th>
+              <th><input type="checkbox" id="admin-reports-select-all"></th>
+              <th data-sort="date" class="sortable">Date ↕</th>
+              <th data-sort="username" class="sortable">Username ↕</th>
+              <th data-sort="puzzleId" class="sortable">Puzzle ID ↕</th>
+              <th data-sort="reason" class="sortable">Reason ↕</th>
+              <th data-sort="status" class="sortable">Status ↕</th>
             </tr>
           </thead>
           <tbody></tbody>

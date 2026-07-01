@@ -27,7 +27,14 @@
     { "source": "/api/log-event",       "destination": "/api/log-event.js" },
     { "source": "/api/upload-drawing",  "destination": "/api/upload-drawing.js" },
     { "source": "/api/get-drawing-url", "destination": "/api/get-drawing-url.js" },
-    { "source": "/api/cron-delete-drawings", "destination": "/api/cron-delete-drawings.js" }
+    { "source": "/api/cron-delete-drawings", "destination": "/api/cron-delete-drawings.js" },
+    { "source": "/api/admin-users",     "destination": "/api/admin-users.js" },
+    { "source": "/api/admin-puzzles",   "destination": "/api/admin-puzzles.js" },
+    { "source": "/api/admin-failures",  "destination": "/api/admin-failures.js" },
+    { "source": "/api/admin-reports",   "destination": "/api/admin-reports.js" },
+    { "source": "/api/admin-resolve-reports", "destination": "/api/admin-resolve-reports.js" },
+    { "source": "/api/log-failure",     "destination": "/api/log-failure.js" },
+    { "source": "/api/report-puzzle",   "destination": "/api/report-puzzle.js" }
   ],
   "crons": [
     {
